@@ -1,0 +1,76 @@
+%!TEX root=Principal.tex
+\chapter{INTRODUÇÃO}
+\label{cap:introducao}
+Durante o passar dos anos foi possível acompanhar a contínua evolução dos sistemas computacionais, como por exemplo os telefones móveis, os computadores pessoais e portáteis, as televisões, e também os robôs pessoais, como o iRobot Roomba\footnote{http://www.irobot.com/For-the-Home/Vacuum-Cleaning/Roomba.aspx} e o JIBO\footnote{https://www.jibo.com/}. Pode-se perceber a evolução ao comparar a quantidade de tarefas que um telefone móvel é capaz de realizar e a diferença entre os tamanhos de seus componentes, os computadores e televisões cada vez com uma espessura menor e a inserção frequente de robôs móveis em ambientes sociais, como as casas e hospitais. Entretanto, os robôs Roomba e JIBO possuem tarefas específicas e o nível de interação com as pessoas não é diferente de alguns dos dispositivos existentes no mercado~\cite{Heenan:2014}.
+
+Contudo, existe uma popularização da robótica nos dias atuais principalmente devido ao relativo baixo custo e também devido aos dispositivos tecnológicos cada vez menores. Esse fenômeno faz com que pesquisadores e fabricantes sintam a necessidade de robôs inteligentes que possuam a habilidade de interagir com as pessoas onde este contato não gere desconforto de nenhum indivíduo. Visto que, com a popularização do contato na interação humano-robô aumentará de diversas maneiras, sendo o robô apenas uma ferramenta ou ele sendo um agente no mundo ao qual ele se encontra~\cite{Looi:2012}. A interação entre robôs e seres humanos é importante não simplesmente pela questão social, mas também porque uma boa interação passa a ser uma questão essencial para a convivência entre todos, ao considerar que robôs já encontram-se em ambientes inteligentes como casas, hospitais e escolas~\cite{Albo-Canals:2013, Brown:2013}.
+
+Um ambiente inteligente possui vários meios de interação, além de ser capaz de identificar alguns padrões e ainda ter um certo nível de autonomia em tomadas de decisão. O ambiente realiza as tarefas de interação através de sensores e atuadores espalhados em todos os seus espaços. Alguns sensores que considera-se são câmeras, infravermelhos, térmicos, entre outros. E os atuadores são todos os dispositivos que possam gerar interação, externando algo para o indivíduo, seja através de um movimento, uma imagem ou até mesmo algum sinal sonoro. Alguns exemplos de atuadores são: aparelho de televisão, cafeteira, lâmpadas, tomadas, geladeiras, painéis, aparelhos eletrônicos, entre outros. Dentro do ambiente inteligente também pode existir a presença de um robô móvel, que é um sensor interativo. O robô é capaz de realizar não somente a leitura de padrões do indivíduo de maneira próxima e seguindo a pessoa a qualquer parte do ambiente, mas o robô também pode servir como um atuador durante a interação~\cite{Looi:2012,Choi:2014,Dobra:2014}.
+
+Para aproveitar o robô sem que atrapalhe a rotina existente no ambiente, é necessário que o robô tenha um comportamento social esperado de qualquer agente humano que conviva neste mesmo ambiente. Entre pessoas é esperado um comportamento social onde exista respeito do seu espaço social e até mesmo cuidado durante a execução dos movimentos para que não seja agressivo ou invasivo. Quando existe um cenário de interação humano-robô, onde o ser humano deve realizar tarefas em conjunto com o robô ou até mesmo esperar que o robô realize uma tarefa, o comportamento social por parte do robô tem sido pouco explorado. Sem a preocupação com o comportamento social, o robô acaba gerando um desconforto para as pessoas que estão presentes no mesmo ambiente. O comportamento social pode ir além da execução de movimentos, pois é possível transmitir os sentimentos através de expressões corporais e faciais, além da maneira que se fala com o outro indivíduo. Em seu trabalho \citeonline{Hall:1969} define o termo \emph{Proxemics} como a ciência que estuda esse comportamento social através de uma métrica de distância entre os indivíduos.
+
+Em um trabalho posterior, \citeonline{Argyle:1988} define quatro níveis de distância social para complementar o trabalho de \citeonline{Hall:1969}. Os quatro níveis de distância social são: (I) Íntima; (II) Pessoal; (III) Social; e (IV) Pública, sendo declaradas da mais próxima para a mais distante. O raio que determina cada um desses níveis dependerá da experiência de vida que cada indivíduo possui, podendo ainda ser influenciado pelo o local de origem ou nascimento. Seres humanos conseguem tratar essa questão comportamental de maneira natural e intuitiva. Todavia, as pessoas possuem diferentes perfis e podem reagir ainda de maneira diferente de acordo com a tarefa que estão executando ou o ambiente em que estão inseridos~\cite{Jung:1991}. Dessa forma, há a necessidade de, em muitos casos, adaptar a forma de interação para conseguir ganhar a confiança do indivíduo e conseguir se aproximar dele a uma distância de nível pessoal, pelo menos.
+
+Considerando essas informações, pode-se perceber que o primeiro passo para uma boa interação é estabelecer um nível de confiança com um indivíduo onde a aproximação dele chegue a um nível pessoal. E a partir desse ponto é possível realizar novas tarefas em colaboração ou até em benefício para o próprio indivíduo, como no caso de cuidados pessoais. Porém, deve-se fazer com que o robô consiga interagir de forma intuitiva e natural como a apresentada na interação entre os seres humanos. Essa naturalidade na interação não ocorre de maneira imediata entre os seres humanos, ela é aprendida ao longo de sua vida~\cite{Hall:1969, Argyle:1988}.
+
+A partir do aprendizado ao longo de sua vida, o ser humano é capaz de identificar situações similares e a partir das experiências passadas tomar algumas decisões no presente. Em inteligência artificial existe uma metodologia que auxilia no aprendizado de máquina utilizando exatamente as experiências prévias. Essa metodologia é chamada de Raciocínio Baseado em Casos (RBC)~\cite{Lopez:2013}. Essa metodologia proporciona o armazenamento de novas experiências e a reutilização de experiências passadas em situações similares no presente.
+
+Sendo assim, esta tese de doutorado apresenta um processo capaz de mapear um conjunto de informações comportamentais e características pessoais de um determinado indivíduo por intermédio de um robô. Com as informações armazenadas o robô poderá selecionar um conjunto de ações para conseguir realizar uma interação humano-robô de modo a maximizar a probabilidade de sucesso e qualidade desta. Esse processo deverá ser encapsulado em um \emph{framework} permitindo que o conhecimento adquirido durante uma interação seja transferido para outros robôs.
+
+Como cenário de teste para o processo identificou-se duas etapas que devem ser considerada ao longo da execução dos testes. A primeira etapa é estabelecer o conforto do indivíduo para executar qualquer tarefa subsequente. Para estabelecer esse conforto o robô deverá ser capaz de realizar ações que o façam aproximar do indivíduo até, pelo menos, na zona de proximidade de nível pessoal dele. O nível pessoal já será considerado como sucesso nos experimentos, devido a hipótese de que poucas pessoas mantém a interação dentro da zona social de nível intimo. Após essa etapa, concluída com sucesso, inicia-se a execução da segunda etapa, que é uma tarefa que possa ser realizada pelo robô em um ambiente social doméstico. A tarefa que o robô irá executar está direcionada com o livro de regras da competição de robôs domésticos, RoboCup@Home~\cite{Robocup:2015}, como por exemplo a tarefa de um robô enfermeiro dentro da residência.
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Objetivos}
+Nessa seção são apresentados o objetivo principal e os objetivos secundários defendidos por essa tese.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Objetivo Principal}
+Como objetivo principal, esta tese propõem um processo que mapeia o conjunto de ações que o robô é capaz de executar de tal forma que aumente a probabilidade de uma interação humano-robô com qualidade baseando-se no comportamento e características das pessoas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Objetivos Secundários}
+Os objetivos secundários almejados nessa tese são: (I) Construção de um \emph{framework} para aprendizado de interação entre humanos e robôs; (II) Conseguir realizar a transferência de conhecimento sobre o aprendizado de interação entre os diversos tipos de robôs; (III) Fazer com que seja possível diminuir o número de casos a ser analisados pela metodologia de Raciocínio baseado em Casos utilizando a técnica de agrupamento de informações similares.
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Motivação}
+O crescente uso da robótica em ambiente sociais como casas, hospitais e escolas fazem com que o estudo em interação humano-robô seja um tópico de atenção entre os pesquisadores. Esse é um tópico importante, pois os diferentes formatos existentes de robôs podem gerar problemas de confiabilidade, no sentido de integridade física da pessoa, e também o conforto de estar em um ambiente junto com um robô.
+
+Para mitigar esse problema, vários fatores devem ser analisados. Fatores como o perfil comportamental do indivíduo nesses ambientes e também as características físicas do robô. Todas essas informações são consideradas para que o robô possa predizer quais são as melhores ações de interação com um determinado indivíduo. Apesar de simples a descrição do problema, a sua solução embarcada em robôs é algo mais complexo. Deve-se considerar a coleta e o processamento de todas essas informações para a tomada de decisão correta, o que em muitas vezes é necessário de sensores instalados no ambiente, extra robô.
+
+Considerar todos os fatores apresentados é uma tarefa complexa e que gera um custo muito alto ao robô pois, sua infraestrutura tem uma capacidade computacional baixa em muitas ocasiões. Sendo assim, é necessário que exista uma arquitetura de sistema capaz de considerar a captura de todas as informações, o processamento e a comunicação entre todos os sensores distribuídos no ambiente e também presentes no robô responsável pela interação.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Justificativa}
+Durante os estudos de trabalhos que realizam a análise de comportamento humano através de robôs aplicados principalmente em robótica social, notou-se que existem poucos estudos de aprendizagem desse comportamento para promover a reação do robô na interação. Além disso, a maioria dos trabalhos não possui uma alimentação automática das informações de comportamento, e os robôs utilizados em grande parte das vezes são teleoperados, ou seja, controlados por algum tipo de controle remoto.
+
+Assim, a criação de um processo que seja capaz de fazer com que o robô possa, de maneira autônoma, aprender como interagir e tomar a decisão sobre qual a forma de reagir durante a interação, é importante para que haja uma evolução dos ambientes inteligentes, que consideram o robô um agente inserido nele. Assim é possível, além da evolução dos ambientes inteligentes, manter o indivíduo com a melhor experiência de interação com o robô e também sentir confortável com a presença do robô no mesmo ambiente de convivência.
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Metodologia}
+A pesquisa desenvolvida neste trabalho mantém como base os problemas de interação que são apresentados ao longo da introdução desta tese buscando sempre a qualidade na interação entre o indivíduo e o robô. A fundamentação do trabalho foi realizada em pesquisas de cada uma das áreas abrangentes, Interação Humano-Robô utilizando o conceito de \emph{Proxemics} e Raciocínio Baseado em Casos, onde identificou-se a possibilidade da criação de um processo automático de aprendizagem e também de aplicação do aprendizado durante toda a fase de interação entre os agentes, humano e robô.
+
+Com o objetivo definido, realizou-se um estudo referente às técnicas que podem ser utilizadas em cada fase da metodologia de Raciocínio Baseado em Casos, para um melhor armazenamento de situações e também a melhor tomada de decisão para cada situação atual. Além disso, também é realizado a definição do conjunto de variáveis que são considerados mais adequados, tanto referente ao indivíduo quanto ao robô, que possam apoiar todo o processo de interação humano-robô.
+
+Definidos os conjuntos de variáveis e também a implementação das técnicas de cada uma das etapas do Raciocínio Baseado em Casos, são realizados alguns testes preliminares de interação do robô para coletar a base de dados inicial e análise prévia dessas informações. Na sequência dos testes aplicados com indivíduos de diversos perfis comportamentais e demográficos são realizados. O primeiro teste é relacionado a primeira abordagem de interação e o segundo teste está relacionado com alguma tarefa das regras atuais da Robocup@Home~\cite{Robocup:2015}.
+
+Realizados os testes, os resultados serão analisados e discutidos realizando a validação do processo de aprendizagem do robô para interação com pessoas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estrutura do Trabalho}
+Esta tese é composta por um total de 7 capítulos discriminados a seguir.
+
+O capítulo \ref{cap:introducao} apresenta a \textbf{introdução} do trabalho conduzindo o leitor ao problema que a pesquisa desta tese deve contribuir para a mitigação. 
+
+O capítulo \ref{cap:ihr} apresenta o conceito de \textbf{Interação Humano-Robô} com foco na análise comportamental chamada \emph{\textbf{Proxemics}}.
+
+O capítulo \ref{cap:rbc} apresenta o conceito da metodologia de aprendizado de máquina \textbf{Raciocínio Baseado em Casos} que auxiliará na base da solução do problema apresentado por esta tese.
+
+O capítulo \ref{cap:proposta} apresenta a \textbf{proposta} da solução para o problema apresentado por esta tese.
+
+O capítulo \ref{cap:testes} apresenta os \textbf{cenários de teste} que serão realizados para a validação da proposta desta tese.
+
+O capítulo \ref{cap:resultados} apresenta os \textbf{resultados esperados} por esta tese.
+
+O capítulo \ref{cap:conclusoes} apresenta as \textbf{conclusões parciais} observadas ao longo dos estudos para essa tese.
+
+O capítulo \ref{cap:cronograma} apresenta o \textbf{cronograma} para conclusão desta tese.
