@@ -2,15 +2,17 @@
 \chapter{PROPOSTA}
 \label{cap:proposta}
 
-Este trabalho apresenta uma metodologia que mapeia o conjunto de ações que o robô é capaz de executar visando a maximização a qualidade da interação humano-robô, baseando-se no comportamento e características do indivíduo. Como observado ao longo dos trabalhos da literatura apresentados até agora, o comportamento do indivíduo possui dependência da origem ou cultura dele. Assim, algumas reações apresentadas por uma pessoa podem ser influenciadas pelo local de nascimento, pelos locais que o indivíduo viveu e também pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas com a observação de uma determina pessoa.
+Este trabalho apresenta uma metodologia que mapeia o conjunto de ações que o robô é capaz de executar visando a uma aproximação física do indivíduo, considerando as normas sociais. Como observado ao longo dos trabalhos da literatura apresentados até agora (vide seção~\ref{cap:proxemics}), o comportamento do indivíduo possui dependência da origem ou cultura dele. Assim, algumas reações apresentadas por uma pessoa são diretamente influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas com a observação.
 
-Dessa forma, a técnica de Raciocínio baseado em Casos (RBC) foi escolhida como apoio a essa tese, para que seja possível armazenar as experiências de interações entre robô e as pessoas, e a partir da informação gerada com base nos casos, identificar a melhor forma de interagir com novas pessoas de acordo com seu perfil comportamental. Entretanto, o número de informação gerada no processo de interação com diversas pessoas é consideravelmente alto, isso dificulta a consulta dos casos para reutilizar a solução em tempo de interação entre o ser humano e o robô. Com o intuito de minimizar a quantidade de casos para encontrar a provável melhor interação tendo como base um determinado perfil e otimizar o tempo de procura dessa solução é utilizado um algoritmo de agrupamento que será capaz de gerar grupos de perfis comportamentais. É a partir desses perfis que o mecanismo de classificação identifica o melhor conjunto de ações para o robô executar referente àquele caso. 
+Dessa forma, essa tese estabelece uma sequência de passos com o intuito de identificar quais são as ações que o robô precisa realizar para que seu comportamento, ao se aproximar de uma pessoa, esteja dentro das normas sociais. A aproximação física é considerado como o primeiro passo para que exista uma interação entre duas pessoas. Com o comportamento adequado do robô nessa aproximação, é possível garantir que uma pessoa fique confortável com a presença física do robô a sua volta. O nível de conforto pode ser medido pela aceitação do robô próximo ao indivíduo por um determinado ciclo de tempo. Essa aceitação, pode determinar o início de uma interação por um período de tempo maior, porém não será abordado esse tipo de interação nessa tese.
+
+O primeiro passo estabelecido é a coleta de variáveis de maneira que não exista, em um primeiro momento, a preocupação do comportamento do robô. Na sequência é aplicado um algoritmo de aprendizado para árvore de decisão, com o objetivo de identificar quais as variáveis mais relevantes para a aproximação do robô. Com as informações sobre as variáveis mais relevantes, é possível utilizar de técnicas para aprendizado de máquina, que faça com que o robô tenha o comportamento adequado com base em pequenas observações sobre a pessoa que ele irá interagir. No final, é possível realizar o perfil das pessoas que interagiram com o robô e identificar qual o comportamento adequado para cada perfil extraído.
 
 Essa seção apresenta em detalhes os passos da metodologia proposta por esta tese. Ao final do capítulo é apresentado a visão completa da metodologia onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele. Antes de entrar em detalhes na metodologia, é apresentado o robô que será utilizado para o desenvolvimento do estudo proposto nessa tese.
 
 \section{O Robô}
 \label{sec:robo}
-O robô utilizado no desenvolvimento dessa tese é o PeopleBot~\footnote{PeopleBot - http://www.mobilerobots.com/researchRobots/PeopleBot.aspx} fabricado pela ActivMedia Robotics. Ele é um robô móvel com direção diferencial, ou seja, possui duas rodas motorizadas e uma roda castor que auxilia no equilíbrio do robô. O projeto do PeopleBot tem foco em pesquisas e serviços que envolvem interação humano-robô, devido a isso ele possui uma altura de 112 cm (centímetros). Além disso, o PeopleBot também possui uma garra pequena que tem sua movimentação apenas na vertical. A figura~\ref{fig:peoplebot} apresenta o robô PeopleBot.
+O robô utilizado no desenvolvimento dessa tese é o PeopleBot~\footnote{PeopleBot - http://www.mobilerobots.com/researchRobots/PeopleBot.aspx} fabricado pela ActivMedia Robotics. Ele é um robô móvel com direção diferencial, ou seja, possui duas rodas motorizadas e uma roda castor que auxilia em seu equilíbrio. O projeto do PeopleBot tem foco em pesquisas e serviços que envolvem interação humano-robô. Com esse objetivo, ele foi desenvolvido com uma altura de 112 cm (centímetros). Além disso, o PeopleBot também possui uma garra pequena que tem sua movimentação apenas na vertical. A figura~\ref{fig:peoplebot} apresenta o robô PeopleBot.
 
 \begin{figure}[ht!]
 	\centering
@@ -19,7 +21,7 @@ O robô utilizado no desenvolvimento dessa tese é o PeopleBot~\footnote{PeopleB
 	\label{fig:peoplebot}
 \end{figure}
 
-Como a garra do PeopleBot é curta e não permite muitos movimentos, foi adicionado um manipulador para auxiliar na manipulação de objetos durante a interação com as pessoas e também na prestação de serviços domésticos e de cuidados pessoais. O projeto de construção do manipulador é apresentado através da figura~\ref{fig:manipulador}.
+Como a garra do PeopleBot é curta e não permite muitos movimentos, foi adicionado um manipulador para auxiliar na manipulação de objetos e gesticulação durante a interação com pessoas e também visando a prestação de serviços domésticos e de cuidados pessoais. O projeto de construção do manipulador é apresentado através da figura~\ref{fig:manipulador}.
 
 \begin{figure}[ht!]
 	\centering
@@ -28,14 +30,23 @@ Como a garra do PeopleBot é curta e não permite muitos movimentos, foi adicion
 	\label{fig:manipulador}
 \end{figure}
 
-O novo manipulador foi construído de maneira que os movimentos sejam parecidos com o braço humano. Além do manipulador, também será acoplado um \emph{tablet} para que seja possível atribuir faces ao robôs e deixar a interação mais amigável. Alguns sensores como o Microsoft\textregistered\ Kinect\textregistered\ e o ASUS\textregistered\ Xtion\textregistered\ também foram instalados para melhorar a captura das informações que são apresentadas na seção~\ref{sec:extracaocaracteristicas}, a seguir.
+O novo manipulador foi construído de maneira que os movimentos sejam parecidos com o braço humano. Além do manipulador, também foi acoplado um \emph{tablet} para que seja possível atribuir faces ao robôs e deixar a interação mais amigável, como apresentado na figura~\ref{fig:judithhead}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/judith_head.jpg}
+	\caption{Projeto da Cabeça para o PeopleBot.}
+	\label{fig:judithhead}
+\end{figure}
+
+Alguns sensores como o Microsoft\textregistered\ Kinect\textregistered\ , o ASUS\textregistered\ Xtion\textregistered\ , lasers e microfones também foram instalados para melhorar a captura das informações que são apresentadas na seção~\ref{sec:extracaocaracteristicas}.
 
 \section{Extração das Características para o RBC}
 \label{sec:extracaocaracteristicas}
 
-Como apresentado na seção \ref{cap:ihr}, existem diversas variáveis que podem auxiliar na extração de um perfil comportamental do individuo. \emph{Proxemics} tornam possível a extração de fatores sobre a distância social entre o individuo e o robô. Esses fatores podem variar não só entre a posição física dos dois agentes, mas também na posição do corpo dos indivíduos, como por exemplo, a orientação dos ombros e troco em relação a posição do robô. Outro fator também significante é a fixação entre olhares, este pode determinar o início e o fim de uma interação, além dos principais indivíduos na interação. Além disso, pode ser também empregado o reconhecimento de expressões faciais que auxiliam na análise do quanto a situação é confortável para o individuo, ou seja, o quanto ele está apreciando a interação, de tal forma, que possa existir uma avaliação em tempo real das reações deste durante todo o processo de interação. Outra técnica que pode ser utilizada na análise do conforto do individuo durante a interação é a avaliação da emoção através da voz da pessoa.
+Como apresentado no capítulo \ref{cap:proxemics}, existem diversas variáveis que podem auxiliar na extração de um perfil comportamental do individuo. \emph{Proxemics} tornam possível a extração de fatores sobre a distância social entre o individuo e o robô. Esses fatores podem variar não só entre a posição física dos dois agentes, mas também na posição do corpo dos indivíduos, como por exemplo, a orientação dos ombros e troco em relação a posição do robô. Outro fator também significante é a fixação entre olhares, este pode determinar o início e o fim de uma interação, além dos principais indivíduos na interação. Além disso, pode ser também empregado o reconhecimento de expressões faciais que auxiliam na análise do quanto a situação é confortável para o individuo, o quanto ele aprecia a interação. Assim, pode existir uma avaliação em tempo real das reações deste durante todo o processo de interação. Outra técnica que pode ser utilizada na análise do conforto do individuo durante a interação é a avaliação da emoção através da voz da pessoa.
 
-Dessa forma, é possível empregar diversos sensores que auxiliam a leitura e quantificação dessas variáveis. Sensores de captura de marcações de movimento, como Microsoft\textregistered\ Kinect\textregistered\ ou o ASUS\textregistered\ Xtion\textregistered, são utilizados para quantificar os valores obtidos através da \emph{Proxemic}, que envolvem distância entre agentes e orientação de membros do individuo. Para realizar o reconhecimento de expressões faciais utiliza-se uma câmera de video, podendo assim executar uma leitura da face do individuo em tempo de execução na interação entre o humano e o robô. As variáveis referentes a questão da fixação dos olhares dos agentes para identificar o início e o fim da interação, podem ser obtidas através de ambos sensores de tal forma, que seja possível determinar a orientação da cabeça e torso do individuo e também a direção do olhar deste para com o robô. A voz do individuo para análise da emoção na interação é obtida através de um microfone. A figura \ref{fig:capturacaracteristicas} apresenta a ilustração do processo de extração das características do individuo.
+Dessa forma, é possível empregar diversos sensores que auxiliam a leitura e quantificação dessas variáveis. Sensores de captura de marcações de movimento, como Microsoft\textregistered\ Kinect\textregistered\ ou o ASUS\textregistered\ Xtion\textregistered, são utilizados para quantificar os valores obtidos através da \emph{Proxemic}, que envolvem distância entre agentes e orientação de membros do individuo. Para realizar o reconhecimento de expressões faciais utiliza-se uma câmera de video, podendo assim executar uma leitura da face do individuo em tempo de execução na interação entre o humano e o robô. As variáveis referentes a questão da fixação dos olhares dos agentes para identificar o início e o fim da interação, podem ser obtidas através de ambos sensores, sendo possível determinar a orientação da cabeça e torso do individuo, além de também a direção do olhar deste para com o robô. A voz do individuo para análise da emoção na interação é obtida através de um microfone. A figura \ref{fig:capturacaracteristicas} apresenta a ilustração do processo de extração das características do individuo.
 
 \begin{figure}[ht!]
 	\centering
@@ -44,7 +55,7 @@ Dessa forma, é possível empregar diversos sensores que auxiliam a leitura e qu
 	\label{fig:capturacaracteristicas}
 \end{figure}
 
-No processo apresentado pela figura \ref{fig:capturacaracteristicas}, o robô utiliza os sensores para identificar que o individuo iniciará uma interação com ele. Ao estabelecer o processo de interação, o robô utiliza um componente de \emph{log} que armazena todos os valores das variáveis que são utilizadas para determinar o perfil comportamental do individuo em um banco de dados. As variáveis são apresentadas em detalhes nas seções \ref{sec:variaveisindividuo} e \ref{sec:variaveisrobo}. Com as informações armazenadas determina-se através de um algoritmo de agrupamento, grupos que possuem perfis comportamentais similares, coletados e armazenados no banco de dados. Deve-se lembrar que as informações sobre o comportamento do individuo são direcionadas por um cenário de interação, como discutido por \citeonline{Jung:1991} em seu trabalho. 
+No processo apresentado pela figura \ref{fig:capturacaracteristicas}, o robô utiliza os sensores para identificar o individuo e iniciar a aproximação dele. Durante a aproximação, o robô utiliza um componente de \emph{log} que armazena todos os valores das variáveis que são utilizadas para determinar, posteriormente, o comportamento do robô (ação) e do individuo (reação) em um banco de dados. As variáveis são apresentadas em detalhes nas seções \ref{sec:variaveisindividuo} e \ref{sec:variaveisrobo}. Com as informações armazenadas é iniciado o processo de aprendizado por árvore de decisão, que auxilia a determinar as variáveis que melhor representam o problema. Além das informações para a árvore de decisão, é possível extrair informações sobre perfis comportamentais das pessoas e identificar com os perfis comportamentais aprendidos pelo robô, para que possa replicar durante a interação. Esse tipo de informação será útil para identificar como é a relação de comportamento entre robôs e humanos. Deve-se lembrar que as informações sobre o comportamento são direcionadas por um cenário de interação, como discutido por \citeonline{Jung:1991} em seu trabalho.
 
 Dessa forma, as variáveis aplicadas ao comportamento tem dependência do cenário de interação, porém as informações das variáveis etnográficas como idade, experiência computacional, sexo, local de origem, etnia, entre outras, são independentes do cenário. Existem alguns algoritmos na área de visão computacional que são capazes de identificar algumas variáveis etnográficas de maneira automática \cite{Yang:2007, Shan:2012, Ylioinas:2012, Samadi:2013, Amaral:2014}, porém para o trabalho desta tese, a coleta dessas informações será realizada através de um questionário pré interação já que esses algoritmos não fazem parte do objetivo principal do trabalho. As informações obtidas através do questionário serão inseridas no banco de dados complementando as informações de comportamento, que são separadas obtidas através da interação entre o ser humano e o robô através dos cenários de interação.
 
@@ -117,46 +128,14 @@ Além das variáveis que definem as características, é necessário também o m
 
 As variáveis comportamentais do robô definidas com o objetivo de executar uma tarefa de abordagem para estabelecer uma interação. Caso seja necessário adicionar novas variáveis a esse conjunto não haverá problema ao método apresentado ao longo da seção.
 
-\section{Raciocinando com Base nas Interações Extraídas}
-\label{sec:raciociniointeracao}
+\section{Identificando a relevância das variáveis}
+\label{sec:decisiontree}
 
-Com as variáveis comportamentais e etnográficas do indivíduo e do robô definidas é necessário definir o método que fará com que o robô seja capaz de aprender a interagir com seres humanos a partir das suas experiências passadas. No capitulo \ref{cap:rbc} foi apresentado a técnica de Raciocínio Baseado em Casos (RBC) que tem como principal objetivo o desenvolvimento de um sistema de conhecimento com base em experiências ou casos ocorridos anteriormente. RBC tem uma estrutura baseada em 4(quatro) pilares, são eles~\cite{Lopez:2013}: Resgatar, Reutilizar, Revisar e Reter. A figura~\ref{fig:rbc} apresenta a metodologia dessa tese, que engloba as quatro etapas do RBC.
+Aqui será descrito todo o processo para gerar a árvore de decisão.
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=\textwidth]{images/rbc_geral.png}
-	\caption{Processo de Interação com Aprendizado baseado em Experiências Passadas.}
+	\includegraphics[width=\textwidth]{images/decision_tree_process.jpg}
+	\caption{Processo de Interação para Gerar a Árvore de Decisão.}
 	\label{fig:rbc}
 \end{figure}
-
-A metodologia da figura~\ref{fig:rbc} tem início na interação entre o robô e a jovem localizada a sua frente. Durante a interação entre os dois o sistema coleta todas as reações da jovem para cada ação tomada pelo robô, de acordo com as variáveis descritas na seção~\ref{sec:extracaocaracteristicas}, que são armazenadas na base de dados. A base de dados formada a partir dessas informações é enviada ao algoritmo de agrupamento por similaridade QG-SIM (Quality Groups of Similarity, em inglês)~\cite{Masiero:2013}. Os grupos gerados pelo QG-SIM são analisados e inseridos na base de conhecimento formando os casos de pesquisa para novas interações. Quando ocorrer uma nova interação, como por exemplo o robô com o senhor na figura~\ref{fig:rbc}, o mecanismo de raciocínio realiza uma análise para que possa inferir qual o melhor caso a ser aplicado para interação entre o senhor e o robô. Mesmo que utilize casos existentes na base de conhecimento, todas as interações são armazenadas para manter o aprendizado sobre interações contínuo e sempre com o objetivo de manter o individuo confortável durante todo o processo. Na sequência serão detalhadas as fases do RBC de acordo com a metodologia apresentada na figura~\ref{fig:rbc}.
-
-\subsection{Resgatar}
-\label{sec:resgatar}
-
-A partir de uma nova interação inicia-se o processo de resgate do caso que maximize as reações positivas de um determinado indivíduo a partir da ação que o robô realiza. Nessa fase a solução encontrada não poderá ser dada como exclusiva, pois quando trata-se de seres humanos a tarefa de determinar uma solução exata é complexa. Como para um mesmo perfil de indivíduo ou um perfil similar pode-se apresentar muitas soluções deve ser aplicado nessa fase um modelo probabilístico de tal forma, que a solução escolhida seja a que possui um maior valor de probabilidade no ponto de vista de maximizar a satisfação e o conforto do indivíduo.
-
-Existem diversos métodos probabilísticos que podem ser aplicados nessa fase, como por exemplo, redes Bayesianas ou até mesmo conjunto de lógica nebulosa (Lógica \emph{Fuzzy}). Mesmo sendo o regaste de uma solução único para o caso, esse modelo possibilita que a solução selecionada para execução seja a melhor dentre todas as armazenadas dada uma distribuição probabilística. Selecionando o caso que será aplicado esse deve formar um conjunto de ações do robô para interação com o indivíduo, como é apresentado na próxima seção.
-
-\subsection{Reutilizar}
-\label{sec:reutilizar}
-
-Após o resgate do caso que possui a maior similaridade de tornar a interação confortável ao indivíduo é necessário construir a sequência de ações que o robô irá executar. Para isso, deve-se considerar duas premissas. A primeira é que uma ação é dependente da anterior, pois caso essa premissa não seja considerada as ações que o robô executará não apresentarão nenhum sentido ao indivíduo. Isso faz com que esse modelo de reutilização seja considerado como temporal, onde uma ação futura depende de uma ação passada. A segundo premissa que deve ser considerada é que o indivíduo irá se comportar de maneira diferente da esperada em algum momento do processo de interação. Dessa maneira, deve-se realizar um novo resgate para a solução que maximiza o conforto da interação a partir daquele ponto onde a reação do indivíduo foi diferente do esperado.
-
-\subsection{Reter}
-\label{sec:reter}
-
-Durante a interação entre o robô e um indivíduo as informações sobre o comportamento são armazenadas em um banco de dados. A partir desse banco de dados é realizado um agrupamento entre os perfis comportamentais que possuem uma certa similaridade. Para realizar esse agrupamento é utilizado um algoritmo chamado QG-SIM. O QG-SIM~\cite{Masiero:2013} mantém a qualidade da similaridade entre os perfis de um mesmo grupo, sendo dessa maneira, o algoritmo ideal para esse tipo de tarefa e cenário.
-
-Com os grupos formados é utilizado uma processo definido por \citeonline{Masiero:2013} para gerar um perfil comum ao grupo. Esse perfil comum também pode ser considerado a centroide do grupo. O procedimento para encontrar a centroide do grupo auxilia a determinar o perfil que será inserido na base do conhecimento que é utilizada no processo de resgate e reutilização do sistema de RBC.
-
-A opção de realizar esse processo de agrupamento para inserir um caso na base de conhecimento é importante, pois diminui a quantidade de casos para busca por parte do sistema de RBC. Diminuir o número de casos aumenta o desempenho do algoritmo fazendo com que o robô tenha uma resposta na interação mais rápida, evitando com que o indivíduo espere muito por uma ação do robô.
-
-\subsection{Revisar}
-\label{sec:revisar}
-
-Com a base de conhecimento formada é executado um procedimento para verificar se existem perfis iguais ou similares a ponto que possam ser excluídos. Dessa maneira, é possível manter a base de conhecimento sempre com perfis exclusivos entre os existentes. Assim, é possível garantir que um número maior de indivíduos seja atendido pelo sistema de RBC.
-
-Apesar da metodologia apresentada na figura~\ref{fig:rbc} possuir apenas um robô na interação, é possível transferir esse conhecimento a diversos robôs já que em sua arquitetura todo o sistema de RBC é extra robô. Assim, o processamento e conhecimento adquirido pelo sistema de RBC ficará disponível em um servidor ao qual todo robô que quiser utilizar dessas informações terá livre acesso.
-
-Todo esse sistema será testado em um cenário de primeiro contato para interação entre dois agentes, nesse caso um robô e um indivíduo. O robô utilizado tem a locomoção feita através de rodas, porém sua altura é próxima da média dos seres humanos. As características do robô fazem com que ele seja apropriado para interações entre humanos e robôs.
