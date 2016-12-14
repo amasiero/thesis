@@ -70,7 +70,7 @@ Um cenário e ferramenta para coleta de informações sobre indivíduos em inter
 
 Em um trabalho posterior, \citeonline{Mead:2012} apresentam uma discussão sobre os tipos de representações de variáveis para \emph{Proxemics}. Essas representações são: física e psicológica. Além desses dois tipos é proposto uma representação psicofísica que apresenta uma abordagem permitindo unir melhor as qualidades dos outros dois tipos de representação. A representação física tem como objetivo analisar como o espaço social é ocupado por dois indivíduos e é a abordagem mais comum em estudos de \emph{Proxemics}, tanto para interações humano-humano quanto para interações humano-robô. A representação psicológica mantém o foco em fatores de relacionamento interpessoal de alto nível entre dois ou mais indivíduos. Esse fatores estão relacionados a teoria de conflito afiliativo~\cite{Argyle:1965} e também a teoria de adaptação interpessoal~\cite{Burgoon:2007}.
 
-Porém, com as lacunas existentes nesses dois tipos de representação de \emph{Proxemics}, foi proposto o tipo psicofísico. Esse tipo de representação tem como objetivo principal analisar a percepção e a produção de estímulo social entre dois ou mais indivíduos interagindo. A abordagem psicofísica é discutida também por~\citeonline{Hall:1969}. Essa representação está diretamente ligada com a experiência sensorial do estímulo social até os parâmetros espaciais de maneira física. A partir da representação psicofísica é realizado um estudo para capturar informações que servirão de base para treinamento de dois HMM. Cada HMM é responsável por uma exclusiva tarefa, início da interação ou término da interação. Essa representação deve auxiliar nas pesquisas de interação humano-robô, no intuito de que seja possível realizar uma análise para a interação ocorrer com maior qualidade~\cite{Mead:2012}.
+Porém, com as lacunas existentes nesses dois tipos de representação de \emph{Proxemics}, foi proposto o tipo psicofísico. Os tipos psicofísicos tem como objetivo principal analisar a percepção e a produção de estímulo social entre dois ou mais indivíduos interagindo. A abordagem psicofísica é discutida também por~\citeonline{Hall:1969}. Essa representação está diretamente ligada com a experiência sensorial do estímulo social até os parâmetros espaciais de maneira física. A partir da representação psicofísica é realizado um estudo para capturar informações que servirão de base para treinamento de dois HMM. Cada HMM é responsável por uma exclusiva tarefa, início da interação ou término da interação. Essa representação deve auxiliar nas pesquisas de interação humano-robô, no intuito de que seja possível realizar uma análise para a interação ocorrer com maior qualidade~\cite{Mead:2012}.
 
 Outro trabalho de \citeonline{Mead:2012b} apresenta um mecanismo de análise comportamental através da \emph{Proxemics}. Utiliza-se modelos probabilísticos de tal forma, que seja possível determinar alguns comportamentos dos indivíduos durante uma interação. Como métrica de proximidade utilizou-se a estratégia do mundo de grades para predizer a distância aproximada entre o robô e o individuo. Esse trabalho é implementado através de uma rede Bayesiana dinâmica como uma evolução para o mecanismo apresentado em trabalhos anteriores~\cite{Mead:2012b}.
 
@@ -78,13 +78,68 @@ Conforme tem sido discutido ao longo dessa seção, para que a interação entre
 
 \citeonline{Mead:2013b} apresentam um estudo baseado principalmente com variáveis de voz e gestos, utilizando um método de amostragem que tem como entrada a postura do indivíduo ao interagir com o robô, em outras palavras, a orientação do corpo representando assim uma linguagem corporal. A maior contribuição esperada por \citeonline{Mead:2013b} é a apresentação do entendimento obtido através das interações pré culturais que estão inseridas junto ao estudo de \emph{Proxemics}. O resultado apresentado é apenas uma base de dados para investigar todos os aspectos da interação humano-robô apresentadas no trabalho (voz e gestos).
 
-A partir da base de dados gerada por \citeonline{Mead:2013b}, é apresentado outro trabalho onde \citeonline{Mead:2013} discutem a utilização de um HMM para extração de características comportamentais espaciais do ser humano, em outras palavras, \emph{Proxemics}. Alguns fabricantes de sensores de movimentos, como o Microsoft\textregistered\ Kinect\textregistered\ e o ASUS\textregistered\ Xtion, têm pesquisado técnicas para aprimorar o estudo das distâncias sociais e também seus significados.
+A partir da base de dados gerada por \citeonline{Mead:2013b}, é apresentado outro trabalho onde \citeonline{Mead:2013} discutem a utilização de um HMM para extração de características comportamentais espaciais do ser humano (apresentadas na tabela~\ref{tab:variaveiscomportamentaismead}), em outras palavras, \emph{Proxemics}. Alguns fabricantes de sensores de movimentos, como o Microsoft\textregistered\ Kinect\textregistered\ e o ASUS\textregistered\ Xtion, têm pesquisado técnicas para aprimorar o estudo das distâncias sociais e também seus significados.
 
-Com base nesses estudos, \citeonline{Mead:2013} analisam a possibilidade de automatizar o processo de análise das \emph{Proxemics}. A intenção do trabalho é extrair variáveis para que seja, então, possível determinar o início e o fim de uma interação social através de um HMM. Para realizar os experimentos foram necessários dois indivíduos e um robô aplicados a um cenário de interação, onde os indivíduos se aproximam do robô sendo que os indíviduos estão separados por uma parede. Os resultados são apresentados em relação ao ponto de vista físico e psicológico. Na detecção das variáveis que representam as \emph{Proxemics} de maneira dinâmica, \citeonline{Mead:2013} consideram os resultados satisfatórios e como sequência do trabalho é mantido o foco em interações com fatores psicológicos complexos, para aprimorar a precisão do \emph{framework} criado.
+\begin{table}[!ht]
+	\caption{Variáveis Comportamentais apresentadas por \citeonline{Mead:2013b}}
+	\label{tab:variaveiscomportamentaismead}
+	\centering
+	\begin{tabular}{c | p{8 cm}}
+		\hline
+		\multicolumn{2}{c}{Características Individuais} \\
+		\hline
+		\emph{Stance Pose} & Orientação da postura do corpo \\
+		\hline
+		\emph{Hip Pose} & Orientação do quadril \\
+		\hline
+		\emph{Torso Pose} & Orientação do tronco \\
+		\hline
+		\emph{Shoulder Pose} & Orientação dos ombros \\
+		\hline
+		\emph{Head Pose} & Orientação da cabeça \\
+		\hline
+		\emph{Hip Torque} & Torsão do quadril \\
+		\hline
+		\emph{Shoulder Torque} & Torsão dos ombros \\
+		\hline
+		\emph{Head Torque} & Torsão da cabeça \\
+		\hline
+		\multicolumn{2}{c}{Características Físicas} \\
+		\hline
+		Distância Total & Calculada com base na distância euclidiana entre os dois agentes \\
+		\hline
+		\emph{Straight-Ahead Distance} & Magnitude no eixo X \\
+		\hline
+		Distância Lateral & Magnitude no eixo Y \\
+		\hline
+		Orientação Relativa do Corpo & Diferença da distância entre dois agentes \\
+		\hline
+		\multicolumn{2}{c}{Características Psicofísicas} \\
+		\hline
+		\emph{Distance Code} & Variável baseada na distância total \\
+		\hline
+		\emph{Socialfugal-SocioPetal Axis Code} & Variável baseada na orientação do corpo \\
+		\hline
+		\emph{Visual Code} & Variável baseada na posição da cabeça \\
+		\hline
+		\emph{Voice Loudness Code} & Variável baseada na distância total \\
+		\hline
+		\emph{Kinesthetic Code} & Variável baseada na distância entre a posição do quadril, tronco, ombros e braços \\
+		\hline
+		\emph{Olfaction Code} & Variável baseada na distância total \\
+		\hline
+		\emph{Thermal Code} & Variável baseada na distância total\\
+		\hline
+		\emph{Touch Code} & Variável baseada na distância total\\
+		\hline
+	\end{tabular}
+\end{table}
 
-\citeonline{Mead:2014} direcionam o foco de seu trabalho para a análise de conversa social e gestos, tanto na questão de produção das conversas e gestos de maneira automática quanto para o reconhecimento, aplicados em interações humano-humano e humano-robô. Todo o trabalho realizado está relacionado com o estudo de \emph{Proxemics} na interações sociais, uma vez que essas tem o objetivo de não só identificar as variáveis, mas também de interpretar, manipular e compreender a dinâmica do comportamento espacial dentro do cenário das interações sociais.
+Com base nesses estudos, \citeonline{Mead:2013} analisam a possibilidade de automatizar o processo de análise das \emph{Proxemics}. A intenção do trabalho é extrair variáveis (vide tabela~\ref{tab:variaveiscomportamentaismead}) para que seja, então, possível determinar o início da interação, dado pela aproximação em direção do indivíduo, e o fim da interação social, que é o chamado de fuga social ou o afastamento para uma zona social mais pública sem intenção de uma reaproximação, através de um HMM. Para realizar os experimentos foram necessários dois indivíduos e um robô aplicados a um cenário de interação, onde os indivíduos se aproximam do robô sendo que os indíviduos estão separados por uma parede. Os resultados são apresentados em relação ao ponto de vista físico e psicológico. Na detecção das variáveis que representam as \emph{Proxemics} de maneira dinâmica, \citeonline{Mead:2013} consideram os resultados satisfatórios e como sequência do trabalho é mantido o foco em interações com fatores psicológicos complexos, para aprimorar a precisão do pacote criado para o ROS (\emph{Robot Operating Systems}).
 
-Os estudos e experimentos sociais realizados por \citeonline{Mead:2014} auxiliaram na coleta de informações sobre o volume da fala de acordo com a distância, além dos gestos que necessitam de espaços maiores para execução sem prejudicar a interação. Os resultados apresentados apontam que a distância de interações entre humanos é menor que a distância da interação entre um humano e um robô. Além disso, os resultados obtidos não são aplicados à múltiplas culturas (nesse caso origem dos indivíduos), e isso deve ser realizado em outros trabalhos segundo \citeonline{Mead:2014}. Um mecanismo para personalizar o tratamento que o robô terá com o indivíduo durante a interação também é algo de deve ser construído ao longo dos trabalhos futuros.
+\citeonline{Mead:2014} direcionam o foco de seu trabalho para a análise de conversa social e gestos, tanto na questão de produção das conversas e gestos de maneira automática quanto para o reconhecimento, aplicados em interações humano-humano e humano-robô. Todo o trabalho realizado está relacionado com o estudo de \emph{Proxemics} na interações sociais, uma vez que essas tem o objetivo de não só identificar as variáveis (vide tabela~\ref{tab:variaveiscomportamentaismead}), mas também de interpretar, manipular e compreender a dinâmica do comportamento espacial dentro do cenário das interações sociais.
+
+Os estudos e experimentos sociais realizados por \citeonline{Mead:2014} auxiliaram na coleta de informações sobre o volume da fala de acordo com a distância, medida em polegadas, além dos gestos que necessitam de espaços maiores para execução sem prejudicar a interação. Os resultados apresentados apontam que a distância de interações entre humanos é menor que a distância da interação entre um humano e um robô. Além disso, os resultados obtidos não são aplicados à múltiplas culturas (nesse caso origem dos indivíduos), e isso deve ser realizado em outros trabalhos segundo \citeonline{Mead:2014}. Um mecanismo para personalizar o tratamento que o robô terá com o indivíduo durante a interação também é algo de deve ser construído ao longo dos trabalhos futuros.
 
 Analisando a diferença de cultura para variáveis de \emph{Proxemics}, \citeonline{Eresha:2013} apresentam como objetivo do trabalho a avaliação do comportamento de indivíduos ao se encontrarem com dois robôs interagindo entre si e caminhando em direção ao individuo de tal forma que este possa também interagir ou não com os robôs conforme a aproximação do ser humano. Além de avaliar o comportamento dos indivíduos durante a interação com os robôs, \citeonline{Eresha:2013} adicionaram a variável de cultura ao estudo. O objetivo é identificar como é a diferença de comportamento entre culturas diferentes. Foram escolhidos participantes de origem árabe e alemã para o estudo.
 
