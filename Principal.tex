@@ -1,4 +1,4 @@
-\documentclass{fei}
+\documentclass[rascunho, oneside]{fei}
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm}
@@ -16,13 +16,15 @@ pdfkeywords={\emph{Proxemics};}{Aprendizado de Máquina;},
 \author{Andrey Araujo Masiero}
 \title{Algoritmo para Aprendizado do Comportamento Social do Robô na Aproximação Física do Ser Humano}
 
+\addbibresource{biblio.bib}
+
 \begin{document}
 
 \include{Pretexto}
 \include{Introducao}
 \include{IHR}
 \include{Proxemics}
-\include{DecisionTree}
+% \include{DecisionTree}
 \include{AI}
 % \include{RBC}
 \include{Proposta}
@@ -31,5 +33,6 @@ pdfkeywords={\emph{Proxemics};}{Aprendizado de Máquina;},
 \include{Conclusoes}
 % \include{Cronograma}
 
-\bibliography{biblio}
+% \bibliography{biblio}
+\printbibliography
 \end{document}

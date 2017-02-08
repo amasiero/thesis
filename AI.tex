@@ -1,9 +1,76 @@
 %!TEX root=Principal.tex
-\chapter{APRENDIZADO}
+\chapter{RACIOCÍNIO PROBABILÍSTICO}
 \label{cap:ai}
 
-Técnicas previtas:
+Para que um agente possa tomar uma decisão, é necessário que ele analise todas as possibilidades de ações que possam ser feitas e o que ocorrerá após essa tomada de decisão para que exista uma certeza sobre o caminho que ele deve seguir. O processo para encontrar a certeza sobre uma decisão, computacionalmente, é oneroso e com a quantidade de variáveis geralmente consideradas, torna-se inviável. Sendo assim, um agente precisa trabalhar com a incerteza sobre o domínio para que possa ser tomada uma decisão~\cite{Russell:2002}.
 
-- Redes Bayesianas
-- Redes Neurais
-- Neuro-Fuzzy
+Fazer o agente tomar uma decisão considerando a incerteza, é fazer o agente manter o controle baseado em um estado de crença, em outras palavras, um conjunto com todos os possíveis estados em um domínio ao qual ele possa estar. Além disso, o agente deve prever e gerar um plano de contingência para eventuais situações que sejam detectadas durante a execução do algoritmo. Nesses problemas, as informações que o agente possui não conseguem garantir nenhum resultado com certeza absoluta. Porém, tais informações garantem um grau de crença de que o objetivo será alcançado ou a decisão por um caminho relevante será tomada~\cite{Russell:2002}.
+
+Todas as declarações feitas com base na crença sobre as informações não se contradizem mutuamente. Cada uma é uma afirmação separada de um diferente estado de conhecimento. Cada vez que inserimos uma informação nova e complementar, é aumentado o estado de crença sobre um determinado assunto, melhorando a tomada de decisão do agente~\cite{Russell:2002}.
+
+Para que a tomada de decisão tenha uma maior utilidade para o agente, ele deve preferências dentre os diferentes resultados apresentados. Sendo assim, ter uma decisão com base apenas na probabilidade, não é recomendável. Essa é a base da teoria da utilidade. A teoria da utilidade é utilizada para que o agente represente e raciocine em seu problema, de acordo com suas preferências. É distribuido um grau de utilidade para cada escolha que o agente possa ter, assim o estado que possui o maior grau de utilidade é escolhido. Pode-se dizer então que uma decisão é tomada com base na probabilidade de um estado somado a sua utilidade~\cite{Russell:2002}.
+
+Utilizar as teorias de probabilidade e utilidade, necessita de algumas formalizações e notações, para que as equações sejam melhor compreendidas. A primeira formalização é a equação~\ref{eq:prob_condicional_a_b} que representa a probabilidade condicional para quaisquer proposições $A$ e $B$~\cite{Russell:2002}.
+
+\begin{equation}
+    \label{eq:prob_condicional_a_b}
+    P(a|b) = \frac{P(a \land b)}{P(b)}
+\end{equation}
+
+A equação~\ref{eq:prob_condicional_a_b} é válida apenas para $P(b) > 0$. Essa equação também pode ser escrita no formato de produto, conforme apresentado na equação~\ref{eq:prob_condicional_a_b_2}.
+
+\begin{equation}
+    \label{eq:prob_condicional_a_b_2}
+    P(a \land b) = P(a|b)P(b)
+\end{equation}
+
+As proposições de uma equação são determinadas pelas variáveis aleatórias de um problema. Uma variável aleatória é representada através de um nome ao qual sua primeira letra deve ser maiuscula, por exemplo, $Total$, $Tempo$ ou $Informacao$. Cada variável aleatória possui um domínio, que representa os possíveis valores que esta variável pode assumir. Os valores são descritos utilizando todas as letras em caixa baixa, ou seja, minusculas, por exemplo, $Tempo = \{ ensolarado, chuvoso, nublado, nevando \}$. Quando uma variável é booleana, podem ser nomeadas com se fossem valores (em minusculo) e utiliza-se a regra de negar o valor para representar os valores de falso e verdadeiro~\cite{Russell:2002}.
+
+O exemplo da representação de uma varíavel booleana através de valores é demonstrado através das equações~\ref{eq:neg_valor}.
+
+\begin{subequations}
+    \label{eq:neg_valor}
+    \begin{align}
+        A = verdadeiro \rightarrow a\\
+        A = falso \rightarrow \neg a
+    \end{align}
+\end{subequations}
+
+Em teoria de probabilidade, quando trata-se um problema, é procurado mundos possíveis. Um mundo possível é definido como uma atribuição de valores para cada uma das variáveis aleatórias consideradas em um problema. Para realizar a atribuição dos valores, pode-se trabalhar com diversos tipos de visão probabilística. A primeira é chamada de frequentista, onde o valor da probabilidade é determinado através de observações à experimentos realizados com grandes amostras. Outro tipo encontrado é o objetivista que define as probabilidades como aspectos reais, ou seja, como tendências dos comportamentos dos objetos dentro de um cenário específico~\cite{Russell:2002}.
+
+A visão subjetivista trabalha com os valores de probabilidades no formato que caracteriza a crença do agente ao invés de qualquer significado ligado ao mundo físico externo. Essa visão possui uma variante bayesiana que permite qualquer atribuição auto consistente de probabilidades anteriores à proposições, e também são capazes de atualizar os valores a medida que evidências ocorrem a partir do observador~\cite{Russell:2002}.
+
+Todos os valores que um mundo possível tem, são descritos através de uma tabela chamada de tabela de distribuição conjunta. Essa tabela, em geral, possui uma quantidade de valores muito grande que inviabiliza o processamento das informações, levando ao mesmo cenário que apresenta a certeza de um agente sobre uma determinada decisão. Para que a quantidade de informação na tabela de distribuição conjunta seja minimizada e auxilie no processamento das informações para uma tomada de decisão, é necessário encontrar a independência condicional entre as variáveis do problema em questão. A independência de uma variável é importante, pois auxilia não só na redução da representação domínio, mas também na complexidade do problema~\cite{Russell:2002}.
+
+Contudo, nem sempre o problema nos permite calcular todas as probabilidades, e algumas ainda são desconhecidas. Para que as probabilidades tornem-se possíveis de serem calculadas a partir de probabilidades condicionais conhecidas, tem-se a regra de Bayes. A regra de Bayes foi definida com base nas duas representações da regra do produto (vide equação~\ref{eq:regra_produto})~\cite{Russell:2002}.
+
+\begin{subequations}
+    \label{eq:regra_produto}
+    \begin{align}
+        P(a \land b) = P(a|b)P(b)\\
+        P(a \land b) = P(b|a)P(a)
+    \end{align}
+\end{subequations}
+
+Ao igualar os dois membros da direita, apresentados na equação~\ref{eq:regra_produto}, encontra-se a equação da regra de Bayes. Ela é apresentada através da equação~\ref{eq:regra_bayes}~\cite{Russell:2002}.
+
+\begin{equation}
+    \label{eq:regra_bayes}
+    P(b|a) = \frac{P(a|b)P(b)}{P(a)}
+\end{equation}
+
+A regra de Bayes, ainda, pode ser condicionada a uma evidência prática denominada $e$, como apresentado na equação~\ref{eq:regra_bayes_evidencia}~\cite{Russell:2002}.
+
+\begin{equation}
+    \label{eq:regra_bayes_evidencia}
+    P(Y|X, e) = \frac{P(X|Y, e)P(Y|e)}{P(X|e)}
+\end{equation}
+
+A aplicação da regra de Bayes é útil, pois a partir dela é possível perceber que existe um \textbf{efeito} sendo a evidência de alguma \textbf{causa} desconhecida e deseja-se saber o motivo que gerou àquela situação ou comportamento. Para ilustrar, a equação~\ref{eq:causa_efeito} apresenta a regra de Bayes a partir da relação de causa-efeito~\cite{Russell:2002}.
+
+\begin{equation}
+    \label{eq:causa_efeito}
+    P(causa|efeito) = \frac{P(efeito|causa)P(causa)}{P(efeito)}
+\end{equation}
+
+A equação~\ref{eq:causa_efeito} pode ser igualada em dois sentidos, $P(efeito|causa)$ que busca quantificar a relação entre as variáveis na direção causal e $P(causa|efeito)$ que tem o objetivo de descrever a direção da relação em forma de diagnóstico. O conhecimento conseguido através da direção do diagnóstico é mais frágil que o conhecimento obtido através da direção causal do problema, porém em aplicações médicas a direção do diagnóstico é mais recomendada para aplicação em sistemas~\cite{Russell:2002}.
