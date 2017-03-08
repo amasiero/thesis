@@ -2,11 +2,11 @@
 \chapter{PROPOSTA}
 \label{cap:proposta}
 
-Este trabalho apresenta uma metodologia que mapeia o conjunto de ações que o robô é capaz de executar visando a uma aproximação física do indivíduo, considerando as normas sociais. Como observado ao longo dos trabalhos da literatura apresentados até agora (vide seção~\ref{cap:proxemics}), o comportamento do indivíduo possui dependência da origem ou cultura dele. Assim, algumas reações apresentadas por uma pessoa são diretamente influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas com a observação.
+Este trabalho apresenta uma metodologia que mapeia o conjunto de ações que o robô é capaz de executar para uma aproximação física do indivíduo, considerando algumas normas sociais. Como observado ao longo dos trabalhos da literatura apresentados até agora (vide seção~\ref{cap:proxemics}), o comportamento do indivíduo possui dependência da origem ou cultura dele. Assim, algumas reações apresentadas por uma pessoa são diretamente influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas com a observação.
 
-Dessa forma, essa tese estabelece uma sequência de passos com o intuito de identificar quais são as ações que o robô precisa realizar para que seu comportamento, ao se aproximar de uma pessoa, esteja dentro das normas sociais. A aproximação física é considerado como o primeiro passo para que exista uma interação entre duas pessoas. Com o comportamento adequado do robô nessa aproximação, é possível garantir que uma pessoa fique confortável com a presença física do robô a sua volta. O nível de conforto pode ser medido pela aceitação do robô próximo ao indivíduo por um determinado ciclo de tempo. Essa aceitação, pode determinar o início de uma interação por um período de tempo maior, porém não será abordado esse tipo de interação nessa tese.
+Dessa forma, essa tese estabelece uma sequência de passos com o intuito de identificar quais são as ações que o robô pode realizar para que seu comportamento, ao se aproximar de uma pessoa, não provoque nenhum desconforto ao indivíduo que ele se aproxima. A aproximação física é considerado como o primeiro passo para que exista uma interação entre duas pessoas. Com o comportamento adequado do robô nessa aproximação, é possível garantir que uma pessoa fique confortável com a presença física do robô a sua volta. O nível de conforto pode ser medido pela aceitação do robô próximo ao indivíduo por um determinado ciclo de tempo. Essa aceitação, pode determinar o início de uma interação por um período de tempo maior, porém não será abordado esse tipo de interação nessa tese.
 
-O primeiro passo estabelecido é a coleta de variáveis de maneira que não exista, em um primeiro momento, a preocupação do comportamento do robô. Na sequência é aplicado um algoritmo de aprendizado para árvore de decisão, com o objetivo de identificar quais as variáveis mais relevantes para a aproximação do robô. Com as informações sobre as variáveis mais relevantes, é possível utilizar de técnicas para aprendizado de máquina, que faça com que o robô tenha o comportamento adequado com base em pequenas observações sobre a pessoa que ele irá interagir. No final, é possível realizar o perfil das pessoas que interagiram com o robô e identificar qual o comportamento adequado para cada perfil extraído.
+O primeiro passo estabelecido é a coleta de variáveis de maneira que não exista, em um primeiro momento, a preocupação do comportamento do robô. Na sequência serão selecionados algumas variáveis que possam diagnosticar o porque do desconforto da pessoa durante a aproximação do robô. Essas variáveis serão apresentadas em um formato de rede bayesiana, para que seja possível o robô inferir o comportamento que apresenta um conforto ao ser humano. No final, é possível realizar o perfil das pessoas que interagiram com o robô e identificar qual o comportamento que foi mais comum para cada perfil extraído. Isso poderá auxiliar em projetos futuros de construção de robôs de serviço e sociais.
 
 Essa seção apresenta em detalhes os passos da metodologia proposta por esta tese. Ao final do capítulo é apresentado a visão completa da metodologia onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele. Antes de entrar em detalhes na metodologia, é apresentado o robô que será utilizado para o desenvolvimento do estudo proposto nessa tese.
 
@@ -128,14 +128,82 @@ Além das variáveis que definem as características, é necessário também o m
 
 As variáveis comportamentais do robô definidas com o objetivo de executar uma tarefa de abordagem para estabelecer uma interação. Caso seja necessário adicionar novas variáveis a esse conjunto não haverá problema ao método apresentado ao longo da seção.
 
-\section{Identificando a relevância das variáveis}
-\label{sec:decisiontree}
+\section{Rede Bayesiana para Diagnóstico de Desconforto do Indivíduo na Aproximação do Robô}
+\label{sec:rede-bayesiana}
 
-Aqui será descrito todo o processo para gerar a árvore de decisão.
+Com base na variáveis apresentadas ao longo da seção~\ref{sec:extracaocaracteristicas}, optou-se por utilizar as variáveis principais e também mínimas, para auxiliar no diagnóstico e tomada de decisão do robô. As variáveis foram segmentadas apenas para que tomada de decisão feita pelo robô fosse automática, sem necessidade de controla-lo de qualquer maneira. Apesar dessa segmentação das variáveis, elas foram mapeadas para que sejam incluídas em trabalhos futuros, melhorando assim o processo de análise comportamental do indíviduo. As variáveis que serão utilizadas são:
+
+\begin{itemize}
+	\item POS: posicionamento do robô dentro da zona de proximidade social da pessoa, apresentada no capítulo~\ref{cap:proxemics} através da figura~\ref{fig:proximityzones};
+	\item VEL: velocidade de aproximação do robô em relação a pessoa;
+	\item VOL: volume de emissão de som, realizado pelo robô;
+	\item GES: amplitude do gesto do robô em relação a pessoa;
+	\item FACE: expressão facial apresentada pelo robô durante a aproximação;
+	\item AFASTOU: se a pessoa se afastou do robô após sua tentativa de aproximação;
+	\item NEG\_FACE: se a pessoa apresentou uma expressão facial negativa durante a tentativa de aproximação do robô;
+	\item NEG\_CORP: se a pessoa apresentou uma expressão corporal negativa durante a tentativa de aproximação do robô;
+\end{itemize}
+
+A partir das variáveis apresentadas, foi possível estabelecer uma rede bayesiana partindo do princípio de que POS é o nó pai que tem influência sobre todos os outros. Em um nível intemediário de nós temos as variávies \{VEL, VOL, GES, FACE\}, que são variáveis dependentes exclusivamente das ações do robô e possuem uma independência condicional dado o pai POS. Por fim, as três variáveis que representam as reações do ser humano, que são independentes condicionais dado os pais \{POS, VEL, VOL, GES, FACE\}. As variáveis \{AFASTOU, NEG\_FACE, NEG\_CORP\} também são chamadas de nós de efeito, que querem ser observados durante o processo de interação humano robô. A figura~\ref{fig:rb} apresenta a rede bayesiana formada com base na hierarquia definida.
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=\textwidth]{decision_tree_process.jpg}
-	\caption{Processo de Interação para Gerar a Árvore de Decisão.}
-	\label{fig:rbc}
+	\includegraphics[width=0.8\textwidth]{rb-thesis.png}
+	\caption{Rede bayesiana construída para auxiliar no diagnóstico e tomada de decisão da aproximação ao indivíduo.}
+	\label{fig:rb}
 \end{figure}
+
+O domínio para cada uma das variáveis aleatórias que compõem a rede bayesiana da figura~\ref{fig:rb} são:
+
+\begin{itemize}
+	\item POS = \{publica, social, pessoal, íntima\}
+	\item VEL = \{rápido, devagar\}
+	\item VOL = \{alto, baixo, mudo\}
+	\item GES = \{longo, curto, ausente\}
+	\item FACE = \{feliz, neutra, nervoso\}
+	\item AFASTOU = \{verdadeiro, falso\}
+	\item NEG\_FACE = \{verdadeiro, falso\}
+	\item NEG\_CORP = \{verdadeiro, falso\}
+\end{itemize}
+
+A partir de agora é preciso estabelecer a rede bayesiana em formato de probabilidades, para que seja possível compreender cada um dos cálculos de inferência e diagnóstico realizados pelo algoritmo. As equações~\ref{eq:1}, \ref{eq:2}, \ref{eq:3}, \ref{eq:4}, \ref{eq:5}, \ref{eq:6}, \ref{eq:7} e \ref{eq:8} representam as probabilidades da rede bayesiana.
+
+\begin{equation}
+	\label{eq:1}
+	P(POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:2}
+	P(VEL|POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:3}
+	P(VOL|POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:4}
+	P(GES|POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:5}
+	P(FACE|POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:6}
+	P(AFASTOU|POS, VEL, VOL, GES, FACE)
+\end{equation}
+
+\begin{equation}
+	\label{eq:7}
+	P(NEG\_FACE|POS, VEL, VOL, GES, FACE)
+\end{equation}
+
+\begin{equation}
+	\label{eq:8}
+	P(NEG\_CORP|POS, VEL, VOL, GES, FACE)
+\end{equation}
