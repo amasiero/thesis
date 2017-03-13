@@ -2,13 +2,13 @@
 \chapter{PROPOSTA}
 \label{cap:proposta}
 
-Este trabalho apresenta uma metodologia que mapeia o conjunto de ações que o robô é capaz de executar para uma aproximação física do indivíduo, considerando algumas normas sociais. Como observado ao longo dos trabalhos da literatura apresentados até agora (vide seção~\ref{cap:proxemics}), o comportamento do indivíduo possui dependência da origem ou cultura dele. Assim, algumas reações apresentadas por uma pessoa são diretamente influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas com a observação.
+Essa tese apresenta o mapeamento de um conjunto de ações que o robô é capaz de executar durante uma aproximação física a um indivíduo, considerando algumas normas sociais. Como observado ao longo dos trabalhos da literatura apresentados até agora (vide seção~\ref{cap:proxemics}), o comportamento do indivíduo possui dependência da origem ou cultura dele. Assim, algumas reações apresentadas por uma pessoa são diretamente influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas através da observação. Para informações mais precisas sobre a experiência de vida de uma pessoa, é necessário que seja realizado um dialogo ou entrevista para perguntar os locais por onde essa pessoa viveu desde o nascimento. Sendo assim, os trabalhos que envolvem a aproximação física do robô em relação a pessoas, tem o foco maior no comportamento e controlo do robô. Em geral, apenas observam a posição do ser humano em relação ao robô, para desviar a uma sequência segura e de maneira natural ou fazem com que o robô parem de frente ao ser humano, em um contato face a face.
 
-Dessa forma, essa tese estabelece uma sequência de passos com o intuito de identificar quais são as ações que o robô pode realizar para que seu comportamento, ao se aproximar de uma pessoa, não provoque nenhum desconforto ao indivíduo que ele se aproxima. A aproximação física é considerado como o primeiro passo para que exista uma interação entre duas pessoas. Com o comportamento adequado do robô nessa aproximação, é possível garantir que uma pessoa fique confortável com a presença física do robô a sua volta. O nível de conforto pode ser medido pela aceitação do robô próximo ao indivíduo por um determinado ciclo de tempo. Essa aceitação, pode determinar o início de uma interação por um período de tempo maior, porém não será abordado esse tipo de interação nessa tese.
+Dessa forma, essa tese estabelece uma sequência de passos com o intuito de identificar quais são as ações que o robô pode realizar para que seu comportamento, ao se aproximar de uma pessoa, não provoque nenhum desconforto ao indivíduo que ele se aproxima, sempre considerando as reações do indivíduo. A aproximação física é considerado como o primeiro passo para que exista uma interação entre duas pessoas. Com o comportamento adequado do robô durante a aproximação, é possível garantir que uma pessoa fique confortável com a presença física do robô em sua volta. O nível de conforto pode ser medido pela aceitação do robô próximo ao indivíduo por um determinado ciclo de tempo. Essa aceitação, pode determinar o início de uma interação por um período de tempo maior, porém não será abordado, nessa tese, interações de longa duração.
 
-O primeiro passo estabelecido é a coleta de variáveis de maneira que não exista, em um primeiro momento, a preocupação do comportamento do robô. Na sequência serão selecionados algumas variáveis que possam diagnosticar o porque do desconforto da pessoa durante a aproximação do robô. Essas variáveis serão apresentadas em um formato de rede bayesiana, para que seja possível o robô inferir o comportamento que apresenta um conforto ao ser humano. No final, é possível realizar o perfil das pessoas que interagiram com o robô e identificar qual o comportamento que foi mais comum para cada perfil extraído. Isso poderá auxiliar em projetos futuros de construção de robôs de serviço e sociais.
+O primeiro passo estabelecido é definir as variáveis que possam contribuir com a análise do comportamento do ser humano e compreensão de sua experiência de vida e conforto na interação. Logo depois, é determinado a coleta de algumas variáveis de maneira que não exista, em um primeiro momento, a preocupação do comportamento do robô. Na sequência serão analisadas as variáveis coletadas de maneira que, o diagnóstico sobre desconforto ou não da pessoa durante a aproximação do robô, seja de possível compreensão. Essas variáveis serão, posteriormente, organizadas e apresentadas em um formato de rede bayesiana. Essa estrutura permitirá que o robô possa inferir o comportamento que apresenta conforto ao ser humano em sua aproximação. No final, é possível realizar o perfil das pessoas que interagiram com o robô e identificar qual o comportamento é mais comum para cada perfil extraído. Esses perfis, deverão auxiliar projetos futuros de construção de robôs de serviço e sociais.
 
-Essa seção apresenta em detalhes os passos da metodologia proposta por esta tese. Ao final do capítulo é apresentado a visão completa da metodologia onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele. Antes de entrar em detalhes na metodologia, é apresentado o robô que será utilizado para o desenvolvimento do estudo proposto nessa tese.
+Essa seção apresenta em detalhes os passos da metodologia proposta por esta tese. Ao final do capítulo é apresentado a visão completa da metodologia onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele. Contudo, antes de discutir em detalhes a metodologia, o robô que será utilizado para o desenvolvimento do estudo proposto é apresentado.
 
 \section{O Robô}
 \label{sec:robo}
@@ -16,64 +16,72 @@ O robô utilizado no desenvolvimento dessa tese é o PeopleBot~\footnote{PeopleB
 
 \begin{figure}[ht!]
 	\centering
-	\caption{Robô ActivMedia Robotics PeopleBot.}
-	\includegraphics[width=\textwidth]{peoplebot.jpg}
-	\smallcaption{Fonte: Autor.}
-	\label{fig:peoplebot}
+	\begin{minipage}{\textwidth}
+		\caption{Robô ActivMedia Robotics PeopleBot.}
+		\includegraphics[width=\textwidth]{peoplebot.jpg}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:peoplebot}
+	\end{minipage}
 \end{figure}
 
-Como a garra do PeopleBot é curta e não permite muitos movimentos, foi adicionado um manipulador para auxiliar na manipulação de objetos e gesticulação durante a interação com pessoas e também visando a prestação de serviços domésticos e de cuidados pessoais. O projeto de construção do manipulador é apresentado através da figura~\ref{fig:manipulador}.
+Como a garra do PeopleBot é curta e não permite muita destreza na manipulação e também poucos graus de liberdade, foi adicionado um novo manipulador. O projeto do manipulador foi desenvolvido com o intuito de auxiliar tarefas com manipulação de objetos e gesticulação durante interações com pessoas. Além disso, o projeto atende pesquisas com foco em prestação de serviços domésticos e cuidados pessoais. O projeto de construção do manipulador é apresentado através da figura~\ref{fig:manipulador}.
 
 \begin{figure}[ht!]
 	\centering
-	\caption{Projeto do Novo Manipulador do PeopleBot.}
-	\includegraphics[width=0.6\textwidth]{manipulador.jpg}
-	\smallcaption{Fonte: Autor.}
-	\label{fig:manipulador}
+	\begin{minipage}{0.6\textwidth}
+		\caption{Projeto do Novo Manipulador do PeopleBot.}
+		\includegraphics[width=\textwidth]{manipulador.png}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:manipulador}
+	\end{minipage}
 \end{figure}
 
-O novo manipulador foi construído de maneira que os movimentos sejam parecidos com o braço humano. Além do manipulador, também foi acoplado um \emph{tablet} para que seja possível atribuir faces ao robôs e deixar a interação mais amigável, como apresentado na figura~\ref{fig:judithhead}.
+O novo manipulador foi construído de maneira que os movimentos sejam próximos com o braço humano. Além do manipulador, também foi acoplado um \emph{tablet} para que seja possível atribuir faces ao robôs e deixar a interação mais amigável, como apresentado na figura~\ref{fig:judithhead}.
 
 \begin{figure}[ht!]
 	\centering
-	\caption{Projeto da Cabeça para o PeopleBot.}
-	\includegraphics[width=0.4\textwidth]{judith_head.jpg}
-	\smallcaption{Fonte: Autor.}
-	\label{fig:judithhead}
+	\begin{minipage}{0.4\textwidth}
+		\caption{Projeto da Cabeça para o PeopleBot.}
+		\includegraphics[width=\textwidth]{judith_head.png}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:judithhead}
+	\end{minipage}
 \end{figure}
 
-Alguns sensores como o Microsoft\textregistered\ Kinect\textregistered\ , o ASUS\textregistered\ Xtion\textregistered\ , lasers e microfones também foram instalados para melhorar a captura das informações que são apresentadas na seção~\ref{sec:extracaocaracteristicas}.
+O projeto da cabeça foi preparado para acomplar alguns alguns sensores como o Microsoft\textregistered\ Kinect\textregistered\ , o ASUS\textregistered\ Xtion\textregistered\ e webcams, para tarefas que envolvam nuvem de pontos de profundidade e visão computacional. Sensores como lasers e microfones também foram instalados para melhorar a captura de informações sobre o ambiente e a pessoa. Algumas dessas informações são apresentadas na seção~\ref{sec:extracaocaracteristicas}.
 
 \section{Extração das Características}
 \label{sec:extracaocaracteristicas}
 
-Como apresentado no capítulo \ref{cap:proxemics}, existem diversas variáveis que podem auxiliar na extração de um perfil comportamental do individuo. \emph{Proxemics} tornam possível a extração de fatores sobre a distância social entre o individuo e o robô. Esses fatores podem variar não só entre a posição física dos dois agentes, mas também na posição do corpo dos indivíduos, como por exemplo, a orientação dos ombros e troco em relação a posição do robô. Outro fator também significante é a fixação entre olhares, este pode determinar o início e o fim de uma interação, além dos principais indivíduos na interação. Além disso, pode ser também empregado o reconhecimento de expressões faciais que auxiliam na análise do quanto a situação é confortável para o individuo, o quanto ele aprecia a interação. Assim, pode existir uma avaliação em tempo real das reações deste durante todo o processo de interação. Outra técnica que pode ser utilizada na análise do conforto do individuo durante a interação é a avaliação da emoção através da voz da pessoa.
+Como apresentado no capítulo \ref{cap:proxemics}, existem diversas variáveis que podem auxiliar na extração de um perfil comportamental do individuo. \emph{Proxemics} tornam possível a extração de fatores sobre a distância social entre o individuo e o robô. Esses fatores podem variar não só entre a posição física dos dois agentes, mas também na posição do corpo dos indivíduos, como por exemplo, a orientação dos ombros e troco em relação a posição do robô. Outro fator também significante é a fixação entre olhares, este pode auxiliar o processo de determinar o início e o fim de uma interação, além dos principais indivíduos na interação. Além disso, pode-se empregar o reconhecimento de expressões faciais para auxílio na análise do quanto a situação é confortável para o indivíduo, ou o quanto ele aprecia a interação. Assim, pode existir uma avaliação em tempo real das reações deste indivíduo durante todo o processo de interação. Outra técnica que pode ser utilizada na análise do conforto do indivíduo durante a interação é a avaliação da emoção através da voz da pessoa, ou através do uso de equipamento de eletroencefalografia~(EEG), porém este é um método mais invasivo já que exige a adição de um equipamento na pessoa que interage com o robô.
 
-Dessa forma, é possível empregar diversos sensores que auxiliam a leitura e quantificação dessas variáveis. Sensores de captura de marcações de movimento, como Microsoft\textregistered\ Kinect\textregistered\ ou o ASUS\textregistered\ Xtion\textregistered, são utilizados para quantificar os valores obtidos através da \emph{Proxemic}, que envolvem distância entre agentes e orientação de membros do individuo. Para realizar o reconhecimento de expressões faciais utiliza-se uma câmera de video, podendo assim executar uma leitura da face do individuo em tempo de execução na interação entre o humano e o robô. As variáveis referentes a questão da fixação dos olhares dos agentes para identificar o início e o fim da interação, podem ser obtidas através de ambos sensores, sendo possível determinar a orientação da cabeça e torso do individuo, além de também a direção do olhar deste para com o robô. A voz do individuo para análise da emoção na interação é obtida através de um microfone. A figura \ref{fig:capturacaracteristicas} apresenta a ilustração do processo de extração das características do individuo.
+Dessa forma, é possível empregar diversos sensores que auxiliam a leitura e quantificação dessas variáveis. Sensores de captura de marcações de movimento, como Microsoft\textregistered\ Kinect\textregistered\ ou o ASUS\textregistered\ Xtion\textregistered, são utilizados para quantificar os valores comportamentais obtidos através das variáveis, que envolvem distância entre agentes e orientação de membros do indivíduo. Para realizar o reconhecimento de expressões faciais utiliza-se uma câmera de video, podendo assim executar uma leitura da face da pessoa em tempo de execução na interação entre o humano e o robô. As variáveis referentes a questão da fixação dos olhares dos agentes para identificar o início e o fim da interação, podem ser obtidas através de ambos sensores, sendo possível determinar a orientação da cabeça e torso do indivíduo, além de também a direção do olhar deste para com o robô. A voz do indivíduo para análise da emoção na interação é obtida através de um microfone direcional ou um arranjo de microfones, que amplifica a capacidade de percepção do robô em relação ao ambiente e a pessoa que interage com ele. A figura \ref{fig:capturacaracteristicas} apresenta a ilustração do processo de extração das características do individuo.
 
 \begin{figure}[ht!]
 	\centering
-	\caption{Processo para a extração das características do individuo.}
-	\includegraphics[scale=0.6]{captura_carac_individuo.png}
-	\smallcaption{Fonte: Autor.}
-	\label{fig:capturacaracteristicas}
+	\begin{minipage}{0.8\textwidth}
+		\caption{Processo para a extração das características do individuo.}
+		\includegraphics[width=\textwidth]{captura_carac_individuo.png}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:capturacaracteristicas}
+	\end{minipage}
 \end{figure}
 
-No processo apresentado pela figura \ref{fig:capturacaracteristicas}, o robô utiliza os sensores para identificar o individuo e iniciar a aproximação dele. Durante a aproximação, o robô utiliza um componente de \emph{log} que armazena todos os valores das variáveis que são utilizadas para determinar, posteriormente, o comportamento do robô (ação) e do individuo (reação) em um banco de dados. As variáveis são apresentadas em detalhes nas seções \ref{sec:variaveisindividuo} e \ref{sec:variaveisrobo}. Com as informações armazenadas é iniciado o processo de aprendizado por árvore de decisão, que auxilia a determinar as variáveis que melhor representam o problema. Além das informações para a árvore de decisão, é possível extrair informações sobre perfis comportamentais das pessoas e identificar com os perfis comportamentais aprendidos pelo robô, para que possa replicar durante a interação. Esse tipo de informação será útil para identificar como é a relação de comportamento entre robôs e humanos. Deve-se lembrar que as informações sobre o comportamento são direcionadas por um cenário de interação, como discutido por \citeonline{Jung:1991} em seu trabalho.
+No processo apresentado pela figura \ref{fig:capturacaracteristicas}, o robô utiliza os sensores para identificar o individuo e iniciar a aproximação dele. Durante a aproximação, o robô utiliza um componente de \emph{log} que armazena todos os valores das variáveis que são utilizadas para determinar, posteriormente, o comportamento do robô (ação) e do individuo (reação) em um banco de dados. As variáveis são apresentadas em detalhes nas seções \ref{sec:variaveisindividuo} e \ref{sec:variaveisrobo}. Com as informações armazenadas é iniciado o processo de análise através de métodos estátisticos, que auxiliam a determinar as variáveis que mais apresentam correlação dentro do problema estudado. É possível, ainda, extrair informações sobre perfis comportamentais das pessoas e identificar  os perfis comportamentais obtidos na interação, para que sejam utilizados em projetos futuros de robótica social, de serviço e assistiva. Esse tipo de informação também é útil para identificar a relação de comportamento entre robôs e humanos. Deve-se lembrar que as informações sobre o comportamento são direcionadas por um cenário de interação, como discutido por \citeonline{Jung:1991} em seu trabalho, então um mesmo indivíduo pode apresentar comportamento diferente em cenários de atuação diferentes.
 
-Dessa forma, as variáveis aplicadas ao comportamento tem dependência do cenário de interação, porém as informações das variáveis etnográficas como idade, experiência computacional, sexo, local de origem, etnia, entre outras, são independentes do cenário. Existem alguns algoritmos na área de visão computacional que são capazes de identificar algumas variáveis etnográficas de maneira automática \cite{Yang:2007, Shan:2012, Ylioinas:2012, Samadi:2013, Amaral:2014}, porém para o trabalho desta tese, a coleta dessas informações será realizada através de um questionário pré interação já que esses algoritmos não fazem parte do objetivo principal do trabalho. As informações obtidas através do questionário serão inseridas no banco de dados complementando as informações de comportamento, que são separadas obtidas através da interação entre o ser humano e o robô através dos cenários de interação.
+Dessa forma, as variáveis aplicadas ao comportamento tem dependência do cenário de interação, porém as informações das variáveis etnográficas como idade, experiência computacional, sexo, local de origem, etnia, entre outras, são independentes do cenário. Existem alguns algoritmos na área de visão computacional que são capazes de identificar algumas variáveis etnográficas de maneira automática \cite{Yang:2007, Shan:2012, Ylioinas:2012, Samadi:2013, Amaral:2014}, porém para o trabalho desta tese, a coleta dessas informações será realizada através de um questionário pré e pós interação já que esses algoritmos não fazem parte do objetivo principal do trabalho. As informações obtidas através do questionário serão inseridas no banco de dados complementando as informações de comportamento, que são obtidas, de forma separada, através da interação entre o ser humano e o robô através dos cenários de interação.
 
-Na seção \ref{sec:variaveisindividuo} são detalhados os conjuntos de variáveis etnográficas e comportamentais com uma breve explicação dos objetivos esperados de cada uma das variáveis coletadas. A seção \ref{sec:variaveisrobo} detalha as variáveis que serão consideradas para o perfil do robô, apresentando também uma explicação sobre os objetivos de cada uma das variáveis.
+Na seção~\ref{sec:variaveisindividuo} são detalhados os conjuntos de variáveis etnográficas e comportamentais com uma breve explicação dos objetivos esperados de cada uma das variáveis coletadas. A seção~\ref{sec:variaveisrobo} detalha as variáveis que serão consideradas para o perfil do robô, apresentando também uma explicação sobre os objetivos de cada uma das variáveis. Essas seções são consideradas como um mapa de variáveis importante para estudos comportamentais em interação humano-robô social. Pode-se inserir mais ou remover algumas variáveis durante a aplicação na construção de robôs autônomos sociais. A seção~\ref{sec:rede-bayesiana} apresentará melhor a seleção realizada por está tese e como é aplicado no mecanismo de inferência comportamental.
 
-\subsection{Selecionando as Variáveis para o Individuo}
+\subsection{Selecionando Variáveis do Individuo}
 \label{sec:variaveisindividuo}
 
-Essa seção apresenta os conjuntos de variáveis que são consideradas nesse trabalho como a base de informações para seu desenvolvimento. Dois conjuntos são apresentados, o conjunto de variáveis etnográficas, seguido pelo conjunto de variáveis comportamentais que é o principal foco deste trabalho.
+Essa seção apresenta os conjuntos de variáveis que são consideradas como a base de informações para desenvolvimento de estudos em interação humano-robô social. Dois conjuntos são apresentados, o conjunto de variáveis etnográficas, seguido pelo conjunto de variáveis comportamentais que é o principal foco deste trabalho.
 
 \subsubsection{Conjunto de Variáveis Etnográficas}
 \label{sec:variaveisetnograficas}
 
-O objetivo das variáveis etnográficas é identificar qual a experiência social e computacional de cada indivíduo. Além da experiência, também pode-se obter informações sobre a idade, gênero, local de nascimento ou origem do indivíduo. Todas essas informações são relevantes para verificar a existência de uma possível relação entre as variáveis etnográficas e comportamentais. A lista apresentada a seguir define as variáveis etnográficas e uma breve explicação sobre o significado de cada uma das variáveis.
+O objetivo das variáveis etnográficas é identificar qual a experiência social e computacional de cada indivíduo. Além da experiência, também pode-se obter informações sobre a idade, gênero, local de nascimento ou origem do indivíduo. Todas essas informações são relevantes para verificar a existência de uma possível relação entre as variáveis etnográficas e comportamentais, além da relevância cultural para estabalecer uma aproximação e posteriormente uma interação social. A lista apresentada a seguir define as variáveis etnográficas e uma breve explicação sobre o significado de cada uma das variáveis.
 
 \begin{enumerate}
 	\item \textbf{Idade}: informa a idade do indivíduo.
@@ -89,14 +97,14 @@ O objetivo das variáveis etnográficas é identificar qual a experiência socia
 	\item \textbf{Quantidade de países que morou}: informa a quantidade de países que o indivíduo já morou além da sua cidade natal. É importante para identificar a vivência com outros tipos de cultura. Isso poderá influenciar no comportamento definido por sua cultura.
 \end{enumerate}
 
-Em diversos trabalhos da seção \ref{sec:proxemicsihr}, onde a questão cultural do indivíduo é abordada, são discutidos que influência dela sobre o comportamenteo do o indivíduo. Contudo, a cultura é tratada como a origem do indivíduo, por exemplo, no trabalho de \citeonline{Eresha:2013}. Entretanto, a questão cultural na vida de uma pessoa é mais abrangente, está relacionada a experiência adquirida ao longo de sua vivência social. Dessa forma, o conjunto de variáveis apresentado acima tem como objetivo mapear de forma abstrata a experiência social do indivíduo, com o intuito de tornar o comportamento menos dependente da origem e talvez de sua experiência prévia.
+Em diversos trabalhos da seção \ref{sec:proxemicsihr}, onde a questão cultural do indivíduo é abordada, são discutidos que influência a cultura provê sobre o comportamenteo do o indivíduo. Contudo, a cultura é tratada como a origem do indivíduo, por exemplo, no trabalho de \citeonline{Eresha:2013}. Entretanto, esta tese acredita que a questão cultural na vida de uma pessoa é mais abrangente. Ela está relacionada a experiência adquirida ao longo de sua vivência social, como por exemplo, países e cidades que o indivíduo visitou e viveu, o meio ao qual ele está inserido, sua profissão, entre outras informações. Dessa forma, o conjunto de variáveis apresentado na lista acima tem como objetivo mapear de forma abstrata a experiência social do indivíduo, com o intuito de verificar se o comportamento é menos dependente da origem do indivíduo e mais dependente de sua experiência prévia de vida.
 
-Nesse trabalho, as informações levantadas nessa seção serão adquiridas através de questionários pré testes de interação. Em trabalhos futuros serão feitos estudos para identificar essas informações de maneira interativa através do próprio robô.
+As informações apresentadas nessa seção serão adquiridas através de questionários pré interação. Em trabalhos futuros poderão ser aplicados estudos para identificar essas informações de maneira interativa através do próprio robô.
 
 \subsubsection{Conjunto de Variáveis Comportamentais}
 \label{sec:variaveiscomportamentais}
 
-Variáveis comportamentais tem como principal objetivo identificar o comportamento do indivíduo. Nesse trabalho o comportamento está diretamente relacionado com cenários de interação social. As variáveis comportamentais são coletadas a partir de informações sobre as posições corporais e expressões faciais do indivíduo, tornando possível uma análise com base em teorias de linguagem corporal. As análises realizadas a partir da linguagem corporal, tem por base o trabalho apresentado por \citeonline{Lambert:2008}. O conjunto de variáveis comportamentais apresentados nessa seção não são utilizadas apenas para extrair o perfil do indivíduo, mas também para avaliar se a ação realizada pelo robô gerou uma reação positiva ou negativa no indivíduo. A lista apresentada a seguir define as variáveis comportamentais e uma breve explicação sobre o objetivo de cada uma das variáveis.
+Variáveis comportamentais tem como principal objetivo identificar o comportamento do indivíduo dentro do cenário exigido por uma determinada tarefa. Nessa tese o comportamento está diretamente relacionado com cenários de interação social. As variáveis comportamentais são coletadas a partir de informações sobre as posições corporais e expressões faciais do indivíduo, tornando possível uma análise com base em teorias de linguagem corporal e de microexpressões. As análises realizadas a partir da linguagem corporal, tem por base o trabalho apresentado por \citeonline{Lambert:2008}. O conjunto de variáveis comportamentais apresentados nessa seção não são utilizadas apenas para extrair o perfil do indivíduo, mas também para avaliar se a ação realizada pelo robô gerou uma reação positiva ou negativa no indivíduo. A lista apresentada a seguir define as variáveis comportamentais obtidas através da literatura e uma breve explicação sobre o objetivo de cada uma das variáveis.
 
 \begin{enumerate}
 	\item \textbf{Expressões Faciais}: é possível identificar se a reação do indivíduo foi positiva ou negativa, a partir de uma ação do robô. Existem seis expressões bases que combinadas formam diversas outras~\cite{Bihan:2014}. Contudo, nesse trabalho será considerado apenas as seis expressões bases classificadas em dois grupos: expressões faciais positivas e expressões faciais negativas. O intuito dessa variável é realizar a avaliação da ação do robô com base nas expressões faciais do indivíduo.
@@ -108,9 +116,11 @@ Variáveis comportamentais tem como principal objetivo identificar o comportamen
 	\item \textbf{Estilo da Voz}: é importante, pois pode determinar a reação que o indivíduo terá após a interação via áudio com o robô. Além disso, é possível determinar se o indivíduo está confortável ou não durante a interação, analisando o tom de sua voz ao responder o robô. Nesse trabalho, será considerado somente o canal de resposta ao indivíduo. A análise do tom da voz do indivíduo não será considerado nesta tese e ficará para trabalhos futuros de aprimoramento do componente de análise comportamental em IHR.
 \end{enumerate}
 
+As variáveis apresentadas acima podem auxiliar na descoberta do interesse em relação a interação. Algumas delas, como as que envolve o olhar, podem necessitar de equipamentos mais específicos para obter uma melhor acurácia na captura. Outras variáveis necessitam de muitas técnicas e estudos direcionados para trazer a interação à um nível mais natural, como o caso da voz. Dessa forma, escolher quais variáveis trabalhar tem influência não só sobre o estudo realizado, como também nos equipamentos embarcados no robô. Tais equipamentos, podem influenciar em sua aparência e consequentemente na interação. Essas variáveis que influenciam sobre o robôs são apresentadas na seção~\ref{sec:variaveisrobo} a seguir.
+
 \subsection{Selecionando as Variáveis para o Robô}
 \label{sec:variaveisrobo}
-Além das variáveis referentes ao perfil do indivíduo, deve-se considerar também as informações sobre o robô uma vez que sua aparência pode influenciar na reação das pessoas durante a interação~\cite{Hegel:2009}. Coletar as variáveis do robô pode auxiliar a identificar quais são os principais fatores que tornam a interação humano-robô desconfortável ou com menos qualidade. Dessa forma, foi definido um conjunto de variáveis que pudessem caracterizar da melhor maneira fatores do robô, referente a sua aparência, que influenciam na IHR. Esse conjunto de variáveis é apresentado a seguir:
+Além das variáveis referentes ao perfil do indivíduo, deve-se considerar também as informações sobre o robô uma vez que sua aparência pode influenciar na reação das pessoas durante a interação~\cite{Hegel:2009}. Coletar as variáveis do robô pode auxiliar a identificar quais são os principais fatores que tornam a interação humano-robô desconfortável ou menos natural ao ser humano. Dessa forma, definiu-se um conjunto de variáveis que pudessem caracterizar da melhor maneira fatores do robô, referente a sua aparência, que influenciam na interação social. Esse conjunto de variáveis é apresentado a seguir:
 
 \begin{enumerate}
 	\item \textbf{Altura}: A altura do robô para identificar a influência da diferença entre alturas de robôs e humanos.
@@ -118,24 +128,25 @@ Além das variáveis referentes ao perfil do indivíduo, deve-se considerar tamb
 	\item \textbf{Tipo do Robô}: Segundo \citeonline{Choi:2014}, robôs possuem dois tipos: Autônomos e Tele-operados. Essa variável define o quanto de intervenção humana é necessário para que o robô possa executar a tarefa objetivo.
 	\item \textbf{Classificação do Robô}: Segundo \citeonline{Dobra:2014} classificar um robô é uma tarefa muito complexa e pode envolver diversas variáveis. Dessa forma, para essa tese será considerado uma classificação mais simples. O robô deve ser classificado como: fixo, móvel com rodas, móvel bípede, móvel quadrupede, móvel com manipuladores. Outras classificações podem ser inseridas conforme a necessidade e inclusão de novos robôs.
 	\item \textbf{Aparência Física}: Essa variável descreve se o robô possui uma aparência amigável ou agressiva.
-	\item \textbf{Nível de Ruído}: Determina qual o nível de ruído que os atuadores do robô podem gerar de tal forma, que possa influenciar na interação humano-robô.
+	\item \textbf{Nível de Ruído}: Determina qual o nível de ruído que os atuadores do robô podem gerar de tal forma, que possa influenciar na interação humano-robô. Como exemplo, pode-se citar o Big Dog~\footnote{http://www.bostondynamics.com/robot\_bigdog.html}, da Darpa Robotics, que é movido através de um motor diesel e seus atuadores pneumáticos e hidráulicos apresentam um alto grau de ruído.
 \end{enumerate}
 
-Além das variáveis que definem as características, é necessário também o mapeamento das ações que o robô irá executar para que exista uma avaliação dessa após a reação do indivíduo. As variáveis que compõem as informações do perfil comportamental do robô são:
+Além das variáveis que definem as características, é necessário também o mapeamento das ações que o robô irá executar para que exista uma análise das informações após a reação do indivíduo. As variáveis que compõem as informações do perfil comportamental do robô são:
 
 \begin{enumerate}
 	\item \textbf{Aproximação}: Forma de aproximação do robô ao indivíduo. Pode ser classificada entre rápida, devagar, brusca ou suave.
-	\item \textbf{Movimentação do Manipulador}: Caso exista um manipulador deve descrever como é feita a movimentação do manipulador em direção ao usuário. A classificação consiste em brusca ou suave.
+	\item \textbf{Movimentação do Manipulador}: Caso exista um manipulador deve descrever como é feita a movimentação do manipulador em direção ao usuário. A classificação pode ser feita entre brusca e suave; ou em relação a sua amplitude, como longo e curto.
 	\item \textbf{Estilo de Voz}: Ao emitir algum tipo de som o robô deverá manter um estilo de voz para que seja possível simbolizar qual o tipo de mensagem ele deseja falar. A classificação será feita de maneira simplificada, considerando apenas se é um estilo educado ou agressivo.
+	\item \textbf{Volume de Voz}: Ao emitir um som, o robô deve saber qual o volume adequada considerando a interação, ambiente e distância do segundo agente. Uma classificação simples pode ser utilizada, como por exemplo, alto e baixo.
 	\item \textbf{Expressão Facial}: Ao iniciar o contato visual com o indivíduo, pode ocorrer diversas expressões do robô na tentativa de manter o conforto do indivíduo durante o processo de interação. Simplificando as expressões, de maneira similar ao apresentado na seção~\ref{sec:variaveiscomportamentais}, são consideradas apenas dois tipos de expressões realizadas pelo robô: amistoso e não-amistoso. As expressões faciais do robô serão executadas através do \emph{tablet} acoplado nele, conforme descrito na seção~\ref{sec:robo}.
 \end{enumerate}
 
-As variáveis comportamentais do robô definidas com o objetivo de executar uma tarefa de abordagem para estabelecer uma interação. Caso seja necessário adicionar novas variáveis a esse conjunto não haverá problema ao método apresentado ao longo da seção.
+As variáveis comportamentais do robô são definidas com o objetivo de executar uma tarefa de abordagem para estabelecer uma interação, ou seja, uma aproximação inicial do ser humano. Caso seja necessário deve-se adicionar novas variáveis a esse conjunto e essa adição não afetará ao método apresentado como uma solução para este problema. O conhecimento prévio da pessoa, um reencontro, não será considerado nessa tese, deixando assim como trabalhos futuros.
 
-\section{Rede Bayesiana para Diagnóstico de Desconforto do Indivíduo na Aproximação do Robô}
+\section{Rede Bayesiana para Auxiliar na Aproximação do Robô}
 \label{sec:rede-bayesiana}
 
-Com base na variáveis apresentadas ao longo da seção~\ref{sec:extracaocaracteristicas}, optou-se por utilizar as variáveis principais e também mínimas, para auxiliar no diagnóstico e tomada de decisão do robô. As variáveis foram segmentadas apenas para que tomada de decisão feita pelo robô fosse automática, sem necessidade de controla-lo de qualquer maneira. Apesar dessa segmentação das variáveis, elas foram mapeadas para que sejam incluídas em trabalhos futuros, melhorando assim o processo de análise comportamental do indíviduo. As variáveis que serão utilizadas são:
+Analisando os sensores disponíveis no robô utilizado para implementação e execução dos testes dessa tese (vide seção~\ref{sec:robo}) e as variáveis apresentadas nas seções~\ref{sec:variaveiscomportamentais} e \ref{sec:variaveisrobo}, optou-se por utilizar variáveis mínimas e com o menor número de sensores, para auxiliar no diagnóstico e tomada de decisão do robô. A quantidade de menor número de sensores é justificada devido a facilidade de implementar em qualquer tipo de robô com o menor custo. As variáveis foram segmentadas para que tomada de decisão feita pelo robô fosse automática, sem necessidade de controla-lo de qualquer maneira. Apesar dessa segmentação das variáveis na implementação da rede bayesiana, as mapeadas na seção~\ref{sec:extracaocaracteristicas} estão documentadas para que sejam incluídas em trabalhos futuros, melhorando assim o processo de análise comportamental do indíviduo, assim como outras aqui não contempladas. As variáveis que serão utilizadas são:
 
 \begin{itemize}
 	\item POS: posicionamento do robô dentro da zona de proximidade social da pessoa, apresentada no capítulo~\ref{cap:proxemics} através da figura~\ref{fig:proximityzones};
@@ -148,17 +159,7 @@ Com base na variáveis apresentadas ao longo da seção~\ref{sec:extracaocaracte
 	\item NEG\_CORP: se a pessoa apresentou uma expressão corporal negativa durante a tentativa de aproximação do robô;
 \end{itemize}
 
-A partir das variáveis apresentadas, foi possível estabelecer uma rede bayesiana partindo do princípio de que POS é o nó pai que tem influência sobre todos os outros. Em um nível intemediário de nós temos as variávies \{VEL, VOL, GES, FACE\}, que são variáveis dependentes exclusivamente das ações do robô e possuem uma independência condicional dado o pai POS. Por fim, as três variáveis que representam as reações do ser humano, que são independentes condicionais dado os pais \{POS, VEL, VOL, GES, FACE\}. As variáveis \{AFASTOU, NEG\_FACE, NEG\_CORP\} também são chamadas de nós de efeito, que querem ser observados durante o processo de interação humano robô. A figura~\ref{fig:rb} apresenta a rede bayesiana formada com base na hierarquia definida.
-
-\begin{figure}[ht!]
-	\centering
-	\caption{Rede bayesiana construída para auxiliar no diagnóstico e tomada de decisão da aproximação ao indivíduo.}
-	\includegraphics[width=0.8\textwidth]{rb-thesis.png}
-	\smallcaption{Fonte: Autor.}
-	\label{fig:rb}
-\end{figure}
-
-O domínio para cada uma das variáveis aleatórias que compõem a rede bayesiana da figura~\ref{fig:rb} são:
+Para cada uma das variáveis aleatórias é necessário o mapeamento dos domínios. Os domínios são importantes para definir quais os possíveis valores que cada variável pode assumir, além de limitar o escopo do trabalho de maneira a atingir o seu objetivo. O domínio de cada variável aleatória apresentada é:
 
 \begin{itemize}
 	\item POS = \{publica, social, pessoal, íntima\}
@@ -171,7 +172,21 @@ O domínio para cada uma das variáveis aleatórias que compõem a rede bayesian
 	\item NEG\_CORP = \{verdadeiro, falso\}
 \end{itemize}
 
-A partir de agora é preciso estabelecer a rede bayesiana em formato de probabilidades, para que seja possível compreender cada um dos cálculos de inferência e diagnóstico realizados pelo algoritmo. As equações~\ref{eq:1}, \ref{eq:2}, \ref{eq:3}, \ref{eq:4}, \ref{eq:5}, \ref{eq:6}, \ref{eq:7} e \ref{eq:8} representam as probabilidades da rede bayesiana.
+As variavéis que representam a reação do usuário (\{AFASTOU, NEG\_FACE, NEG\_CORP\}) possuem o domínio binário, pois o intuito é apenas saber se algum fator gerou uma reação negativa do ser humano durante a interação. As demais várias necessitam de um domínio maior, pois a intenção é investigar quais os fatores que levaram a reação negativa do ser humano.
+
+Com a definição das variáveis aleatórias e seus respectivos domínios, foi possível estabelecer um grafo acíclico orientado, uma rede bayesiana, partindo do princípio de que POS é o nó pai que tem influência sobre todos os outros. Ele foi escolhido como nó pai, pois é a causa principal dos demais efeitos da rede, que possui mais dois níveis. Em um nível intemediário de nós temos as variávies \{VEL, VOL, GES, FACE\}, que são variáveis dependentes exclusivamente das ações do robô e possuem uma independência condicional dado o pai POS. Por fim, as três variáveis que representam as reações do ser humano, que são independentes condicionais dado os pais \{POS, VEL, VOL, GES, FACE\}. As variáveis \{AFASTOU, NEG\_FACE, NEG\_CORP\} também são chamadas de nós de efeito, que querem ser observados durante o processo de interação humano robô. A figura~\ref{fig:rb} apresenta a rede bayesiana formada com base na hierarquia definida.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.8\textwidth}
+		\caption{Rede bayesiana construída para auxiliar no diagnóstico e tomada de decisão da aproximação ao indivíduo.}
+		\includegraphics[width=\textwidth]{rb-thesis.png}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:rb}
+	\end{minipage}
+\end{figure}
+
+A partir de agora é preciso formalizar a rede bayesiana em formato de probabilidades, para que seja possível compreender cada um dos cálculos de inferência e diagnóstico realizados pelo mecanismo de tomada de decisão do robô durante a tarefa de aproximação do indivíduo. As equações~\ref{eq:1}, \ref{eq:2}, \ref{eq:3}, \ref{eq:4}, \ref{eq:5}, \ref{eq:6}, \ref{eq:7} e \ref{eq:8} representam as probabilidades da rede bayesiana para cada uma das variáveis aleatórias mapeadas.
 
 \begin{equation}
 	\label{eq:1}
@@ -212,3 +227,5 @@ A partir de agora é preciso estabelecer a rede bayesiana em formato de probabil
 	\label{eq:8}
 	P(NEG\_CORP|POS, VEL, VOL, GES, FACE)
 \end{equation}
+
+É importante ressaltar que o efeito a ser medido é a reação do ser humano, pois é o principal interessado em toda interação com o robô, já que é um robô com tarefas em ambientes sociais, domésticos e assistivos. A grande preocupação em manter o foco no ser humano é por que os trabalhos apresentados no capítulo~\ref{cap:proxemics} tem o foco apenas na execução da tarefa pelo robô e em seu comportamento. As reações dos seres humanos são colocadas em segundo plano, nesses trabalhos.
