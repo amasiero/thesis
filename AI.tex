@@ -1,6 +1,15 @@
 %!TEX root=Principal.tex
-\chapter{RACIOCÍNIO PROBABILÍSTICO}
+\chapter{CONCEITOS FUNDAMENTAIS}
 \label{cap:ai}
+
+\section{Análise de Componentes Principais}
+\label{sec:pca}
+
+\section{Agrupamento de Dados}
+\label{sec:clustering}
+
+\section{Raciocínio Probabilístico}
+\label{sec:raciocinio-probabilistico}
 
 Para que um agente possa tomar uma decisão, é necessário que ele analise todas as possibilidades de ações que possam ser feitas e o que ocorrerá após essa tomada de decisão para que exista uma certeza sobre o caminho que ele deve seguir. O processo para encontrar a certeza sobre uma decisão, computacionalmente, é oneroso e com a quantidade de variáveis geralmente consideradas, torna-se inviável. Sendo assim, um agente precisa trabalhar com a incerteza sobre o domínio para que possa ser tomada uma decisão~\cite{Russell:2002}.
 
@@ -75,7 +84,7 @@ A aplicação da regra de Bayes é útil, pois a partir dela é possível perceb
 
 A equação~\ref{eq:causa_efeito} pode ser igualada em dois sentidos, $P(efeito|causa)$ que busca quantificar a relação entre as variáveis na direção causal e $P(causa|efeito)$ que tem o objetivo de descrever a direção da relação em forma de diagnóstico. O conhecimento conseguido através da direção do diagnóstico é mais frágil que o conhecimento obtido através da direção causal do problema, porém em aplicações médicas a direção do diagnóstico é mais recomendada para aplicação em sistemas~\cite{Russell:2002}.
 
-\section{Redes Bayesianas}
+\subsection{Redes Bayesianas}
 \label{sec:redes-bayesianas}
 
 Pode-se observar com o texto apresentado na seção anterior, que a distribuição de probabilidade conjunta total pode responder a qualquer questão dentro de um determinado domínio. Contudo, pela sua complexidade matemática a partir de um aumento no número de variáveis, torna-se intratável computacionalmente~\cite{Russell:2002}.
@@ -141,7 +150,7 @@ A partir das informações acima, é possível construir a tabela de probabilida
 
 onde o produto é obtido dos pais que são definidos como verdadeiro para cada linha da tabela de probabilidade condicional. Os relacionamentos lógicos ruidosos podem ser descritos com $O(k)$ parâmetros, ao invés de $O(2^k)$ da TPC completa, considerando $k$ pais~\cite{Russell:2002}.
 
-\subsection{Métodos de Inferência}
+\subsubsection{Métodos de Inferência}
 
 Quando obtêm-se uma observação de um evento qualquer, dentro de um domínio, espera-se que o sistema de inferência seja capaz de calcular a distribuição de probalidade posterior para o conjunto de variáveis de consulta. Essa é sua tarefa básica. Ele deve atribuir valores ao conjunto de variáveis de evidência~\cite{Russell:2002}.
 
