@@ -11,15 +11,15 @@
 \section{Raciocínio Probabilístico}
 \label{sec:raciocinio-probabilistico}
 
-Para que um agente possa tomar uma decisão, é necessário que ele analise todas as possibilidades de ações que possam ser feitas e o que ocorrerá após essa tomada de decisão para que exista uma certeza sobre o caminho que ele deve seguir. O processo para encontrar a certeza sobre uma decisão, computacionalmente, é oneroso e com a quantidade de variáveis geralmente consideradas, torna-se inviável. Sendo assim, um agente precisa trabalhar com a incerteza sobre o domínio para que possa ser tomada uma decisão~\cite{Russell:2002}.
+Para que um agente possa tomar uma decisão, é necessário que ele analise todas as possibilidades de ações que possam ser feitas e o que ocorrerá após essa tomada de decisão para que exista uma certeza sobre o caminho que ele deve seguir. O processo para encontrar a certeza sobre uma decisão, computacionalmente, é oneroso e com a quantidade de variáveis geralmente consideradas, torna-se inviável. Sendo assim, um agente precisa trabalhar com a incerteza sobre o domínio para que possa ser tomada uma decisão~\cite{russell:2002}.
 
-Fazer o agente tomar uma decisão considerando a incerteza, é fazer o agente manter o controle baseado em um estado de crença, em outras palavras, um conjunto com todos os possíveis estados em um domínio ao qual ele possa estar. Além disso, o agente deve prever e gerar um plano de contingência para eventuais situações que sejam detectadas durante a execução do algoritmo. Nesses problemas, as informações que o agente possui não conseguem garantir nenhum resultado com certeza absoluta. Porém, tais informações garantem um grau de crença de que o objetivo será alcançado ou a decisão por um caminho relevante será tomada~\cite{Russell:2002}.
+Fazer o agente tomar uma decisão considerando a incerteza, é fazer o agente manter o controle baseado em um estado de crença, em outras palavras, um conjunto com todos os possíveis estados em um domínio ao qual ele possa estar. Além disso, o agente deve prever e gerar um plano de contingência para eventuais situações que sejam detectadas durante a execução do algoritmo. Nesses problemas, as informações que o agente possui não conseguem garantir nenhum resultado com certeza absoluta. Porém, tais informações garantem um grau de crença de que o objetivo será alcançado ou a decisão por um caminho relevante será tomada~\cite{russell:2002}.
 
-Todas as declarações feitas com base na crença sobre as informações não se contradizem mutuamente. Cada uma é uma afirmação separada de um diferente estado de conhecimento. Cada vez que inserimos uma informação nova e complementar, é aumentado o estado de crença sobre um determinado assunto, melhorando a tomada de decisão do agente~\cite{Russell:2002}.
+Todas as declarações feitas com base na crença sobre as informações não se contradizem mutuamente. Cada uma é uma afirmação separada de um diferente estado de conhecimento. Cada vez que inserimos uma informação nova e complementar, é aumentado o estado de crença sobre um determinado assunto, melhorando a tomada de decisão do agente~\cite{russell:2002}.
 
-Para que a tomada de decisão tenha uma maior utilidade para o agente, ele deve preferências dentre os diferentes resultados apresentados. Sendo assim, ter uma decisão com base apenas na probabilidade, não é recomendável. Essa é a base da teoria da utilidade. A teoria da utilidade é utilizada para que o agente represente e raciocine em seu problema, de acordo com suas preferências. É distribuido um grau de utilidade para cada escolha que o agente possa ter, assim o estado que possui o maior grau de utilidade é escolhido. Pode-se dizer então que uma decisão é tomada com base na probabilidade de um estado somado a sua utilidade~\cite{Russell:2002}.
+Para que a tomada de decisão tenha uma maior utilidade para o agente, ele deve preferências dentre os diferentes resultados apresentados. Sendo assim, ter uma decisão com base apenas na probabilidade, não é recomendável. Essa é a base da teoria da utilidade. A teoria da utilidade é utilizada para que o agente represente e raciocine em seu problema, de acordo com suas preferências. É distribuido um grau de utilidade para cada escolha que o agente possa ter, assim o estado que possui o maior grau de utilidade é escolhido. Pode-se dizer então que uma decisão é tomada com base na probabilidade de um estado somado a sua utilidade~\cite{russell:2002}.
 
-Utilizar as teorias de probabilidade e utilidade, necessita de algumas formalizações e notações, para que as equações sejam melhor compreendidas. A primeira formalização é a equação~\ref{eq:prob_condicional_a_b} que representa a probabilidade condicional para quaisquer proposições $A$ e $B$~\cite{Russell:2002}.
+Utilizar as teorias de probabilidade e utilidade, necessita de algumas formalizações e notações, para que as equações sejam melhor compreendidas. A primeira formalização é a equação~\ref{eq:prob_condicional_a_b} que representa a probabilidade condicional para quaisquer proposições $A$ e $B$~\cite{russell:2002}.
 
 \begin{equation}
     \label{eq:prob_condicional_a_b}
@@ -33,7 +33,7 @@ A equação~\ref{eq:prob_condicional_a_b} é válida apenas para $P(b) > 0$. Ess
     P(a \land b) = P(a|b)P(b)
 \end{equation}
 
-As proposições de uma equação são determinadas pelas variáveis aleatórias de um problema. Uma variável aleatória é representada através de um nome ao qual sua primeira letra deve ser maiuscula, por exemplo, $Total$, $Tempo$ ou $Informacao$. Cada variável aleatória possui um domínio, que representa os possíveis valores que esta variável pode assumir. Os valores são descritos utilizando todas as letras em caixa baixa, ou seja, minusculas, por exemplo, $Tempo = \{ ensolarado, chuvoso, nublado, nevando \}$. Quando uma variável é booleana, podem ser nomeadas com se fossem valores (em minusculo) e utiliza-se a regra de negar o valor para representar os valores de falso e verdadeiro~\cite{Russell:2002}.
+As proposições de uma equação são determinadas pelas variáveis aleatórias de um problema. Uma variável aleatória é representada através de um nome ao qual sua primeira letra deve ser maiuscula, por exemplo, $Total$, $Tempo$ ou $Informacao$. Cada variável aleatória possui um domínio, que representa os possíveis valores que esta variável pode assumir. Os valores são descritos utilizando todas as letras em caixa baixa, ou seja, minusculas, por exemplo, $Tempo = \{ ensolarado, chuvoso, nublado, nevando \}$. Quando uma variável é booleana, podem ser nomeadas com se fossem valores (em minusculo) e utiliza-se a regra de negar o valor para representar os valores de falso e verdadeiro~\cite{russell:2002}.
 
 O exemplo da representação de uma varíavel booleana através de valores é demonstrado através das equações~\ref{eq:neg_valor}.
 
@@ -45,13 +45,13 @@ O exemplo da representação de uma varíavel booleana através de valores é de
     \end{align}
 \end{subequations}
 
-Em teoria de probabilidade, quando trata-se um problema, é procurado mundos possíveis. Um mundo possível é definido como uma atribuição de valores para cada uma das variáveis aleatórias consideradas em um problema. Para realizar a atribuição dos valores, pode-se trabalhar com diversos tipos de visão probabilística. A primeira é chamada de frequentista, onde o valor da probabilidade é determinado através de observações à experimentos realizados com grandes amostras. Outro tipo encontrado é o objetivista que define as probabilidades como aspectos reais, ou seja, como tendências dos comportamentos dos objetos dentro de um cenário específico~\cite{Russell:2002}.
+Em teoria de probabilidade, quando trata-se um problema, é procurado mundos possíveis. Um mundo possível é definido como uma atribuição de valores para cada uma das variáveis aleatórias consideradas em um problema. Para realizar a atribuição dos valores, pode-se trabalhar com diversos tipos de visão probabilística. A primeira é chamada de frequentista, onde o valor da probabilidade é determinado através de observações à experimentos realizados com grandes amostras. Outro tipo encontrado é o objetivista que define as probabilidades como aspectos reais, ou seja, como tendências dos comportamentos dos objetos dentro de um cenário específico~\cite{russell:2002}.
 
-A visão subjetivista trabalha com os valores de probabilidades no formato que caracteriza a crença do agente ao invés de qualquer significado ligado ao mundo físico externo. Essa visão possui uma variante bayesiana que permite qualquer atribuição auto consistente de probabilidades anteriores à proposições, e também são capazes de atualizar os valores a medida que evidências ocorrem a partir do observador~\cite{Russell:2002}.
+A visão subjetivista trabalha com os valores de probabilidades no formato que caracteriza a crença do agente ao invés de qualquer significado ligado ao mundo físico externo. Essa visão possui uma variante bayesiana que permite qualquer atribuição auto consistente de probabilidades anteriores à proposições, e também são capazes de atualizar os valores a medida que evidências ocorrem a partir do observador~\cite{russell:2002}.
 
-Todos os valores que um mundo possível tem, são descritos através de uma tabela chamada de tabela de distribuição conjunta. Essa tabela, em geral, possui uma quantidade de valores muito grande que inviabiliza o processamento das informações, levando ao mesmo cenário que apresenta a certeza de um agente sobre uma determinada decisão. Para que a quantidade de informação na tabela de distribuição conjunta seja minimizada e auxilie no processamento das informações para uma tomada de decisão, é necessário encontrar a independência condicional entre as variáveis do problema em questão. A independência de uma variável é importante, pois auxilia não só na redução da representação domínio, mas também na complexidade do problema~\cite{Russell:2002}.
+Todos os valores que um mundo possível tem, são descritos através de uma tabela chamada de tabela de distribuição conjunta. Essa tabela, em geral, possui uma quantidade de valores muito grande que inviabiliza o processamento das informações, levando ao mesmo cenário que apresenta a certeza de um agente sobre uma determinada decisão. Para que a quantidade de informação na tabela de distribuição conjunta seja minimizada e auxilie no processamento das informações para uma tomada de decisão, é necessário encontrar a independência condicional entre as variáveis do problema em questão. A independência de uma variável é importante, pois auxilia não só na redução da representação domínio, mas também na complexidade do problema~\cite{russell:2002}.
 
-Contudo, nem sempre o problema nos permite calcular todas as probabilidades, e algumas ainda são desconhecidas. Para que as probabilidades tornem-se possíveis de serem calculadas a partir de probabilidades condicionais conhecidas, tem-se a regra de Bayes. A regra de Bayes foi definida com base nas duas representações da regra do produto (vide equação~\ref{eq:regra_produto})~\cite{Russell:2002}.
+Contudo, nem sempre o problema nos permite calcular todas as probabilidades, e algumas ainda são desconhecidas. Para que as probabilidades tornem-se possíveis de serem calculadas a partir de probabilidades condicionais conhecidas, tem-se a regra de Bayes. A regra de Bayes foi definida com base nas duas representações da regra do produto (vide equação~\ref{eq:regra_produto})~\cite{russell:2002}.
 
 \begin{subequations}
     \label{eq:regra_produto}
@@ -61,35 +61,35 @@ Contudo, nem sempre o problema nos permite calcular todas as probabilidades, e a
     \end{align}
 \end{subequations}
 
-Ao igualar os dois membros da direita, apresentados na equação~\ref{eq:regra_produto}, encontra-se a equação da regra de Bayes. Ela é apresentada através da equação~\ref{eq:regra_bayes}~\cite{Russell:2002}.
+Ao igualar os dois membros da direita, apresentados na equação~\ref{eq:regra_produto}, encontra-se a equação da regra de Bayes. Ela é apresentada através da equação~\ref{eq:regra_bayes}~\cite{russell:2002}.
 
 \begin{equation}
     \label{eq:regra_bayes}
     P(b|a) = \frac{P(a|b)P(b)}{P(a)}
 \end{equation}
 
-A regra de Bayes, ainda, pode ser condicionada a uma evidência prática denominada $e$, como apresentado na equação~\ref{eq:regra_bayes_evidencia}~\cite{Russell:2002}.
+A regra de Bayes, ainda, pode ser condicionada a uma evidência prática denominada $e$, como apresentado na equação~\ref{eq:regra_bayes_evidencia}~\cite{russell:2002}.
 
 \begin{equation}
     \label{eq:regra_bayes_evidencia}
     P(Y|X, e) = \frac{P(X|Y, e)P(Y|e)}{P(X|e)}
 \end{equation}
 
-A aplicação da regra de Bayes é útil, pois a partir dela é possível perceber que existe um \textbf{efeito} sendo a evidência de alguma \textbf{causa} desconhecida e deseja-se saber o motivo que gerou àquela situação ou comportamento. Para ilustrar, a equação~\ref{eq:causa_efeito} apresenta a regra de Bayes a partir da relação de causa-efeito~\cite{Russell:2002}.
+A aplicação da regra de Bayes é útil, pois a partir dela é possível perceber que existe um \textbf{efeito} sendo a evidência de alguma \textbf{causa} desconhecida e deseja-se saber o motivo que gerou àquela situação ou comportamento. Para ilustrar, a equação~\ref{eq:causa_efeito} apresenta a regra de Bayes a partir da relação de causa-efeito~\cite{russell:2002}.
 
 \begin{equation}
     \label{eq:causa_efeito}
     P(causa|efeito) = \frac{P(efeito|causa)P(causa)}{P(efeito)}
 \end{equation}
 
-A equação~\ref{eq:causa_efeito} pode ser igualada em dois sentidos, $P(efeito|causa)$ que busca quantificar a relação entre as variáveis na direção causal e $P(causa|efeito)$ que tem o objetivo de descrever a direção da relação em forma de diagnóstico. O conhecimento conseguido através da direção do diagnóstico é mais frágil que o conhecimento obtido através da direção causal do problema, porém em aplicações médicas a direção do diagnóstico é mais recomendada para aplicação em sistemas~\cite{Russell:2002}.
+A equação~\ref{eq:causa_efeito} pode ser igualada em dois sentidos, $P(efeito|causa)$ que busca quantificar a relação entre as variáveis na direção causal e $P(causa|efeito)$ que tem o objetivo de descrever a direção da relação em forma de diagnóstico. O conhecimento conseguido através da direção do diagnóstico é mais frágil que o conhecimento obtido através da direção causal do problema, porém em aplicações médicas a direção do diagnóstico é mais recomendada para aplicação em sistemas~\cite{russell:2002}.
 
 \subsection{Redes Bayesianas}
 \label{sec:redes-bayesianas}
 
-Pode-se observar com o texto apresentado na seção anterior, que a distribuição de probabilidade conjunta total pode responder a qualquer questão dentro de um determinado domínio. Contudo, pela sua complexidade matemática a partir de um aumento no número de variáveis, torna-se intratável computacionalmente~\cite{Russell:2002}.
+Pode-se observar com o texto apresentado na seção anterior, que a distribuição de probabilidade conjunta total pode responder a qualquer questão dentro de um determinado domínio. Contudo, pela sua complexidade matemática a partir de um aumento no número de variáveis, torna-se intratável computacionalmente~\cite{russell:2002}.
 
-Sendo assim, uma maneira que existe para representar a distribuição de probabilidade conjunta total é a utilização de uma estrutura de dados chamada rede bayesiana. Um rede bayesiana é capaz de representar as dependências entre variáveis do domínio. Ela é definida como um grafo acíclico orientado, onde cada nó é identificado através das informações quantitativas sobre sua probabilidade~\cite{Russell:2002}. A especificação de uma rede bayesiana é:
+Sendo assim, uma maneira que existe para representar a distribuição de probabilidade conjunta total é a utilização de uma estrutura de dados chamada rede bayesiana. Um rede bayesiana é capaz de representar as dependências entre variáveis do domínio. Ela é definida como um grafo acíclico orientado, onde cada nó é identificado através das informações quantitativas sobre sua probabilidade~\cite{russell:2002}. A especificação de uma rede bayesiana é:
 
 \begin{itemize}
     \item Cada nó corresponde a uma variável aleatória. Ela pode ser discreta ou contínua.
@@ -97,13 +97,13 @@ Sendo assim, uma maneira que existe para representar a distribuição de probabi
     \item Cada nó $X_i$ tem uma distribuição de probabilidade condicional $P(X_i|Pais(X_i))$ que quantifica o efeito dos pais sobre o nó filho.
 \end{itemize}
 
-As setas de conexões entre os nós dão o significado de que os pais influenciam diretamente os filhos. Em termos de causa e efeito, significa que as causas devem ser organizadas como pais dos efeitos~\cite{Russell:2002}.
+As setas de conexões entre os nós dão o significado de que os pais influenciam diretamente os filhos. Em termos de causa e efeito, significa que as causas devem ser organizadas como pais dos efeitos~\cite{russell:2002}.
 
-A semântica de uma rede bayesiana pode ser tratada de duas maneiras: (I) a primeira como a representação da distribuição de probabilidade conjunta; (II) a outra maneira, é como a codificação de uma coleção de declarações de independência condicional. A primeira é utilizada para compreender a construção da rede, e a segunda em procedimentos de inferência sobre consultas~\cite{Russell:2002}.
+A semântica de uma rede bayesiana pode ser tratada de duas maneiras: (I) a primeira como a representação da distribuição de probabilidade conjunta; (II) a outra maneira, é como a codificação de uma coleção de declarações de independência condicional. A primeira é utilizada para compreender a construção da rede, e a segunda em procedimentos de inferência sobre consultas~\cite{russell:2002}.
 
-Quando trata-se da representação da distribuição conjunta total, cada entrada é representada pelo produto dos elementos apropriados das tabelas de probabilidade condicional (TPCs) na rede bayesiana. Dessa forma, a distribuição conjunta total é utilizada para obter respostas sobre qualquer consulta no domínio. Sendo uma rede bayesiana a representação dessa distribuição, ela também obtêm qualquer resposta para consultas sobre o domínio. Para isso, basta efetuar um somatório de todas as entradas conjuntas relevantes~\cite{Russell:2002}.
+Quando trata-se da representação da distribuição conjunta total, cada entrada é representada pelo produto dos elementos apropriados das tabelas de probabilidade condicional (TPCs) na rede bayesiana. Dessa forma, a distribuição conjunta total é utilizada para obter respostas sobre qualquer consulta no domínio. Sendo uma rede bayesiana a representação dessa distribuição, ela também obtêm qualquer resposta para consultas sobre o domínio. Para isso, basta efetuar um somatório de todas as entradas conjuntas relevantes~\cite{russell:2002}.
 
-Para que a representação da rede bayesiana sobre um conjunto seja correta, é necessário cada nó ser condicionalmente independente de seus predecessores após a sua ordenação, dados seus pais~\cite{Russell:2002}. A seguinte metodologia é aplicada para satisfazer tal condição:
+Para que a representação da rede bayesiana sobre um conjunto seja correta, é necessário cada nó ser condicionalmente independente de seus predecessores após a sua ordenação, dados seus pais~\cite{russell:2002}. A seguinte metodologia é aplicada para satisfazer tal condição:
 
 \begin{itemize}
     \item \textbf{Nós}:
@@ -124,37 +124,37 @@ Para que a representação da rede bayesiana sobre um conjunto seja correta, é 
     P(X_i|X_{i-1},\dots,X_1) = P(X_i|Pais(X_i)),
 \end{equation}
 
-desde que $Pais(X_i) \subseteq \{X_{i-1},\dots,X_1\}$~\cite{Russell:2002}.
+desde que $Pais(X_i) \subseteq \{X_{i-1},\dots,X_1\}$~\cite{russell:2002}.
 
-Após o procedimento, é obtido os pais do nó $X_i$ que contém todos os nós em $X_1, \dots, X_{i-1}$ que possuem influencia direta em $X_i$. Esse método de construção da rede garante que ela seja acíclica, uma vez que cada nó é ligado apenas aos seus anteriores~\cite{Russell:2002}.
+Após o procedimento, é obtido os pais do nó $X_i$ que contém todos os nós em $X_1, \dots, X_{i-1}$ que possuem influencia direta em $X_i$. Esse método de construção da rede garante que ela seja acíclica, uma vez que cada nó é ligado apenas aos seus anteriores~\cite{russell:2002}.
 
-Uma maneira de garantir a consistência da construção da rede bayesiana, é fazer com que ela não possua valores de probabilidade rendundantes ao longo de seus nós. Além disso, a rede bayesiana, em termos computacionais, é mais compacta ao se comparar com a distribuição conjunta total. Assim, o crescimento das variáveis de um domínio, não exercem grandes problemas durante o processo computacional de consultas~\cite{Russell:2002}.
+Uma maneira de garantir a consistência da construção da rede bayesiana, é fazer com que ela não possua valores de probabilidade rendundantes ao longo de seus nós. Além disso, a rede bayesiana, em termos computacionais, é mais compacta ao se comparar com a distribuição conjunta total. Assim, o crescimento das variáveis de um domínio, não exercem grandes problemas durante o processo computacional de consultas~\cite{russell:2002}.
 
-Pode-se dizer também que um nó tem uma independência condicional de todos os outros nós da rede, dados os seus pais, filhos e pais dos filhos, ou seja, dada a cobertura de Markov. Em regras gerais, a relação de pai e filho pode ser descrita como uma distribuição canônica ajustavél a um certo padrão ou forma. Assim, a partir de alguns poucos paramêtros é possível obter a tabela de probabilidade condicional. Essa abordagem facilita, pois diminui a quantidade de números informados à rede~\cite{Russell:2002}.
+Pode-se dizer também que um nó tem uma independência condicional de todos os outros nós da rede, dados os seus pais, filhos e pais dos filhos, ou seja, dada a cobertura de Markov. Em regras gerais, a relação de pai e filho pode ser descrita como uma distribuição canônica ajustavél a um certo padrão ou forma. Assim, a partir de alguns poucos paramêtros é possível obter a tabela de probabilidade condicional. Essa abordagem facilita, pois diminui a quantidade de números informados à rede~\cite{russell:2002}.
 
-Uma distribuição canônica pode ser exemplificada através de um nó determinístico na rede. Esse tipo de nó tem o valor especificado, exclusivamente, pelos valores dos pais e sem nenhuma incerteza envolvida. Outro exemplo, é um nó numérico como, por exemplo, o nó filho ter atribuido o valor mínimo dentre todos os seus nós pais. Também pode-se aplicar aos nós filhos a soma dos fluxos de entrada subtraídos pelos fluxos de saída~\cite{Russell:2002}.
+Uma distribuição canônica pode ser exemplificada através de um nó determinístico na rede. Esse tipo de nó tem o valor especificado, exclusivamente, pelos valores dos pais e sem nenhuma incerteza envolvida. Outro exemplo, é um nó numérico como, por exemplo, o nó filho ter atribuido o valor mínimo dentre todos os seus nós pais. Também pode-se aplicar aos nós filhos a soma dos fluxos de entrada subtraídos pelos fluxos de saída~\cite{russell:2002}.
 
-Porém, não é possível atribuir sempre valores certos aos nós da rede bayesiana. Dessa maneira, é necessário trabalhar com relacionamentos de incerteza. Esse tipo de relacionamento é caracterizado por relações de lógica ruidosos. Tais relações são chamadas de ou-ruidoso. O modelo ou-ruidoso permite que a incerteza as condições do pai faça que o filho torne-se verdadeiro. A situação colocada pelo modelo, faz com que o relacionamento causal pai-filho possa ser inibido. Este modelo trabalha com duas suposições~\cite{Russell:2002}:
+Porém, não é possível atribuir sempre valores certos aos nós da rede bayesiana. Dessa maneira, é necessário trabalhar com relacionamentos de incerteza. Esse tipo de relacionamento é caracterizado por relações de lógica ruidosos. Tais relações são chamadas de ou-ruidoso. O modelo ou-ruidoso permite que a incerteza as condições do pai faça que o filho torne-se verdadeiro. A situação colocada pelo modelo, faz com que o relacionamento causal pai-filho possa ser inibido. Este modelo trabalha com duas suposições~\cite{russell:2002}:
 
 \begin{itemize}
     \item todas as causas possíveis estão pressupostamente listadas. Pode-se considerar nós de vazamento, caso isso não ocorra.
     \item a inibição de cada pai é pressupostamente independente de quaisquer outro pai.
 \end{itemize}
 
-A partir das informações acima, é possível construir a tabela de probabilidade condicional inteira. Para isso, utiliza-se a regra geral dada pela equação~\ref{eq:regra-geral}~\cite{Russell:2002}.
+A partir das informações acima, é possível construir a tabela de probabilidade condicional inteira. Para isso, utiliza-se a regra geral dada pela equação~\ref{eq:regra-geral}~\cite{russell:2002}.
 
 \begin{equation}
     \label{eq:regra-geral}
     P(x_i|pais(X_i)) = 1 - \prod_{\{j:X_j = verdadeiro\}} ,
 \end{equation}
 
-onde o produto é obtido dos pais que são definidos como verdadeiro para cada linha da tabela de probabilidade condicional. Os relacionamentos lógicos ruidosos podem ser descritos com $O(k)$ parâmetros, ao invés de $O(2^k)$ da TPC completa, considerando $k$ pais~\cite{Russell:2002}.
+onde o produto é obtido dos pais que são definidos como verdadeiro para cada linha da tabela de probabilidade condicional. Os relacionamentos lógicos ruidosos podem ser descritos com $O(k)$ parâmetros, ao invés de $O(2^k)$ da TPC completa, considerando $k$ pais~\cite{russell:2002}.
 
 \subsubsection{Métodos de Inferência}
 
-Quando obtêm-se uma observação de um evento qualquer, dentro de um domínio, espera-se que o sistema de inferência seja capaz de calcular a distribuição de probalidade posterior para o conjunto de variáveis de consulta. Essa é sua tarefa básica. Ele deve atribuir valores ao conjunto de variáveis de evidência~\cite{Russell:2002}.
+Quando obtêm-se uma observação de um evento qualquer, dentro de um domínio, espera-se que o sistema de inferência seja capaz de calcular a distribuição de probalidade posterior para o conjunto de variáveis de consulta. Essa é sua tarefa básica. Ele deve atribuir valores ao conjunto de variáveis de evidência~\cite{russell:2002}.
 
-Um algoritmo utilizado para inferência é o por enumeração. Ele calcula soma-produtos das probabilidades condicionais na rede. Contudo, esse algoritmo pode ser melhorado substancialmente ao eliminar os cálculos repetidos. A ideia de eliminar cálculos funciona da seguinte maneira, após a execução do cálculo pela primeira vez, armazena-se os resultados para futura utilização. É a idéia básica da programação dinâmica. O algoritmo que apresenta a menor complexidade para essa tarela é chamado de algoritmo de eliminação de variáveis (vide algoritmo~\ref{alg:eliminacao-variaveis})~\cite{Russell:2002}.
+Um algoritmo utilizado para inferência é o por enumeração. Ele calcula soma-produtos das probabilidades condicionais na rede. Contudo, esse algoritmo pode ser melhorado substancialmente ao eliminar os cálculos repetidos. A ideia de eliminar cálculos funciona da seguinte maneira, após a execução do cálculo pela primeira vez, armazena-se os resultados para futura utilização. É a idéia básica da programação dinâmica. O algoritmo que apresenta a menor complexidade para essa tarela é chamado de algoritmo de eliminação de variáveis (vide algoritmo~\ref{alg:eliminacao-variaveis})~\cite{russell:2002}.
 
 \begin{algorithm}
     \textbf{função} ASK-ELIMINACAO($X$, \textbf{e}, \emph{rb}) \Retorna uma distribuição sobre $X$
@@ -174,8 +174,8 @@ Um algoritmo utilizado para inferência é o por enumeração. Ele calcula soma-
     \Se{var \emph{é uma variável oculta}}{\emph{fatores} $\gets$ SOMAR(\emph{var}|\emph{fatores})}
     }
     \Retorna NORMALIZAR(PRODUTO-PONTUAL(\emph{fatores}))
-    \caption{Algoritmo de eliminação de variáveis para inferência nas redes bayesianas~\cite{Russell:2002}}
+    \caption{Algoritmo de eliminação de variáveis para inferência nas redes bayesianas~\cite{russell:2002}}
     \label{alg:eliminacao-variaveis}
 \end{algorithm}
 
-Esse algoritmo realiza a seguinte verificação: se uma variável não é ancestral de nenhuma variável de consulta ou evidência, essa torna-se irrelevante para o processo. Isso faz com que essa varíavel possa ser eliminada dos cálculos de inferência~\cite{Russell:2002}.
+Esse algoritmo realiza a seguinte verificação: se uma variável não é ancestral de nenhuma variável de consulta ou evidência, essa torna-se irrelevante para o processo. Isso faz com que essa varíavel possa ser eliminada dos cálculos de inferência~\cite{russell:2002}.
