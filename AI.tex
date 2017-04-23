@@ -1,16 +1,73 @@
 %!TEX root=Principal.tex
 \chapter{CONCEITOS FUNDAMENTAIS}
 \label{cap:ai}
-
-\section{Análise de Componentes Principais}
-\label{sec:pca}
+Este capítulo apresenta os conceitos fundamentais das técnicas utilizadas para desenvolvimento da tese apresentada.
 
 \section{Agrupamento de Dados}
 \label{sec:clustering}
+Encontrar padrões em informações do mundo real é uma tarefa complexa. O conhecimento sobre o domínio de aplicação ou dos fenômenos naturais é imprescindível na maioria dos casos. Sem esse conhecimento, gerar modelos e padrões matemáticos para compreender os efeitos de tal fenômeno ou aplicação no mundo é complicado~\cite{kantardzic:2011}.
+
+Com o avanço da tecnologia e sua popularização ocorreu um aumneto na criação de informações, sendo este sem ordem ou normalização. O mundo coorporativo enxergou nesse fenômeno uma potencial fonte de conhecimento. Porém, encontrar padrões ou modelos que torne possível encontrar conhecimento nessas informações não é uma tarefa trivial. A partir desse problema, pesquisadores começaram a desenvolver técnicas e algoritmos computacionais onde houvesse então a mineração dos dados, como ficou conhecida a técnica~\cite{jain:1999, kantardzic:2011}.
+
+Minerar dados é um processo realizado com dois objetivos. Predição da informação, onde é possível prever o futuro com base em algumas informações coletadas. E descrição da informação, que apresenta um rótulo mais compreensível ao ser humano a partir dos padrões encontrados nos dados coletados~\cite{jain:1999}.
+
+Dentro do processo de mineração de dados existe um passo chamado de agrupamento de dados. O agrupamento de dados é fundamental para, a partir de um volume finito de informação, extrair padrões e forma grupos com base na similaridade encontrada em cada registro. A extração dos padrões tem como base algumas técnicas aplicadas para associação e classificação. O resultado final dos padrões encontrados pode variar dependendo das técnicas aplicadas~\cite{kantardzic:2011, witten:2011}. As técnicas existentes são:
+
+\begin{itemize}
+    \item \textbf{Exclusivo}: os elementos pertencem a um grupo apenas;
+    \item \textbf{\emph{Overlaping}}: os elementos podem pertencer a mais de um grupo, simultâneamente;
+    \item \textbf{Probabilístico}: os elementos possuem um grau probabilidade de pertencer a um grupo;
+    \item \textbf{Hierárquico}: realiza a divisão aproximada dos grupos. Refina a divisão encontrada até que alcance um resultado que não se altere muito entre as iterações.
+\end{itemize}
+
+O maior desafio da técnica de agrupamento de dados é a maneira de tratar e associar os diversos tipos de informação existentes com por exemplo, algarismos, textos e imagens. Além disso, as informações podem ser extraídas de maneira qualitativa ou quantitativa~\cite{witten:2011}. A seção~\ref{sec:algoritmosclustering} apresentará alguns dos principais algoritmos de agrupamento de dados existentes.
+
+\subsection{Algoritmos de Agrupamento de Dados}
+\label{sec:algoritmosclustering}
+Para realizar o agrupamento de informações existem diversos algoritmos. Alguns dos algoritmos mais populares e outros com aplicações mais específicas serão apresentados nessa seção.
+
+Dentre os algoritmos existentes o mais popular é o k-means. Ele utiliza da distância eucliana para comparar a similaridade entre os dados, tentando minimizar o erro quadrático. A partir do momento que o erro não tiver mais alterações entre as iterações do algoritmo, ele encerra o processo de agrupamento. Ele precisa que o número de grupos desejados seja informado e realiza uma inicialização de sementes, para cada grupo, de maneira aleatória. Devido a isso, o resultado do agrupamento pode ser diferente entre as execuções do algoritmo. O resultado do k-means é bem consistente, mas mesmo para apenas dois grupos, encontrar a solução ótima com o k-means é um processo considerado NP-\emph{Hard}~\cite{jain:2010, witten:2011}.
+
+\emph{Graph-based Clustering} (GBC) é um algoritmo de agrupamento baseado na teoria de grafos. Ele liga uma aresta entre os dados e o ponto médio entre as arestas é utilizado para determinar a divisão dos grupos de maneira automática. O problema apresentado pelo GBC é na concentração densa dos dados. Quando ocorre esse tipo de cenário, o algoritmo acaba considerando todos os dados pertencentes a um único grupo~\cite{muhlenbach:2009}.
+
+Outro algoritmo existente é o \emph{Quick ROCK} (QROCK) que tem como objetivo o agrupamento de informações categóricas, ou seja, informações textuais. Ele é um algoritmo de agrupamento hierárquico aglomerativo. Assim como o GBC ele determina o resultado com base na conexão dos elementos através de um grafo. Para determinar a quantidade de grupos é necessário informar um valor de corte $\theta$ representando o valor de similiaridade entre os dados. Esse valor é calculado com base na equação~\ref{eq:sim_qrock} e tende a deixar o agrupamento mais natural~\cite{dutta:2005}.
+
+\begin{equation}
+    \label{eq:sim_qrock}
+    SIM(X, Y) = \frac{X \bigcap Y}{X \bigcup Y}
+\end{equation}
+
+Com o foco em agrupamento de informações espaciais, o algoritmo \emph{Density Based Spacial Clustering of Applications with Noise} (DBSCAN) foi apresentado por~\citeonline{ester:1996}. Para realizar o processo de agrupamento, são necessários dois parâmetros. Distância mínima entre dois pontos, que auxilia ao dizer se os pontos fazem parte ou não do mesmo grupo. E o outro parâmetro é a quantidade mínima de pontos para formar um grupo. Esse último parâmetro é importante para determinar se existirá um grupo ou se alguns pontos serão considerados como ruídos e desconsiderados do resultado final. Com base de dados espaciais em duas dimensões o DBSCAN conseguiu segmentar bem as diferentes regiões existentes, porém com dados de dimensões maiores isso já não foi possível.
+
+\emph{Affinity Propagation} é um algoritmo de agrupamento sem necessidade de informar qualquer parâmetro para o processo. Ele considera todos os dados como potenciais centróides de grupos. E como uma rede neural de aprendizado competitivo, vai identificando os dados que possuem mais arestas e determinando os grupos com base nestes. Seu desempenho é considerado bom apenas quando o resultado inicial está próximo do ótimo~\cite{frey:2007}.
+
+Perfis de usuários são compostos de diversos tipos de informação. Isso torna o processo de agrupamento mais complexo, pois é necessário criar uma regra de similaridade que atenda cada tipo de informação e também consiga estipular um valor único por perfil. Com esse problema em mente o algoritmo \emph{Quality Groups of Similarity Clustering} (QG-SIM) foi criado. É necessário informar o valor $q$ que representa a similaridade mínima para manter entre os elementos do grupo. Apesar de ser útil em diversas aplicações, o enfoque dele é em aplicações de perfis de usuários. Um ponto fraco dele é o desempenho computacional que depende da quantidade de dados dentro de cada um dos grupos~\cite{masiero:2013}.
+
+A tabela~\ref{tab:comp_algo_agrupamento} apresenta uma comparação entre os algoritmos de agrupamento de dados e suas principais características.
+
+\begin{table}[h!]
+	\caption{Tabela comparativa entre os algoritmos}
+	\label{tab:comp_algo_agrupamento}
+	\begin{tabular}{ m{2.8cm} | m{5cm} | m{7cm} } \hline
+	Categoria & Algoritmo & Parâmetro / Propriedades \\ \hline
+	\emph{clustering} hierárquico & Ward & algoritmo aglomerativo \\ \hline
+	& MST Divisivo & baseado na teoria de grafos \\ \hline
+	& \emph{Clustering Using REpresentatives (CURE)} & cada grupo é representado por um conjunto de representações \\ \hline
+	& \emph{RObust Clustering using linKs (ROCK)} & $k*$: número de grupos \\ \hline
+	& QROCK (\emph{Quick} ROCK) & $\theta$: \emph{threshold} de similaridade  \\ \hline
+	\emph{hard clustering} & $k$\emph{means} & $k*$: número de grupos \\ \hline
+    & QG-SIM & $q$: similaridade mínima entre os elementos do grupo \\ \hline
+	\emph{clustering} baseado em densidade & DBSCAN & $\epsilon$: distância para considerar se 2 pontos são ou não vizinhos \\ \hline
+	& \emph{Affinity Propagation} & $\theta$: \emph{threshold} de similaridade  \\ \hline
+	\emph{clustering} sequencial & \emph{Basic Sequential Algorithm Scheme (BSAS)} & $\Theta$: \emph{threshold} de não similaridade e $k*$: número máximo de grupos  \\ \hline
+	\end{tabular}
+	\smallcaption{Fonte: Adaptada de \citeonline{muhlenbach:2009}.}
+\end{table}
+
+Nesta tese, como há um trabalho de agrupamento de perfil de usuário, optou-se por utilizar o algoritmo QG-SIM que foi, de acordo com a literatura, o melhor para esse tipo de informação.
 
 \section{Raciocínio Probabilístico}
 \label{sec:raciocinio-probabilistico}
-
 Para que um agente possa tomar uma decisão, é necessário que ele analise todas as possibilidades de ações que possam ser feitas e o que ocorrerá após essa tomada de decisão para que exista uma certeza sobre o caminho que ele deve seguir. O processo para encontrar a certeza sobre uma decisão, computacionalmente, é oneroso e com a quantidade de variáveis geralmente consideradas, torna-se inviável. Sendo assim, um agente precisa trabalhar com a incerteza sobre o domínio para que possa ser tomada uma decisão~\cite{russell:2002}.
 
 Fazer o agente tomar uma decisão considerando a incerteza, é fazer o agente manter o controle baseado em um estado de crença, em outras palavras, um conjunto com todos os possíveis estados em um domínio ao qual ele possa estar. Além disso, o agente deve prever e gerar um plano de contingência para eventuais situações que sejam detectadas durante a execução do algoritmo. Nesses problemas, as informações que o agente possui não conseguem garantir nenhum resultado com certeza absoluta. Porém, tais informações garantem um grau de crença de que o objetivo será alcançado ou a decisão por um caminho relevante será tomada~\cite{russell:2002}.
@@ -86,7 +143,6 @@ A equação~\ref{eq:causa_efeito} pode ser igualada em dois sentidos, $P(efeito|
 
 \subsection{Redes Bayesianas}
 \label{sec:redes-bayesianas}
-
 Pode-se observar com o texto apresentado na seção anterior, que a distribuição de probabilidade conjunta total pode responder a qualquer questão dentro de um determinado domínio. Contudo, pela sua complexidade matemática a partir de um aumento no número de variáveis, torna-se intratável computacionalmente~\cite{russell:2002}.
 
 Sendo assim, uma maneira que existe para representar a distribuição de probabilidade conjunta total é a utilização de uma estrutura de dados chamada rede bayesiana. Um rede bayesiana é capaz de representar as dependências entre variáveis do domínio. Ela é definida como um grafo acíclico orientado, onde cada nó é identificado através das informações quantitativas sobre sua probabilidade~\cite{russell:2002}. A especificação de uma rede bayesiana é:
@@ -151,7 +207,6 @@ A partir das informações acima, é possível construir a tabela de probabilida
 onde o produto é obtido dos pais que são definidos como verdadeiro para cada linha da tabela de probabilidade condicional. Os relacionamentos lógicos ruidosos podem ser descritos com $O(k)$ parâmetros, ao invés de $O(2^k)$ da TPC completa, considerando $k$ pais~\cite{russell:2002}.
 
 \subsubsection{Métodos de Inferência}
-
 Quando obtêm-se uma observação de um evento qualquer, dentro de um domínio, espera-se que o sistema de inferência seja capaz de calcular a distribuição de probalidade posterior para o conjunto de variáveis de consulta. Essa é sua tarefa básica. Ele deve atribuir valores ao conjunto de variáveis de evidência~\cite{russell:2002}.
 
 Um algoritmo utilizado para inferência é o por enumeração. Ele calcula soma-produtos das probabilidades condicionais na rede. Contudo, esse algoritmo pode ser melhorado substancialmente ao eliminar os cálculos repetidos. A ideia de eliminar cálculos funciona da seguinte maneira, após a execução do cálculo pela primeira vez, armazena-se os resultados para futura utilização. É a idéia básica da programação dinâmica. O algoritmo que apresenta a menor complexidade para essa tarela é chamado de algoritmo de eliminação de variáveis (vide algoritmo~\ref{alg:eliminacao-variaveis})~\cite{russell:2002}.
