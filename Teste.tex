@@ -1,10 +1,59 @@
 %!TEX root=Principal.tex
-\chapter{CENÁRIOS DE TESTE}
-\label{cap:testes}
-Esse capítulo apresentará os cenários de teste considerados para auxiliar a validação do processo de aprendizado de interação entre humanos e robôs proposto por essa tese. São apresentados dois cenários, o primeiro representa a primeira abordagem para interagir com pessoas desconhecidas e o segundo cenário é uma continuação do primeiro, onde a partir de interações passadas o robô auxiliará uma pessoa durante alguma tarefa no ambiente doméstico.
+\chapter{TECNOLOGIAS E TESTES}
+\label{cap:tecnologiaetestes}
+Esse capítulo apresentará as tecnologias e equipamentos utilizados para o desenvolvimento e o cenário de teste considerado para validação do processo de interação entre humanos e robôs proposto por essa tese.
 
-\section{Cenário 1 - Aproximação do Robô}
-\label{sec:cenario1}
+\section{O Robô}
+\label{sec:robo}
+O robô utilizado no desenvolvimento da tese é o PeopleBot~\footnote{PeopleBot - http://www.mobilerobots.com/researchRobots/PeopleBot.aspx} fabricado pela ActivMedia Robotics. Ele é um robô móvel com direção diferencial, ou seja, possui duas rodas motorizadas e uma roda castor que auxilia em seu equilíbrio. O projeto do PeopleBot tem foco em pesquisas e serviços que envolvem interação humano-robô. Com esse objetivo, ele foi desenvolvido com uma altura de 112 cm (centímetros). Além disso, o PeopleBot também possui uma garra pequena que tem sua movimentação apenas na direção vertical. A figura~\ref{fig:peoplebot} apresenta o robô PeopleBot.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{\textwidth}
+		\caption{Robô ActivMedia Robotics PeopleBot.}
+		\includegraphics[width=\textwidth]{peoplebot.jpg}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:peoplebot}
+	\end{minipage}
+\end{figure}
+
+Como a garra do PeopleBot é curta e não permite muita destreza na manipulação de objetos e gestos, além de possuir poucos graus de liberdade, foi adicionado um novo manipulador. O projeto do manipulador foi desenvolvido com o intuito de auxiliar a manipulação de objetos a uma certa distância e execução de gestos durante interações com pessoas. O projeto atende pesquisas com foco em prestação de serviços domésticos e cuidados pessoais. O desenho que ilustra o manipulador desenvolvido é apresentado através da figura~\ref{fig:manipulador}.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.6\textwidth}
+		\caption{Projeto do Novo Manipulador do PeopleBot.}
+		\includegraphics[width=\textwidth]{manipulador.png}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:manipulador}
+	\end{minipage}
+\end{figure}
+
+O novo manipulador foi construído de maneira que os movimentos sejam próximos do braço humano. Além do manipulador, também foi acoplado um \emph{tablet} para que seja possível atribuir face ao robô e consequentemente expressões faciais, deixando a interação mais amigável. O projeto da cabeça do robô é apresentado na figura~\ref{fig:judithhead}.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.4\textwidth}
+		\caption{Projeto da Cabeça para o PeopleBot.}
+		\includegraphics[width=\textwidth]{judith_head.png}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:judithhead}
+	\end{minipage}
+\end{figure}
+
+O projeto da cabeça foi preparado para acomplar alguns alguns sensores como o Microsoft\textregistered\ Kinect\textregistered\ , o ASUS\textregistered\ Xtion\textregistered\ e webcams, para tarefas que envolvam nuvem de pontos de profundidade e visão computacional. Sensores como lasers e microfones também foram instalados para melhorar a captura de informações sobre o ambiente e interagir melhor com a pessoa.
+
+\section{Arquitetura do Software}
+\label{sec:arquitetura}
+
+\section{Bibliotecas}
+\label{sec:bibliotecas}
+
+\section{Sensores}
+\label{sec:sensores}
+
+\section{Cenário de Teste} %REFAZER OS TEXTOS DESSA SEÇÃO
+\label{sec:cenario}
 O inicio de toda interação é a partir da aproximação entre os agentes envolvidos ou interessados. O robô envolvido em um ambiente social, deve aprender como se aproximar das pessoas em diferentes situações. A aproximação deve ser controlada fazendo com que os demais agentes envolvidos fiquem confortáveis, sem expressões ou reações de medo ou apreensão. Uma vez aprendido o controle de aproximação, o robô deve ser capaz de generalizar o modelo para qualquer outro agente. Além do controle, é importante que o robô seja capaz de aprender os agentes conhecidos em interações anteriores para que fique mais natural o tratamento, posteriormente.
 
 \subsection{Objetivo}
@@ -53,17 +102,6 @@ Esse teste poderá ocorrer em um ambiente não controlado, onde existam pessoas 
 	\item \textbf{Reações das pessoas}: Todas as reações das pessoas, durante a aproximação do robô, deverão ser armazenadas com o intuito de aprender se as ações executadas tornaram a aproximação mais confortável ao grupo.
 	\item \textbf{Fim}: Será considerado o fim da tarefa, quando o robô permanecer em interação dentro do espaço pessoal para intimo, por 15 segundos ou em um tempo máximo de 5 minutos total da tarefa.
 \end{enumerate}
-
-\subsection{Arquivo de Log}
-
-O robô deve gravar imagens e informações sobre todos os eventos que ocorrem durante o teste com o intuito de validar os resultados obtidos.
-
-Além do log interno ao robô, imagens de vídeo poderão ser capturadas com objetivo de confirmar os resultados obtidos pelo robô durante a interação. Os vídeos capturados durante o teste servirão também como meio de ajustes ao sistema de aproximação entre humano e robô.
-
-\section{Cenário 2 - Validação do Aprendizado do Robô}
-\label{sec:cenario2}
-
-Cenário que fará a validação do aprendizado do robô.
 
 \section{Seleção das Pessoas para o Teste}
 \label{sec:perfistestes}

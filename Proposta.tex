@@ -12,45 +12,6 @@ As variáveis que foram escolhidas para coleta são capturadas com o robô inter
 
 Essa seção apresenta em detalhes os passos da metodologia proposta por esta tese. Ao final do capítulo é apresentado a visão completa da metodologia onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele. Contudo, antes de discutir em detalhes a metodologia, o robô utilizado para o desenvolvimento do estudo proposto é apresentado.
 
-\section{O Robô}
-\label{sec:robo}
-O robô utilizado no desenvolvimento da tese é o PeopleBot~\footnote{PeopleBot - http://www.mobilerobots.com/researchRobots/PeopleBot.aspx} fabricado pela ActivMedia Robotics. Ele é um robô móvel com direção diferencial, ou seja, possui duas rodas motorizadas e uma roda castor que auxilia em seu equilíbrio. O projeto do PeopleBot tem foco em pesquisas e serviços que envolvem interação humano-robô. Com esse objetivo, ele foi desenvolvido com uma altura de 112 cm (centímetros). Além disso, o PeopleBot também possui uma garra pequena que tem sua movimentação apenas na direção vertical. A figura~\ref{fig:peoplebot} apresenta o robô PeopleBot.
-
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{\textwidth}
-		\caption{Robô ActivMedia Robotics PeopleBot.}
-		\includegraphics[width=\textwidth]{peoplebot.jpg}
-		\smallcaption{Fonte: Autor.}
-		\label{fig:peoplebot}
-	\end{minipage}
-\end{figure}
-
-Como a garra do PeopleBot é curta e não permite muita destreza na manipulação de objetos e gestos, além de possuir poucos graus de liberdade, foi adicionado um novo manipulador. O projeto do manipulador foi desenvolvido com o intuito de auxiliar a manipulação de objetos a uma certa distância e execução de gestos durante interações com pessoas. O projeto atende pesquisas com foco em prestação de serviços domésticos e cuidados pessoais. O desenho que ilustra o manipulador desenvolvido é apresentado através da figura~\ref{fig:manipulador}.
-
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.6\textwidth}
-		\caption{Projeto do Novo Manipulador do PeopleBot.}
-		\includegraphics[width=\textwidth]{manipulador.png}
-		\smallcaption{Fonte: Autor.}
-		\label{fig:manipulador}
-	\end{minipage}
-\end{figure}
-
-O novo manipulador foi construído de maneira que os movimentos sejam próximos do braço humano. Além do manipulador, também foi acoplado um \emph{tablet} para que seja possível atribuir face ao robô e consequentemente expressões faciais, deixando a interação mais amigável. O projeto da cabeça do robô é apresentado na figura~\ref{fig:judithhead}.
-
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.4\textwidth}
-		\caption{Projeto da Cabeça para o PeopleBot.}
-		\includegraphics[width=\textwidth]{judith_head.png}
-		\smallcaption{Fonte: Autor.}
-		\label{fig:judithhead}
-	\end{minipage}
-\end{figure}
-
-O projeto da cabeça foi preparado para acomplar alguns alguns sensores como o Microsoft\textregistered\ Kinect\textregistered\ , o ASUS\textregistered\ Xtion\textregistered\ e webcams, para tarefas que envolvam nuvem de pontos de profundidade e visão computacional. Sensores como lasers e microfones também foram instalados para melhorar a captura de informações sobre o ambiente e interagir melhor com a pessoa. Algumas dessas informações são apresentadas na seção~\ref{sec:extracaocaracteristicas}.
 
 \section{Extração das Características}
 \label{sec:extracaocaracteristicas}
