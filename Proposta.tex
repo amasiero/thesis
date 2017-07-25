@@ -1,17 +1,114 @@
 %!TEX root=Principal.tex
-\chapter{PROPOSTA}
+\chapter{\emph{FRAMEWORK} PARA AUTOAVALIAÇÃO DO COMPORTAMENTO SOCIAL DO ROBÔ}
 \label{cap:proposta}
 
-Essa tese apresenta o mapeamento de um conjunto de variáveis do comportamento do robô e também da pessoa de maneira a diagnosticar qualquer desconforto gerado durante uma aproximação física entre ambos. Como observado ao longo dos trabalhos da literatura apresentados (vide seção~\ref{cap:proxemics}), de acordo com a cultura da pessoa o comportamento pode ser alterado para a mesma situação. Assim, algumas reações apresentadas são diretamente influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas através da observação. Para informações mais precisas sobre a experiência de vida de uma pessoa, é necessário que seja realizado um diálogo ou entrevista para através de perguntas, identificar locais por onde essa pessoa viveu ou visitou desde o nascimento. Sendo assim, os trabalhos que envolvem a aproximação física do robô em relação a pessoas, tem o foco maior no comportamento e controle do robô, deixando fatores humanos como segundo plano. Em geral, apenas observam a posição do ser humano em relação ao robô, para desviar a uma distância segura e de maneira natural ou fazem com que o robô parem em frente ao ser humano, para contato face a face.
+Os capítulos anteriores apresentam uma revisão da literatura apontando que a existência de robôs em ambientes sociais torna-se cada vez mais comum no dia-a-dia das pessoas. Como qualquer produto existente no mercado, é necessário que esses robôs tragam uma boa experiência aos usuários que convivem com ele. Entretanto, as técnicas difundidas em interação humano computador, que tem o objetivo de aumentar a experiência boa do usuário em produtos tecnológicos, não têm sido aplicadas de maneira adequada por pesquisadores na área de robótica social, de serviço e assistiva~\cite{alenljung:2017}.
 
-Dessa forma, essa tese estabelece uma sequência de passos com o intuito de identificar quais são as ações que o robô pode realizar para que seu comportamento, ao se aproximar de uma pessoa, não provoque nenhum desconforto ao indivíduo, considerando suas reações. A aproximação física é considerada como o primeiro passo para que exista uma interação entre duas pessoas. Com o comportamento adequado do robô durante a aproximação, é possível garantir que uma pessoa fique confortável com a presença física do robô a sua volta. O nível de conforto pode ser medido pela aceitação do robô próximo ao indivíduo por um determinado ciclo de tempo ou até mesmo uma pequena interação através de pequenas perguntas.
+Com esse cenário em mente, essa tese apresenta um \emph{framework} baseado em teoria de experiência do usuário focado na usabilidade para aumentar o conforto da presença do robô. No processo apresentado como guia para a construção e evolução do \emph{framework}, assim como a criação de novos projetos em robótica, algumas técnicas serão utilizadas, como: (I) Personas que serão para o robô a base de classificação do perfil do usuário; (II) Heurísticas de Nielsen adaptadas para a interação humano robô, que servem como guia para o robô avaliar seu desempenho; e (III) \emph{Proxemics}, a teoria de proximidade (vide seção~\ref{cap:proxemics}), que estuda o comportamento de agentes sociais de acordo com a distância entre si.
 
-O primeiro passo estabelecido é definir as variáveis que possam contribuir com a análise do comportamento do ser humano e compreensão de sua experiência de vida e conforto na interação. Todas as variáveis mapeadas são importantes para que ocorra um melhor interação entre ambos. Cada uma das variáveis são pensadas para que de alguma maneira sejam capturadas e analisadas pelo robô. Nem todas as variáveis devem ser utilizadas nesse primeiro passo, que é essa tese, mas fica como registro para trabalhos futuros discuti-las e implementa-las.
+De acordo com a literatura apresentada, a cultura da pessoa influência diretamente o comportamento de uma pessoa em ambientes sociais. Isso significa que algumas reações apresentadas por pessoas no ambiente social são influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas através da observação. Conseguir fazer com que uma pessoa tenha liberdade para contar esse tipo de informação necessita de interações de longo prazo, podendo levar meses até compreender toda história dessa pessoa.
 
-As variáveis que foram escolhidas para coleta são capturadas com o robô interagindo com a pessoa de maneira aleatória, em outras palavras de maneira que não exista, em um primeiro momento, a preocupação do comportamento do robô. Na sequência as variáveis coletadas serão inseridas no algoritmo de agrupamento de dados QG-SIM. Grupo de perfis de pessoas são extraídos compondo o nó principal do grafo que forma uma rede bayesiana. Unindo o grupo de perfis com outras variáveis de comportamento do robô e do ser humano em formato de rede bayesiana, é possível diagnosticar qual foi a ação que o robô fez e gerou o desconforto da pessoa durante a interação. No final, um mecanismo de tomada de decisão pode ser acrescentado para que o robô consiga adaptar o comportamento de acordo com a pessoa e melhorar a interação.
+Contudo, o robô sendo um produto tecnológico pode utilizar técnicas que são capazes de aumentar a efetividade da interação. Não havendo assim, a necessidade de conhecer por completo a história de vida do indivíduo em questão. Técnicas oriundas da área de interação humano computador, tem o objetivo de deixar o sistema mais fácil de usar e acima de tudo aumentar a experiência, a satisfação do usuário ao utilizá-lo. Para que o robô possa realizar essa classificação e raciocínio sobre as informações que existem no ambiente alguns passos são apresentados ao longo deste capítulo.
 
-Essa seção apresenta em detalhes os passos da metodologia proposta por esta tese. Ao final do capítulo é apresentado a visão completa da metodologia onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele. Contudo, antes de discutir em detalhes a metodologia, o robô utilizado para o desenvolvimento do estudo proposto é apresentado.
+A seção~\ref{sec:robo} apresenta em detalhes o robô utilizado para essa pesquisa. Com base no robô disponível, estabelece as ações que são possíveis para ele executar. Na sequência dois questionários foram preparados, o primeiro aplicado anteriormente ao teste e o segundo após. O intuito do primeiro questionário é estabelecer o perfil do usuário referente a questões de aderência a tecnologia, contato prévio com robôs e sobre a cultura que ele se identifica. O questionário pós-teste possui informações declaradas sobre o conforto e avaliação do comportamento do robô durante a interação.
 
+Com os questionários definidos, foram selecionados 39 pessoas para participar do teste de interação com o robô, de acordo com o cenário descrito na seção~\ref{sec:cenario}. Os testes foram executados com o comportamento do robô de maneira aleatória, ou seja, sem nenhuma preocupação com a experiência do usuário neste momento. Coletados os perfis e informações dos usuários, é realizado uma preparação e normalização dos dados para que o algoritmo QG-SIM possa realizar o agrupamento dos perfis similares, conforme o processo apresentado por \citeonline{masiero:2013b}. A partir dos grupos gerados pelo algoritmo QG-SIM, é realizado o processo de criação de Personas~\cite{masiero:2013, masiero:2013b}.
+
+Personas criadas, o próximo passo é estabelecer a criação de uma estrutura de nós no formato de rede bayesiana causa-efeito com camadas referentes as Personas, heurísticas de Nielsen adaptadas, comportamento do robô e efeitos sobre conforto e desconforto do usuário. Essa rede bayesiana é responsavél pelo mecanismo de auto-avaliação do robô. O mecanismo proposto possui uma estrutura mínima de nós, que refere-se ao ponto de partida do \emph{framework}. Essa estrutura pode evoluir para quantos nós forem necessários em uma avaliação mais precisa para a tomada de decisão e adaptação do comportamento do robô para mitigar o desconforto do usuário na presença do robô. Ao final, um conjunto de variáveis são propostos como ponto para futuras investigações e aprimoramento do \emph{framework} entregue por essa tese.
+
+O restante deste capítulo apresenta em detalhes os passos da proposta acima descrita. Ao final do capítulo é apresentado a visão completa da metodologia onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele.
+
+\section{Comportamentos do Robô}
+\label{sec:comportamento-robo}
+
+
+
+\section{Rede Bayesiana para Auxiliar na Aproximação do Robô}
+\label{sec:rede-bayesiana}
+
+Analisando os sensores disponíveis no robô utilizado para implementação e execução dos testes dessa tese (vide seção~\ref{sec:robo}) e as variáveis apresentadas nas seções~\ref{sec:variaveiscomportamentais} e \ref{sec:variaveisrobo}, optou-se por utilizar variáveis mínimas e com o menor número de sensores, para auxiliar no diagnóstico e tomada de decisão do robô. A quantidade de menor número de sensores é justificada devido a facilidade de implementar em qualquer tipo de robô com o menor custo. As variáveis foram segmentadas para que tomada de decisão feita pelo robô fosse automática, sem necessidade de controla-lo de qualquer maneira. Apesar dessa segmentação das variáveis na implementação da rede bayesiana, as mapeadas na seção~\ref{sec:extracaocaracteristicas} estão documentadas para que sejam incluídas em trabalhos futuros, melhorando assim o processo de análise comportamental do indíviduo, assim como outras aqui não contempladas. As variáveis que serão utilizadas são:
+
+\begin{itemize}
+	\item POS: posicionamento do robô dentro da zona de proximidade social da pessoa, apresentada no capítulo~\ref{cap:proxemics} através da figura~\ref{fig:proximityzones};
+	\item VEL: velocidade de aproximação do robô em relação a pessoa;
+	\item VOL: volume de emissão de som, realizado pelo robô;
+	\item GES: amplitude do gesto do robô em relação a pessoa;
+	\item FACE: expressão facial apresentada pelo robô durante a aproximação;
+	\item AFASTOU: se a pessoa se afastou do robô após sua tentativa de aproximação;
+	\item NEG\_FACE: se a pessoa apresentou uma expressão facial negativa durante a tentativa de aproximação do robô;
+	\item NEG\_CORP: se a pessoa apresentou uma expressão corporal negativa durante a tentativa de aproximação do robô;
+\end{itemize}
+
+Para cada uma das variáveis aleatórias é necessário o mapeamento dos domínios. Os domínios são importantes para definir quais os possíveis valores que cada variável pode assumir, além de limitar o escopo do trabalho de maneira a atingir o seu objetivo. O domínio de cada variável aleatória apresentada é:
+
+\begin{itemize}
+	\item POS = \{publica, social, pessoal, íntima\}
+	\item VEL = \{rápido, devagar\}
+	\item VOL = \{alto, baixo, mudo\}
+	\item GES = \{longo, curto, ausente\}
+	\item FACE = \{feliz, neutra, nervoso\}
+	\item AFASTOU = \{verdadeiro, falso\}
+	\item NEG\_FACE = \{verdadeiro, falso\}
+	\item NEG\_CORP = \{verdadeiro, falso\}
+\end{itemize}
+
+As variavéis que representam a reação do usuário (\{AFASTOU, NEG\_FACE, NEG\_CORP\}) possuem o domínio binário, pois o intuito é apenas saber se algum fator gerou uma reação negativa do ser humano durante a interação. As demais várias necessitam de um domínio maior, pois a intenção é investigar quais os fatores que levaram a reação negativa do ser humano.
+
+Com a definição das variáveis aleatórias e seus respectivos domínios, foi possível estabelecer um grafo acíclico orientado, uma rede bayesiana, partindo do princípio de que POS é o nó pai que tem influência sobre todos os outros. Ele foi escolhido como nó pai, pois é a causa principal dos demais efeitos da rede, que possui mais dois níveis. Em um nível intemediário de nós temos as variávies \{VEL, VOL, GES, FACE\}, que são variáveis dependentes exclusivamente das ações do robô e possuem uma independência condicional dado o pai POS. Por fim, as três variáveis que representam as reações do ser humano, que são independentes condicionais dado os pais \{POS, VEL, VOL, GES, FACE\}. As variáveis \{AFASTOU, NEG\_FACE, NEG\_CORP\} também são chamadas de nós de efeito, que querem ser observados durante o processo de interação humano robô. A figura~\ref{fig:rb} apresenta a rede bayesiana formada com base na hierarquia definida.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{0.8\textwidth}
+		\caption{Rede bayesiana construída para auxiliar no diagnóstico e tomada de decisão da aproximação ao indivíduo.}
+		\includegraphics[width=\textwidth]{rb-thesis.png}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:rb}
+	\end{minipage}
+\end{figure}
+
+A partir de agora é preciso formalizar a rede bayesiana em formato de probabilidades, para que seja possível compreender cada um dos cálculos de inferência e diagnóstico realizados pelo mecanismo de tomada de decisão do robô durante a tarefa de aproximação do indivíduo. As equações~\ref{eq:1}, \ref{eq:2}, \ref{eq:3}, \ref{eq:4}, \ref{eq:5}, \ref{eq:6}, \ref{eq:7} e \ref{eq:8} representam as probabilidades da rede bayesiana para cada uma das variáveis aleatórias mapeadas.
+
+\begin{equation}
+	\label{eq:1}
+	P(POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:2}
+	P(VEL|POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:3}
+	P(VOL|POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:4}
+	P(GES|POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:5}
+	P(FACE|POS)
+\end{equation}
+
+\begin{equation}
+	\label{eq:6}
+	P(AFASTOU|POS, VEL, VOL, GES, FACE)
+\end{equation}
+
+\begin{equation}
+	\label{eq:7}
+	P(NEG\_FACE|POS, VEL, VOL, GES, FACE)
+\end{equation}
+
+\begin{equation}
+	\label{eq:8}
+	P(NEG\_CORP|POS, VEL, VOL, GES, FACE)
+\end{equation}
+
+É importante ressaltar que o efeito a ser medido é a reação do ser humano, pois é o principal interessado em toda interação com o robô, já que é um robô com tarefas em ambientes sociais, domésticos e assistivos. A grande preocupação em manter o foco no ser humano é por que os trabalhos apresentados no capítulo~\ref{cap:proxemics} tem o foco apenas na execução da tarefa pelo robô e em seu comportamento. As reações dos seres humanos são colocadas em segundo plano, nesses trabalhos.
 
 \section{Extração das Características}
 \label{sec:extracaocaracteristicas}
@@ -107,90 +204,3 @@ Além das variáveis que definem as características, é necessário também o m
 \end{enumerate}
 
 As variáveis comportamentais do robô são definidas com o objetivo de executar uma tarefa de abordagem para estabelecer uma interação, ou seja, uma aproximação inicial do ser humano. Caso seja necessário deve-se adicionar novas variáveis a esse conjunto e essa adição não afetará ao método apresentado como uma solução para este problema. O conhecimento prévio da pessoa, um reencontro, não será considerado nessa tese, deixando assim como trabalhos futuros.
-
-\section{Rede Bayesiana para Auxiliar na Aproximação do Robô}
-\label{sec:rede-bayesiana}
-
-Analisando os sensores disponíveis no robô utilizado para implementação e execução dos testes dessa tese (vide seção~\ref{sec:robo}) e as variáveis apresentadas nas seções~\ref{sec:variaveiscomportamentais} e \ref{sec:variaveisrobo}, optou-se por utilizar variáveis mínimas e com o menor número de sensores, para auxiliar no diagnóstico e tomada de decisão do robô. A quantidade de menor número de sensores é justificada devido a facilidade de implementar em qualquer tipo de robô com o menor custo. As variáveis foram segmentadas para que tomada de decisão feita pelo robô fosse automática, sem necessidade de controla-lo de qualquer maneira. Apesar dessa segmentação das variáveis na implementação da rede bayesiana, as mapeadas na seção~\ref{sec:extracaocaracteristicas} estão documentadas para que sejam incluídas em trabalhos futuros, melhorando assim o processo de análise comportamental do indíviduo, assim como outras aqui não contempladas. As variáveis que serão utilizadas são:
-
-\begin{itemize}
-	\item POS: posicionamento do robô dentro da zona de proximidade social da pessoa, apresentada no capítulo~\ref{cap:proxemics} através da figura~\ref{fig:proximityzones};
-	\item VEL: velocidade de aproximação do robô em relação a pessoa;
-	\item VOL: volume de emissão de som, realizado pelo robô;
-	\item GES: amplitude do gesto do robô em relação a pessoa;
-	\item FACE: expressão facial apresentada pelo robô durante a aproximação;
-	\item AFASTOU: se a pessoa se afastou do robô após sua tentativa de aproximação;
-	\item NEG\_FACE: se a pessoa apresentou uma expressão facial negativa durante a tentativa de aproximação do robô;
-	\item NEG\_CORP: se a pessoa apresentou uma expressão corporal negativa durante a tentativa de aproximação do robô;
-\end{itemize}
-
-Para cada uma das variáveis aleatórias é necessário o mapeamento dos domínios. Os domínios são importantes para definir quais os possíveis valores que cada variável pode assumir, além de limitar o escopo do trabalho de maneira a atingir o seu objetivo. O domínio de cada variável aleatória apresentada é:
-
-\begin{itemize}
-	\item POS = \{publica, social, pessoal, íntima\}
-	\item VEL = \{rápido, devagar\}
-	\item VOL = \{alto, baixo, mudo\}
-	\item GES = \{longo, curto, ausente\}
-	\item FACE = \{feliz, neutra, nervoso\}
-	\item AFASTOU = \{verdadeiro, falso\}
-	\item NEG\_FACE = \{verdadeiro, falso\}
-	\item NEG\_CORP = \{verdadeiro, falso\}
-\end{itemize}
-
-As variavéis que representam a reação do usuário (\{AFASTOU, NEG\_FACE, NEG\_CORP\}) possuem o domínio binário, pois o intuito é apenas saber se algum fator gerou uma reação negativa do ser humano durante a interação. As demais várias necessitam de um domínio maior, pois a intenção é investigar quais os fatores que levaram a reação negativa do ser humano.
-
-Com a definição das variáveis aleatórias e seus respectivos domínios, foi possível estabelecer um grafo acíclico orientado, uma rede bayesiana, partindo do princípio de que POS é o nó pai que tem influência sobre todos os outros. Ele foi escolhido como nó pai, pois é a causa principal dos demais efeitos da rede, que possui mais dois níveis. Em um nível intemediário de nós temos as variávies \{VEL, VOL, GES, FACE\}, que são variáveis dependentes exclusivamente das ações do robô e possuem uma independência condicional dado o pai POS. Por fim, as três variáveis que representam as reações do ser humano, que são independentes condicionais dado os pais \{POS, VEL, VOL, GES, FACE\}. As variáveis \{AFASTOU, NEG\_FACE, NEG\_CORP\} também são chamadas de nós de efeito, que querem ser observados durante o processo de interação humano robô. A figura~\ref{fig:rb} apresenta a rede bayesiana formada com base na hierarquia definida.
-
-\begin{figure}[ht!]
-	\centering
-	\begin{minipage}{0.8\textwidth}
-		\caption{Rede bayesiana construída para auxiliar no diagnóstico e tomada de decisão da aproximação ao indivíduo.}
-		\includegraphics[width=\textwidth]{rb-thesis.png}
-		\smallcaption{Fonte: Autor.}
-		\label{fig:rb}
-	\end{minipage}
-\end{figure}
-
-A partir de agora é preciso formalizar a rede bayesiana em formato de probabilidades, para que seja possível compreender cada um dos cálculos de inferência e diagnóstico realizados pelo mecanismo de tomada de decisão do robô durante a tarefa de aproximação do indivíduo. As equações~\ref{eq:1}, \ref{eq:2}, \ref{eq:3}, \ref{eq:4}, \ref{eq:5}, \ref{eq:6}, \ref{eq:7} e \ref{eq:8} representam as probabilidades da rede bayesiana para cada uma das variáveis aleatórias mapeadas.
-
-\begin{equation}
-	\label{eq:1}
-	P(POS)
-\end{equation}
-
-\begin{equation}
-	\label{eq:2}
-	P(VEL|POS)
-\end{equation}
-
-\begin{equation}
-	\label{eq:3}
-	P(VOL|POS)
-\end{equation}
-
-\begin{equation}
-	\label{eq:4}
-	P(GES|POS)
-\end{equation}
-
-\begin{equation}
-	\label{eq:5}
-	P(FACE|POS)
-\end{equation}
-
-\begin{equation}
-	\label{eq:6}
-	P(AFASTOU|POS, VEL, VOL, GES, FACE)
-\end{equation}
-
-\begin{equation}
-	\label{eq:7}
-	P(NEG\_FACE|POS, VEL, VOL, GES, FACE)
-\end{equation}
-
-\begin{equation}
-	\label{eq:8}
-	P(NEG\_CORP|POS, VEL, VOL, GES, FACE)
-\end{equation}
-
-É importante ressaltar que o efeito a ser medido é a reação do ser humano, pois é o principal interessado em toda interação com o robô, já que é um robô com tarefas em ambientes sociais, domésticos e assistivos. A grande preocupação em manter o foco no ser humano é por que os trabalhos apresentados no capítulo~\ref{cap:proxemics} tem o foco apenas na execução da tarefa pelo robô e em seu comportamento. As reações dos seres humanos são colocadas em segundo plano, nesses trabalhos.
