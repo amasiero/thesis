@@ -20,8 +20,47 @@ O restante deste capítulo apresenta em detalhes os passos da proposta acima des
 
 \section{Comportamentos do Robô}
 \label{sec:comportamento-robo}
+O robô escolhido para os experimentos possui uma série de características que auxiliam a interação social e serviço domésticos, uma vez que ele foi construído para atender a competição de robótica RoboCup@Home~\cite{robocup:2015}. Com base nos atuadores de interação existentes (vide seção~\ref{sec:sensores}), foram mapeados as variáveis de comportamento do robô. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis, compostas por seus respectivos valores.
 
+\begin{table}[!ht]
+	\caption{Variáveis de Comportamento do Robô}
+	\label{tab:variaveisvalores}
+	\centering
+	\begin{tabular}{c | c}
+		\hline
+		Variável & Valor \\
+		\hline
+		& Olá Curto \\
+		Gestos & Olá Longo \\
+		& Apontar \\
+		\hline
+		Estilo de Fala & Educada \\
+		& Autoritaria \\
+		\hline
+		& Nervosa com Cor Vermelha \\
+		& Nervosa com Cor Azul \\
+		Estilo de Face & Neutra \\
+		& Feliz \\
+		& Triste \\
+		& Surpresa e Corada \\
+		\hline
+		Proximidade & Entre Pública e Social \\
+		& Entre Pessoal e Íntima \\
+		\hline
+		Velocidade & Rápida \\
+		& Devagar \\
+		\hline
+		Rotação no próprio eixo & Rápida \\
+		& Devagar \\
+		\hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
 
+Além das variáveis direcionadas aos atuadores do robô, a tabela~\ref{tab:variaveisvalores} apresenta a variável de proximidade entre o robô e o ser humano. Essa variável é importante, pois auxilia a determinar o comportamento de reação da pessoa para um mesmo gesto do robô. Por exemplo, se o robô encontra-se próximo da pessoa, entre as zonas Pessoal e Íntima, um gesto amplo pode gerar um desconforto maior do que o mesmo gesto ocorrendo entre as zonas Pública e Social. Com as variáveis definidas e comportamentos implementados no robô é importante agora trabalhar com os questionários pré e pós testes.
+
+\section{Questionários para o Teste}
+\label{sec:questionarios}
 
 \section{Rede Bayesiana para Auxiliar na Aproximação do Robô}
 \label{sec:rede-bayesiana}
