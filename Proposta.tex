@@ -20,7 +20,7 @@ O restante deste capítulo apresenta em detalhes os passos da proposta acima des
 
 \section{Comportamentos do Robô}
 \label{sec:comportamento-robo}
-O robô escolhido para os experimentos possui uma série de características que auxiliam a interação social e serviço domésticos, uma vez que ele foi construído para atender a competição de robótica RoboCup@Home~\cite{robocup:2015}. Com base nos atuadores de interação existentes (vide seção~\ref{sec:sensores}), foram mapeados as variáveis de comportamento do robô. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis, compostas por seus respectivos valores.
+O robô escolhido para os experimentos possui uma série de características que auxiliam a interação social e serviço domésticos, uma vez que ele foi construído para atender a competição de robótica RoboCup@Home~\cite{robocup:2015}. Com base nos atuadores de interação existentes (vide seção~\ref{sec:robo}), foram mapeados as variáveis de comportamento do robô. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis, compostas por seus respectivos valores.
 
 \begin{table}[!ht]
 	\caption{Variáveis de Comportamento do Robô}
@@ -61,8 +61,99 @@ Além das variáveis direcionadas aos atuadores do robô, a tabela~\ref{tab:vari
 
 \section{Questionários para o Teste}
 \label{sec:questionarios}
+Para apoiar o processo obtenção dos resultados e construção dos perfis dos usuários, dois questionários foram construídos. O primeiro, aplicado em momento anterior ao teste, tem como objetivo o mapeamento de informações sobre características físicas que possam ser reconhecidas pelo robô, adesão a tecnologia, contatos prévios com robôs e questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar. As questões serão agrupadas de acordo com seus objetivos e apresentadas em listas. Todas as questões a seguir fazem para do questionário pré-teste.
 
-\section{Rede Bayesiana para Auxiliar na Aproximação do Robô}
+Questões focadas na identificação e características físicas do usuário:
+
+\begin{enumerate}
+	\item Informe seu nome completo
+	\item e-mail para contato
+	\item Informe o número do seu celular
+	\item Testes poderão ocorrer usando o Robô no Centro Universitário FEI. Você gostaria de realizar o teste com o robô físico? Opções de resposta: Sim, Não
+	\item Qual a sua idade? (em anos)
+	\item Qual a sua altura? (em metros)
+	\item Informa seu gênero: Opções de resposta: Feminino, Masculino, Prefiro não dizer
+	\item Na maior parte do tempo, você se considera uma pessoa com feição: Opções de reposta: Sorridente, Normal, Séria/Fechada
+	\item Você se considera uma pessoa sociável? Opções de resposta: Sim, Não
+	\item Você utiliza óculos de grau? Opções de resposta: Sim, Não (Obs: Pessoas com lente de contato, por favor, repondam não. A intenção é identificar a armação.)
+	\item Você possui cabelo comprido? Opções de resposta: Sim, Não
+	\item Qual etnia você se considera? Opções de resposta: Amarela, Branca, Indígena, Parda, Preta, Não declarada
+\end{enumerate}
+
+Questões voltadas a informações sobre a adesão à tecnologia:
+
+\begin{enumerate}
+	\item Qual(is) dispositivo(s) tecnológico(s) você mais utiliza (marque 1 ou mais opções): Opções de resposta: Celular, Computador (de mesa ou notebook), Tablet, Smart TV, Relógio Smart, MP3 Player, Câmera Fotográfica Digital, Leitor de e-Book, outros
+	\item Qual(is) dispositivo(s) tecnológico(s) você nunca utilizou (marque 1 ou mais opções): Opções de resposta: Celular, Computador (de mesa ou notebook), Tablet, Smart TV, Relógio Smart, MP3 Player, Câmera Fotográfica Digital, Leitor de e-Book, Já utilizei todas
+	\item Você possui conta em banco digital (ex: Original, Neon, etc.) ? Opções de resposta: Sim, Não
+	\item Você possui cartão de crédito digital (ex: Nubank, Digio, etc.) ? Opções de resposta: Sim, Não
+	\item Qual o principal meio de pagamento de suas contas? Opções de resposta: Celular, Computador, Tablet, Autoatendimento, Caixa Físico
+	\item Você utiliza redes sociais? Opções de resposta: Sim, Não
+	\item Quais as redes sociais que você mais utiliza (marque 1 ou mais opções): Opções de resposta: Facebook, Instagram, Twitter, Google\+, Snapchat, outras
+\end{enumerate}
+
+Questões culturais:
+
+\begin{enumerate}
+	\item Qual foi o local de nascimento? (Informe da seguinte maneira: Cidade; Estado; País)
+	\item Em qual local, você viveu por mais tempo durante sua infância e adolescência? (Informe da seguinte maneira: Cidade; Estado; País)
+	\item Qual o seu atual local de moradia? (Informe da seguinte maneira: Cidade; Estado; País)
+	\item Qual o país que você melhor se identifica com a cultura? (Considere também a opção do seu país de nascimento.)
+	\item Qual a cidade, na sua opinião, que melhor representa a cultura que você se identifica (resposta não dependente da questão acima)?
+	\item Você visitou outros países, além do Brasil? Opções de resposta: Sim, Não
+	\item Quais países você já visitou? (Responda separando os países por ponto e vírgula, ex: França; Estados Unidos; Itália; Japão;)
+	\item Aproximadamente, quantas cidades na região nordeste do Brasil você visitou?
+	\item Aproximadamente, quantas cidades na região norte do Brasil você visitou?
+	\item Aproximadamente, quantas cidades na região centro-oeste do Brasil você visitou?
+	\item Aproximadamente, quantas cidades na região sudeste do Brasil você visitou?
+	\item Aproximadamente, quantas cidades na região sul do Brasil você visitou?
+\end{enumerate}
+
+Por fim, questões sobre contato prévio com robôs:
+
+\begin{enumerate}
+	\item Em algum momento de sua vida, você teve contato com robôs? Opções de resposta: Sim, Não
+	\item Se sim para a questão anterior, quais tipos de robôs você teve contato (marque 1 ou mais opções): Opções de resposta: Parecido com animais, Parecido com pessoas, Robôs de linha de produção/fábrica, Robôs Móveis (que contém rodas), outros
+	\item O que você espera do comportamento do Robô ao tê-lo em sua casa?
+	\item O que você espera do comportamento do Robô ao tê-lo em seu trabalho?
+	\item Dadas as questões anteriores, gostaria de fazer mais algum comentário sobre você?
+\end{enumerate}
+
+O segundo questionário mantém o foco na interação do usuário durante o teste e quais pontos do robô mais agradaram ou não na opinião dele. Além disso, um detalhe do teste que pode impactar na interação também é registrado, se o usuário estava em posição sentada ou em pé. As questões apresentas a seguir compõe o questionário pós-teste:
+
+\begin{enumerate}
+	\item Informe o número de amostra (Identificador dos documentos referentes ao comitê de ética)
+	\item Você se sentiu confortável durante a aproximação do robô? Escala de 1 à 10
+	\item Você se sentiu com medo em algum momento durante a aproximação do robô? Escala de 1 à 10
+	\item Você estava \_\_\_\_\_\_\_\_\_ durante a aproximação do robô. Opções de resposta: Sentado, em Pé
+	\item Você voltaria a interagir com esse robô novamente? Opções de resposta: Sim, Não
+	\item Justifique a resposta anterior.
+	\item O que você mais gostou no robô?
+	\item O que você menos gostou no robô?
+	\item Depois dessa experiência, você interagiria com outros robôs? Opções de resposta: Sim, Não
+	\item Você estaria confortável com um robô convivendo em sua casa? Opções de resposta: Sim, Não
+	\item Justifique a resposta anterior.
+	\item Em algum momento da interação, você se sentiu desconfortável com o comportamento do robô? Opções de resposta: Sim, Não
+	\item Descreva o desconforto em caso de sim, na resposta anterior.
+	\item Você alteraria algum comportamento apresentado pelo robô durante o teste? Qual?
+	\item Observações e comentários:
+\end{enumerate}
+
+Todo o processo e questionários apresentados nesse capítulo, estão aprovados pelo comitê ética sobre identificador de processo CAAE: 70057117.0.0000.5508.
+
+\section{Preparando os dados para o algoritmo QG-SIM}
+\label{sec:preparacao}
+Com os processos de captura das informações concluídos, é necessário trabalhar na normalização delas para que seja possível executar o algoritmo que irá agrupar os perfis semelhantes. Nesse momento, é necessário uma análise manual para separar as informações. O primeiro passo é deixá-las todas em uma única base de dados, pois neste momento estão em duas bases diferentes, pré e pós-teste.
+
+Com as informações reunidas em uma única base de dados, é necessário remover informações de texto livre uma vez que o algoritmo não possui um interpretador semântico e fica difícil criar um modelo quantitativo para essas informações, de maneira que exista um sentido de comparação entre as respostas.
+
+As informações quantitativas existentes, como por exemplo a idade do usuário, pode-se aplicar a distância euclidiana ou alguma outra distância de acordo com a necessidade do projeto. No caso do agrupamento de perfis desta tese, a distância euclidiana é adotada já que atende por completo a necessidade do algoritmo e do processo.
+
+Em relação as variáveis categóricas, ou seja, as variáveis que possuem um valor textual fixo, existem duas opções para converte-las em valores quantitativos. A primeira opção é inserir um código númerico para cada valor, por exemplo, os valores ``Celular, Computador, Tablet, Autoatendimento, Caixa Físico'' recebem um valor representado por um número inteiro cada ficando ``Celular = 1, Computador = 2, Tablet = 3, Autoatendimento = 4, Caixa Físico = 5''. A segunda opção é transformar essas variáveis em \emph{dummies}~\footnote{http://pandas.pydata.org/}. O método \emph{dummies} transforma cada opção de resposta em uma variável binária onde o valor 1 é para quando a opção foi selecionada e 0 para o oposto.
+
+% Falar sobre o passo da normalização e execução dos algoritmos, na sequência continuar com a seção sobre Personas. Antes de falar da rede bayesiana, abrir uma seção sobre as heurística adaptadas de Nielsen. Finalizar a proposta e o capítulo de teste
+
+\section{Autoavaliação Bayesiana para o Robô}
 \label{sec:rede-bayesiana}
 
 Analisando os sensores disponíveis no robô utilizado para implementação e execução dos testes dessa tese (vide seção~\ref{sec:robo}) e as variáveis apresentadas nas seções~\ref{sec:variaveiscomportamentais} e \ref{sec:variaveisrobo}, optou-se por utilizar variáveis mínimas e com o menor número de sensores, para auxiliar no diagnóstico e tomada de decisão do robô. A quantidade de menor número de sensores é justificada devido a facilidade de implementar em qualquer tipo de robô com o menor custo. As variáveis foram segmentadas para que tomada de decisão feita pelo robô fosse automática, sem necessidade de controla-lo de qualquer maneira. Apesar dessa segmentação das variáveis na implementação da rede bayesiana, as mapeadas na seção~\ref{sec:extracaocaracteristicas} estão documentadas para que sejam incluídas em trabalhos futuros, melhorando assim o processo de análise comportamental do indíviduo, assim como outras aqui não contempladas. As variáveis que serão utilizadas são:
