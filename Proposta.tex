@@ -151,7 +151,48 @@ As informações quantitativas existentes, como por exemplo a idade do usuário,
 
 Em relação as variáveis categóricas, ou seja, as variáveis que possuem um valor textual fixo, existem duas opções para converte-las em valores quantitativos. A primeira opção é inserir um código númerico para cada valor, por exemplo, os valores ``Celular, Computador, Tablet, Autoatendimento, Caixa Físico'' recebem um valor representado por um número inteiro cada ficando ``Celular = 1, Computador = 2, Tablet = 3, Autoatendimento = 4, Caixa Físico = 5''. A segunda opção é transformar essas variáveis em \emph{dummies}~\footnote{http://pandas.pydata.org/}. O método \emph{dummies} transforma cada opção de resposta em uma variável binária onde o valor 1 é para quando a opção foi selecionada e 0 para o oposto.
 
-% Falar sobre o passo da normalização e execução dos algoritmos, na sequência continuar com a seção sobre Personas. Antes de falar da rede bayesiana, abrir uma seção sobre as heurística adaptadas de Nielsen. Finalizar a proposta e o capítulo de teste
+Nesse ponto a base de dados está com todas as variáveis quantificadas, porém cada uma possui uma escala diferente. Essa diferença na escala das variáveis pode gerar tendências no resultado do algoritmo, assim é necessário padronizar os valores númericos existentes na base. Para realizar a padronização dos dados o processo de normalização é executado. A normalização mais comum a ser feita é manter os valores das variáveis entre 0 e 1~\cite{lattin:2011}. A equação~\ref{eq:normalizacao1} apresenta a forma mais simples de realizar o processo de normalização dos dados. É feita a divisão do valor da característica pelo valor máximo encontrado entre a característica analisada.
+
+\begin{equation}
+	X_{i_{normalizado}} = \frac{X_i}{\max_{X_i}}
+	\label{eq:normalizacao1}
+\end{equation}
+
+Entretanto, o uso da equação \ref{eq:normalizacao1} para normalizar os dados, pode gerar também uma tendência ou generalização da normalização. Pode existir uma concentração nos dados em um determinado intervalo generalizando a informação coletada~\cite{masiero:2013}. Para evitar o problema da concentração dos dados, utiliza-se a equação \ref{eq:normalizacao2} como método mais efetivo na normalização dos dados.
+
+\begin{equation}
+	X_{i_{normalizado}} = \frac{X_i - \min_{X_i}}{\max_{X_i} - \min_{X_i}}
+	\label{eq:normalizacao2}
+\end{equation}
+
+Após o processo de normalização, as escalas da base estão com uma distribuição uniforme e prontas para serem consumidas pelo algoritmo.
+
+\section{Executando o QG-SIM e criando as Personas}
+\label{sec:criarpersonas}
+Com as informações normalizadas, o próximo passo é executar o algoritmo de agrupamento QG-SIM. A implementação do algoritmo pode ser encontrada no endereço \url{https://github.com/amasiero/qgsim}. O algoritmo solicita um valor mínimo para manter uma informação no mesmo grupo. Esse valor é chamado de Q. A partir desse valor, o QG-SIM irá agrupar os perfis de acordo com a similaridade desejada e irá gerar o número de grupos automaticamente~\cite{masiero:2013}.
+
+Assim que os grupos são definidos, é necessário encontrar a medida de dispersão central para cada uma das variáveis do perfil. Elas irão auxiliar no processo de construção da Persona, como definição da idade, se utiliza óculos, tipo do cabelo, gênero, e outras informações. Nesse momento, as informações de texto livres preenchidas são utilizadas para preencher a descrição e história da Persona. É verificado cada resposta dos indivíduos que compõe o grupo e na sequência é criado todo uma história de vida para a Persona.
+
+Essas informações em um segundo momento, podem auxiliar o robô a tomar uma decisão mais apropriada de acordo com o comportamento esperado para aquela Persona. As Personas obtidas nos testes realizados para essa tese são apresentadas no capítulo~\ref{cap:resultados}.
+
+\section{Heurísticas adaptadas de Nielsen}
+\label{sec:heuristicas}
+Antes de apresentar a estrutura da rede bayesiana (seção~\ref{sec:rede-bayesiana}), é listado as 10 heurísticas de Nielsen adaptadas para sistemas robóticos sociais. É importante essa adaptação, pois é com base nelas que o robô irá fazer uma autoavaliação do seu comportamento com sistema durante a interação com usuário. Assim, ele pode identificar quais pontos precisam ser melhorados e gerar um relatório para o especialista ou até mesmo conseguir tomar uma decisão de mudança de comportamento para deixar o usuário mais confortável com sua presença. As adaptações das heurísticas são:
+
+\begin{itemize}
+	\item \textbf{Visibilidade do status do robô}: o robô deve sempre manter o humano informado sobre o que está acontecendo por meio de feedback apropriado dentro de um tempo razoável. O status do sistema deve ser exposto constantemente para o humano durante movimentação ou parado. O feedback pode ser gerado via voz ou algum outro método visual. Não fornecer feedback sobre o status do sistema quando o robô encontra-se estático, causa desconforto ao humano.
+	\item \textbf{Equivalência entre o robô e o mundo real}: o robô deve usar a linguagem do usuário com palavra, frases e conceitos que lhe sejam familiares, ao invés de termos orientados à tecnologia. Deve-se seguir convenções do mundo real, fazendo a informação aparecer em uma ordem natural e lógica. Esse é um grande desfio, pois lidar com grupos de usuários com diferentes vivências cria barreiras para a adoção de uma linguagem única que permita um dialogo transparente. O robô deve caracterizar o mundo real de acordo com seu contexto de aplicação.
+	\item \textbf{Controle do humano e liberdade}: os humanos podem fornecer comandos para o robô por engano ou falha de sensor, sendo assim precisarão de uma saída de emergência bem determinada para cancelar o estado não desejado. O diálogo anterior de estar na memória do robô para que não haja um retrabalho de conversa ou gestos anteriormente executados. Um comando para cancelar e voltar a informação prévia deve ser ofertado para continuar a naturalidade da interação.
+	\item \textbf{Consistência e Padrões}: os humanos não devem ter de imaginar se palavras, situações, posições, gestos ou ações diferentes do robô significam a mesma coisa. As convenções da plataforma devem ser seguidas.
+	\item \textbf{Prevenção de erro}: dar prioridade para prevenção de ocorrência de erros. Caso o erro aconteça, deve-se fornecer um bom feedback, ajudando o humano no reconhecimento do problema. O processo interativo entre o humano e robô com qualidade no momento da recuperação do erro, diminui o desconforto do usuário e auxilia o robô a continuar ativo no ambiente. O robô deve tentar sempre a autorecuperação do erro.
+	\item \textbf{Reconhecer ao invés de relembrar}: as ações que o robô pode executar, e os seus respectivos comandos devem ser fáceis de reconhecer de acordo com o contexto de uso. O humano não deve ter de relembrar informação de uma parte do diálogo de interação com o robô. Instruções para uso do robô devem ser fornecidas pelo próprio robô, iniciando o dialogo como um processo de aprendizado.
+	\item \textbf{Flexibilidade e eficiência de uso}: algoritmos de inteligência artificial com reconhecimento do ambiente de interação, mapeando o comportamento do usuário com documentação do histórico do perfil de uso, permite que o robô tome decisões que se adiantam às necessidades do humano. Os humanos novatos no processo interativo devem possuir mais informações em busca de confirmações e composição do perfil. Para humanos experientes deve-se aumentar a naturalidade da interação. O robô deve atender tanto aos usuários experientes quanto aos inexperientes.
+	\item \textbf{Estética e design minimalista}: o retorno por movimento, som ou interface visual do robô não devem conter informação que seja irrelevante ou raramente necessária. Toda unidade de informação extra em um diálogo de acordo com o contexto, compete com unidades de informação relevantes e diminui sua visibilidade relativa. Por exemplo, uma luz vermelha piscando em tempo integral prejudica o feedback de outras ações do robô. Além disso, o robô deve possuir uma aparência que auxilie na identificação das atividades que ele realiza.
+	\item \textbf{Auxílio ao usuário para reconhecer, diagnosticar e recuperar-se de erro}: as mensagens de erro devem ser expressas em linguagem clara (sem códigos), indicar precisamente o problema, e sugerir construtivamente uma solução.
+	\item \textbf{Ajuda e documentação}: ainda que seja melhor que o robô possa ser usado sem documentação e de forma natural, pode ser necessário prover ajuda. Qualquer informação deste tipo deve ser fácil de buscar, ser focada na tarefa do humano de acordo com o contexto de uso, deve relacionar passos concretos a serem desenvolvidos, e não deve ser muito longa. Preferência por interações através da voz para pesquisar a documentação de uso do robô.
+\end{itemize}
+
+Algumas dessas informações devem ser consideradas no momento de concepção do robô, outras podem ser agregadas em técnicas de inteligência artificial e aprendizado de máquina, onde o robô pode efetivamente avaliar seu comportamento durante a interação com o ser humano. A técnica utilizada neste \emph{framework} é a rede bayesiana, por ser uma técnica probabilística e que trabalha como um diagnóstico de causa-efeito. A seção~\ref{sec:rede-bayesiana} apresenta em detalhes a estrutura proposta para a rede bayesiana deste \emph{framework}.
 
 \section{Autoavaliação Bayesiana para o Robô}
 \label{sec:rede-bayesiana}
