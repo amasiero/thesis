@@ -197,7 +197,28 @@ Algumas dessas informações devem ser consideradas no momento de concepção do
 \section{Autoavaliação Bayesiana para o Robô}
 \label{sec:rede-bayesiana}
 
-Analisando os sensores disponíveis no robô utilizado para implementação e execução dos testes dessa tese (vide seção~\ref{sec:robo}) e as variáveis apresentadas nas seções~\ref{sec:variaveiscomportamentais} e \ref{sec:variaveisrobo}, optou-se por utilizar variáveis mínimas e com o menor número de sensores, para auxiliar no diagnóstico e tomada de decisão do robô. A quantidade de menor número de sensores é justificada devido a facilidade de implementar em qualquer tipo de robô com o menor custo. As variáveis foram segmentadas para que tomada de decisão feita pelo robô fosse automática, sem necessidade de controla-lo de qualquer maneira. Apesar dessa segmentação das variáveis na implementação da rede bayesiana, as mapeadas na seção~\ref{sec:extracaocaracteristicas} estão documentadas para que sejam incluídas em trabalhos futuros, melhorando assim o processo de análise comportamental do indíviduo, assim como outras aqui não contempladas. As variáveis que serão utilizadas são:
+Com todos os passos necessários para identificar o usuário e suas necessidades com o projeto, o próximo passo é a criação de um mecanismo que possa fazer com que o robô faça uma autoavaliação a partir de uma reação do usuário. Tais informações geram incertezas, que podem ocorrer baseadas em falhas de sensores, ruído da percepção do robô perante a ação/reação do usuário, cenário de atuação, estado emocional interno do usuário, entre outros. Dado esse cenário de incerteza, é importante que a técnica utilizada não afirme sobre uma detecção, mas sim possa inferir a probabilidade de uma resposta coerente ao diagnóstico. A técnica apresenta na literatura que possui a característica de ser probabilística e também de realizar um diagnóstico de causa-efeito é a técnica de redes bayesianas. Sendo assim, essa seção apresenta uma rede bayesiana que seja capaz de diagnosticar o conforto e desconforto do usuário, dado as informações sobre qual Persona o representa, quais as heurísticas que o robô atendeu e quais foram as ações que o robô realizou. Na sequência será apresentado cada camada da rede e por fim uma visão geral da estrutura criada.
+
+A primeira camada da rede bayesiana é composta pelas Personas. Essa camada que recebe as Personas para o projeto, não é uma camada fixa. Isso significa que cada vez que houver interação entre o robô e o usuário e novas informações forem coletadas, novas Personas podem aperecer e essas devem ser inseridas como novos nós da primeira camada. A valoração dos nós das Personas não está ligada a ser uma Persona ou não, a ideia é identificar aqui qual a probabilidade dessa Persona ser uma Persona primária ou secundária a interação. Assim o domínio das variáveis aleatórias Personas é \{Primária, Secundária\} e o identificador na rede é formado pela letra P acompanhada de um valor númerico, registrado como um dos atributos da Persona. Exemplo do identificador é P1.
+
+A próxima camada é formada pelas heurísticas de Nielsen adaptadas para interação humano robô, apresentadas na seção~\ref{sec:heuristicas}. A ideia é verificar com as Personas existentes, quais heurísticas foram atendidas e quais não foram. Então o domínio para os nós que representam as heurísticas é dado pelo domínio binário da pergunta ``Foi atendida?''. A identificação de cada heurística é apresentada na lista a seguir:
+
+\begin{itemize}
+	\item \textbf{H01}: Visibilidade do status do robô
+	\item \textbf{H02}: Equivalência entre o robô e o mundo real
+	\item \textbf{H03}: Controle do humano e liberdade
+	\item \textbf{H04}: Consistência e Padrões
+	\item \textbf{H05}: Prevenção de erro
+	\item \textbf{H06}: Reconhecer ao invés de relembrar
+	\item \textbf{H07}: Flexibilidade e eficiência de uso
+	\item \textbf{H08}: Estética e design minimalista
+	\item \textbf{H09}: Auxílio ao usuário para reconhecer, diagnosticar e recuperar-se de erro
+	\item \textbf{H10}: Ajuda e documentação
+\end{itemize}
+
+Apesar do uso das heurísticas acima, não significa que essa camada também está definida por completo. Caso existam novas heurísticas que sejam necessárias ao projeto, elas podem ser inseridas como novos nós da rede. Porém, em um primeiro momento essa camada não apresenta a necessidade de ser expandida ou subtraída.
+
+Na terceira camada
 
 \begin{itemize}
 	\item POS: posicionamento do robô dentro da zona de proximidade social da pessoa, apresentada no capítulo~\ref{cap:proxemics} através da figura~\ref{fig:proximityzones};
@@ -205,9 +226,7 @@ Analisando os sensores disponíveis no robô utilizado para implementação e ex
 	\item VOL: volume de emissão de som, realizado pelo robô;
 	\item GES: amplitude do gesto do robô em relação a pessoa;
 	\item FACE: expressão facial apresentada pelo robô durante a aproximação;
-	\item AFASTOU: se a pessoa se afastou do robô após sua tentativa de aproximação;
-	\item NEG\_FACE: se a pessoa apresentou uma expressão facial negativa durante a tentativa de aproximação do robô;
-	\item NEG\_CORP: se a pessoa apresentou uma expressão corporal negativa durante a tentativa de aproximação do robô;
+	\item ROT: rotação do robô no seu próprio eixo.
 \end{itemize}
 
 Para cada uma das variáveis aleatórias é necessário o mapeamento dos domínios. Os domínios são importantes para definir quais os possíveis valores que cada variável pode assumir, além de limitar o escopo do trabalho de maneira a atingir o seu objetivo. O domínio de cada variável aleatória apresentada é:
