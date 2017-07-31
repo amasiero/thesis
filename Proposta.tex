@@ -216,91 +216,100 @@ A próxima camada é formada pelas heurísticas de Nielsen adaptadas para intera
 	\item \textbf{H10}: Ajuda e documentação
 \end{itemize}
 
-Apesar do uso das heurísticas acima, não significa que essa camada também está definida por completo. Caso existam novas heurísticas que sejam necessárias ao projeto, elas podem ser inseridas como novos nós da rede. Porém, em um primeiro momento essa camada não apresenta a necessidade de ser expandida ou subtraída.
+Apesar do uso das heurísticas acima, não significa que essa camada também está definida por completo. Caso existam novas heurísticas que sejam necessárias ao projeto, elas podem ser inseridas como novos nós da rede. Porém, neste primeiro momento essa camada não apresenta a necessidade de ser expandida ou subtraída.
 
-Na terceira camada
+Na terceira camada são adicionadas as variáveis que correspondem as ações que o robô pode ter ao interagir com o usuário. Além das ações do robô, também é adicionado uma variável para o conceito de \emph{Proxemics}. Essa é uma variável que corresponde a muitos comportamentos e reações que o usuário pode ter, conforme tabela~\ref{tab:variaveiscomportamentaismead}. A variável de \emph{Proxemics} pode alterar tanto as ações do robô, quanto as reações de interação do usuário. Para validar o modelo, ela foi simplificada apenas para a questão de proximidade entre o robô e o usuário. A lista das variáveis aleatórias da terceira camada, são apresentadas a seguir:
 
 \begin{itemize}
-	\item POS: posicionamento do robô dentro da zona de proximidade social da pessoa, apresentada no capítulo~\ref{cap:proxemics} através da figura~\ref{fig:proximityzones};
+	\item POS: posicionamento do robô dentro da zona de proximidade social do usuário, conforme apresentado na figura~\ref{fig:proximityzones};
 	\item VEL: velocidade de aproximação do robô em relação a pessoa;
-	\item VOL: volume de emissão de som, realizado pelo robô;
+	\item FALA: estilo de comando dado pelo robô;
 	\item GES: amplitude do gesto do robô em relação a pessoa;
 	\item FACE: expressão facial apresentada pelo robô durante a aproximação;
 	\item ROT: rotação do robô no seu próprio eixo.
 \end{itemize}
 
-Para cada uma das variáveis aleatórias é necessário o mapeamento dos domínios. Os domínios são importantes para definir quais os possíveis valores que cada variável pode assumir, além de limitar o escopo do trabalho de maneira a atingir o seu objetivo. O domínio de cada variável aleatória apresentada é:
+%Continuar aqui
+Assim como nas demais variáveis aleatórias, é necessário delimitar os domínios de cada uma delas. Os domínios são importantes para definir quais os possíveis valores que cada variável pode assumir, além de limitar o escopo do trabalho de maneira a atingir o seu objetivo. As variáveis aleatórias da terceira camada têm os domínios representados na tabela~\ref{tab:variaveisvalores}, porém serão formalmente declarados na lista a seguir:
 
 \begin{itemize}
-	\item POS = \{publica, social, pessoal, íntima\}
+	\item POS = \{publica/social, pessoal/íntima\}
 	\item VEL = \{rápido, devagar\}
-	\item VOL = \{alto, baixo, mudo\}
-	\item GES = \{longo, curto, ausente\}
-	\item FACE = \{feliz, neutra, nervoso\}
-	\item AFASTOU = \{verdadeiro, falso\}
-	\item NEG\_FACE = \{verdadeiro, falso\}
-	\item NEG\_CORP = \{verdadeiro, falso\}
+	\item ROT = \{rápido, devagar\}
+	\item FALA = \{educada, autoritária\}
+	\item GES = \{olá longo, olá curto, apontar\}
+	\item FACE = \{feliz, neutra, triste, nervosa com cor vermelha, nervosa com cor azul, surpresa e corada\}
 \end{itemize}
 
-As variavéis que representam a reação do usuário (\{AFASTOU, NEG\_FACE, NEG\_CORP\}) possuem o domínio binário, pois o intuito é apenas saber se algum fator gerou uma reação negativa do ser humano durante a interação. As demais várias necessitam de um domínio maior, pois a intenção é investigar quais os fatores que levaram a reação negativa do ser humano.
+A última camada da rede bayesiana é composta pela experiência do usuário. Duas variáveis aleatórias são utilizadas, conforto e desconforto na interação com o robô. Essas variáveis possuem o domínio binário, já que o intuito é apenas diagnosticar o que gerou o conforto ou o desconforto do usuário.
 
-Com a definição das variáveis aleatórias e seus respectivos domínios, foi possível estabelecer um grafo acíclico orientado, uma rede bayesiana, partindo do princípio de que POS é o nó pai que tem influência sobre todos os outros. Ele foi escolhido como nó pai, pois é a causa principal dos demais efeitos da rede, que possui mais dois níveis. Em um nível intemediário de nós temos as variávies \{VEL, VOL, GES, FACE\}, que são variáveis dependentes exclusivamente das ações do robô e possuem uma independência condicional dado o pai POS. Por fim, as três variáveis que representam as reações do ser humano, que são independentes condicionais dado os pais \{POS, VEL, VOL, GES, FACE\}. As variáveis \{AFASTOU, NEG\_FACE, NEG\_CORP\} também são chamadas de nós de efeito, que querem ser observados durante o processo de interação humano robô. A figura~\ref{fig:rb} apresenta a rede bayesiana formada com base na hierarquia definida.
+Dadas as definições das camadas e suas respectivas variáveis aleatórias, é possível estabelecer um grafo acíclico orientado, a estrutura da rede bayesiana, partindo do princípio de que as Personas sejam os nós pais que tem influência sobre todos os outros. A figura~\ref{fig:rb} apresenta a rede bayesiana formada com base na hierarquia definida.
 
 \begin{figure}[ht!]
 	\centering
-	\begin{minipage}{0.8\textwidth}
-		\caption{Rede bayesiana construída para auxiliar no diagnóstico e tomada de decisão da aproximação ao indivíduo.}
+	\begin{minipage}{\textwidth}
+		\caption{Rede bayesiana construída para auxiliar no diagnóstico e avaliação da experiência do usuário na interação com o robô.}
 		\includegraphics[width=\textwidth]{rb-thesis.png}
 		\smallcaption{Fonte: Autor.}
 		\label{fig:rb}
 	\end{minipage}
 \end{figure}
 
-A partir de agora é preciso formalizar a rede bayesiana em formato de probabilidades, para que seja possível compreender cada um dos cálculos de inferência e diagnóstico realizados pelo mecanismo de tomada de decisão do robô durante a tarefa de aproximação do indivíduo. As equações~\ref{eq:1}, \ref{eq:2}, \ref{eq:3}, \ref{eq:4}, \ref{eq:5}, \ref{eq:6}, \ref{eq:7} e \ref{eq:8} representam as probabilidades da rede bayesiana para cada uma das variáveis aleatórias mapeadas.
+A partir de agora é preciso formalizar a rede bayesiana através de probabilidades, para que seja possível compreender cada um dos cálculos de inferência e diagnóstico realizados pelo mecanismo de autoavaliação do robô ao interagir com o usuário. As equações~\ref{eq:1}, \ref{eq:2}, \ref{eq:3}, \ref{eq:4}, \ref{eq:5}, \ref{eq:6}, \ref{eq:7}, \ref{eq:8}, \ref{eq:9} e \ref{eq:10} representam as probabilidades da rede bayesiana para cada uma das variáveis aleatórias mapeadas.
 
 \begin{equation}
 	\label{eq:1}
-	P(POS)
+	P(P1), P(P2), \dots, P(PN)
 \end{equation}
 
 \begin{equation}
 	\label{eq:2}
-	P(VEL|POS)
+	P(H01|P1, P2, \dots, PN), P(H02|P1, P2, \dots, PN), \dots, P(HN|P1, P2, \dots, PN)
 \end{equation}
 
 \begin{equation}
 	\label{eq:3}
-	P(VOL|POS)
+	P(POS|H01, H02, \dots, HN)
 \end{equation}
 
 \begin{equation}
 	\label{eq:4}
-	P(GES|POS)
+	P(VEL|H01, H02, \dots, HN)
 \end{equation}
 
 \begin{equation}
 	\label{eq:5}
-	P(FACE|POS)
+	P(ROT|H01, H02, \dots, HN)
 \end{equation}
 
 \begin{equation}
 	\label{eq:6}
-	P(AFASTOU|POS, VEL, VOL, GES, FACE)
+	P(FALA|H01, H02, \dots, HN)
 \end{equation}
 
 \begin{equation}
 	\label{eq:7}
-	P(NEG\_FACE|POS, VEL, VOL, GES, FACE)
+	P(GES|H01, H02, \dots, HN)
 \end{equation}
 
 \begin{equation}
 	\label{eq:8}
-	P(NEG\_CORP|POS, VEL, VOL, GES, FACE)
+	P(FACE|H01, H02, \dots, HN)
 \end{equation}
 
-É importante ressaltar que o efeito a ser medido é a reação do ser humano, pois é o principal interessado em toda interação com o robô, já que é um robô com tarefas em ambientes sociais, domésticos e assistivos. A grande preocupação em manter o foco no ser humano é por que os trabalhos apresentados no capítulo~\ref{cap:proxemics} tem o foco apenas na execução da tarefa pelo robô e em seu comportamento. As reações dos seres humanos são colocadas em segundo plano, nesses trabalhos.
+\begin{equation}
+	\label{eq:9}
+	P(CONFORTO|POS, VEL, ROT, FALA, GES, FACE)
+\end{equation}
 
-\section{Extração das Características}
+\begin{equation}
+	\label{eq:10}
+	P(DESCONFORTO|POS, VEL, ROT, FALA, GES, FACE)
+\end{equation}
+
+É importante ressaltar que o efeito a ser medido é a experiência do usuário, pois é o principal interessado na interação com o robô. A grande preocupação em manter o foco no ser humano é por que existem poucos trabalhos que consideram exatamente a experiência do usuário na interação, conforme \citeonline{alenljung:2017} afirma em seu trabalho. A tomada de decisão para melhorar a experiência do usuário a partir a autoavaliação do robô não faz parte do escopo desta tese, porém uma lista com possíveis expansões em características a serem consideradas é apresentada na seção~\ref{sec:extracaocaracteristicas}.
+
+\section{Características para Expandir o \emph{Framework}}
 \label{sec:extracaocaracteristicas}
 
 Como apresentado no capítulo \ref{cap:proxemics}, existem diversas variáveis que podem auxiliar na extração de um perfil comportamental do indivíduo. \emph{Proxemics} tornam possível a extração de fatores sobre a distância social entre o indivíduo e o robô. Esses fatores podem variar não só entre a posição física dos dois agentes, mas também na posição do corpo dos indivíduos, como por exemplo, a orientação dos ombros e troco em relação a posição do robô. Outro fator significante é a fixação entre olhares, este pode auxiliar o processo que determina o início e o fim de uma interação. O olhar também auxilia na determinação de quem são os principais indivíduos na interação. Além disso, pode-se empregar o reconhecimento de expressões faciais para auxílio na análise do quanto a situação é confortável para o indivíduo, ou o quanto ele aprecia a interação. Pode existir uma avaliação em tempo real das reações deste indivíduo durante todo o processo de interação. Outra técnica que pode ser utilizada na análise de conforto na interação é a avaliação da emoção através da voz da pessoa, ou através do uso de equipamento de eletroencefalografia~(EEG), porém este último é um método mais invasivo já que exige a adição de um equipamento na pessoa que interage com o robô.
