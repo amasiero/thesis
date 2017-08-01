@@ -45,8 +45,13 @@ O projeto da cabeça foi preparado para acomplar alguns alguns sensores como o M
 
 \section{Arquitetura do Software}
 \label{sec:arquitetura}
+A arquitetura construída para o software do robô foi feita em camadas. Existem 3 camadas principais, que definem a arquitetura do robô. A primeira camada contém os estados que compõem as máquinas de estados que auxiliam o robô nas tarefas a serem realizadas. Basicamente, ela conduz as ações e comandos que o robô tem como interface com o usuário durante a interação.
 
-\section{Bibliotecas}
+A segunda camada é responsável pelo processamento dos processos de \emph{subscribers} e \emph{publishers}, conforme o recomendado pelo \emph{Robot Operating System}~(ROS)~\footnote{http://www.ros.org/}. Eles fazem a interface entre sensores e atuadores, através de seus \emph{drivers}, e também com os algoritmos de visão computacional, de aprendizado de máquina e de planejamento. O processamento desses algoritmos, de sensores com grande volume de informação como o Kinect e serviços que auxiliam o controle do manipulador são encontrados na terceira camada.
+
+Como toda a implementação do software foi feita com base no ROS, os pacotes foram construídos de maneira separada. Sendo assim, os códigos fontes ficaram agrupados de acordo com as habilidades necessárias para o robô realizar as tarefas e também referentes ao mesmo tipo de objetivo. Todo o código fonte criado para execução dos testes dessa tese, encontram-se disponível através do endereço \url{https://github.com/amasiero/approach_control}, na ferramente de controle de versão em código aberto, GitHub. O código foi testado com duas bases robóticas, o PeopleBot da Pioneer e o youBot da Kuka.
+
+\subsection{Bibliotecas}
 \label{sec:bibliotecas}
 
 \section{Cenário de Teste} %REFAZER OS TEXTOS DESSA SEÇÃO
