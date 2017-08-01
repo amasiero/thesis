@@ -53,10 +53,25 @@ Como toda a implementação do software foi feita com base no ROS, os pacotes fo
 
 \subsection{Bibliotecas}
 \label{sec:bibliotecas}
+Para auxiliar no desenvolvimento da tese, algumas bibliotecas e softwares foram utilizados. O primeiro, conforme dito na seção~\ref{sec:arquitetura}, foi o ROS que é um \emph{framework} para desenvolvimento de software em robôs. Ele roda sobre o Ubuntu Linux, que no caso da tese foi utilizado a versão 14.04, com o ROS versão Indigo.
+
+A biblioteca que gerencia a máquina de estados criada para execução das tarefas é o SMACH~\footnote{http://wiki.ros.org/smach}. Ele possibilita a criação e realiza o gerenciamento dos estados durante a execução das ações do robô. Para reconhecimento de voz a biblioteca utilizada foi o Dragonfly Speech Recognition~\footnote{https://pypi.python.org/pypi/dragonfly/0.6.5}. Bibliotecas como o OpenCV~\footnote{http://opencv.org/}, PyOpenni~\footnote{https://github.com/jmendeth/PyOpenNI} e MoveIt!~\footnote{http://moveit.ros.org/} foram utilizados para percepção e interação com o ambiente e também com o usuário.
+
+Todos os pacotes desenvolvidos utilizaram a linguagem de programação Python, que possibilitou diversas facilidades na implementação dos códigos e integração das camadas dos pacotes no ROS. Para criação e teste da rede bayesiana proposta utilizou-se o \emph{framework} SamIam~\footnote{http://reasoning.cs.ucla.edu/samiam/}, que realiza os cálculos de todas as probabilidades de uma consulta a rede de maneira objetiva e com um bom desempenho computacional.
 
 \section{Cenário de Teste} %REFAZER OS TEXTOS DESSA SEÇÃO
 \label{sec:cenario}
-O inicio de toda interação é a partir da aproximação entre os agentes envolvidos ou interessados. O robô envolvido em um ambiente social, deve aprender como se aproximar das pessoas em diferentes situações. A aproximação deve ser controlada fazendo com que os demais agentes envolvidos fiquem confortáveis, sem expressões ou reações de medo ou apreensão. Uma vez aprendido o controle de aproximação, o robô deve ser capaz de generalizar o modelo para qualquer outro agente. Além do controle, é importante que o robô seja capaz de aprender os agentes conhecidos em interações anteriores para que fique mais natural o tratamento, posteriormente.
+Antes de descrever o cenário de teste, é importante mencionar que todo o procedimento para a execução foi aprovado por um comitê de ética, e pode ser consultado a partir do identificador CAAE: 70057117.0.0000.5508. O teste é realizado em um cenário simulando um residência, conforme apresentado na figura~\ref{fig:cenario}.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{\textwidth}
+		\caption{Cenário para teste de interação com o robô.}
+		\includegraphics[width=\textwidth]{cenario.jpg}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:cenario}
+	\end{minipage}
+\end{figure}
 
 \subsection{Objetivo}
 
