@@ -61,7 +61,7 @@ Todos os pacotes desenvolvidos utilizaram a linguagem de programação Python, q
 
 \section{Cenário de Teste} %REFAZER OS TEXTOS DESSA SEÇÃO
 \label{sec:cenario}
-Antes de descrever o cenário de teste, é importante mencionar que todo o procedimento para a execução foi aprovado por um comitê de ética, e pode ser consultado a partir do identificador CAAE: 70057117.0.0000.5508. O teste é realizado em um cenário simulando um residência, conforme apresentado na figura~\ref{fig:cenario}.
+Antes de descrever o cenário de teste, é importante mencionar que todo o procedimento para a execução foi aprovado por um comitê de ética, e pode ser consultado a partir do identificador CAAE: 70057117.0.0000.5508. O teste é realizado em um cenário simulando um residência, conforme apresentado na figura~\ref{fig:cenario}. No cenário, o robô irá navegar de maneira autonoma a procura de uma garrafa que ele deixou no armário. Como ele não encontra a garrafa, o robô sai a procura de uma pessoa que esteja na casa para ajuda-lo. Ele irá interagir com a pessoa, e poderá solicitar que a pessoa o siga para algum lugar do cenário, à procura de sua garrafa.
 
 \begin{figure}[ht!]
 	\centering
@@ -75,53 +75,40 @@ Antes de descrever o cenário de teste, é importante mencionar que todo o proce
 
 \subsection{Objetivo}
 
-O robô deve se comportar durante a aproximação de qualquer agente fazendo com que este confortável independente da aparência que o robô tenha e de maneira natural.
+Verificar a compreensão e conforto da pessoa ao observar e interagir com o robô no cenário doméstico, assim identificar experiências positivas e negativas do usuário.
 
 \subsection{Foco}
 
-O foco do cenário é o aprendizado e generalização de uma aproximação do robô à uma pessoa ou um grupo de pessoas, nas posições, sentada ou em pé.
+O foco do cenário é a experiência do usuário com a presença do robô e a interação social entre ambos.
 
 \subsection{Configuração para o Teste}
 
-Para esse teste deverão ser considerados algumas possibilidades para o robô e também pessoas. Essas configurações podem ser mescladas entre si, atendendo qualquer possível combinação.
-
-\subsubsection{Pessoa}
+Para o teste são consideradas algumas possibilidades de posicionamento da pessoa e robô para interagirem.
 
 \begin{itemize}
-	\item Única pessoa parada em pé a 4 metros a frente do robô. A pessoa não precisa necessariamente ficar olhando diretamente para o robô.
-	\item Única pessoa sentada a 4 metros a frente do robô. A pessoa não precisa necessariamente ficar olhando diretamente para o robô. Ela poderá ler um livro ou revista, nessa configuração.
-	\item Grupo de pessoas simulando uma conversa a 4 metros de distância a frente do robô. Neste caso todas as pessoas estarão em pé.
-	\item Grupo de pessoas simulando uma sala de estar a 4 metros de distância a frente do robô. Neste caso poderá existir pessoas sentadas e em pé (paradas ou caminhando pelo ambiente).
+	\item Pessoa parada em pé e o robô inicia a interação próximo do usuário.
+	\item Pessoa parada em pé e o robô inicia a interação distante do usuário.
+	\item Pessoa parada sentada e o robô inicia a interação próximo do usuário.
+	\item Pessoa parada sentada e o robô inicia a interação distante do usuário.
 \end{itemize}
 
-O objetivo das configurações do grupo de pessoas acima é fazer com que o robô aprenda a se aproximar das diversas formações possíveis, permitindo assim uma melhor generalização do modelo aprendido.
-
-\subsubsection{Robô}
-
-\begin{itemize}
-	\item O robô possui face que interage com a pessoa de acordo com suas próprias ações. Por exemplo, quando falar olá o robô apresenta uma face sorrindo. (Aprender quais as melhores expressões faciais para deixar o indivíduo confortável na aproximação do robô de acordo com as zonas de proximidades)
-	\item O robô não possui face. (Validar se é possível um robô se aproximar de uma pessoa sem nenhum sinal social e deixar a pessoa confortável)
-	\item O robô controla os gestos do manipulador ao se aproximar da pessoa. Neste caso ele pode ou não possuir uma face. (Aprender quais os melhores gestos para deixar o indivíduo confortável na aproximação do robô de acordo com as zonas de proximidades)
-	\item O robô não controla os gestos do manipulador ao se aproximar da pessoa. Neste caso ele pode ou não possuir uma face. (Aprender quais os melhores gestos para deixar o indivíduo confortável na aproximação do robô de acordo com as zonas de proximidades)
-	\item O robô não realiza gestos. Neste caso o robô pode ou não possuir o manipulador. (Validar se é possível um robô se aproximar de uma pessoa sem apresentar gestos com seu manipulador, ou sem ele, e deixar a pessoa confortável)
-\end{itemize}
-
-Para todos os casos de robôs, ele poderá apresentar ou não sinais de voz para interagir com a pessoa durante a aproximação.
+O objetivo das configurações é a aleatoriedade do posicionamento entre robô e pessoa, considerando cenários doméstico onde o convívio é comum. Assim, é possível medir a experiência do usuário em diversas situações de convivência.
 
 \subsection{Tarefa}
 
-Esse teste poderá ocorrer em um ambiente não controlado, onde existam pessoas não participantes, transitando pelo cenário, devido ao espaço necessário para execução do teste.
+Esse teste ocorre em um ambiente controlado, porém o trânsito de outros indíviduos pelo cenário acontece com frequência significativa. O passo a passo da tarefa é descrito na lista a seguir:
 
 \begin{enumerate}
-	\item \textbf{Início}: O robô é posicionado no cenário de maneira aleatória e aguarda o comando para início do teste.
-	\item \textbf{Identificando a pessoa ou o grupo}: O robô deve rotacionar até encontrar o marcador feito com um QRCODE que identifica a pessoa ou o grupo que ele deve interagir.
-	\item \textbf{Aproximando do objetivo}: Ao identificar o grupo que ele deve se aproximar, o robô inicia a aproximação. Antes do início do movimento em direção ao grupo, de maneira aleatória, ele poderá ou não emitir sons, apresentar faces e/ou executar gestos com seu manipulador.
-	\item \textbf{Reações das pessoas}: Todas as reações das pessoas, durante a aproximação do robô, deverão ser armazenadas com o intuito de aprender se as ações executadas tornaram a aproximação mais confortável ao grupo.
-	\item \textbf{Fim}: Será considerado o fim da tarefa, quando o robô permanecer em interação dentro do espaço pessoal para intimo, por 15 segundos ou em um tempo máximo de 5 minutos total da tarefa.
+	\item \textbf{Início}: O robô é posicionado no cenário de maneira que esteja em um local em torno da residência simulada.
+	\item \textbf{Busca pelo objeto}: O robô segue até uma mesa, ou armário, onde supostamente deixou sua garrafa.
+	\item \textbf{Interação com a pessoa}: O robô se aproxima do usuário e questiona se ele viu a garrafa.
+	\item \textbf{Nova busca pelo objeto}: O robô segue a um novo ponto em busca da garrafa, que novamente não está no local.
+	\item \textbf{Retorno ao usuário}: O robô retorna ao local onde o usuário se encontra e, em uma distância maior ou menor de proximidade (aleatória), solicita que o usuário o acompanhe.
+	\item \textbf{Fim}: Será considerado o fim da tarefa, quando o robô alcançar um ponto ao redor do cenário e informar o fim do teste ao participante.
 \end{enumerate}
 
 \section{Seleção das Pessoas para o Teste}
 \label{sec:perfistestes}
-Para realizar os testes são priorizadas as pessoas que não tiveram nenhum contato prévio com robô ou com um contato mínimo. As pessoas possuem idades diversificadas, porém as preferências são por idosos e crianças. Alguns candidatos ao teste possuem medo declarado de robôs e neste caso o especialista ficará acompanhando o teste com uma maior proximidade para evitar problemas com o robô e principalmente com a pessoa.
+As pessoas possuem idades diversificadas com variedade de 18 a 50 anos. Alguns candidatos ao teste possuem medo declarado de robôs e neste caso o especialista ficará acompanhando o teste com uma maior proximidade para evitar problemas com o robô e principalmente com a pessoa.
 
-Os integrantes da equipe que constrói o robô não serão consideradas como público ou registro oficial dos testes realizados nos dois cenários. Também são evitados a repetição dos candidatos entre os dois cenários com a tentativa de maximizar o resultado dos testes.
+São evitados a repetição de configuração entre os candidatos, para que não seja levantado nenhum conhecimento a priori sobre o comportamento do robô.
