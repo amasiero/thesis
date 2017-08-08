@@ -2,21 +2,21 @@
 \chapter{\emph{FRAMEWORK} PARA AUTOAVALIAÇÃO DO COMPORTAMENTO SOCIAL DO ROBÔ}
 \label{cap:proposta}
 
-Os capítulos anteriores apresentam uma revisão da literatura apontando que a existência de robôs em ambientes sociais torna-se cada vez mais comum no dia-a-dia das pessoas. Como qualquer produto existente no mercado, é necessário que esses robôs tragam uma boa experiência aos usuários que convivem com ele. Entretanto, as técnicas difundidas em interação humano computador, que tem o objetivo de aumentar a experiência boa do usuário em produtos tecnológicos, não têm sido aplicadas de maneira adequada por pesquisadores na área de robótica social, de serviço e assistiva~\cite{alenljung:2017}.
+Os capítulos anteriores apontam que a existência de robôs em ambientes sociais torna-se cada vez mais comum no dia-a-dia das pessoas. Como qualquer produto existente no mercado, é necessário que os robôs proporcionem uma boa experiência aos usuários em seu convívio. Entretanto, as técnicas difundidas em interação humano computador, que tem o objetivo de aumentar a experiência positiva do usuário em produtos tecnológicos, têm sido aplicadas de maneira superficial por pesquisadores na área de robótica social, de serviço e assistiva~\cite{alenljung:2017}.
 
-Com esse cenário em mente, essa tese apresenta um \emph{framework} baseado em teoria de experiência do usuário focado na usabilidade para aumentar o conforto da presença do robô. No processo apresentado como guia para a construção e evolução do \emph{framework}, assim como a criação de novos projetos em robótica, algumas técnicas serão utilizadas, como: (I) Personas que serão para o robô a base de classificação do perfil do usuário; (II) Heurísticas de Nielsen adaptadas para a interação humano robô, que servem como guia para o robô avaliar seu desempenho; e (III) \emph{Proxemics}, a teoria de proximidade (vide seção~\ref{cap:proxemics}), que estuda o comportamento de agentes sociais de acordo com a distância entre si.
+Com esse cenário em mente, essa tese apresenta um \emph{framework} baseado em técnicas de experiência do usuário focadas na usabilidade, onde é possível aumentar o efeito positivo da presença do robô. O processo apresentado nessa seção, serve como guia para a construção e evolução de projetos em robótica, sendo um \emph{framework} capaz de ajudar na experiência de usuário positiva. Algumas técnicas serão utilizadas, como: (I) Personas que são a base de avaliação da experiência do usuário através de seu perfil do usuário; (II) Heurísticas de Nielsen adaptadas para a interação humano robô, que auxiliam o robô avaliar a experiência do usuário na interação; e (III) \emph{Proxemics}, a teoria de proximidade (vide seção~\ref{cap:proxemics}), que estuda o comportamento de agentes sociais de acordo com a distância entre si.
 
-De acordo com a literatura apresentada, a cultura da pessoa influência diretamente o comportamento de uma pessoa em ambientes sociais. Isso significa que algumas reações apresentadas por pessoas no ambiente social são influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Contudo, fatores como a experiência de vida e cultura são difíceis de avaliar apenas através da observação. Conseguir fazer com que uma pessoa tenha liberdade para contar esse tipo de informação necessita de interações de longo prazo, podendo levar meses até compreender toda história dessa pessoa.
+De acordo com a literatura apresentada, a cultura da pessoa influência diretamente o comportamento de uma pessoa em ambientes sociais. Isso significa que algumas reações apresentadas por pessoas no ambiente social são influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Fatores como a experiência de vida e cultura são difíceis de avaliar apenas através da observação. Conseguir fazer com que uma pessoa tenha liberdade para contar esse tipo de informação necessita de interações de longo prazo, podendo levar meses até compreender toda história dessa pessoa.
 
-Contudo, o robô sendo um produto tecnológico pode utilizar técnicas que são capazes de aumentar a efetividade da interação. Não havendo assim, a necessidade de conhecer por completo a história de vida do indivíduo em questão. Técnicas oriundas da área de interação humano computador, tem o objetivo de deixar o sistema mais fácil de usar e acima de tudo aumentar a experiência, a satisfação do usuário ao utilizá-lo. Para que o robô possa realizar essa classificação e raciocínio sobre as informações que existem no ambiente alguns passos são apresentados ao longo deste capítulo.
+O robô sendo um produto tecnológico pode utilizar técnicas que são capazes de aumentar a efetividade da interação, não havendo assim, a necessidade de conhecer por completo a história de vida do indivíduo em questão. Técnicas oriundas da área de interação humano computador, tem o objetivo de deixar o sistema mais fácil de usar e acima de tudo aumentar a experiência, a satisfação do usuário ao utilizá-lo. Para que o robô possa realizar essa classificação e raciocínio sobre as informações que existem no ambiente alguns passos são apresentados ao longo deste capítulo.
 
-A seção~\ref{sec:robo} apresenta em detalhes o robô utilizado para essa pesquisa. Com base no robô disponível, estabelece as ações que são possíveis para ele executar. Na sequência dois questionários foram preparados, o primeiro aplicado anteriormente ao teste e o segundo após. O intuito do primeiro questionário é estabelecer o perfil do usuário referente a questões de aderência a tecnologia, contato prévio com robôs e sobre a cultura que ele se identifica. O questionário pós-teste possui informações declaradas sobre o conforto e avaliação do comportamento do robô durante a interação.
+A seção~\ref{sec:robo} apresenta em detalhes o robô utilizado para essa pesquisa. Com base no robô disponível, estabelece as ações que são possíveis para ele executar. Na sequência dois questionários foram preparados, o primeiro aplicado antes do teste de interação e o segundo após. O intuito do primeiro questionário é estabelecer o perfil do usuário referente a questões de aderência a tecnologia, contato prévio com robôs e sobre a cultura que ele se identifica. O questionário pós-teste possui informações declaradas sobre o conforto e avaliação do comportamento do robô durante a interação.
 
-Com os questionários definidos, foram selecionados 39 pessoas para participar do teste de interação com o robô, de acordo com o cenário descrito na seção~\ref{sec:cenario}. Os testes foram executados com o comportamento do robô de maneira aleatória, ou seja, sem nenhuma preocupação com a experiência do usuário neste momento. Coletados os perfis e informações dos usuários, é realizado uma preparação e normalização dos dados para que o algoritmo QG-SIM possa realizar o agrupamento dos perfis similares, conforme o processo apresentado por \citeonline{masiero:2013b}. A partir dos grupos gerados pelo algoritmo QG-SIM, é realizado o processo de criação de Personas~\cite{masiero:2013, masiero:2013b}.
+Com os questionários definidos, foram selecionados 39 pessoas para participar do teste de interação com o robô, de acordo com o cenário descrito na seção~\ref{sec:cenario}. Os testes foram executados com o comportamento do robô de maneira aleatória, ou seja, com o mínimo de preocupação com a experiência do usuário neste momento. Coletados os perfis e informações dos usuários, é realizado uma preparação e normalização dos dados para que o algoritmo QG-SIM possa realizar o agrupamento dos perfis similares, conforme o processo apresentado por \citeonline{masiero:2013b}. A partir dos grupos gerados pelo algoritmo QG-SIM, é realizado o processo de criação de Personas~\cite{masiero:2013, masiero:2013b}.
 
-Personas criadas, o próximo passo é estabelecer a criação de uma estrutura de nós no formato de rede bayesiana causa-efeito com camadas referentes as Personas, heurísticas de Nielsen adaptadas, comportamento do robô e efeitos sobre conforto e desconforto do usuário. Essa rede bayesiana é responsavél pelo mecanismo de auto-avaliação do robô. O mecanismo proposto possui uma estrutura mínima de nós, que refere-se ao ponto de partida do \emph{framework}. Essa estrutura pode evoluir para quantos nós forem necessários em uma avaliação mais precisa para a tomada de decisão e adaptação do comportamento do robô para mitigar o desconforto do usuário na presença do robô. Ao final, um conjunto de variáveis são propostos como ponto para futuras investigações e aprimoramento do \emph{framework} entregue por essa tese.
+Personas criadas, o próximo passo é estabelecer a criação de uma estrutura de nós no formato de rede bayesiana causa-efeito com as dependências condicionais referentes as Personas, heurísticas de Nielsen adaptadas, comportamento do robô e efeitos sobre conforto, desconforto e medo do usuário. Essa rede bayesiana é responsavél pelo mecanismo de autoavaliação do robô. O mecanismo proposto possui uma estrutura inicial referente ao ponto de partida do \emph{framework}. Essa estrutura pode evoluir para quantos nós forem necessários em uma avaliação mais precisa para a tomada de decisão e adaptação do comportamento do robô, afim de mitigar o desconforto e o medo do usuário na presença do robô. Ao final, um conjunto de variáveis são propostos como ponto para futuras investigações e aprimoramento do \emph{framework} entregue por essa tese.
 
-O restante deste capítulo apresenta em detalhes os passos da proposta acima descrita. Ao final do capítulo é apresentado a visão completa da metodologia onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele.
+O restante deste capítulo apresenta em detalhes os passos da proposta acima descrita. Ao final do capítulo é apresentado a visão completa do \emph{framework}, onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele.
 
 \section{Comportamentos do Robô}
 \label{sec:comportamento-robo}
@@ -30,10 +30,10 @@ O robô escolhido para os experimentos possui uma série de características que
 		\hline
 		Variável & Valor \\
 		\hline
-		& Olá Curto \\
-		Gestos & Olá Longo \\
-		& Apontar \\
+		Gestos & Curto \\
+		& Longo \\
 		\hline
+		& Sem Fala \\
 		Estilo de Fala & Educada \\
 		& Autoritaria \\
 		\hline
@@ -44,24 +44,21 @@ O robô escolhido para os experimentos possui uma série de características que
 		& Triste \\
 		& Surpresa e Corada \\
 		\hline
-		Proximidade & Entre Pública e Social \\
-		& Entre Pessoal e Íntima \\
+		Proximidade & Entre Pública e Social (Longe) \\
+		& Entre Pessoal e Íntima (Perto) \\
 		\hline
 		Velocidade & Rápida \\
-		& Devagar \\
-		\hline
-		Rotação no próprio eixo & Rápida \\
 		& Devagar \\
 		\hline
 	\end{tabular}
 	\smallcaption{Fonte: O autor.}
 \end{table}
 
-Além das variáveis direcionadas aos atuadores do robô, a tabela~\ref{tab:variaveisvalores} apresenta a variável de proximidade entre o robô e o ser humano. Essa variável é importante, pois auxilia a determinar o comportamento de reação da pessoa para um mesmo gesto do robô. Por exemplo, se o robô encontra-se próximo da pessoa, entre as zonas Pessoal e Íntima, um gesto amplo pode gerar um desconforto maior do que o mesmo gesto ocorrendo entre as zonas Pública e Social. Com as variáveis definidas e comportamentos implementados no robô é importante agora trabalhar com os questionários pré e pós testes.
+Além das variáveis direcionadas aos atuadores do robô, a tabela~\ref{tab:variaveisvalores} apresenta a variável de proximidade entre o robô e o ser humano. Essa variável é importante, pois auxilia a determinar o comportamento de reação da pessoa para um mesmo tipo de gesto do robô. Por exemplo, se o robô encontra-se próximo da pessoa, entre as zonas Pessoal e Íntima, um gesto amplo pode gerar um desconforto maior do que o mesmo gesto ocorrendo entre as zonas Pública e Social. A partir das variáveis definidas e comportamentos implementados no robô é importante agora trabalhar com os questionários pré e pós testes.
 
 \section{Questionários para o Teste}
 \label{sec:questionarios}
-Para apoiar o processo obtenção dos resultados e construção dos perfis dos usuários, dois questionários foram construídos. O primeiro, aplicado em momento anterior ao teste, tem como objetivo o mapeamento de informações sobre características físicas que possam ser reconhecidas pelo robô, adesão a tecnologia, contatos prévios com robôs e questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar. As questões serão agrupadas de acordo com seus objetivos e apresentadas em listas. Todas as questões a seguir fazem para do questionário pré-teste.
+Para apoiar o processo de obtenção dos resultados e construção dos perfis dos usuários, dois questionários foram construídos. O primeiro, aplicado em momento anterior ao teste, tem como objetivo o mapeamento de informações sobre características físicas que possam ser reconhecidas pelo robô, adesão a tecnologia, contatos prévios com robôs e questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar. As questões serão agrupadas de acordo com seus objetivos e apresentadas em listas. Todas as questões a seguir fazem para do questionário pré-teste.
 
 Questões focadas na identificação e características físicas do usuário:
 
@@ -139,26 +136,26 @@ O segundo questionário mantém o foco na interação do usuário durante o test
 	\item Observações e comentários:
 \end{enumerate}
 
-Todo o processo e questionários apresentados nesse capítulo, estão aprovados pelo comitê ética sobre identificador de processo CAAE: 70057117.0.0000.5508.
+Os questionários apresentados também auxiliam o processo para definir as probabilidades nas tabelas condicionais das variáveis aleatórias que compõem a rede bayesiana. Todo o processo e questionários apresentados nesse capítulo são aprovados pelo comitê ética sobre identificador de processo CAAE: 70057117.0.0000.5508.
 
 \section{Preparando os dados para o algoritmo QG-SIM}
 \label{sec:preparacao}
-Com os processos de captura das informações concluídos, é necessário trabalhar na normalização delas para que seja possível executar o algoritmo que irá agrupar os perfis semelhantes. Nesse momento, é necessário uma análise manual para separar as informações. O primeiro passo é deixá-las todas em uma única base de dados, pois neste momento estão em duas bases diferentes, pré e pós-teste.
+Com os processos de captura das informações concluídos, é necessário trabalhar na normalização dos dados para que seja possível executar o algoritmo que agrupará os perfis semelhantes. Nesse momento, é necessário uma análise manual para separar as informações. O primeiro passo é deixá-las todas em uma única base de dados, pois encontram-se em duas bases diferentes, pré e pós-teste.
 
 Com as informações reunidas em uma única base de dados, é necessário remover informações de texto livre uma vez que o algoritmo não possui um interpretador semântico e fica difícil criar um modelo quantitativo para essas informações, de maneira que exista um sentido de comparação entre as respostas.
 
 As informações quantitativas existentes, como por exemplo a idade do usuário, pode-se aplicar a distância euclidiana ou alguma outra distância de acordo com a necessidade do projeto. No caso do agrupamento de perfis desta tese, a distância euclidiana é adotada já que atende por completo a necessidade do algoritmo e do processo.
 
-Em relação as variáveis categóricas, ou seja, as variáveis que possuem um valor textual fixo, existem duas opções para converte-las em valores quantitativos. A primeira opção é inserir um código númerico para cada valor, por exemplo, os valores ``Celular, Computador, Tablet, Autoatendimento, Caixa Físico'' recebem um valor representado por um número inteiro cada ficando ``Celular = 1, Computador = 2, Tablet = 3, Autoatendimento = 4, Caixa Físico = 5''. A segunda opção é transformar essas variáveis em \emph{dummies}~\footnote{http://pandas.pydata.org/}. O método \emph{dummies} transforma cada opção de resposta em uma variável binária onde o valor 1 é para quando a opção foi selecionada e 0 para o oposto.
+Em relação as variáveis categóricas, ou seja, as variáveis que possuem um valor textual separadas por categoria, existem duas opções para converte-las em valores quantitativos. A primeira opção é inserir um código númerico para cada valor, por exemplo, os valores ``Celular, Computador, Tablet, Autoatendimento, Caixa Físico'' recebem um valor representado por um número inteiro cada ficando ``Celular = 1, Computador = 2, Tablet = 3, Autoatendimento = 4, Caixa Físico = 5'', conforme~\citeonline{masiero:2013}. A segunda opção é transformar essas variáveis em \emph{dummies}~\footnote{http://pandas.pydata.org/}. O método \emph{dummies} transforma cada opção de resposta em uma variável binária onde o valor 1 é para quando a opção foi selecionada e 0 para o oposto.
 
-Nesse ponto a base de dados está com todas as variáveis quantificadas, porém cada uma possui uma escala diferente. Essa diferença na escala das variáveis pode gerar tendências no resultado do algoritmo, assim é necessário padronizar os valores númericos existentes na base. Para realizar a padronização dos dados o processo de normalização é executado. A normalização mais comum a ser feita é manter os valores das variáveis entre 0 e 1~\cite{lattin:2011}. A equação~\ref{eq:normalizacao1} apresenta a forma mais simples de realizar o processo de normalização dos dados. É feita a divisão do valor da característica pelo valor máximo encontrado entre a característica analisada.
+Nesse ponto a base de dados está com todas as variáveis quantificadas, porém existe um segundo problema que pode afetar o resultado do algoritmo. Cada variável possui uma escala diferente. Essa diferença na escala das variáveis pode gerar tendências no resultado do algoritmo, assim é necessário padronizar os valores númericos existentes na base. Para realizar a padronização dos dados o processo de normalização é executado. A normalização mais comum a ser feita é manter os valores das variáveis entre 0 e 1~\cite{lattin:2011}. A equação~\ref{eq:normalizacao1} apresenta a forma mais simples de realizar o processo de normalização dos dados. É feita a divisão do valor da característica pelo valor máximo encontrado entre a característica analisada.
 
 \begin{equation}
 	X_{i_{normalizado}} = \frac{X_i}{\max_{X_i}}
 	\label{eq:normalizacao1}
 \end{equation}
 
-Entretanto, o uso da equação \ref{eq:normalizacao1} para normalizar os dados, pode gerar também uma tendência ou generalização da normalização. Pode existir uma concentração nos dados em um determinado intervalo generalizando a informação coletada~\cite{masiero:2013}. Para evitar o problema da concentração dos dados, utiliza-se a equação \ref{eq:normalizacao2} como método mais efetivo na normalização dos dados.
+Entretanto, o uso da equação \ref{eq:normalizacao1} para normalizar os dados, pode gerar também uma tendência ou generalização da normalização. Pode existir uma concentração dos dados em um determinado intervalo generalizando a informação coletada~\cite{masiero:2013}. Para evitar o problema da concentração dos dados, utiliza-se a equação \ref{eq:normalizacao2} como método mais efetivo na normalização dos dados.
 
 \begin{equation}
 	X_{i_{normalizado}} = \frac{X_i - \min_{X_i}}{\max_{X_i} - \min_{X_i}}
@@ -169,22 +166,111 @@ Após o processo de normalização, as escalas da base estão com uma distribui�
 
 \section{Executando o QG-SIM e criando as Personas}
 \label{sec:criarpersonas}
-Com as informações normalizadas, o próximo passo é executar o algoritmo de agrupamento QG-SIM. A implementação do algoritmo pode ser encontrada no endereço \url{https://github.com/amasiero/qgsim}. O algoritmo solicita um valor mínimo para manter uma informação no mesmo grupo. Esse valor é chamado de Q. A partir desse valor, o QG-SIM irá agrupar os perfis de acordo com a similaridade desejada e irá gerar o número de grupos automaticamente~\cite{masiero:2013}.
+Com as informações normalizadas, o próximo passo é executar o algoritmo de agrupamento QG-SIM. A implementação do algoritmo pode ser encontrada no endereço \url{https://github.com/amasiero/qgsim}. O algoritmo solicita um valor de similaridade mínimo para manter a qualidade entre os elementos de um mesmo grupo. Esse valor é chamado de Q. A partir desse valor, o QG-SIM irá agrupar os perfis de acordo com a similaridade desejada e irá gerar o número de grupos automaticamente~\cite{masiero:2013}.
 
-Assim que os grupos são definidos, é necessário encontrar a medida de dispersão central para cada uma das variáveis do perfil. Elas irão auxiliar no processo de construção da Persona, como definição da idade, se utiliza óculos, tipo do cabelo, gênero, e outras informações. Nesse momento, as informações de texto livres preenchidas são utilizadas para preencher a descrição e história da Persona. É verificado cada resposta dos indivíduos que compõe o grupo e na sequência é criado todo uma história de vida para a Persona.
+Assim que os grupos são definidos, é necessário encontrar a medida de dispersão central para cada uma das variáveis do perfil. As medidas de dispersão mais comuns são: média, mediana e moda. Elas auxiliarão no processo de construção da Persona, como definição da idade, se utiliza óculos, tipo do cabelo, gênero, e outras informações. Como os grupos encontrados não possuiam ruídos em sua distribuição, a medida de disperção adota foi a média (vide capítulo~\ref{cap:resultados}). Nesse momento, as informações de texto livres preenchidas são utilizadas como base para preencher a descrição e história da Persona. É verificado cada resposta dos indivíduos que compõe o grupo e na sequência é criado todo uma história de vida para a Persona.
 
-Essas informações em um segundo momento, podem auxiliar o robô a tomar uma decisão mais apropriada de acordo com o comportamento esperado para aquela Persona. As Personas obtidas nos testes realizados para essa tese são apresentadas no capítulo~\ref{cap:resultados}.
+Nesse processo, cinco Personas foram encontradas e são apresentadas a seguir:
+\begin{table}[!ht]
+	\caption{Persona Joaquim}
+	\label{tab:joaquim}
+	\centering
+	\begin{tabular}{ m{2 cm} | m{13cm} }
+		\hline
+		Foto: & \rule{0cm}{2.7cm} \includegraphics[scale=0.8]{joaquim.png} \\
+		\hline
+		Nome: & Joaquim \\
+		\hline
+		Descrição: & Tem 21 anos, 1,71 m de altura, em geral não é uma pessoa séria ou carrancuda, mas também não é sorridente. É um homem sociável, cheio de amigos a sua volta e adora ir ao barzinho com eles. Mora na capital paulista, centro econômico brasileiro, local perfeito para um homem que gosta de variedade cultural. Não fica longe de seu smartphone e também sempre que pode, está com seu laptop no colo navegando pelo Facebook e postando fotos no Instagram. Tudo que pode ser resolvido pelo seu smartphone ele faz, seja por chamada de voz ou qualquer aplicativo. Mas, ainda não conseguiu se habituar aos serviços financeiros digitais, prefere o método clássico para guardar seu dinheiro, o colchão. Nunca viajou para fora do Brasil, inclusive seu mapa de viagens nacionais também não é extenso. Ao todo, visitou apenas 9 cidades do Brasil com o passar do tempo.
+
+		Na universidade acompanhou os times de robótica nas competições e teve contato com diversos tipos de robôs, como os parecidos com humanos e animais, com mobilidade através de rodas e também os de linha de produção. Quando perguntam sua expectativa sobre robôs convivendo em sua casa, ele diz que tudo bem, desde que ele execute as tarefas domésticas sempre com obediência e de certa maneira, também espera que o robô seja afetivo na interação. Um comportamento próximo ao de uma diarista na família. Já no ambiente industrial, Joaquim acredita que os robôs são apenas ferramentas de trabalho e não devem fazer nada além de executar o que lhe foi programado. \\
+		\hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
+
+\begin{table}[!ht]
+	\caption{Persona Maria Eduarda}
+	\label{tab:mariaeduarda}
+	\centering
+	\begin{tabular}{ m{2 cm} | m{13cm} }
+		\hline
+		Foto: & \rule{0cm}{2.7cm} \includegraphics[scale=0.8]{maria_eduarda.png} \\
+		\hline
+		Nome: & Maria Eduarda \\
+		\hline
+		Descrição: & Aos 36 anos, com 1,71 m de altura, é uma garota reservada que adora sorrir em diversas ocasiões. É bem sociável, e mantém os amigos por perto. É uma mulher moderna e gosta de manter seu corte de cabelo mais curto que o convencional. Mora em São Bernardo do Campo, cidade da grande São Paulo e gosta muito de visitar o interior de São Paulo para passar seus feriados prolongados. Não vive sem seu celular, e no trabalho o computador é sua principal ferramenta. Quando está em casa utiliza sua Smart TV para assistir suas séries e filmes favoritos. Gostario muito de ter um leitor de e-book para evitar carregar livros pesados durante seu trajeto pelo transporte público. Mesmo com essa adoção a tecnologia, empresas digitais, principalmente do mercado financeiro, não a atraem. Sempre conectada através do celular, ela posta tudo no Facebook, tanto de trabalho quanto de lazer.
+
+		Já viajou algumas vezes para os EUA, sempre a passeio com o principal destino a Disney. Pelo Brasil, já viajou para algumas cidades fora de São Paulo e deixou sua marca por todas as regiões do país. Como ela trabalha em uma universidade de engenharia, já viu diversos tipos de robôs, que são utilizados nas aulas. Porém, nunca teve um contato direto com eles, a não ser seu aspirador de pó. Tanto em casa quanto no trabalho, ela espera que robôs sejam capazes de realizar tarefas com eficácia, como dirigir um carro, digitar planilhas, mas que ao mesmo tempo não seja capaz de substituí-la.\\
+		\hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
+
+\begin{table}[!ht]
+	\caption{Persona Alfredo}
+	\label{tab:alfredo}
+	\centering
+	\begin{tabular}{ m{2 cm} | m{13cm} }
+		\hline
+		Foto: & \rule{0cm}{2.7cm} \includegraphics[scale=0.8]{alfredo.png} \\
+		\hline
+		Nome: & Alfredo \\
+		\hline
+		Descrição: & Aos 24 anos, rapaz de estatura normal, por volta de 1,75m, está sempre com um belo sorriso no rosto, faça chuva ou faça sol. Sempre tem pessoas a sua volta, gosta de contar piadas e fazer todos sorrirem. Morador da cidade de São Bernardo do Campo, mas sempre que pode vai para o litoral paulista visitar os pais e curtir uma praia. Usa computador para fazer os trabalhos da faculdade e passa grande parte do seu tempo no celular. Não possui serviços financeiros digitas, pois ainda não conseguiu a aprovação do cadastro. Quando se trata de internet banking, acredita que o seu computador é mais seguro que o uso de celular.
+
+		Alfredo vive antenado nas redes sociais, como Twitter, Instagram e Facebook. Ajudam ele a ficar conectado com as últimas notícias e eventos a sua volta. Tem um sonho de viajar para o exterior, mas isso ainda não foi possível, em compensação pelo Brasil já visitou mais de 30 cidades, a maioria na região Sudeste. Na universidade, através do curso de engenharia de automação, teve contato com robôs de fábrica e móveis conforme os laboratórios das disciplinas ocorriam. Qunado perguntam a Alfredo o que ele espera de um robô doméstico e também um robô no trabalho, ele diz que robôs devem executar as tarefas propostas de maneira eficiente e que seu interação seja toda por comando de voz.\\
+		\hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
+
+\begin{table}[!ht]
+	\caption{Persona Danielo}
+	\label{tab:danielo}
+	\centering
+	\begin{tabular}{ m{2 cm} | m{13cm} }
+		\hline
+		Foto: & \rule{0cm}{2.7cm} \includegraphics[scale=0.8]{danielo.png} \\
+		\hline
+		Nome: & Danielo \\
+		\hline
+		Descrição: & Com 27 anos de idade, 1,83m, Danielo está sempre na academia para treinar com seus amigos. Mora em São Bernardo do Campo, e utiliza seu computador para fazer seu trabalho e o celular para manter contato com seus amigos. Nunca quis saber de leitores de e-book, pois acha sua tecnologia sem utilidade nos dias atuais. A sua única rede social é o Facebook. Ele acha que já toma tempo o suficiente e não precisa de outras para ver a mesma coisa. Danielo é um rapaz que já viajou bastante. Já visitou 3 países latinos e no Brasil visitou mais de 90 cidades, concetradas em sua grande parte, na região Sudeste. O contato com robôs é limitado e restrito a robôs de fábrica. Em casa ele acredita que o robô será parecido com seres humanos para fazer as atividades domésticas, e no trabalho substituirão seres humanos em trabalhos repetitivos, como nas fábricas e linha de produção.\\
+		\hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
+
+\begin{table}[!ht]
+	\caption{Persona Manuel}
+	\label{tab:manuel}
+	\centering
+	\begin{tabular}{ m{2 cm} | m{13cm} }
+		\hline
+		Foto: & \rule{0cm}{2.7cm} \includegraphics[scale=0.8]{manuel.png} \\
+		\hline
+		Nome: & Manuel \\
+		\hline
+		Descrição: & Aos 33 anos, 1,85 m,  Manuel um professor universitário sempre sorridente. Seus alunos sempre o procuram para esclarecer dúvidas e pedir conselhos. Mora em São Bernardo do Campo, próximo ao seu local de trabalho, por que adora o conforto de ir em sua casa poder almoçar uma comida fresca. Acredita que tem uma melhor qualidade de vida assim. Não é muito fã de tecnologia de ponta, então fica contente em ter seu computador, onde resolve tudo que pode. Digitalmente, considera-se antisocial e não mantém cadastro em nenhuma rede social.
+
+		Já visitou paises pela Europa, África, América do Norte e do Sul. No Brasil, seu foco de visitar está na região Sudeste, principalmente o estado de Minas Gerais. No total já percorreu mais de 62 cidades pelo país. Como professor, sua linha linha de pesquisa principal de estudos é a robótica, fazendo com que tenha contato com todos os tipos de robôs. Em casa, pensa em ter um robô para atender suas necessidades, assim como no trabalho. Porém, o robô no trabalho deve atender também as necessidades e expectativas da empresa.\\
+		\hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
+
+As Personas apresentadas nas tabelas~\ref{tab:joaquim}, \ref{tab:mariaeduarda}, \ref{tab:alfredo}, \ref{tab:danielo}, \ref{tab:manuel} foram criadas com base nas informações coletadas no formulário e auxiliaram na definição das independências condicionais da rede bayesiana. Mais informações das avaliações feitas com base nas Personas sobre a interação com o robô são apresentadas no capítulo~\ref{cap:resultados}.
 
 \section{Heurísticas adaptadas de Nielsen}
 \label{sec:heuristicas}
-Antes de apresentar a estrutura da rede bayesiana (seção~\ref{sec:rede-bayesiana}), é listado as 10 heurísticas de Nielsen adaptadas para sistemas robóticos sociais. É importante essa adaptação, pois é com base nelas que o robô irá fazer uma autoavaliação do seu comportamento com sistema durante a interação com usuário. Assim, ele pode identificar quais pontos precisam ser melhorados e gerar um relatório para o especialista ou até mesmo conseguir tomar uma decisão de mudança de comportamento para deixar o usuário mais confortável com sua presença. As adaptações das heurísticas são:
+Avaliação heurística é um método utilizado principalmente por especialistas em usabilidade para verificar problemas de interação em interfaces de sistemas. Ao longo dos tempos, as 10 heurísticas de Nielsen são as mais utilizadas nesse tipo de avaliação (vide seção~\ref{sec:avaliacao}). Dessa forma, é apresentado uma adaptação das heurísticas de Nielsen focado em sistemas robóticos sociais. É importante essa adaptação, pois elas serão analisadas e a proposta é que o próprio robô saiba que a utilizou e faça uma  autoavaliação do seu comportamento para a experiência de usuário durante a interação. Assim, ele pode identificar se o usuário teve algum desconforto ou medo e assim melhorar seu comportamento através de outras técnicas de inteligência artificial e aprendizado de máquina. As adaptações das heurísticas são:
 
 \begin{itemize}
-	\item \textbf{Visibilidade do status do robô}: o robô deve sempre manter o humano informado sobre o que está acontecendo por meio de feedback apropriado dentro de um tempo razoável. O status do sistema deve ser exposto constantemente para o humano durante movimentação ou parado. O feedback pode ser gerado via voz ou algum outro método visual. Não fornecer feedback sobre o status do sistema quando o robô encontra-se estático, causa desconforto ao humano.
-	\item \textbf{Equivalência entre o robô e o mundo real}: o robô deve usar a linguagem do usuário com palavra, frases e conceitos que lhe sejam familiares, ao invés de termos orientados à tecnologia. Deve-se seguir convenções do mundo real, fazendo a informação aparecer em uma ordem natural e lógica. Esse é um grande desfio, pois lidar com grupos de usuários com diferentes vivências cria barreiras para a adoção de uma linguagem única que permita um dialogo transparente. O robô deve caracterizar o mundo real de acordo com seu contexto de aplicação.
-	\item \textbf{Controle do humano e liberdade}: os humanos podem fornecer comandos para o robô por engano ou falha de sensor, sendo assim precisarão de uma saída de emergência bem determinada para cancelar o estado não desejado. O diálogo anterior de estar na memória do robô para que não haja um retrabalho de conversa ou gestos anteriormente executados. Um comando para cancelar e voltar a informação prévia deve ser ofertado para continuar a naturalidade da interação.
-	\item \textbf{Consistência e Padrões}: os humanos não devem ter de imaginar se palavras, situações, posições, gestos ou ações diferentes do robô significam a mesma coisa. As convenções da plataforma devem ser seguidas.
-	\item \textbf{Prevenção de erro}: dar prioridade para prevenção de ocorrência de erros. Caso o erro aconteça, deve-se fornecer um bom feedback, ajudando o humano no reconhecimento do problema. O processo interativo entre o humano e robô com qualidade no momento da recuperação do erro, diminui o desconforto do usuário e auxilia o robô a continuar ativo no ambiente. O robô deve tentar sempre a autorecuperação do erro.
+	\item \textbf{Visibilidade do status do robô}: o robô deve sempre manter o humano informado sobre o que está acontecendo por meio de feedback apropriado dentro de um tempo razoável. O status do sistema deve ser exposto constantemente para o humano durante movimentação ou parado. O feedback pode ser gerado via voz ou algum outro método visual. Não fornecer feedback sobre o status do sistema quando o robô encontra-se estático, causa desconforto ao humano. \textbf{Uso na tese}: No robô utilizado para os testes os usuários questionaram sobre o alerta de alguns comportamentos, além do uso das expressões faciais, voz e gestos como ferramenta de status. Essa é uma heurística que influencia diretamente na avaliação do comportamento do robô na interação então deve fazer parte da rede bayesiana.
+	\item \textbf{Equivalência entre o robô e o mundo real}: o robô deve usar a linguagem do usuário com palavra, frases e conceitos que lhe sejam familiares, ao invés de termos orientados à tecnologia. Deve-se seguir convenções do mundo real, fazendo a informação aparecer em uma ordem natural e lógica. Esse é um grande desfio, pois lidar com grupos de usuários com diferentes vivências cria barreiras para a adoção de uma linguagem única que permita um dialogo transparente. O robô deve caracterizar o mundo real de acordo com seu contexto de aplicação. \textbf{Uso na tese}: Essa é uma heurística que é voltada para as falas do robô no caso dessa tese. Não existe a necessidade de uma atenção para ela nesse momento, pois as frases de interação são pré programadas de acordo com a tarefa. A partir do momento em que o robô estiver com um mecanismo que construa as frases, ele deverá considerá-la e talvez não seja nem através da rede bayesiana de avaliação proposta por essa tese.
+	\item \textbf{Controle do humano e liberdade}: os humanos podem fornecer comandos para o robô por engano ou falha de sensor, sendo assim precisarão de uma saída de emergência bem determinada para cancelar o estado não desejado. O diálogo anterior de estar na memória do robô para que não haja um retrabalho de conversa ou gestos anteriormente executados. Um comando para cancelar e voltar a informação prévia deve ser ofertado para continuar a naturalidade da interação. \textbf{Uso na tese}: O uso de máquina de estados permite que as ações sejam repetidas pelo robô a qualquer momento, dessa maneira o usuário poderia dar algum comando de voz para o robô e ele iria executar alguma ação passada. Dessa maneira, é importante mante-la nas opções do usuário e pode afetar a avaliação da experiência. Ela deve fazer parte da autoavaliação do robô.
+	\item \textbf{Consistência e Padrões}: os humanos não devem ter de imaginar se palavras, situações, posições, gestos ou ações diferentes do robô significam a mesma coisa. As convenções da plataforma devem ser seguidas. \textbf{Uso na tese}: Essa é uma questão que pode depender do tipo de configuração do hardware do robô. Porém, é importante que haja a avaliação desse item durante a interação, pois ela pode gerar desconforto e até medo ao usuário. Isso pode prejudicar a interação a um nível que possui risco ao usuário.
+	\item \textbf{Prevenção de erro}: dar prioridade para prevenção de ocorrência de erros. Caso o erro aconteça, deve-se fornecer um bom feedback, ajudando o humano no reconhecimento do problema. O processo interativo entre o humano e robô com qualidade no momento da recuperação do erro, diminui o desconforto do usuário e auxilia o robô a continuar ativo no ambiente. O robô deve tentar sempre a autorecuperação do erro. \textbf{Uso na tese}: A biblioteca SMACH que constrói a máquina de estados para as tarefas do robô é capaz de verificar se o robô teve algum problema em determinado estado e recupera-se de maneira autonoma, dado algumas situações. Porém, essa é uma heurística que para o mecanismo de autoavaliação está bem próximo da heurística de visibilidade do status do robô. Sendo assim, não fará parte de maneira explicita do mecanismo.
 	\item \textbf{Reconhecer ao invés de relembrar}: as ações que o robô pode executar, e os seus respectivos comandos devem ser fáceis de reconhecer de acordo com o contexto de uso. O humano não deve ter de relembrar informação de uma parte do diálogo de interação com o robô. Instruções para uso do robô devem ser fornecidas pelo próprio robô, iniciando o dialogo como um processo de aprendizado.
 	\item \textbf{Flexibilidade e eficiência de uso}: algoritmos de inteligência artificial com reconhecimento do ambiente de interação, mapeando o comportamento do usuário com documentação do histórico do perfil de uso, permite que o robô tome decisões que se adiantam às necessidades do humano. Os humanos novatos no processo interativo devem possuir mais informações em busca de confirmações e composição do perfil. Para humanos experientes deve-se aumentar a naturalidade da interação. O robô deve atender tanto aos usuários experientes quanto aos inexperientes.
 	\item \textbf{Estética e design minimalista}: o retorno por movimento, som ou interface visual do robô não devem conter informação que seja irrelevante ou raramente necessária. Toda unidade de informação extra em um diálogo de acordo com o contexto, compete com unidades de informação relevantes e diminui sua visibilidade relativa. Por exemplo, uma luz vermelha piscando em tempo integral prejudica o feedback de outras ações do robô. Além disso, o robô deve possuir uma aparência que auxilie na identificação das atividades que ele realiza.
