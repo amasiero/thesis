@@ -1,26 +1,28 @@
 %!TEX root=Principal.tex
-\chapter{\emph{FRAMEWORK} PARA AUTOAVALIAÇÃO DO COMPORTAMENTO SOCIAL DO ROBÔ}
+\chapter{CLASSIFICADOR BAYESIANO DO USUÁRIO}
 \label{cap:proposta}
 
-Os capítulos anteriores apontam que a existência de robôs em ambientes sociais torna-se cada vez mais comum no dia-a-dia das pessoas. Como qualquer produto existente no mercado, é necessário que os robôs proporcionem uma boa experiência aos usuários em seu convívio. Entretanto, as técnicas difundidas em interação humano computador, que tem o objetivo de aumentar a experiência positiva do usuário em produtos tecnológicos, têm sido aplicadas de maneira superficial por pesquisadores na área de robótica social, de serviço e assistiva~\cite{alenljung:2017}.
+Nos capítulos anteriores é possível identificar que a existência de robôs em ambientes sociais torna-se cada vez mais comum no dia-a-dia das pessoas. Como qualquer produto existente no mercado, é necessário que os robôs proporcionem uma boa experiência aos usuários durante o uso, que nesse caso é o convívio em ambiente doméstico ou industrial. Entretanto, as técnicas difundidas em interação humano computador, que tem o objetivo de aumentar a experiência positiva do usuário em produtos tecnológicos, são pouco aplicadas por pesquisadores na área de robótica social, de serviço e assistiva~\cite{alenljung:2017}.
 
-Com esse cenário em mente, essa tese apresenta um \emph{framework} baseado em técnicas de experiência do usuário focadas na usabilidade, onde é possível aumentar o efeito positivo da presença do robô. O processo apresentado nessa seção, serve como guia para a construção e evolução de projetos em robótica, sendo um \emph{framework} capaz de ajudar na experiência de usuário positiva. Algumas técnicas serão utilizadas, como: (I) Personas que são a base de avaliação da experiência do usuário através de seu perfil do usuário; (II) Heurísticas de Nielsen adaptadas para a interação humano robô, que auxiliam o robô avaliar a experiência do usuário na interação; e (III) \emph{Proxemics}, a teoria de proximidade (vide seção~\ref{cap:proxemics}), que estuda o comportamento de agentes sociais de acordo com a distância entre si.
+Dado o cenário onde a melhora da interação pode ser alcançada através do uso das técnicas de interação humano computador, com as de usabilidade, essa tese apresenta um classificador bayesiano do perfil de usuário baseado em técnicas de Personas e heurísticas de avaliação de interface unidas ao sentimento de conforto, desconforto e medo do usuário ao interagir com o robô. O intuito é fazer com que o robô a partir da classificação do usuário possa identificar como se relacionar com aquele perfil no futuro. A partir desse ponto é esperado que o robô possa deixar o usuário a vontade enquanto convivem no mesmo ambiente. O trabalho apresentado nessa seção, serve como guia para a evolução do classificador de usuário. O uso desse classificador unificado a uma técnica de adaptação de comportamento e aprendizado é capaz de ajudar na experiência de usuário positiva. As técnicas utilizadas são: (I) Personas, técnica utilizada para representar um grupo de usuários através de um personagem fictício que possui o perfil médio do grupo; (II) Heurísticas de Nielsen utilizadas para avaliação da interface de um sistema, foram adaptadas para a interação humano-robô. Elas auxiliam o robô a medir variáveis sobre a experiência do usuário na interação; e (III) \emph{Proxemics}, teoria de proximidade (vide seção~\ref{cap:proxemics}), que estuda o comportamento de agentes sociais de acordo com a distância entre si.
 
-De acordo com a literatura apresentada, a cultura da pessoa influência diretamente o comportamento de uma pessoa em ambientes sociais. Isso significa que algumas reações apresentadas por pessoas no ambiente social são influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Fatores como a experiência de vida e cultura são difíceis de avaliar apenas através da observação. Conseguir fazer com que uma pessoa tenha liberdade para contar esse tipo de informação necessita de interações de longo prazo, podendo levar meses até compreender toda história dessa pessoa.
+Outro ponto importante apresentado na literatura, é sobre a cultura da pessoa. A cultura influência diretamente o comportamento de uma pessoa em ambientes sociais. Isso significa que algumas reações apresentadas por pessoas no ambiente social são influenciadas pelo seu local de nascimento, pelos locais onde viveu e, consequentemente, pela sua experiência de vida. Fatores como a experiência de vida e cultura são difíceis de avaliar apenas através da observação. Conseguir fazer com que uma pessoa tenha liberdade para contar esse tipo de informação necessita de interações de longo prazo, podendo levar meses até compreender toda história dessa pessoa. Algumas questões referentes a cultura do usuário são discutidas nos resultados apresentados no capítulo~\ref{cap:resultados}.
 
-O robô sendo um produto tecnológico pode utilizar técnicas que são capazes de aumentar a efetividade da interação, não havendo assim, a necessidade de conhecer por completo a história de vida do indivíduo em questão. Técnicas oriundas da área de interação humano computador, tem o objetivo de deixar o sistema mais fácil de usar e acima de tudo aumentar a experiência, a satisfação do usuário ao utilizá-lo. Para que o robô possa realizar essa classificação e raciocínio sobre as informações que existem no ambiente alguns passos são apresentados ao longo deste capítulo.
+Sendo o robô um produto tecnológico, o uso de técnicas que sejam capazes de aumentar a efetividade da interação, não havendo a necessidade de conhecer por completo a história de vida do indivíduo em questão. Essas técnicas tem o objetivo de deixar o sistema mais fácil de usar e acima de tudo aumentar a experiência, a satisfação do usuário ao utilizá-lo. Para que o robô possa realizar essa classificação e raciocínio sobre as informações que existem no ambiente alguns passos são apresentados ao longo deste capítulo.
 
-A seção~\ref{sec:robo} apresenta em detalhes o robô utilizado para essa pesquisa. Com base no robô disponível, estabelece as ações que são possíveis para ele executar. Na sequência dois questionários foram preparados, o primeiro aplicado antes do teste de interação e o segundo após. O intuito do primeiro questionário é estabelecer o perfil do usuário referente a questões de aderência a tecnologia, contato prévio com robôs e sobre a cultura que ele se identifica. O questionário pós-teste possui informações declaradas sobre o conforto e avaliação do comportamento do robô durante a interação.
+Com base no robô disponível para os experimentos, as ações que são possíveis para ele executar são estabelecidas. A seção~\ref{sec:robo} apresenta em detalhes o robô utilizado para essa pesquisa. Na sequência dois questionários são apresentados, o primeiro aplicado antes do teste de interação e o segundo após. O primeiro questionário estabelece o perfil do usuário referente a questões de aderência a tecnologia, contato prévio com robôs, a cultura que ele se identifica e a expectativa em relação a robôs em ambientes domésticos e profissionais. O questionário pós-teste possui informações declaradas sobre o conforto, desconforto, medo e avaliação do comportamento do robô, durante a interação.
 
-Com os questionários definidos, foram selecionados 39 pessoas para participar do teste de interação com o robô, de acordo com o cenário descrito na seção~\ref{sec:cenario}. Os testes foram executados com o comportamento do robô de maneira aleatória, ou seja, com o mínimo de preocupação com a experiência do usuário neste momento. Coletados os perfis e informações dos usuários, é realizado uma preparação e normalização dos dados para que o algoritmo QG-SIM possa realizar o agrupamento dos perfis similares, conforme o processo apresentado por \citeonline{masiero:2013b}. A partir dos grupos gerados pelo algoritmo QG-SIM, é realizado o processo de criação de Personas~\cite{masiero:2013, masiero:2013b}.
+Com os questionários definidos, 39 pessoas foram selecionadas para participar do teste de interação com o robô, de acordo com o cenário descrito na seção~\ref{sec:cenario}. Os testes foram executados com o comportamento do robô de maneira aleatória, ou seja, com o mínimo de preocupação com a experiência do usuário neste momento. Coletados os perfis e informações dos usuários, é realizado uma preparação e normalização dos dados para que o algoritmo QG-SIM possa realizar o agrupamento dos perfis similares, conforme o processo apresentado por \citeonline{masiero:2013b}. A partir dos grupos gerados pelo algoritmo QG-SIM, é realizado o processo de criação de Personas~\cite{masiero:2013, masiero:2013b}.
 
-Personas criadas, o próximo passo é estabelecer a criação de uma estrutura de nós no formato de rede bayesiana causa-efeito com as dependências condicionais referentes as Personas, heurísticas de Nielsen adaptadas, comportamento do robô e efeitos sobre conforto, desconforto e medo do usuário. Essa rede bayesiana é responsavél pelo mecanismo de autoavaliação do robô. O mecanismo proposto possui uma estrutura inicial referente ao ponto de partida do \emph{framework}. Essa estrutura pode evoluir para quantos nós forem necessários em uma avaliação mais precisa para a tomada de decisão e adaptação do comportamento do robô, afim de mitigar o desconforto e o medo do usuário na presença do robô. Ao final, um conjunto de variáveis são propostos como ponto para futuras investigações e aprimoramento do \emph{framework} entregue por essa tese.
+Personas são criadas com base nas informações extraídas de cada grupo através dos questionários de pré e pós teste de interação. O próximo passo, é estabelecer as dependências condicionais entre cada variável aleatória incluida através da análise dos dados e observações dos testes de interação. As variáveis são compostas pelas Personas criadas, algumas heurísticas de Nielsen adaptadas para interação com o robô, a proximidade entre robô e usuário, as ações e comportamentos do robô e efeitos de conforto, desconforto e medo da pessoa durante a interação. Essa dependência condicional entre as variáveis faz com que elas sejam organizadas no formato de uma rede bayesiana. O objetivo dessa rede é classificar qual o perfil do usuário dado que houve um conforto, desconforto e/ou medo durante a interação com o robô em um cenário residencial.
+
+As variáveis aleatórias foram definidas de maneira abstrata e podem, no futuro, sugir outras que auxiliem na classificação do usuário de maneira que o resultado da rede bayesiana possa servir como alimentação de um mecanismo de decisão do robô para melhorar a interação com o usuário. Ao final, um conjunto de variáveis são propostos como pontos para futuras investigações e evolução do classificador entregue por essa tese.
 
 O restante deste capítulo apresenta em detalhes os passos da proposta acima descrita. Ao final do capítulo é apresentado a visão completa do \emph{framework}, onde é realizado uma síntese do processo como um todo e das técnicas aplicadas nele.
 
-\section{Comportamentos do Robô}
+\section{Ações e Comportamentos do Robô}
 \label{sec:comportamento-robo}
-O robô escolhido para os experimentos possui uma série de características que auxiliam a interação social e serviço domésticos, uma vez que ele foi construído para atender a competição de robótica RoboCup@Home~\cite{robocup:2015}. Com base nos atuadores de interação existentes (vide seção~\ref{sec:robo}), foram mapeados as variáveis de comportamento do robô. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis, compostas por seus respectivos valores.
+O robô escolhido para os experimentos possui uma série de características que auxiliam a interação social e serviço domésticos, uma vez que ele foi construído para atender a competição de robótica RoboCup@Home~\cite{robocup:2015}. Com base nos atuadores de interação existentes (vide seção~\ref{sec:robo}), foram mapeados as variáveis de ações e comportamentos do robô. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis, compostas por seus respectivos valores.
 
 \begin{table}[!ht]
 	\caption{Variáveis de Comportamento do Robô}
@@ -30,33 +32,31 @@ O robô escolhido para os experimentos possui uma série de características que
 		\hline
 		Variável & Valor \\
 		\hline
-		Gestos & Curto \\
-		& Longo \\
+		Gestos & curto \\
+		& longo \\
 		\hline
-		& Sem Fala \\
-		Estilo de Fala & Educada \\
-		& Autoritaria \\
+		Fala & educada \\
+		& autoritária \\
 		\hline
-		& Nervosa com Cor Vermelha \\
-		& Nervosa com Cor Azul \\
-		Estilo de Face & Neutra \\
-		& Feliz \\
-		& Triste \\
-		& Surpresa e Corada \\
+		Expressão Facial & amigável \\
+		& não amigável \\
 		\hline
-		Proximidade & Entre Pública e Social (Longe) \\
-		& Entre Pessoal e Íntima (Perto) \\
+		Proximidade & longe - (Entre Pública e Social ) \\
+		& perto - (Entre Pessoal e Íntima ) \\
 		\hline
-		Velocidade & Rápida \\
-		& Devagar \\
+		Velocidade & rápida \\
+		& devagar \\
+		\hline
+		Posição & sentado \\
+		& em pé \\
 		\hline
 	\end{tabular}
 	\smallcaption{Fonte: O autor.}
 \end{table}
 
-Além das variáveis direcionadas aos atuadores do robô, a tabela~\ref{tab:variaveisvalores} apresenta a variável de proximidade entre o robô e o ser humano. Essa variável é importante, pois auxilia a determinar o comportamento de reação da pessoa para um mesmo tipo de gesto do robô. Por exemplo, se o robô encontra-se próximo da pessoa, entre as zonas Pessoal e Íntima, um gesto amplo pode gerar um desconforto maior do que o mesmo gesto ocorrendo entre as zonas Pública e Social. A partir das variáveis definidas e comportamentos implementados no robô é importante agora trabalhar com os questionários pré e pós testes.
+Além das variáveis direcionadas aos atuadores do robô, a tabela~\ref{tab:variaveisvalores} apresenta a variável de proximidade entre o robô e o ser humano e a variável posição que determina como o usuário estava durante a interação, sentado ou em pé. São variáveis importantes, pois auxiliam a determinar o comportamento de reação da pessoa para um mesmo tipo de gesto do robô em diferentes situações. Por exemplo, se o robô encontra-se próximo da pessoa, entre as zonas Pessoal e Íntima, um gesto amplo pode gerar um desconforto maior do que o mesmo gesto ocorrendo entre as zonas Pública e Social. Ou como é a reação do usuário quando o robô aproximar o manipulador próximo ao rosto do usuário.  A partir das variáveis definidas e comportamentos implementados no robô é importante agora trabalhar com os questionários pré e pós testes.
 
-\section{Questionários para o Teste}
+\section{Questionários para Coleta de Dados de Interação}
 \label{sec:questionarios}
 Para apoiar o processo de obtenção dos resultados e construção dos perfis dos usuários, dois questionários foram construídos. O primeiro, aplicado em momento anterior ao teste, tem como objetivo o mapeamento de informações sobre características físicas que possam ser reconhecidas pelo robô, adesão a tecnologia, contatos prévios com robôs e questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar. As questões serão agrupadas de acordo com seus objetivos e apresentadas em listas. Todas as questões a seguir fazem para do questionário pré-teste.
 
