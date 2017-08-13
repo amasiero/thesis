@@ -58,7 +58,7 @@ Além das variáveis direcionadas aos atuadores do robô, a tabela~\ref{tab:vari
 
 \section{Questionários para Coleta de Dados de Interação}
 \label{sec:questionarios}
-Para apoiar o processo de obtenção dos resultados e construção dos perfis dos usuários, dois questionários foram construídos. O primeiro, aplicado em momento anterior ao teste, tem como objetivo o mapeamento de informações sobre características físicas que possam ser reconhecidas pelo robô, adesão a tecnologia, contatos prévios com robôs e questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar. As questões serão agrupadas de acordo com seus objetivos e apresentadas em listas. Todas as questões a seguir fazem para do questionário pré-teste.
+Para apoiar o processo de obtenção das informações e construção dos perfis dos usuários, dois questionários foram construídos. O primeiro, aplicado no momento anterior ao experimento de interação, tem como objetivo mapear as informações referentes às características físicas que tem a possibilidade do robô utilizar sensores para reconhecê-las, adesão a tecnologia, contatos prévios com robôs, questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar, além da expectativa de possuir um robô em casa ou no trabalho. As questões serão agrupadas de acordo com seus objetivos e apresentadas em listas. Todas as questões a seguir fazem para do questionário pré-experimento.
 
 Questões focadas na identificação e características físicas do usuário:
 
@@ -77,7 +77,7 @@ Questões focadas na identificação e características físicas do usuário:
 	\item Qual etnia você se considera? Opções de resposta: Amarela, Branca, Indígena, Parda, Preta, Não declarada
 \end{enumerate}
 
-Questões voltadas a informações sobre a adesão à tecnologia:
+Questões para informações sobre adesão à tecnologia:
 
 \begin{enumerate}
 	\item Qual(is) dispositivo(s) tecnológico(s) você mais utiliza (marque 1 ou mais opções): Opções de resposta: Celular, Computador (de mesa ou notebook), Tablet, Smart TV, Relógio Smart, MP3 Player, Câmera Fotográfica Digital, Leitor de e-Book, outros
@@ -89,7 +89,7 @@ Questões voltadas a informações sobre a adesão à tecnologia:
 	\item Quais as redes sociais que você mais utiliza (marque 1 ou mais opções): Opções de resposta: Facebook, Instagram, Twitter, Google\+, Snapchat, outras
 \end{enumerate}
 
-Questões culturais:
+Questões sobre informações culturais:
 
 \begin{enumerate}
 	\item Qual foi o local de nascimento? (Informe da seguinte maneira: Cidade; Estado; País)
@@ -106,7 +106,7 @@ Questões culturais:
 	\item Aproximadamente, quantas cidades na região sul do Brasil você visitou?
 \end{enumerate}
 
-Por fim, questões sobre contato prévio com robôs:
+Por fim, questões sobre contato prévio com robôs e expectativa de tê-los no trabalho e também em casa:
 
 \begin{enumerate}
 	\item Em algum momento de sua vida, você teve contato com robôs? Opções de resposta: Sim, Não
@@ -116,7 +116,7 @@ Por fim, questões sobre contato prévio com robôs:
 	\item Dadas as questões anteriores, gostaria de fazer mais algum comentário sobre você?
 \end{enumerate}
 
-O segundo questionário mantém o foco na interação do usuário durante o teste e quais pontos do robô mais agradaram ou não na opinião dele. Além disso, um detalhe do teste que pode impactar na interação também é registrado, se o usuário estava em posição sentada ou em pé. As questões apresentas a seguir compõe o questionário pós-teste:
+O segundo questionário mantém o foco na interação do usuário durante o experimento e quais pontos do robô mais agradaram ou não na opinião dele. Além disso, um detalhe sobre a posição do usuário durante o experimento (sentado ou em pé) é coleta, pois está informação pode influenciar na interação com o robô. As questões apresentas a seguir compõe o questionário pós-teste:
 
 \begin{enumerate}
 	\item Informe o número de amostra (Identificador dos documentos referentes ao comitê de ética)
@@ -136,17 +136,17 @@ O segundo questionário mantém o foco na interação do usuário durante o test
 	\item Observações e comentários:
 \end{enumerate}
 
-Os questionários apresentados também auxiliam o processo para definir as probabilidades nas tabelas condicionais das variáveis aleatórias que compõem a rede bayesiana. Todo o processo e questionários apresentados nesse capítulo são aprovados pelo comitê ética sobre identificador de processo CAAE: 70057117.0.0000.5508.
+As informações coletadas através dos questionários apresentados são utilizadas no processo de definição das probabilidades referentes as tabelas condicionais das variáveis aleatórias que compõem a rede bayesiana. Todo o processo e questionários apresentados nesse capítulo são aprovados pelo comitê ética sobre identificador de processo CAAE: 70057117.0.0000.5508.
 
 \section{Preparando os dados para o algoritmo QG-SIM}
 \label{sec:preparacao}
-Com os processos de captura das informações concluídos, é necessário trabalhar na normalização dos dados para que seja possível executar o algoritmo que agrupará os perfis semelhantes. Nesse momento, é necessário uma análise manual para separar as informações. O primeiro passo é deixá-las todas em uma única base de dados, pois encontram-se em duas bases diferentes, pré e pós-teste.
+Com as informações obtidas através dos testes e observações das interações, é necessário trabalhar na normalização dos dados para que seja possível executar o algoritmo que agrupará os perfis semelhantes. Nesse momento, é necessário uma análise manual para separar as informações. O primeiro passo é deixá-las todas em uma única base de dados, pois encontram-se em bases distintas.
 
-Com as informações reunidas em uma única base de dados, é necessário remover informações de texto livre uma vez que o algoritmo não possui um interpretador semântico e fica difícil criar um modelo quantitativo para essas informações, de maneira que exista um sentido de comparação entre as respostas.
+Base de dados unificada, o próximo passo é remover as informações de texto livre, uma vez que o algoritmo não possui um interpretador semântico e dessa maneira não é possível criar um modelo quantitativo para essas respostas, de maneira que exista uma significância comparativa entre as respostas.
 
-As informações quantitativas existentes, como por exemplo a idade do usuário, pode-se aplicar a distância euclidiana ou alguma outra distância de acordo com a necessidade do projeto. No caso do agrupamento de perfis desta tese, a distância euclidiana é adotada já que atende por completo a necessidade do algoritmo e do processo.
+As informações quantitativas existentes, como por exemplo a idade do usuário, pode-se aplicar medidas como a distância euclidiana para realizar a comparação entre um perfil e outro. Outras medidas também podem ser aplicadas, isso fica a critério da necessidade do projeto~\cite{masiero:2013}. No caso do agrupamento de perfis desta tese, a distância euclidiana é adotada já que atende a necessidade do algoritmo e do processo para agrupamento dos perfis.
 
-Em relação as variáveis categóricas, ou seja, as variáveis que possuem um valor textual separadas por categoria, existem duas opções para converte-las em valores quantitativos. A primeira opção é inserir um código númerico para cada valor, por exemplo, os valores ``Celular, Computador, Tablet, Autoatendimento, Caixa Físico'' recebem um valor representado por um número inteiro cada ficando ``Celular = 1, Computador = 2, Tablet = 3, Autoatendimento = 4, Caixa Físico = 5'', conforme~\citeonline{masiero:2013}. A segunda opção é transformar essas variáveis em \emph{dummies}~\footnote{http://pandas.pydata.org/}. O método \emph{dummies} transforma cada opção de resposta em uma variável binária onde o valor 1 é para quando a opção foi selecionada e 0 para o oposto.
+Em relação as variáveis categóricas, ou seja, as variáveis que possuem um valor textual que podem ser separadas por categoria, existem duas opções para converte-las em valores quantitativos. A primeira opção é inserir um código númerico para cada valor, por exemplo, os valores ``Celular, Computador, Tablet, Autoatendimento, Caixa Físico'' recebem um valor representado por um número inteiro cada ficando ``Celular = 1, Computador = 2, Tablet = 3, Autoatendimento = 4, Caixa Físico = 5'', conforme~\citeonline{masiero:2013}. A segunda opção é transformá-las em variáveis \emph{dummies}~\footnote{http://pandas.pydata.org/}. O método \emph{dummies} transforma cada opção de resposta ou cada categoria em uma nova variável binária onde o valor 1 é para quando a opção for verdadeira e 0 para o oposto.
 
 Nesse ponto a base de dados está com todas as variáveis quantificadas, porém existe um segundo problema que pode afetar o resultado do algoritmo. Cada variável possui uma escala diferente. Essa diferença na escala das variáveis pode gerar tendências no resultado do algoritmo, assim é necessário padronizar os valores númericos existentes na base. Para realizar a padronização dos dados o processo de normalização é executado. A normalização mais comum a ser feita é manter os valores das variáveis entre 0 e 1~\cite{lattin:2011}. A equação~\ref{eq:normalizacao1} apresenta a forma mais simples de realizar o processo de normalização dos dados. É feita a divisão do valor da característica pelo valor máximo encontrado entre a característica analisada.
 
@@ -166,9 +166,9 @@ Após o processo de normalização, as escalas da base estão com uma distribui�
 
 \section{Executando o QG-SIM e criando as Personas}
 \label{sec:criarpersonas}
-Com as informações normalizadas, o próximo passo é executar o algoritmo de agrupamento QG-SIM. A implementação do algoritmo pode ser encontrada no endereço \url{https://github.com/amasiero/qgsim}. O algoritmo solicita um valor de similaridade mínimo para manter a qualidade entre os elementos de um mesmo grupo. Esse valor é chamado de Q. A partir desse valor, o QG-SIM irá agrupar os perfis de acordo com a similaridade desejada e irá gerar o número de grupos automaticamente~\cite{masiero:2013}.
+Com as informações normalizadas, o próximo passo é executar o algoritmo de agrupamento QG-SIM. A implementação do algoritmo pode ser encontrada no endereço \url{https://github.com/amasiero/qgsim}. O algoritmo solicita um valor de similaridade mínimo para manter a qualidade entre os elementos de um mesmo grupo. Esse valor é chamado de Q. A partir desse valor, o QG-SIM agrupará os perfis de acordo com a similaridade desejada e o número de grupos é obtido automaticamente através do valor Q~\cite{masiero:2013}.
 
-Assim que os grupos são definidos, é necessário encontrar a medida de dispersão central para cada uma das variáveis do perfil. As medidas de dispersão mais comuns são: média, mediana e moda. Elas auxiliarão no processo de construção da Persona, como definição da idade, se utiliza óculos, tipo do cabelo, gênero, e outras informações. Como os grupos encontrados não possuiam ruídos em sua distribuição, a medida de disperção adota foi a média (vide capítulo~\ref{cap:resultados}). Nesse momento, as informações de texto livres preenchidas são utilizadas como base para preencher a descrição e história da Persona. É verificado cada resposta dos indivíduos que compõe o grupo e na sequência é criado todo uma história de vida para a Persona.
+Assim que os grupos são definidos, é necessário encontrar a medida de dispersão central para cada uma das variáveis do perfil. As medidas de dispersão mais comuns são: média, mediana e moda. Elas auxiliam no processo de construção da Persona, como definição de idade, o uso de óculos, tipo do cabelo, gênero, e outras informações. Como os grupos encontrados não possuiam ruídos em sua distribuição, a medida de disperção adota foi a média (vide capítulo~\ref{cap:resultados}). Nesse momento, as informações de texto livres preenchidas são utilizadas para análise que é base para preencher a descrição e história da Persona. É verificado cada resposta dos indivíduos que compõe o grupo e na sequência é criado toda uma história de vida e experiências para a Persona.
 
 Nesse processo, cinco Personas foram encontradas e são apresentadas a seguir:
 \begin{table}[!ht]
@@ -259,11 +259,11 @@ Nesse processo, cinco Personas foram encontradas e são apresentadas a seguir:
 	\smallcaption{Fonte: O autor.}
 \end{table}
 
-As Personas apresentadas nas tabelas~\ref{tab:joaquim}, \ref{tab:mariaeduarda}, \ref{tab:alfredo}, \ref{tab:danielo}, \ref{tab:manuel} foram criadas com base nas informações coletadas no formulário e auxiliaram na definição das independências condicionais da rede bayesiana. Mais informações das avaliações feitas com base nas Personas sobre a interação com o robô são apresentadas no capítulo~\ref{cap:resultados}.
+As Personas apresentadas nas tabelas~\ref{tab:joaquim}, \ref{tab:mariaeduarda}, \ref{tab:alfredo}, \ref{tab:danielo}, \ref{tab:manuel} foram criadas com base nas informações coletadas nos questionários e ajudaram na definição das independências condicionais da rede bayesiana. Mais informações das análises feitas com base nas Personas, e também sobre sua criação, em relação a interação com o robô são apresentadas no capítulo~\ref{cap:resultados}.
 
-\section{Heurísticas adaptadas de Nielsen}
+\section{Heurísticas adaptadas de Nielsen} %revisar de acordo com o novo propósito
 \label{sec:heuristicas}
-Avaliação heurística é um método utilizado principalmente por especialistas em usabilidade para verificar problemas de interação em interfaces de sistemas. Ao longo dos tempos, as 10 heurísticas de Nielsen são as mais utilizadas nesse tipo de avaliação (vide seção~\ref{sec:avaliacao}). Dessa forma, é apresentado uma adaptação das heurísticas de Nielsen focado em sistemas robóticos sociais. É importante essa adaptação, pois elas serão analisadas e a proposta é que o próprio robô saiba que a utilizou e faça uma  autoavaliação do seu comportamento para a experiência de usuário durante a interação. Assim, ele pode identificar se o usuário teve algum desconforto ou medo e assim melhorar seu comportamento através de outras técnicas de inteligência artificial e aprendizado de máquina. As adaptações das heurísticas são:
+Avaliação heurística é um método utilizado por especialistas em usabilidade para verificar problemas de interação em interfaces de sistemas e produtos. \citeonline{nielsen:1994} apresenta 10 heurísticas para avaliações de interfaces em sistemas web (vide seção~\ref{sec:avaliacao}). As heurísticas de Nielsen tem sido amplamente utilizadas ao longo dos tempos para sites e sistemas desktop. Dessa forma, é apresentado uma adaptação das heurísticas de Nielsen focado em sistemas robóticos sociais. É importante essa adaptação, pois elas serão analisadas e a proposta é que o próprio robô saiba que a utilizou e faça uma  autoavaliação do seu comportamento para a experiência de usuário durante a interação. Assim, ele pode identificar se o usuário teve algum desconforto ou medo e assim melhorar seu comportamento através de outras técnicas de inteligência artificial e aprendizado de máquina. As adaptações das heurísticas são:
 
 \begin{itemize}
 	\item \textbf{Visibilidade do status do robô}: o robô deve sempre manter o humano informado sobre o que está acontecendo por meio de feedback apropriado dentro de um tempo razoável. O status do sistema deve ser exposto constantemente para o humano durante movimentação ou parado. O feedback pode ser gerado via voz ou algum outro método visual. Não fornecer feedback sobre o status do sistema quando o robô encontra-se estático, causa desconforto ao humano. \textbf{Uso na tese}: No robô utilizado para os testes os usuários questionaram sobre o alerta de alguns comportamentos, além do uso das expressões faciais, voz e gestos como ferramenta de status. Essa é uma heurística que influencia diretamente na avaliação do comportamento do robô na interação então deve fazer parte da rede bayesiana.
