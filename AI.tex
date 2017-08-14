@@ -68,13 +68,13 @@ Nesta tese, como há um trabalho de agrupamento de perfil de usuário, optou-se 
 
 \section{Raciocínio Probabilístico}
 \label{sec:raciocinio-probabilistico}
-Para que um agente possa tomar uma decisão, é necessário que ele analise todas as possibilidades de ações que possam ser feitas e o que ocorrerá após essa tomada de decisão para que exista uma certeza sobre o caminho que ele deve seguir. O processo para encontrar a certeza sobre uma decisão, computacionalmente, é oneroso e com a quantidade de variáveis geralmente consideradas, torna-se inviável. Sendo assim, um agente precisa trabalhar com a incerteza sobre o domínio para que possa ser tomada uma decisão~\cite{russell:2002}.
+Para que um agente possa tomar uma decisão, é necessário que ele analise todas as possibilidades de ações que possam ser feitas e o que ocorrerá após a tomada de decisão para que exista uma certeza sobre o caminho que deve ser seguido. O processo para encontrar a certeza sobre uma decisão, computacionalmente, é oneroso e com a quantidade de variáveis geralmente consideradas, torna-se inviável. Sendo assim, um agente precisa trabalhar com a incerteza sobre o domínio para que possa ser tomada uma decisão~\cite{russell:2002}.
 
-Fazer o agente tomar uma decisão considerando a incerteza, é fazer o agente manter o controle baseado em um estado de crença, em outras palavras, um conjunto com todos os possíveis estados em um domínio ao qual ele possa estar. Além disso, o agente deve prever e gerar um plano de contingência para eventuais situações que sejam detectadas durante a execução do algoritmo. Nesses problemas, as informações que o agente possui não conseguem garantir nenhum resultado com certeza absoluta. Porém, tais informações garantem um grau de crença de que o objetivo será alcançado ou a decisão por um caminho relevante será tomada~\cite{russell:2002, faceli:2011}.
+Fazer o agente tomar uma decisão considerando a incerteza, é fazer o agente manter o controle baseado em um estado de crença, em outras palavras, um conjunto com todos os possíveis estados em um domínio ao qual ele possa estar. Além disso, o agente deve prever e gerar um plano de contingência para eventuais situações que sejam detectadas durante a execução do algoritmo. Nesses problemas, as informações que o agente possui não conseguem garantir nenhum resultado com certeza absoluta. Porém, tais informações garantem um grau de crença de que o objetivo será alcançado ou a decisão de um caminho relevante a ser tomada~\cite{russell:2002, faceli:2011}.
 
 Todas as declarações feitas com base na crença sobre as informações não se contradizem mutuamente. Cada uma é uma afirmação separada de um diferente estado de conhecimento. Cada vez que inserimos uma informação nova e complementar, é aumentado o estado de crença sobre um determinado assunto, melhorando a tomada de decisão do agente~\cite{faceli:2011}.
 
-Para que a tomada de decisão tenha uma maior utilidade para o agente, ele deve preferências dentre os diferentes resultados apresentados. Sendo assim, ter uma decisão com base apenas na probabilidade, não é recomendável. Essa é a base da teoria da utilidade. A teoria da utilidade é utilizada para que o agente represente e raciocine em seu problema, de acordo com suas preferências. É distribuido um grau de utilidade para cada escolha que o agente possa ter, assim o estado que possui o maior grau de utilidade é escolhido. Pode-se dizer então que uma decisão é tomada com base na probabilidade de um estado somado a sua utilidade~\cite{russell:2002}.
+Para que a tomada de decisão tenha uma maior utilidade ao agente, ele deve ter preferências dentre os diferentes resultados apresentados. Sendo assim, ter uma decisão com base apenas na probabilidade, não é recomendável. Essa é a base da teoria da utilidade. A teoria da utilidade é utilizada para que o agente represente e raciocine em seu problema, de acordo com suas preferências. É distribuido um grau de utilidade para cada escolha que o agente possa ter, assim o estado que possui o maior grau de utilidade é escolhido. Pode-se dizer então que uma decisão é tomada com base na probabilidade de um estado somado a sua utilidade~\cite{russell:2002}.
 
 Utilizar as teorias de probabilidade e utilidade, necessita de algumas formalizações e notações, para que as equações sejam melhor compreendidas. A primeira formalização é a equação~\ref{eq:prob_condicional_a_b} que representa a probabilidade condicional para quaisquer proposições $A$ e $B$~\cite{russell:2002}.
 
@@ -90,7 +90,7 @@ A equação~\ref{eq:prob_condicional_a_b} é válida apenas para $P(b) > 0$. Ess
     P(a \land b) = P(a|b)P(b)
 \end{equation}
 
-As proposições de uma equação são determinadas pelas variáveis aleatórias de um problema. Uma variável aleatória é representada através de um nome ao qual sua primeira letra deve ser maiuscula, por exemplo, $Total$, $Tempo$ ou $Informacao$. Cada variável aleatória possui um domínio, que representa os possíveis valores que esta variável pode assumir. Os valores são descritos utilizando todas as letras em caixa baixa, ou seja, minusculas, por exemplo, $Tempo = \{ ensolarado, chuvoso, nublado, nevando \}$. Quando uma variável é booleana, podem ser nomeadas com se fossem valores (em minusculo) e utiliza-se a regra de negar o valor para representar os valores de falso e verdadeiro~\cite{russell:2002}.
+As proposições de uma equação são determinadas pelas variáveis aleatórias de um problema. Uma variável aleatória é representada através de um nome ao qual sua primeira letra deve ser maiuscula, por exemplo, $Total$, $Tempo$ ou $Informacao$. Cada variável aleatória possui um domínio, que representa os possíveis valores que esta variável pode assumir. Os valores são descritos utilizando todas as letras em caixa baixa, ou seja, minúsculas por exemplo, $Tempo = \{ ensolarado, chuvoso, nublado, nevando \}$. Quando uma variável é booleana, podem ser nomeadas com se fossem valores (em minúsculo) e utiliza-se a regra de negar o valor para representar os valores de falso e verdadeiro~\cite{russell:2002}.
 
 O exemplo da representação de uma varíavel booleana através de valores é demonstrado através das equações~\ref{eq:neg_valor}.
 
@@ -106,9 +106,9 @@ Em teoria de probabilidade, quando trata-se um problema, é procurado mundos pos
 
 A visão subjetivista trabalha com os valores de probabilidades no formato que caracteriza a crença do agente ao invés de qualquer significado ligado ao mundo físico externo. Essa visão possui uma variante bayesiana que permite qualquer atribuição auto consistente de probabilidades anteriores à proposições, e também são capazes de atualizar os valores a medida que evidências ocorrem a partir do observador~\cite{russell:2002}.
 
-Todos os valores que um mundo possível tem, são descritos através de uma tabela chamada de tabela de distribuição conjunta. Essa tabela, em geral, possui uma quantidade de valores muito grande que inviabiliza o processamento das informações, levando ao mesmo cenário que apresenta a certeza de um agente sobre uma determinada decisão. Para que a quantidade de informação na tabela de distribuição conjunta seja minimizada e auxilie no processamento das informações para uma tomada de decisão, é necessário encontrar a independência condicional entre as variáveis do problema em questão. A independência de uma variável é importante, pois auxilia não só na redução da representação domínio, mas também na complexidade do problema~\cite{russell:2002, faceli:2011}.
+Todos os valores que um mundo possível tem, são descritos através de uma tabela chamada de tabela de distribuição conjunta. Ela, em geral, possui uma quantidade de valores muito grande que inviabiliza o processamento das informações, levando ao mesmo cenário que apresenta a certeza de um agente sobre uma determinada decisão. Para que a quantidade de informação na tabela de distribuição conjunta seja minimizada e auxilie no processamento das informações para uma tomada de decisão, é necessário encontrar a independência condicional entre as variáveis do problema em questão. A independência de uma variável é importante, pois auxilia não só na redução da representação do domínio, mas também, na complexidade do problema~\cite{russell:2002, faceli:2011}.
 
-Contudo, nem sempre o problema nos permite calcular todas as probabilidades, e algumas ainda são desconhecidas. Para que as probabilidades tornem-se possíveis de serem calculadas a partir de probabilidades condicionais conhecidas, tem-se a regra de Bayes. A regra de Bayes foi definida com base nas duas representações da regra do produto (vide equação~\ref{eq:regra_produto})~\cite{russell:2002}.
+Nem sempre o problema nos permite calcular todas as probabilidades, e algumas ainda são desconhecidas. Para que as probabilidades tornem-se possíveis de serem calculadas a partir de probabilidades condicionais conhecidas, tem-se a regra de Bayes. A regra de Bayes foi definida com base nas duas representações da regra do produto (vide equação~\ref{eq:regra_produto})~\cite{russell:2002}.
 
 \begin{subequations}
     \label{eq:regra_produto}
@@ -139,7 +139,7 @@ A aplicação da regra de Bayes é útil, pois a partir dela é possível perceb
     P(causa|efeito) = \frac{P(efeito|causa)P(causa)}{P(efeito)}
 \end{equation}
 
-A equação~\ref{eq:causa_efeito} pode ser igualada em dois sentidos, $P(efeito|causa)$ que busca quantificar a relação entre as variáveis na direção causal e $P(causa|efeito)$ que tem o objetivo de descrever a direção da relação em forma de diagnóstico. O conhecimento conseguido através da direção do diagnóstico é mais frágil que o conhecimento obtido através da direção causal do problema, porém em aplicações médicas a direção do diagnóstico é mais recomendada para aplicação em sistemas~\cite{russell:2002}.
+A equação~\ref{eq:causa_efeito} pode ser igualada em dois sentidos, $P(efeito|causa)$ que busca quantificar a relação entre as variáveis na direção causal e $P(causa|efeito)$ que tem o objetivo de descrever a direção da relação em forma de diagnóstico. O conhecimento conseguido através da direção do diagnóstico é mais frágil que o conhecimento obtido através da direção causal do problema, porém em aplicações médicas, por exemplo, a direção do diagnóstico é mais recomendada para aplicação em sistemas~\cite{russell:2002}.
 
 \subsection{Redes Bayesianas}
 \label{sec:redes-bayesianas}
@@ -155,7 +155,7 @@ Sendo assim, uma maneira que existe para representar a distribuição de probabi
 
 As setas de conexões entre os nós dão o significado de que os pais influenciam diretamente os filhos. Em termos de causa e efeito, significa que as causas devem ser organizadas como pais dos efeitos~\cite{russell:2002}.
 
-A semântica de uma rede bayesiana pode ser tratada de duas maneiras: (I) a primeira como a representação da distribuição de probabilidade conjunta; (II) a outra maneira, é como a codificação de uma coleção de declarações de independência condicional. A primeira é utilizada para compreender a construção da rede, e a segunda em procedimentos de inferência sobre consultas~\cite{russell:2002}.
+A semântica de uma rede bayesiana pode ser tratada de duas maneiras: (I) a primeira como a representação da distribuição de probabilidade conjunta; (II) a outra, como a codificação de uma coleção de declarações de independência condicional. A primeira é utilizada para compreender a construção da rede, e a segunda em procedimentos de inferência sobre consultas~\cite{russell:2002}.
 
 Quando trata-se da representação da distribuição conjunta total, cada entrada é representada pelo produto dos elementos apropriados das tabelas de probabilidade condicional (TPCs) na rede bayesiana. Dessa forma, a distribuição conjunta total é utilizada para obter respostas sobre qualquer consulta no domínio. Sendo uma rede bayesiana a representação dessa distribuição, ela também obtêm qualquer resposta para consultas sobre o domínio. Para isso, basta efetuar um somatório de todas as entradas conjuntas relevantes~\cite{russell:2002}.
 
@@ -182,7 +182,7 @@ Para que a representação da rede bayesiana sobre um conjunto seja correta, é 
 
 desde que $Pais(X_i) \subseteq \{X_{i-1},\dots,X_1\}$~\cite{russell:2002}.
 
-Após o procedimento, é obtido os pais do nó $X_i$ que contém todos os nós em $X_1, \dots, X_{i-1}$ que possuem influencia direta em $X_i$. Esse método de construção da rede garante que ela seja acíclica, uma vez que cada nó é ligado apenas aos seus anteriores~\cite{russell:2002}.
+Após o procedimento, é obtido os pais do nó $X_i$ que contém todos os nós em $X_1, \dots, X_{i-1}$ que possuem influência direta em $X_i$. Esse método de construção da rede garante que ela seja acíclica, uma vez que cada nó é ligado apenas aos seus anteriores~\cite{russell:2002}.
 
 Uma maneira de garantir a consistência da construção da rede bayesiana, é fazer com que ela não possua valores de probabilidade rendundantes ao longo de seus nós. Além disso, a rede bayesiana, em termos computacionais, é mais compacta ao se comparar com a distribuição conjunta total. Assim, o crescimento das variáveis de um domínio, não exercem grandes problemas durante o processo computacional de consultas~\cite{russell:2002, faceli:2011}.
 
@@ -190,7 +190,7 @@ Pode-se dizer também que um nó tem uma independência condicional de todos os 
 
 Uma distribuição canônica pode ser exemplificada através de um nó determinístico na rede. Esse tipo de nó tem o valor especificado, exclusivamente, pelos valores dos pais e sem nenhuma incerteza envolvida. Outro exemplo, é um nó numérico como, por exemplo, o nó filho ter atribuido o valor mínimo dentre todos os seus nós pais. Também pode-se aplicar aos nós filhos a soma dos fluxos de entrada subtraídos pelos fluxos de saída~\cite{russell:2002}.
 
-Porém, não é possível atribuir sempre valores certos aos nós da rede bayesiana. Dessa maneira, é necessário trabalhar com relacionamentos de incerteza. Esse tipo de relacionamento é caracterizado por relações de lógica ruidosos. Tais relações são chamadas de ou-ruidoso. O modelo ou-ruidoso permite que a incerteza as condições do pai faça que o filho torne-se verdadeiro. A situação colocada pelo modelo, faz com que o relacionamento causal pai-filho possa ser inibido. Este modelo trabalha com duas suposições~\cite{russell:2002}:
+Porém, não é possível atribuir sempre valores certos aos nós da rede bayesiana. Dessa maneira, é necessário trabalhar com relacionamentos de incerteza. Esse tipo de relacionamento é caracterizado por relações de lógica ruidosas. Tais relações são chamadas de ou-ruidoso. O modelo ou-ruidoso permite que a incerteza as condições do pai faça que o filho torne-se verdadeiro. A situação colocada pelo modelo, faz com que o relacionamento causal pai-filho possa ser inibido. Este modelo trabalha com duas suposições~\cite{russell:2002}:
 
 \begin{itemize}
     \item todas as causas possíveis estão pressupostamente listadas. Pode-se considerar nós de vazamento, caso isso não ocorra.
@@ -234,3 +234,58 @@ Um algoritmo utilizado para inferência é o por enumeração. Ele calcula soma-
 \end{algorithm}
 
 Esse algoritmo realiza a seguinte verificação: se uma variável não é ancestral de nenhuma variável de consulta ou evidência, essa torna-se irrelevante para o processo. Isso faz com que essa varíavel possa ser eliminada dos cálculos de inferência~\cite{russell:2002}.
+
+Métodos que utilizam a probabilidade de Bayes, são utilizados para diversas tarefas e não apenas tomada de decisão e inferência. Nas seções seguintes é apresentado dois algoritmos para classificação bayesiana.
+
+\subsection{Classificador Naïve Bayes}
+\label{sec:naivebayes}
+
+Em um problema onde os valores dos atributos possuem uma independência entre si, a probabilidade $P(x|y_i)$ pode ser decomposta como $P(x_1|y_i) \times \dots \times P(x_d|y_i)$. A equação~\ref{eq:naivebayes} apresenta a probabilidade de um exemplo pertencer à classe $y_i$~\cite{faceli:2011}.
+
+\begin{equation}
+    \label{eq:naivebayes}
+    P(y_i|x) \propto P(y_i) \prod_{j=i}^{d}P(x_j|y_i)
+\end{equation}
+
+Todos os dados para classificar uma classe $y_i$ são obtidos através de um conjunto de treinamento. Os conjuntos que formam as variáveis devem ser discretizados e não continuos. Um classificador naïve bayes é sempre utilizado quando não existe dependência condicional entre as variáveis. Caso exista essa dependência condicional, outras técnicas devem ser utilizadas, como o uso de redes bayesianas. Apesar da recomendação, em alguns casos em particular, o classificador naïve bayes consegue realizar o processo de classificação~\cite{faceli:2011}.
+
+\subsection{Classificação com Redes Bayesianas}
+\label{sec:rbclassificador}
+
+A classificação através de uma rede bayesiana é um processo relativamente simples. O primeiro passo para realizar o processo de classificação é determinar uma variável aleatória como alvo, sendo que as demais viram entradas do sistema. Todo o conjunto de variáveis que afetam a variável alvo, pais e filhos da variável alvo, e pais dos filhos da variável alvo é conhecido como \emph{Markov Blanquet}. A partir desse momento a rede bayesiana pode ser utilizada como um classificador, onde dado um exemplo $x$, fornece a probabilidade \emph{a posteriori} $P(y | x)$ do nó classe $y \in Y$. É possível calcular a probabilidade \emph{a posteriori} $P(y|x,S)$ para cada classe $y \in Y$ realizando a marginalização da distribuição de probabilidade conjunta $P(y,x|S)$, onde busca-se o retorno que maxima a classe $\hat{y}$ de acordo com a equação~\ref{eq:crb}~\cite{faceli:2011}.
+
+\begin{equation}
+    \label{eq:crb}
+    \hat{y} = h_{CRB}(x) = \arg \max_{j=1 \dots k} P(y_j, x | S)
+\end{equation}
+
+Na seção a seguir, alguns trabalhos utilizando classificadores bayesianos são apresentados com temas referentes a perfis de usuários e interação humano-robô.
+
+\subsection{Aplicações com Classificadores Bayesianos}
+\label{sec:cbrw}
+
+Um sistema de visão computacional que realiza a modelagem e análise de interação entre seres humanos, de maneira a entender o que está acontecendo em um cenário de vigilância é apresentado por \citeonline{oliver:2000}. Alguns cenários avaliados são: seguir uma pessoa, alterar o caminho para ir de encontro a outra pessoa, entre outros.
+
+Dois modelos foram utilizados para realizar a classificação do comportamento do usuário nas interações: Hidden Markov Models~(HMM) e o Coupled Hidden Markov Models~(CHMM). O segundo demonstrou-se mais acertivo ao analisar os cenários em videos de auto estradas com agentes sintéticos transitando pelas cenas de um simulador~\cite{oliver:2000}.
+
+O uso de raciocínio baseado em casos para obtenção de características do usuário para formação de um perfil é o trabalho apresentado por \citeonline{schiaffino:2000}. As informações armazenadas são utilizadas para a criação de uma rede bayesiana que analiza os itens de interesse do usuário. Essa técnica é utilizada em um cenário particular de rotina e mudança de comportamento do usuário ao longo do tempo. Assim é possível identificar pontos de mudança na preferência do usuário.
+
+\citeonline{cohen:2003} apresenta a comparação entre três classificadores bayesianos: Naïve Bayes~(NB), Tree Augmented Naïve Bayes~(TAN) e Rede Bayesiana Hierarquica~(RB). O objetivo é identificar expressões faciais a partir da entrada de videos continuos. Os resutaldos demonstram que a RB obteve o melhor resultado com 75\% de acertos, seguido pelo TAN com 73\% e por fim, o NB obteve 72,5\%. Uma extensão do trabalho é apresentado em \citeonline{cohen:2004}.
+
+Uma metodologia para estimativa da posição corporal é apresentado por \citeonline{park:2004}. Uma rede bayesiana recebe informações da estimativa do corpo de duas pessoas e a partir dessas informações é feito uma classificação para identificar o que a pessoa está fazendo como, apontando o dedo, brigando, de mãos dadas, chutando, empurrando ou abraçando. A média de acerto na classificação do algoritmo é de 78\% o que foi considerado um sucesso pelos autores.
+
+Redes bayesianas classificando expressões faciais, detecção de faces e peles a partir de um treinamento com informações rotuladas e não rotuladas são criadas por \citeonline{sebe:2005} e \citeonline{sebe:2005b}. Dentre os resultados positivos dos trabalhos, o mais citado foi como as informações não rotuladas auxiliaram na melhora da classificação das RB.
+
+Uma rede bayesiana hierárquica é construída para auxiliar em um sistema de recuperação de arquivos com base no perfil do usuário. O problema encontrado nesse tipo de aplicação é que os usuários novos não possuem uma base para recomendação dos arquivos adequados ao seu perfil. Assim, a rede bayesiana foi construída de maneira a utilizar informações de uso dos antigos usuários para sugerir ao novos usuários arquivos de seu interesse. O sistema conseguiu atingir com sucesso a informações necessárias na recomendação dos arquivos aos novos usuários. Para isso, foi utilizado informações de \emph{feedback} implícito (de acordo com o uso do usuário) e explícito (favoritação dos arquivos)~\cite{zigoris:2006}.
+
+Uma comparação de quatro algoritmos para a classificação de perfis de usuários é realizada por \citeonline{cufoglu:2008}. Os algoritmos selecionados são: Naïve Bayes~(NB), Rede Bayesiana~(RB), Lazy Learning of Bayesian Rules~(LBR) e Instance-Based Learner~(IB1). Os perfis classificados eram compostos pelas seguintes informações: idade, classe de trabalho, educação, estado civil, ocupação, relacionamento, etnia, gênero, país nativo.
+
+Os algoritmos que demonstraram os melhores resultados foram NB e IB1 que obteveram a mesma precisão na classificação, 95\% de acurácia. O LBR apresentou uma acurácia de 94,7\%, seguido pela RB com 94,4\%. A continuação do trabalho é a comparação com classificadores mais clássicos como \emph{Support Vector Machines}~(SVM) e árvores de decisão~\cite{cufoglu:2008}.
+
+Outra comparação é proposta no trabalho de \citeonline{iglesias:2008}. A comparação entre três métodos para classificar o perfil de comportamento do usuário no uso do sistema operacional UNIX. Os métodos utilizados são: RB, HMM e \emph{Term Frequency Inverse Document Frequency}~(TFIDF). Como entrada da classificação do comportamento é utilizado a sequência de comandos inseridas no termninal pelo usuário. TFIDF apresentou uma média de 57,1\% de acerto na classificação, a RB apresentou 44,2\% e o HMM com o melhor índice conseguiu uma taxa de acerto de 76,4\% snedo o mais indicado para o cenário de aplicação testado.
+
+É proposto por \citeonline{prado:2012} um método para analizar e sintetizar faces e voz com o objetivo de reconhecer emoções do usuário. Posteriormente essas informações são inseridas em um estrutura de rede bayesiana onde é feito o trabalho para classificar essas emoções. A partir da classificação o robô pode tomar a decisão de reação adequada a interação.
+
+\citeonline{escalante:2016} apresentam um classificador naïve bayes para identificar gestos e ações do usuário através de entradas de frames de videos. Outra maneira de utilizar o classificador naïve bayes é apresentada por \citeonline{liu:2016}. Um método de aprendizado por observação de gestos e fala em interações humano-robô. Esse método é aplicado em um cenário de interação de compra em loja de produtos simuladas. Para realizar o aprendizado, \citeonline{liu:2016} realizaram o agrupamento das informações sobre a interação e alimentaram o classificador naïve bayes, resultando no aprendizado do robô. Conceitos de \emph{Proxemics} também foram utilizados para auxiliar a determinar o espaço das interações face a face. O comportamento do robô teve uma acurácia de 84,8\% enquanto a parte de voz obteve apenas 76,8\% de aproveitamento.
+
+Técnicas de classificação probabilísticas tem demonstrado grande aplicabilidade dentro de trabalhos com perfis de usuário e interação humano-robô e humano-computador. Porém alguns pontos são importantes de mencionar, pois nenhum trabalho aplicou na classificação alguma técnica de experiência de usuário o que pode facilitar a aumentar a satisfação do usuário principalmente com relação ao cenário de robótica social.
