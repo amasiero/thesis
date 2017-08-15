@@ -174,7 +174,9 @@ Para a relação de medo e gênero, o que demonstrou menos medo foi o feminino. 
 	\end{minipage}
 \end{figure}
 
-A faixa etária com maior índice de medo foi os participantes de 40 anos. Um outro participante de 19 anos também apresentou um índice baixo sobre o medo do participante. Isso ocorreu, pois o comportamento invasivo do robô ao aproximar a garra deixou o participante assustado. Outro ponto levantado foi que o robô é muito barulhento.
+A faixa etária com maior índice de medo foi a dos 40 anos de idade. Os participantes com 19 anos também apresentam um índice baixo sobre o medo do participante. Isso ocorreu, pois com o comportamento invasivo do robô ao aproximar, a garra deixou o participante assustado. Outro ponto levantado foi que o robô ao se movimentar faz muito barulhento.
+
+A figura~\ref{fig:medoposicao} compara a relação do medo declarado do usuário contra a posição dele durante a navegação do robô.
 
 \begin{figure}[ht!]
 	\centering
@@ -186,6 +188,8 @@ A faixa etária com maior índice de medo foi os participantes de 40 anos. Um ou
 	\end{minipage}
 \end{figure}
 
+Assim como em relação ao conforto do usuário, os participantes que sentiram mais medo do robô estavam em pé. O manipulador é um ponto de atenção na interação, principalmente quando está dentro do espaço social da pessoa. Os maiores índices de medo ocorreram por que o robô encostou o manipulador na pessoa. As pessoas mais sociáveis sentiram menos medo que as menos sociáveis, como apresenta na figura~\ref{fig:medosociavel}.
+
 \begin{figure}[ht!]
 	\centering
 	\begin{minipage}{0.65\textwidth}
@@ -195,3 +199,109 @@ A faixa etária com maior índice de medo foi os participantes de 40 anos. Um ou
 		\label{fig:medosociavel}
 	\end{minipage}
 \end{figure}
+
+Após as análises gerais sobre as informações coletadas, é possível obter um grupo de perfis de usuários. Para obter os grupos de perfis, utilizou-se o algoritmo de agrupamento por similaridade QG-SIM. Foram testados três valores Q para determinar os grupos, 0.6, 0.7 e 0.8 de similaridade. O valor 0.6 apresentou 3 grupos, porém um dos grupos ficou com 90\% dos perfis e ou outros 10\% foram distribuídos para os demais grupos. Essa opção gerou um resultado muito generalizado e que não condiz com os perfis que realizaram os testes.
+
+Quando aplicado o valor de 0.8 de similaridade para o algoritmo, 7 grupos foram encontrados. Os grupos ficaram bem específicos, sendo que 4 dos 7 grupos eram compostos por apenas 1 pessoa. Dessa maneira, é possível identificar que o resultado gerado é muito especializado e provavelmente a partir de ponto cada vez mais grupos com uma pessoa serão encontrados. Esse não é o objetivo da técnica de Personas. Então este resultado também foi desconsiderado.
+
+Um valor intermediário foi escolhido. O valor de 0.7 apresentou 5 grupos. Um grupo com 21 perfis, que resultou na Persona Joaquim. Um grupo com 7 pessoas para Persona Maria Eduarda. Outro grupo com 9 pessoas deu origem a Persona Alfredo. As outras duas Personas foram criadas com base em dois grupos de 1 pessoa. Apesar de serem formados por apenas 1 pessoa, algumas características foram totalmente descriminante. A Persona Manuel, por exemplo, não tem acesso, nem conta em redes sociais. E a Persona Danielo aplicou a nota positiva máxima em todas as situações de interação. Esses foram fatores decisivos para que esses perfis permanecessem isolados em um grupo cada um.
+
+Cada perfil dentro dos grupos mantém uma consistência demográfica e também de opinião sobre os comportamentos e ações do robô. A seguir serão apresentadas em tabelas as informações dos perfis para algumas perguntas chaves do questionário de maneira sintetizada. As informações referentes a expectativa da pessoa com o robô em casa encontra-se na tabela~\ref{tab:expectativacasa}.
+
+\begin{table}[!ht]
+	\caption{Expectativa do robô em casa dos perfis por Persona.}
+	\label{tab:expectativacasa}
+	\centering
+	\begin{tabular}{c | c | c }
+        \hline
+        \multicolumn{3}{c}{Expectativa do robô em casa?} \\
+        \hline
+        Persona & Observação & Quantidade \\
+        \hline
+        \multirow{7}{*}{Joaquim} & Limpar a casa & 7 \\
+        \hhline{~--}
+        & Buscar objetos & 1 \\
+        \hhline{~--}
+        & Cuidar da segurança & 1 \\
+        \hhline{~--}
+        & Obediência & 4 \\
+        \hhline{~--}
+        & Afetividade & 4 \\
+        \hhline{~--}
+        & Naturalidade & 3 \\
+        \hhline{~--}
+        & Respeito & 3 \\
+        \hline
+        \multirow{3}{*}{Maria Eduarda} & Realizar tarefas domésticas & 5 \\
+        \hhline{~--}
+        & Dirigir o carro & 1 \\
+        \hhline{~--}
+        & Amigável & 1 \\
+        \hline
+        \multirow{4}{*}{Alfredo} & Realizar tarefas domésticas & 5 \\
+        \hhline{~--}
+        & Comandos de voz & 2 \\
+        \hhline{~--}
+        & Obediência & 2 \\
+        \hline
+        Danielo & Realizar tarefas domésticas & -- \\
+        \hline
+        Manuel & Atender necessidades & -- \\
+        \hline
+    \end{tabular}
+    \smallcaption{Fonte: O autor.}
+\end{table}
+
+A pergunta da expectativa do robô em casa foi realizada antes da interação com o robô. Com base nas respostas pode-se perceber que as pessoas enxergam os robôs como ferramentas, antes de interagir e perceber do que os robôs são capazes. Em alguns casos, a mudança de opinião é nítida e será discutida mais a frente nessa seção. Outra pergunta realizada antes da interação com o robô é a expectativa em relação ao ambiente de trabalho. As respostas compiladas são apresentadas na tabela~\ref{tab:expectativatrabalho}.
+
+\begin{table}[!ht]
+	\caption{Expectativa do robô no ambiente de trabalho dos perfis por Persona.}
+	\label{tab:expectativatrabalho}
+	\centering
+	\begin{tabular}{c | c | c }
+        \hline
+        \multicolumn{3}{c}{Expectativa do robô no ambiente de trabalho?} \\
+        \hline
+        Persona & Observação & Quantidade \\
+        \hline
+        \multirow{10}{*}{Joaquim} & Obediência & 4 \\
+        \hhline{~--}
+        & Realizar tarefas & 7 \\
+        \hhline{~--}
+        & Indiferente sobre o robô no trabalho & 1 \\
+        \hhline{~--}
+        & Eficiência nas atividades & 2 \\
+        \hhline{~--}
+        & Comunicação & 1 \\
+        \hhline{~--}
+        & Antecipar tarefas & 1 \\
+        \hhline{~--}
+        & Gerenciador de \emph{TODO List} & 1 \\
+        \hhline{~--}
+        & Otimizar processos & 1 \\
+        \hhline{~--}
+        & Seja sociável & 1 \\
+        \hhline{~--}
+        & Agir com naturalidade & 2 \\
+        \hline
+        \multirow{3}{*}{Maria Eduarda} & Realizar tarefas & 4 \\
+        \hhline{~--}
+        & Eficácia & 1 \\
+        \hhline{~--}
+        & Amigável & 1 \\
+        \hline
+        \multirow{3}{*}{Alfredo} & Realizar tarefas & 6 \\
+        \hhline{~--}
+        & Rápido & 1 \\
+        \hhline{~--}
+        & Obediência & 1 \\
+        \hline
+        Danielo & Executar tarefas repetitivas & -- \\
+        \hline
+        Manuel & Atender necessidades & -- \\
+        \hline
+    \end{tabular}
+    \smallcaption{Fonte: O autor.}
+\end{table}
+
+Apesar da expectativa no trabalho ser a realização de tarefas, em linhas gerais, alguns outros pontos foram levantados. Comunicação, naturalidade, amigável, sociável e outros adjetivos voltados para convívio social começam a ganhar destaque em ambientes corporativos. As tabelas a seguir são de informações que foram coletadas após o experimento de interação social com o robô.
