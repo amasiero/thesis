@@ -304,4 +304,97 @@ A pergunta da expectativa do robô em casa foi realizada antes da interação co
     \smallcaption{Fonte: O autor.}
 \end{table}
 
-Apesar da expectativa no trabalho ser a realização de tarefas, em linhas gerais, alguns outros pontos foram levantados. Comunicação, naturalidade, amigável, sociável e outros adjetivos voltados para convívio social começam a ganhar destaque em ambientes corporativos. As tabelas a seguir são de informações que foram coletadas após o experimento de interação social com o robô.
+Apesar da expectativa no trabalho ser a realização de tarefas, em linhas gerais, alguns outros pontos foram levantados. Comunicação, naturalidade, amigável, sociável e outros adjetivos voltados para convívio social começam a ganhar destaque em ambientes corporativos. As tabelas a seguir são de informações que foram coletadas após o experimento de interação social com o robô. A tabela~\ref{tab:agradou} apresenta as caracteríticas que os participantes dos testes mais gostaram e també a que eles menos gostaram.
+
+\begin{table}[!ht]
+	\caption{O que os perfis mais gostaram e menos gostaram separados por Persona.}
+	\label{tab:agradou}
+	\centering
+	\begin{tabular}{c | c | c | c | c}
+        \hline
+        \multirow{2}{*}{Persona} & \multicolumn{2}{c}{(+) Gostou} & \multicolumn{2}{c}{(-) Gostou} \\
+        \hhline{~----}
+		& Observação & Quantidade & Observação & Quantidade \\
+		\hline
+        \multirow{9}{*}{Joaquim} & Navegação & 4 & Desajeitado & 7 \\
+        \hhline{~----}
+		& Face & 12 & Tempo de localização & 2 \\
+        & & & no ambiente &  \\
+        \hhline{~----}
+        & Voz & 6 & Barulho das rodas & 4 \\
+        \hhline{~----}
+        & Manipulador & 1 & Feedback baixo & 1 \\
+        \hhline{~----}
+        & & & Manipulador & 1 \\
+        \hhline{~----}
+		& & & Rodas & 1 \\
+        \hhline{~----}
+		& & & Fala autoritária & 1 \\
+        \hhline{~----}
+		& & & Tempo de resposta & 1 \\
+        \hline
+        \multirow{4}{*}{Maria Eduarda} & Navegação & 4 & Estrutura & 2 \\
+        \hhline{~----}
+        & Interação & 1 & Manipulador & 2 \\
+        \hhline{~----}
+        & Face & 3 & Barulho & 1 \\
+		\hhline{~----}
+        & & & Tempo de Resposta & 1 \\
+        \hline
+        \multirow{6}{*}{Alfredo} & Face & 2 & Tempo de Resposta & 2 \\
+        \hhline{~----}
+        & Voz & 2 & Desajeitada & 1 \\
+        \hhline{~----}
+        & Navegação & 1 & Manipulador & 3 \\
+		\hhline{~----}
+        & Feedback & 1 & Barulho & 1 \\
+		\hhline{~----}
+        & Toque & 1 & Perda da localização & 1 \\
+		\hhline{~----}
+        & Interação & 2 & & \\
+        \hline
+        Danielo & Interação & -- & Barulho & -- \\
+        \hline
+        Manuel & Face e voz & -- & Manipulador & -- \\
+        \hline
+    \end{tabular}
+    \smallcaption{Fonte: O autor.}
+\end{table}
+
+Através da tabela~\ref{tab:agradou} é possível observar quais pontos do robô e até como algumas heurísticas de interação (vide seção~\ref{sec:heurísticas}) se relacionam com cada perfil. A partir dessas informações e as observações realizadas durante o teste pelos especialistas que acompanharam, foi gerado a relação de dependência condicional entre cada nó da rede bayesiana para classificação do usuário. As tabelas de probabilidades condicionais foram preenchidas com base na frequência que cada informação apareceu nos testes. Uma última informação foi considerada para auxiliar a compor a rede bayesiana, que foi o desconforto sentido durante a interação com o robô. As informações sobre desconforto são apresentadas na tabela~\ref{tab:desconforto}.
+
+\begin{table}[!ht]
+	\caption{Desconforto dos perfis na interação, separados por Persona.}
+	\label{tab:desconforto}
+	\centering
+	\begin{tabular}{c | c | c }
+        \hline
+        Persona & Observação & Quantidade \\
+        \hline
+        \multirow{3}{*}{Joaquim} & Quase batida no ambiente & 1 \\
+        \hhline{~--}
+        & Primeira aproximação & 4 \\
+        \hhline{~--}
+        & Balanço da estrutura & 1 \\
+        \hline
+        \multirow{2}{*}{Maria Eduarda} & Manipulador & 1 \\
+        \hhline{~--}
+        & Aproximação & 1 \\
+        \hline
+        \multirow{3}{*}{Alfredo} & Falta de feedback & 2 \\
+        \hhline{~--}
+        & Toque & 1 \\
+        \hhline{~--}
+        & Aproximação & 2 \\
+        \hline
+        Danielo & -- & -- \\
+        \hline
+        Manuel & Manipulador & -- \\
+        \hline
+    \end{tabular}
+    \smallcaption{Fonte: O autor.}
+\end{table}
+
+Na tabela~\ref{tab:desconforto} fica evidente que a aproximação do robô ao entrar no espaço pessoal e intímo da pessoa gera um nível de desconforto significante. Quando ocorre o toque no participante esse desconforto pode levar ao medo de alguns participantes na interação. O controle da aproximação e da invasão das zonas sociais definidas através da teoria de proximidade (capítulo~\ref{cap:proxemics}) é importante para melhorar a experiência do usuário.
+
+A PARTIR DAQUI SERÁ INSERIDA AS INFORMAÇÕES DO CLASSIFICADOR.
