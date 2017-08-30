@@ -91,3 +91,29 @@ Existem variáveis que determinam as possíveis ações que o robô e o ser huma
 \end{enumerate}
 
 A partir das variáveis identificadas, deve-se realizar a definição do contexto de uso, do ambiente e também do robô que serão utilizados no projeto para definir quais e como são utilizadas cada uma das variáveis no projeto de IHR proposto por essa tese.
+
+\section{Contexto de Uso}
+\label{sec:contextouso}
+Para que a interação com o sistema seja de melhor qualidade, um ponto importante do projeto é definir o contexto de uso. Ele determina quando e onde será realizado a interação com o sistema, no caso desta tese, o robô. O contexto de uso é importante, pois pode influenciar no tipo de comportamento e expectativa do usuário para com o sistema~\cite{barbosa:2010}.
+
+A definição do contexto de uso é baseada em um texto descritivo que delimita todo o cenário da aplicação e como foi planejado o experimento. Esse cenário descreve quem é o usuário, quais os pontos de interação com o sistema e também como será o comportamento do usuário e também do robô. O contexto descrito delimita todo o escopo do teste. Ele assegura que as observações tenham o objetivo de garantir a qualidade do uso dentro daquele cenário. A figura~\ref{fig:contextouso} apresenta o cenário aplicado no contexto de uso dessa tese.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{\textwidth}
+		\caption{Ilustração do contexto de uso}
+		\includegraphics[width=\textwidth]{contexto-uso.png}
+		\smallcaption{Fonte: o autor.}
+		\label{fig:contextouso}
+	\end{minipage}
+\end{figure}
+
+O cenário apresentado na figura~\ref{fig:contextouso} ilustra uma situação onde o robô entra em sua casa (passo 1) e vai até a estante onde ele deixou uma garrafa. A garrafa não está mais no local que ele deixou (passo 2), então ele vai até a pessoa que convive com ele no ambiente da casa. Ao interagir com a pessoa, o robô pergunta se ela viu a garrafa e recebe uma resposta negativa (passo 3). Na sequência, o robô procura pela garrafa em outro cômodo da casa, onde também não encontra (passo 4). O robô então retorna ao encontro da pessoa, e solicita a ajuda para procurar pela garrafa (passo 3). Como última etapa, a pessoa atende o pedido e ambos saem para procurar pela garrafa (passo 5), finalizando assim o cenário.
+
+Através dessa ilustração pode-se definir o contexto de uso desta tese, onde o robô realiza a aproximação de pessoas que convivem com ele dentro de uma casa. Essa aproximação é realizada com o objetivo de solicitar ajuda ao humano para encontrar um objeto que foi deixado em algum lugar da casa. Com as variáveis identificadas e o contexto de uso da tese definidos, é necessário realizar a especificação do projeto, considerando fatores de engenharia de \emph{software} e fatores humanos já que existe interação humano-robô.
+
+\section{Especificando o Projeto de IHR}
+\label{sec:projetoihr}
+Nos capítulos sobre IHR (capítulo~\ref{cap:ihr}) e teoria de proximidade (capítulo~\ref{cap:proxemics}) são apresentados diversos trabalhos com o estudos sobre interação entre humanos e robôs em diversas áreas, como saúde, lazer, entreterimento e social. Porém, ao analisar os projetos feitos nos trabalhos relacionados, não existe nenhuma definição sobre a especificação do projeto, como requisitos, perfis de usuários atentidos com o projeto, entre outros. O contexto de uso, em alguns casos, é utilizado pois, o projeto tem um foco em uma determinada tarefa. Contudo, projetos sem especificações são difícies de serem reproduzidos, um vez que os robôs utilizados são bem específicos. Além de serem específicos, os robôs utilizados são construídos, nos laboratórios das universidades e centros de pesquisas, em parte das pesquisas. As demais pesquisas utilizam robôs como: Softbank NAO~\footnote{https://www.ald.softbankrobotics.com/en/robots/nao} e PR2~\footnote{http://www.willowgarage.com/pages/pr2/overview}, que são produzidos por empresas especializadas fazendo com que o projeto fique restrito a sua capacidade determinada pela fábrica.
+
+Em engenharia de \emph{software} são estudados vários métodos que auxiliam na especificação do projeto. Nesses métodos são encontrados a contemplação de alguns princípios que garantem a reprodução, manutenção e evolução do projeto ao longo tempo. Os princípios de engenharia de \emph{software} não são vistos como regras, mas como boas práticas para o desenvolvimento do projeto~\cite{wazlawick:2013}. As boas práticas aplicadas em sistemas computacionais, também podem ser aplicadas no desenvolvimento de projetos de robôs.
