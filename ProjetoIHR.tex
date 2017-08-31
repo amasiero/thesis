@@ -116,4 +116,95 @@ Através dessa ilustração pode-se definir o contexto de uso desta tese, onde o
 \label{sec:projetoihr}
 Nos capítulos sobre IHR (capítulo~\ref{cap:ihr}) e teoria de proximidade (capítulo~\ref{cap:proxemics}) são apresentados diversos trabalhos com o estudos sobre interação entre humanos e robôs em diversas áreas, como saúde, lazer, entreterimento e social. Porém, ao analisar os projetos feitos nos trabalhos relacionados, não existe nenhuma definição sobre a especificação do projeto, como requisitos, perfis de usuários atentidos com o projeto, entre outros. O contexto de uso, em alguns casos, é utilizado pois, o projeto tem um foco em uma determinada tarefa. Contudo, projetos sem especificações são difícies de serem reproduzidos, um vez que os robôs utilizados são bem específicos. Além de serem específicos, os robôs utilizados são construídos, nos laboratórios das universidades e centros de pesquisas, em parte das pesquisas. As demais pesquisas utilizam robôs como: Softbank NAO~\footnote{https://www.ald.softbankrobotics.com/en/robots/nao} e PR2~\footnote{http://www.willowgarage.com/pages/pr2/overview}, que são produzidos por empresas especializadas fazendo com que o projeto fique restrito a sua capacidade determinada pela fábrica.
 
-Em engenharia de \emph{software} são estudados vários métodos que auxiliam na especificação do projeto. Nesses métodos são encontrados a contemplação de alguns princípios que garantem a reprodução, manutenção e evolução do projeto ao longo tempo. Os princípios de engenharia de \emph{software} não são vistos como regras, mas como boas práticas para o desenvolvimento do projeto~\cite{wazlawick:2013}. As boas práticas aplicadas em sistemas computacionais, também podem ser aplicadas no desenvolvimento de projetos de robôs.
+Em engenharia de \emph{software} são estudados vários métodos que auxiliam na especificação do projeto. Nesses métodos são encontrados a contemplação de alguns princípios que garantem a reprodução, manutenção e evolução do projeto ao longo tempo. Os princípios de engenharia de \emph{software} não são vistos como regras, mas como boas práticas para o desenvolvimento do projeto~\cite{wazlawick:2013}. As boas práticas aplicadas em sistemas computacionais, também podem ser aplicadas no desenvolvimento de projetos de robôs. Em seu trabalho \citeonline{wazlawick:2013} apresenta algumas boas práticas que a engenharia de \emph{software} provê aos projetos. A lista a seguir, descreve as boas práticas que contribuem para a evolução e formalização do projeto dessa tese.
+
+\begin{itemize}
+	\item \textbf{Decomposição}: é a criação de um \emph{software} ou produto a partir de um conjunto funcional de alto nível, os requesitos do projeto, onde esses são divididos em partes mais simples até chegar a um produto atômico, ou seja, partes de códigos. No robô, pode-se incluir também como os sensores e atuadores do projeto.
+	\item \textbf{Padronização}: são importantes pois, através dos padrões conhecimentos adquiridos em projetos passados podem ser aplicados nos atuais evitando assim, que erros similares sejam cometidos.
+	\item \textbf{Flexibilização}: auxilia na acomodação das mudanças de requisitos do projeto, No caso de robótica, nos cenários de atuação, diferentes contextos de uso, novos sensores e plataformas, entre outros.
+	\item \textbf{Desenvolvimento Iterativo}: a cada momento novas necessidades são criadas e a partir da criação deve ser inseridas no projeto. Nas metodologias iterativas, cada ciclo de desenvolvimento é indepentende e deve entregar um produto operacional. Ao tratar de um projeto de interação humano-robô, pode-se dizer que o processo iterativo é longo e não necessariamente finito. Isso ocorre devido as novas necessidades dentre os diversos contexto de uso como hospitais, casas, hotéis, museus, resgate, shoppings, entre outros.
+	\item \textbf{Arquiteturas baseadas em Componentes}: auxilia a lidar com complexidade do projeto e também o reuso e expansão. Cada sensor novo inserido no robô deve ser inserido junto a um novo módulo que captura as informações, consome os dados e entrega as informações para os componentes de tomada de decisão do robô, por exemplo.
+\end{itemize}
+
+Para garantir que as boas práticas sejam aplicadas no projeto, é necessário o uso de algumas ferramentas utilizadas dentro processo de criação de \emph{software}, aqui nessa tese utilizada na criação do projeto de interação humano-robô. O primeiro passo é definir as funcionalidades do sistema, que representam as ações que o robô pode executar. Depois é revisado os sensores e atuadores que contribuem com o objetivo voltado para cada funcionalidade. Por fim, o comportamento do sistema para cada funcionalidade, fechando assim a decrição dos requisitos do robô para o projeto.
+
+\subsection{Definição das funcionalidades do robô}
+\label{sec:funcionalidades}
+Para criação das funcionalidades do robô utiliza-se as informações obtidas através do contexto de uso (vide seção~\ref{sec:contextouso}) e das variáveis de ações (vide seção~\ref{sec:acoes}). Cada variável é analisada e verifica como elas auxiliam no contexto de uso. A partir desse ponto, é criado um requisito para cada funcionalidade que contempla a variável. As variavéis de ações apresentadas na seção~\ref{sec:acoes} foram quase todas utilizadas para a criação das funcionalidades apresentadas nessa tese. A única variável não utilizada foi o volume da voz emitida pelo robô, pois os testes foram executados em ambiente público. A variação do volume nessa condição tornou-se inviável, pois ao diminuí-lo não era possível entender o que o robô dizia. Mais detalhes do ambiente de teste é apresentado na seção~\ref{sec:ambienteteste}.
+
+A tabela~\ref{tab:funcionalidades} apresenta a relação de funcionalidades consideradas nessa tese e qual variável foi responsável pela funcionalidade.
+
+\begin{table}[!ht]
+	\caption{Funcionalidades do projeto de IHR.}
+	\label{tab:funcionalidades}
+	\centering
+	\begin{tabular}{c | c | l}
+        \hline
+        Variável & ID & Funcionalidade \\
+        \hline
+		\multirow{3}{*}{Aproximação} & F01 & Reconhecer o ambiente \\
+        \hhline{~--}
+        & F02 & Controlar velocidade de navegação \\
+        \hhline{~--}
+        & F03 & Controlar proximidade da pessoa \\
+        \hline
+		\multirow{2}{*}{Manipulador} & F04 & Controlar gestos \\
+        \hhline{~--}
+        & F05 & Controlar força do manipulador \\
+        \hline
+		\multirow{2}{*}{Estilo de Voz} & F06 & Falar com diferentes níveis de ``educação'' \\
+        \hhline{~--}
+        & F07 & Identificar a fala da pessoa \\
+        \hline
+		\multirow{2}{*}{Expressão Facial} & F08 & Possuir diferentes estilos de face \\
+		\hhline{~--}
+		& F09 & Apresentar o estilo de face de acordo com a interação \\
+		\hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
+
+Cada uma das oito funcionalidades apresentadas na tabela~\ref{tab:funcionalidades} estão ligadas diretamente as interações previstas no contexto de uso. Para cada uma é necessário pelo menos um sensor para perceber os eventos externos ao robô e/ou um atuador para externar a funcionalidade ao objeto de interação. Os sensores e atuadores necessários são discutidos na seção~\ref{sec:sensoresatuadores}, a seguir.
+
+\subsection{Listando sensores e atuadores necessários}
+\label{sec:sensoresatuadores}
+Com a lista de funcionalidades definidas, agora é necessário determinar quais são os sensores e atuadores do robô que serão capazes de atender cada uma das necessidades do projeto. Para a primeira funcionalidade F01 - Reconhecer o ambiente, o robô precisa de dois tipos de sensores, lasers e cameras de video. Esses sensores são capazes de determinar a distância entre um obstáculo e o robô, e também determinar o que ele enxerga no ambiente. Os atuadores envolvidos são os motores e servo-motores responsáveis pela locomoção do robô e movimento do manipulador.
+
+Na funcionalidade F02 - Controlar Velocidade de Navegação, o robô necessita identificar quais são os obstáculos mais próximos para determinar qual velocidade ele por exercer na navegação. Para isso, é utilizado sensores lasers e atuação nos motores de movimentação do robô. A F02 está ligada a funcionalidade F03 - Controlar Proximidade da Pessoa. Na F03 o robô precisa de um sensor laser de movimento, como o Microsoft\textregistered\ Kinect\textregistered\ ou ASUS\textregistered\ Xtion\textregistered\, entre outros. Esses sensores conseguem determinar não só a profundidade entre obstáculos e o robô, mas também conseguem determinar o local da pessoa e quais partes do corpo dela estão mais próximas do robô. Dessa forma, é possível determinar a velocidade do motor para que o robô não atropele ou se aproxime de maneira ofensiva da pessoa.
+
+As funcionalidades F04 - Controlar Gestos e F05 - Controlar Força do Manipulador, ligadas a variáveis manipulador, estão ligadas diretamente a atuação dos servo-motores presentes no manipulador. Para a F04 ainda é necessário o uso do Kinect\textregistered\ para verificar se não haverá colisão com a trajetória do manipulador. Já a força do manipulador correspondente a F05, é feito a leitura da corrente elétrica no servo-motor e caso haja um pico nela, o manipulador para o movimento e quando possível recua a posição inicial. Para a F06 - Falar com diferentes níveis de ``educação'', basta controlar via \emph{software} qual frase o robô emitirá através de seus alto-falantes. E na F07 - Identificar a fala da pessoa, é necessário um microfone direcional para auxiliar a eliminar o ruído do ambiente e capturar a voz da pessoa com que o robô interagirá.
+
+Referente a expressão facial do robô, as funcionalidades F08 - Possuir diferentes estilos de face e F09 -
+Apresentar o estilo de face de acordo com a interação, o robô necessita de uma tela que seja capaz de exibir suas expressões ao longo da sua interação. É importante atender essas funcionalidades dado o contexto da interação humano-robô ser social e entre agentes que convivem no mesmo ambiente. No caso desta tese, optou-se por um \emph{tablet} que fosse capaz de comportar um navegador \emph{web} que fosse capaz de interagir com o \emph{software} adotado no desenvolvimento do sistema.
+
+A tabela~\ref{tab:sensoresatuadores} apresenta a síntese dos sensores e atuadores listados para atender as funcionalidades do projeto e portanto devem estar contidos no robô utilizado para interagir com o ser humano.
+
+\begin{table}[!ht]
+	\caption{Sensores e atuadores do projeto de IHR.}
+	\label{tab:sensoresatuadores}
+	\centering
+	\begin{tabular}{c | l}
+        \hline
+        Categoria & Descrição \\
+        \hline
+		\multirow{4}{*}{Sensores} & Light Detection And Ranging (LIDAR) / Laser  \\
+        \hhline{~-}
+        & Sensor de movimento Microsoft\textregistered\ Kinect\textregistered \\
+        \hhline{~-}
+        & Camera de video \\
+		\hhline{~-}
+        & Microfone direcional do tipo shotgun (longo alcance) \\
+        \hline
+		\multirow{4}{*}{Atuadores} & \emph{Tablet} \\
+        \hhline{~-}
+        & Manipulador (Servo-motores) \\
+		\hhline{~-}
+        & Motores para locomoção \\
+		\hhline{~-}
+        & Alto-falantes \\
+        \hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
+
+Os detalhes de implementação de cada sensor e atuador listado na tabela~\ref{tab:sensoresatuadores}, é apresentado na seção~\ref{sec:robo} onde é discutido a preparação do robô para execução dos testes realizados.
