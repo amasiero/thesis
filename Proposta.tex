@@ -1,7 +1,7 @@
 %!TEX root=Principal.tex
-\chapter{CLASSIFICADOR BAYESIANO DO USUÁRIO COM BASE NO COMPORTAMENTO DO ROBÔ E HEURÍSTICAS}
+\chapter{CLASSIFICADOR BAYESIANO DO USUÁRIO}
 \label{cap:proposta}
-Após a especificação do projeto de IHR
+Após a especificação do projeto de IHR, onde definiu-se as características do ambiente, do robô utilizado e detalhes importantes do projeto como escopo e variáveis analisadas, realizou-se testes de interação para analisar informações que são importantes à criação do classificador do usuário. Este classificador utiliza técnicas bayesianas, mais especificamente, as redes bayesianas para incluir dependência entre as variáveis consideradas no projeto. Os passos para a criação do classificador são apresentados ao longo dessa seção e estão ilustrados através da figura~\ref{fig:construcao}.
 
 \begin{figure}[ht!]
 	\centering
@@ -9,14 +9,17 @@ Após a especificação do projeto de IHR
 		\caption{Visão geral do processo de construção do classificador.}
 		\includegraphics[width=\textwidth]{construcao.png}
 		\smallcaption{Fonte: o autor.}
-		\label{fig:experimento}
+		\label{fig:construcao}
 	\end{minipage}
 \end{figure}
 
+Os primeiros passos para a criação do classificador, blocos definidos na cor verde da figura~\ref{fig:construcao}, são as delimitações das variáveis de ações, que o robô executa na interação, a análise das respostas que auxiliaram, junto as heurísticas de avaliação de interface, a determinar novas variáveis ao contexto do robô. E por fim, a criação das Personas com o auxílio do algoritmo de agrupamento de dados QG-SIM. As Personas são as variáveies alvo do processo de classificação do perfil do usuário, já que elas conseguem aderir a um intervalo mais amplo de perfis.
 
-\section{Ações e Comportamentos do Robô}
+Na sequência, os blocos em azuis, definem-se as variáveis que compõem a rede bayesiana, como foi determinada a estrutura da rede e as tabelas de probabilidades condicionais de cada variável ou nó da rede bayesiana. Depois, é descrito como é realizado a execução dos testes com a rede bayesiana. Finalizado, através de como essa classificação é utilizada durante a interação e o que é necessário realizar para identificar cada variável da rede, blocos em laranja. Inicia-se a definição dos limites das ações do robô na seção~\ref{sec:comportamento-robo}.
+
+\section{Ações do Robô}
 \label{sec:comportamento-robo}
-O robô escolhido para os experimentos possui uma série de características que auxiliam a interação social e serviço domésticos, uma vez que ele foi construído para atender a competição de robótica RoboCup@Home~\cite{robocup:2015}. Com base nos atuadores de interação existentes (vide seção~\ref{sec:robo}), foram mapeados as variáveis de ações e comportamentos do robô. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis, compostas por seus respectivos valores.
+A partir do robô construído para os experimentos (vide~\ref{sec:robo}), uma série de características consideradas auxiliam na interação social com ser humanos. Com base nos atuadores de interação existentes, foram mapeados as variáveis de ações do robô, que devem possuir seus valores limitados para que simplifique as tabelas de probabilidades condicionais do classificar bayesiano. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis e a restrição do domínio de cada uma. Além das variáveis de ações do robô, algumas variáveis do cenário de interação também são consideradas, como o caso da posição e proximidade.
 
 \begin{table}[!ht]
 	\caption{Variáveis de Comportamento do Robô}
@@ -48,7 +51,64 @@ O robô escolhido para os experimentos possui uma série de características que
 	\smallcaption{Fonte: O autor.}
 \end{table}
 
-Além das variáveis direcionadas aos atuadores do robô, a tabela~\ref{tab:variaveisvalores} apresenta a variável de proximidade entre o robô e o ser humano e a variável posição que determina como o usuário estava durante a interação, sentado ou em pé. São variáveis importantes, pois auxiliam a determinar o comportamento de reação da pessoa para um mesmo tipo de gesto do robô em diferentes situações. Por exemplo, se o robô encontra-se próximo da pessoa, entre as zonas Pessoal e Íntima, um gesto amplo pode gerar um desconforto maior do que o mesmo gesto ocorrendo entre as zonas Pública e Social. Ou como é a reação do usuário quando o robô aproximar o manipulador próximo ao rosto do usuário.  A partir das variáveis definidas e comportamentos implementados no robô é importante agora trabalhar com os questionários pré e pós testes.
+As variáveis da tabela~\ref{tab:variaveisvalores} são importantes, pois auxiliam a determinar o comportamento de reação do perfil do usuário para um mesmo tipo de ação do robô. Por exemplo, se o robô encontra-se próximo da pessoa, entre as zonas Pessoal e Íntima, um gesto com o manipulador com grande amplitude pode gerar um desconforto maior, do que o mesmo gesto ocorrendo entre as zonas Pública e Social. Outro cenário é a aproximação do manipulador próximo ao rosto do usuário, a reação é positiva ou negativa.
+
+Alguns exemplos sobre os domínios das variáveis podem auxiliar a compreender quais são as ações correspondentes. Um exemplo para estilo de fala educada e autoritária são: ``Por favor, poderia me auxiliar a encontrar minha garrafa'' e ``Encontre minha garrafa'', respectivamente. Para ilustrar o domínio das expressões faciais é apresentada a figura~\ref{fig:dominioexpressoesfaciais}.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{\textwidth}
+		\caption{Visão geral do processo de construção do classificador.}
+		\begin{subfigure}[b]{0.48\textwidth}
+			\includegraphics[width=\textwidth]{happy.png}
+	        \caption{Feliz}
+	        \label{fig:feliz}
+	    \end{subfigure}
+	    \hfill
+		\begin{subfigure}[b]{0.48\textwidth}
+	        \includegraphics[width=\textwidth]{surprise.png}
+	        \caption{Surpresa}
+	        \label{fig:surpresa}
+	    \end{subfigure}
+
+		\begin{subfigure}[b]{0.48\textwidth}
+	        \includegraphics[width=\textwidth]{angry.png}
+	        \caption{Nervosa}
+	        \label{fig:nervosa}
+    	\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.48\textwidth}
+	        \includegraphics[width=\textwidth]{sad.png}
+	        \caption{Triste}
+	        \label{fig:triste}
+    	\end{subfigure}
+		\smallcaption{Fonte: o autor.}
+		\label{fig:dominioexpressoesfaciais}
+	\end{minipage}
+\end{figure}
+
+Nos exemplos apresentados na figura~\ref{fig:dominioexpressoesfaciais}, pode-se definir dentro do domínio da variável as figuras \ref{fig:feliz} e \ref{fig:surpresa} como expressões amigáveis e as figuras \ref{fig:nervosa} e \ref{fig:triste} como não amigáveis, dado os sentimentos que essas expressões representam. O programa que realiza a interação da face do robô foi desenvolvido em HTML e Javascript. Ele encontra-se disponível através do endereço \url{https://github.com/amasiero/robot_face}. Com o domínio das variáveis definidos, é necessário preparar as respostas dos questionários para o algoritmo de agrupamento e também verificar as heurísticas de avaliação de interface para verificar se elas auxiliam na classificação do perfil.
+
+\section{Preparando as resposta dos questionários}
+\label{sec:respostasbd}
+Cada questionário (pré e pós teste) foi implementado utilizando a ferramenta on-line Google Forms~\footnote{https://docs.google.com/forms/u/0/}. Nessa ferramenta as respostas são armazenadas em planilhas eletrônicas, ficando assim separadas as respostas entre os dois questionários. É necessário unificá-los para auxiliar na identificação dos perfis dos usuários. Além disso, o algoritmo de agrupamento trabalha com uma base de dados única. Para fazer esse processo de unificar as bases de dados, criasse um arquivo csv (\emph{comma-separated values}) e uni na mesma linha os registros que possuem o mesmo identificador do questionário pré e pós teste. O arquivo csv gerado serve para realizar análise dos dados e também para criação dos grupos de perfis que são responsáveis pela composição das Personas. Elas são os resultados do classificador bayesiano implementado.
+
+\section{Heurísticas de Interação Humano-Robô}
+\label{sec:heuristicas}
+Avaliação heurística é um método utilizado por especialistas em usabilidade para verificar problemas de interação em interfaces de sistemas e produtos. \citeonline{nielsen:1994} apresenta 10 heurísticas para avaliações de interfaces em sistemas web (vide seção~\ref{sec:avaliacao}). As heurísticas de Nielsen tem sido amplamente utilizadas ao longo dos tempos para sites e sistemas desktop. Alguns trabalhos apresentados ao longo da seção~\ref{sec:ihrux} apresentam modificações das heurísticas de Nielsen para o cenário de interação humano-robô. Para os fins dessa tese, as heurísticas adaptadas que apresentam uma maior aplicabilidade em robótica social e interação humano-robô são as heurísticas de \citeonline{clarkson:2007}. As heurísticas são apresentadas na tabela~\ref{tab:heuristicasihr}.
+
+Heurísticas de interação e interface são sempre utilizadas com o propósito de avaliar o produto para que o usuário fique mais satisfeito. Porém, durante os primeiros testes de interação entre o robô e o usuário, observou-se que muitas das pontuações sobre conforto, desconforto e até medo estavam dentro das diretrizes das heurísticas. Um ponto importante é que alguns perfis se atentaram a algumas características enquanto outros perfis nem mencionaram isso. Dessa maneira, essa tese propõem o uso das heurísticas como um conjunto de variáveis que complementa a classificação do perfil do usuário. O uso das heurísticas dessa maneria, está alinhada com o conceito de utilidade apresentado na seção~\ref{sec:raciocinio-probabilistico}, onde uma heurística pode ser mais útil para um determinado perfil de usuário do que para um terceiro.
+
+Com base nas observações e informações dos testes de interação foi possível identificar as seguintes heurísticas para uso como variável de classificação do usuário:
+
+\begin{itemize}
+	\item Heurística 02: Visibilidade do estado do sistema;
+	\item Heurística 04: Uso de sugestões naturais;
+	\item Heurística 05: Síntese do sistema e interface;
+	\item Heurística 06: Ajudar o usuário a reconhecer, diagnosticar, e recuperar de erros.
+\end{itemize}
+
+Cada uma das heurísticas apresentadas na lista acima, foram observadas entre os testes e possuem dependência condicional com os perfis e/ou com as ações do robô. Mais detalhes são apresentados na seção~\ref{sec:rede-bayesiana}, a seguir.
 
 \section{Preparando os dados para o algoritmo QG-SIM}
 \label{sec:preparacao}
@@ -172,23 +232,6 @@ Nesse processo, cinco Personas foram encontradas e são apresentadas a seguir:
 \end{table}
 
 As Personas apresentadas nas tabelas~\ref{tab:joaquim}, \ref{tab:mariaeduarda}, \ref{tab:alfredo}, \ref{tab:danielo}, \ref{tab:manuel} foram criadas com base nas informações coletadas nos questionários e ajudaram na definição das independências condicionais da rede bayesiana. Mais informações das análises feitas com base nas Personas, e também sobre sua criação, em relação a interação com o robô são apresentadas no capítulo~\ref{cap:resultados}.
-
-\section{Heurísticas de Interação Humano-Robô}
-\label{sec:heuristicas}
-Avaliação heurística é um método utilizado por especialistas em usabilidade para verificar problemas de interação em interfaces de sistemas e produtos. \citeonline{nielsen:1994} apresenta 10 heurísticas para avaliações de interfaces em sistemas web (vide seção~\ref{sec:avaliacao}). As heurísticas de Nielsen tem sido amplamente utilizadas ao longo dos tempos para sites e sistemas desktop. Alguns trabalhos apresentados ao longo da seção~\ref{sec:ihrux} apresentam modificações das heurísticas de Nielsen para o cenário de interação humano-robô. Para os fins dessa tese, as heurísticas adaptadas que apresentam uma maior aplicabilidade em robótica social e interação humano-robô são as heurísticas de \citeonline{clarkson:2007}. As heurísticas são apresentadas na tabela~\ref{tab:heuristicasihr}.
-
-Heurísticas de interação e interface são sempre utilizadas com o propósito de avaliar o produto para que o usuário fique mais satisfeito. Porém, durante os primeiros testes de interação entre o robô e o usuário, observou-se que muitas das pontuações sobre conforto, desconforto e até medo estavam dentro das diretrizes das heurísticas. Um ponto importante é que alguns perfis se atentaram a algumas características enquanto outros perfis nem mencionaram isso. Dessa maneira, essa tese propõem o uso das heurísticas como um conjunto de variáveis que complementa a classificação do perfil do usuário. O uso das heurísticas dessa maneria, está alinhada com o conceito de utilidade apresentado na seção~\ref{sec:raciocinio-probabilistico}, onde uma heurística pode ser mais útil para um determinado perfil de usuário do que para um terceiro.
-
-Com base nas observações e informações dos testes de interação foi possível identificar as seguintes heurísticas para uso como variável de classificação do usuário:
-
-\begin{itemize}
-	\item Heurística 02: Visibilidade do estado do sistema;
-	\item Heurística 04: Uso de sugestões naturais;
-	\item Heurística 05: Síntese do sistema e interface;
-	\item Heurística 06: Ajudar o usuário a reconhecer, diagnosticar, e recuperar de erros.
-\end{itemize}
-
-Cada uma das heurísticas apresentadas na lista acima, foram observadas entre os testes e possuem dependência condicional com os perfis e/ou com as ações do robô. Mais detalhes são apresentados na seção~\ref{sec:rede-bayesiana}, a seguir.
 
 \section{Classificação do Usuário através da Rede Bayesiana}
 \label{sec:rede-bayesiana}
