@@ -142,9 +142,12 @@ A execução foi realizada com três valores Q diferentes, 0.6, 0.7 e 0.8. Após
 
 \section{Criação das Personas}
 \label{sec:criacaopersonas}
-Assim que os grupos são definidos, é necessário encontrar a medida de dispersão central para cada uma das variáveis do perfil. As medidas de dispersão mais comuns são: média, mediana e moda. Elas auxiliam no processo de construção da Persona, como definição de idade, o uso de óculos, tipo do cabelo, gênero, e outras informações. Como os grupos encontrados não possuiam ruídos em sua distribuição, a medida de disperção adota foi a média (vide capítulo~\ref{cap:resultados}). Nesse momento, as informações de texto livres preenchidas são utilizadas para análise que é base para preencher a descrição e história da Persona. É verificado cada resposta dos indivíduos que compõe o grupo e na sequência é criado toda uma história de vida e experiências para a Persona.
+Assim que os grupos são definidos, utiliza-se medidas de tendência central para obter um valor comum ao grupo para cada variável utilizada pelo QG-SIM durante o agrupamento dos perfis. As medidas de dispersão mais comuns são: média, mediana e moda. A aplicação de cada uma depende do tipo de informação que contém nas variáveis da base de dados. Informações númericas, por exemplo, podem ser utilizadas medidas como a média ou a mediana. Para dados categóricos, o mais indicado é que utilizem a medida de tendência central moda, pois ela identifica o valor pela opção mais frequente nas respostas~\cite{masiero:2013}.
 
-Nesse processo, cinco Personas foram encontradas e são apresentadas a seguir:
+Os valores obtidos em cada uma das variáveis auxiliam no processo de construção da Persona. Elas são responsáveis pela definição dos valores sobre idade, o uso de óculos, tipo do cabelo, gênero, e outras informações que caracterizam o perfil. Nesse momento, as características que constroem as Personas estão definidas. O próximo passo é construir as experiências da Persona, descrever comportamentos e experiências de vida dela. Para isso, utiliza-se as informações de texto livres preenchidas nos questionários. São realizadas análises sobre as respostas e identifica os pontos em comum entre os perfis do grupo. Os pontos em comum são utilizados como base para construir a história da Persona. A história da Persona deve trazer características importantes ao modo como ela interage com o sistema, no caso o robô. As Personas são importantes, pois garantem que uma ampla quantidade de perfis seja contemplado em cada uma delas. Elas auxiliam na generalização dos processos para definir as interações entre os perfis.
+
+Cinco Personas foram construídas. Essas são apresentadas nas tabelas~\ref{tab:joaquim}, \ref{tab:mariaeduarda}, \ref{tab:alfredo}, \ref{tab:danielo} e \ref{tab:manuel}, a seguir.
+
 \begin{table}[!ht]
 	\caption{Persona Joaquim}
 	\label{tab:joaquim}
@@ -233,7 +236,7 @@ Nesse processo, cinco Personas foram encontradas e são apresentadas a seguir:
 	\smallcaption{Fonte: O autor.}
 \end{table}
 
-As Personas apresentadas nas tabelas~\ref{tab:joaquim}, \ref{tab:mariaeduarda}, \ref{tab:alfredo}, \ref{tab:danielo}, \ref{tab:manuel} foram criadas com base nas informações coletadas nos questionários e ajudaram na definição das independências condicionais da rede bayesiana. Mais informações das análises feitas com base nas Personas, e também sobre sua criação, em relação a interação com o robô são apresentadas no capítulo~\ref{cap:resultados}.
+As Personas apresentadas nas tabelas~\ref{tab:joaquim}, \ref{tab:mariaeduarda}, \ref{tab:alfredo}, \ref{tab:danielo}, \ref{tab:manuel} ajudaram na definição das independências condicionais entre as variáveis da rede bayesiana. Mais informações das análises feitas com base nas Personas, e também sobre sua criação, em relação a interação com o robô são apresentadas no capítulo~\ref{cap:resultados}.
 
 \section{Classificação do Usuário através da Rede Bayesiana}
 \label{sec:rede-bayesiana}
