@@ -238,12 +238,11 @@ Cinco Personas foram construídas. Essas são apresentadas nas tabelas~\ref{tab:
 
 As Personas apresentadas nas tabelas~\ref{tab:joaquim}, \ref{tab:mariaeduarda}, \ref{tab:alfredo}, \ref{tab:danielo}, \ref{tab:manuel} ajudaram na definição das independências condicionais entre as variáveis da rede bayesiana. Mais informações das análises feitas com base nas Personas, e também sobre sua criação, em relação a interação com o robô são apresentadas no capítulo~\ref{cap:resultados}.
 
-\section{Classificação do Usuário através da Rede Bayesiana}
+\section{Selecionando e estruturando variáveis como rede bayesiana}
 \label{sec:rede-bayesiana}
+Neste momento todos os passos necessários para identificar as Personas, ações do robô e as necessidades do projeto foram realizados. As últimas variáveis selecionadas para compor a rede bayesiana para classifição do perfil do usuário, representado pela Persona, são as comportamentais. As variáveis comportamentais neste ponto estão ligadas as possíveis experiências que o usuário pode sentir na interação. Dentre as variáveis apresentadas na seção~\ref{sec:reacoes} são selecionadas as variáveis conforto e medo. As duas variáveis conseguem representar grande parte das demais variáveis comportamentais apresentadas. Neste momento, a forma de identificar as variáveis de conforto e medo, é através da declaração do usuário durante o teste e também nas respostas do questionário pós teste. A partir desse ponto, têm-se todas as variáveis definidas e é necessário definir a estrutura da rede bayesiana. Na sequência será apresentado cada conjunto de nós e suas dependências condicionais para a criação da estrutura da rede bayesiana de classificação, dado as especificações do projeto de IHR apresentado no capítulo~\ref{cap:projetoihr}.
 
-Com todos os passos necessários para identificar o usuário e suas necessidades com o projeto, o próximo passo é a criação de um mecanismo que possa fazer com que o robô realize a classificação do perfil do usuário a partir das observações de conforto, desconforto e medo. Tais informações geram incertezas, que podem ocorrer baseadas em falhas de sensores, ruído da percepção do robô perante a ação/reação do usuário, cenário de atuação, estado emocional interno do usuário, entre outros. Dado esse cenário de incerteza, é importante que a técnica utilizada não afirme sobre uma classificação, mas sim possa inferir a probabilidade de uma resposta coerente a sua leitura. Como apresentado na seção~\ref{sec:cbrw}, a técnica de rede bayesiana tem sido utilizada em muitos trabalhos com o mesmo objetivo. Sendo assim, essa seção apresenta uma rede bayesiana que seja capaz de classificar o perfil do usuário com base na informação de conforto, desconforto e medo declarado pelo usuário. Na sequência será apresentado cada conjunto de nós e suas dependências condicionais para a criação da estrutura da rede bayesiana de classificação.
-
-Os nós raizes da rede bayesiana são compostos pelas 5 Personas apresentadas na seção~\ref{sec:criarpersonas}. Elas são escolhidas como raiz por que representam os perfis de usuários que devem ser classificados durante a aproximação do robô para interação. Cada vez que novas interações ocorrem, é possível que novos perfis sejam incluídos para a classificação. A probabilidade do usuário em interação ser ou não aquela Persona é determinada, a princípio, pela quantidade de pessoas que ajudaram a compor ela. Como são nós raizes, não existem nenhuma observação que auxilie na composição do seu valor de probabilidade. As equações~\ref{eq:joaquim}, \ref{eq:mariaeduarda}, \ref{eq:alfredo}, \ref{eq:danielo} e \ref{eq:manuel} representam a probabilidade de cada uma das Personas obtidas.
+Os nós raizes da rede bayesiana são compostos pelas 5 Personas apresentadas na seção~\ref{sec:criarpersonas}. Elas são escolhidas como raiz por que representam os perfis de usuários que devem ser classificados durante a aproximação do robô. A probabilidade do usuário em interação ser ou não aquela Persona é determinada, pela quantidade de pessoas que pertencem ao grupo encontrado pelo QG-SIM. Como são nós raizes, não existem nenhuma evidência para compor seu valor de probabilidade, apenas a quantidade de pessoas de cada grupo. As equações~\ref{eq:joaquim}, \ref{eq:mariaeduarda}, \ref{eq:alfredo}, \ref{eq:danielo} e \ref{eq:manuel} representam a probabilidade de cada uma das Personas obtidas.
 
 \begin{equation}
 	\label{eq:joaquim}
@@ -272,52 +271,52 @@ Os nós raizes da rede bayesiana são compostos pelas 5 Personas apresentadas na
 
 As variáveis são nomeadas com letras minúsculas, pois são variáveis com apenas dois valores representando ser ou não ser. Essa notação segue a convenção apresentada por \citeonline{russell:2002}.
 
-Seguindo com a construção da rede, cada nó interno foi considerado com base nas observações feitas pelos usuários dos testes iniciais. Do mesmo modo que as independências condicionais entre cada nó. A seguir o processo de criação dos nós será detalhado. Os primeiros nós inseridos na camada interna da rede bayesiana foram os comportamentos e ações do robô e também a questão da proximidade e posição do usuário no ambiente, como apresentado na tabela~\ref{tab:variaveisvalores}.
+Seguindo com a construção da rede, cada nó interno foi considerado com base nas variáveis criadas a partir das heurísticas de IHR, das ações do robô e também do contexto de uso e ambiente de teste. As independências condicionais entre cada nó foi observado pelos comentários de cada usuário durante os testes. O processo de criação dos nós é detalhado ma sequência. A inclusão dos nós é feita com base nas variáveis apresentadas na tabela~\ref{tab:variaveisvalores}.
 
-O primeiro nó é o nó Proximidade, que leva em consideração os espaços sociais definidos por \citeonline{hall:1969}. O domínio foi simplificado para \{perto, longe\}, pois durante os testes pilotos a reação do usuário era a mesma entre as regiões íntima e pessoal (perto) e as regiões social e pública (longe). A dependência condicional foi aplicada de acordo com a declaração explícita entre os perfis que sentiram algum desconforto com a aproximação do robô. A equação~\ref{eq:proximidade} define o cálculo de probabilidade condicional para a variável aleatória Proximidade.
+O nó Proximidade leva em consideração os espaços sociais definidos por \citeonline{hall:1969}. O domínio foi simplificado para \{perto, longe\}, pois durante os testes pilotos a reação do usuário era a mesma entre as regiões íntima e pessoal (perto) e as regiões social e pública (longe). A dependência condicional foi aplicada de acordo com a declaração explícita entre os perfis que sentiram algum desconforto com a aproximação do robô. A equação~\ref{eq:proximidade} define o cálculo de probabilidade condicional para a variável aleatória Proximidade.
 
 \begin{equation}
 	\label{eq:proximidade}
-	P(Proximidade | joaquim, alfredo, danielo)
+	P(proximidade | joaquim, alfredo, danielo)
 \end{equation}
 
 A próxima variável aleatória inserida é a Posição da pessoa no ambiente. O domínio dessa variável é determinado por \{sentado, em pé\}. Ela foi observada durante a prova de reconhecimento de pessoas e aproximação do robô na RoboCup de 2016. Nesse cenário, as pessoas que estavam sentadas ficavam bem desconfortáveis com a aproximação do robô, principalmente com relação ao seu manipulador. Nos teste pilotos, a situação demonstrou-se a mesma. As pessoas que estavam sentadas demonstravam um comportamento mais apreensivo do que as em pé. A equação~\ref{eq:posicao} apresenta o cálculo de probabilidade condicional para a variável Posicao.
 
 \begin{equation}
 	\label{eq:posicao}
-	P(Posicao | joaquim, maria\_eduarda, alfredo, danielo, manuel)
+	P(posicao | joaquim, maria\_eduarda, alfredo, danielo, manuel)
 \end{equation}
 
-As 4 próximas variáveis aleatórias descritas são referentes a ações do robô. Todas os 4 conjuntos são importantes na interação social e geram diferentes reações aos perfis de usuários. Um ponto interessante a ser resaltado é que cada Persona mapeada, ficou atenta durante a interação em apenas algumas das variáveis. As 4 variáveis são Expressão Facial (equação~\ref{eq:face}), Gestos (equação~\ref{eq:gestos}), Estilo da Fala (equação~\ref{eq:fala}) e Velocidade (equação~\ref{eq:velocidade}). Seus respectivos domínios estão descritos na tabela~\ref{tab:variaveisvalores}.
+As 4 próximas variáveis aleatórias descritas são referentes a ações do robô. Todos os 4 conjuntos são importantes na interação social e geram diferentes reações aos perfis de usuários. Um ponto interessante a ser resaltado é que cada Persona mapeada, ficou atenta durante a interação em apenas algumas das variáveis. As 4 variáveis são Expressão Facial (equação~\ref{eq:face}), Gestos (equação~\ref{eq:gestos}), Estilo da Fala (equação~\ref{eq:fala}) e Velocidade (equação~\ref{eq:velocidade}). Seus respectivos domínios estão descritos na tabela~\ref{tab:variaveisvalores}.
 
 \begin{equation}
 	\label{eq:face}
-	P(Face | joaquim, maria\_eduarda, alfredo, danielo, manuel)
+	P(face | joaquim, maria\_eduarda, alfredo, danielo, manuel)
 \end{equation}
 
 \begin{equation}
 	\label{eq:gestos}
-	P(Gestos | maria\_eduarda, alfredo, danielo, manuel)
+	P(gestos | maria\_eduarda, alfredo, danielo, manuel)
 \end{equation}
 
 \begin{equation}
 	\label{eq:fala}
-	P(Fala | joaquim, alfredo, danielo, manuel)
+	P(fala | joaquim, alfredo, danielo, manuel)
 \end{equation}
 
 \begin{equation}
 	\label{eq:velocidade}
-	P(Velocidade | joaquim, maria\_eduarda)
+	P(velocidade | joaquim, maria\_eduarda)
 \end{equation}
 
 A partir da variável Gestos, observou-se que quando ocorreu o toque do robô na pessoa, gerou uma situação de medo. A variável toque é mapeada com a dependência condicional da variável Gestos (equação~\ref{eq:toque}). Seu domínio é binário, $\{toque, \neg toque\}$.
 
 \begin{equation}
 	\label{eq:toque}
-	P(toque | Gestos)
+	P(toque | gestos)
 \end{equation}
 
-Nos testes de interação, observou-se que as pessoas que interagiram com o robô apontavam situações na interação e comportamento do robô que condizem com heurísticas de avaliação de usabilidade. Quando as heurísticas eram atendidas, geravam mais conforto ao usuário. E de uma certa maneira, cada heurística apontada de maneira implicita, como a visibilidade do estado do robô, tinha uma relação diretamente com o perfil do usuário ou com algumas ações do robô. Visto que isso pode auxiliar na classificação do perfil para tomadas de decisões e adaptações do comportamento do robô no futuro, elas foram incluídas na camada interna da rede bayesiana. As heuristícas utilizadas foram apresentadas na seção~\ref{sec:heuristicas}. Nem todas as heurísticas foram utilizadas, pois nem todas tiveram relações com os comportamentos do robô durante os testes de interação e também não foram mencionadas pelos usuários. A lista a seguir mostra as heurísticas e as nomeações como variáveis aleatórias da rede bayesiana.
+Cada heurística apontada na seção~\ref{sec:heuristicas} gerou um nó que representa uma variável aleatória da rede bayesiana. Todas as heurísticas utilizadas, possuem relação com os comportamentos do robô durante os testes de interação e também com as informações feitas pelos usuários. A lista a seguir mostra as heurísticas e as nomeações como variáveis aleatórias da rede bayesiana.
 
 \begin{itemize}
 	\item Visibilidade do estado do sistema - estado\_robo (equação~\ref{eq:estadorobo});
@@ -333,12 +332,12 @@ Nos testes de interação, observou-se que as pessoas que interagiram com o rob�
 
 \begin{equation}
 	\label{eq:natural}
-	P(natural | Fala, Gestos)
+	P(natural | fala, gestos)
 \end{equation}
 
 \begin{equation}
 	\label{eq:sintese}
-	P(sintese | Fala)
+	P(sintese | fala)
 \end{equation}
 
 \begin{equation}
@@ -346,24 +345,24 @@ Nos testes de interação, observou-se que as pessoas que interagiram com o rob�
 	P(ajudar | maria\_eduarda, alfredo)
 \end{equation}
 
-Por fim, é definido as variáveis aleatórias chamadas de nós folhas da rede bayesiana. Esses nós correpondem ao sentimento das pessoas durante a interação com o robô. Esses sentimentos são declarados pelas pessoas durante a interação de acordo com o comportamento do robô. A composição das relações com esses nós foi dada pela observação dos testes e também das declarações realizadas através do questionário pós interação. As três variáveis aleatórias são conforto~\ref{eq:conforto}, desconforto~\ref{eq:desconforto} e medo~\ref{eq:medo}.
+Por fim, são definidas as variáveis aleatórias chamadas de nós folhas da rede bayesiana. Esses nós correpondem ao sentimento das pessoas durante a interação com o robô. Esses sentimentos são declarados pelas pessoas durante a interação de acordo com o comportamento do robô. A composição das relações com esses nós foi dada pela observação dos testes e também das declarações realizadas através do questionário pós interação. As três variáveis aleatórias são conforto~\ref{eq:conforto}, desconforto~\ref{eq:desconforto} e medo~\ref{eq:medo}.
 
 \begin{equation}
 	\label{eq:conforto}
-	P(conforto | Proximidade, Face, estado\_robo, natural, sintese)
+	P(conforto | proximidade, face, estado\_robo, natural, sintese)
 \end{equation}
 
 \begin{equation}
 	\label{eq:desconforto}
-	P(desconforto | Posicao, Face, estado\_robo, ajudar, natural)
+	P(desconforto | posicao, face, estado\_robo, ajudar, natural)
 \end{equation}
 
 \begin{equation}
 	\label{eq:medo}
-	P(medo | Velocidade, Face, toque)
+	P(medo | velocidade, face, toque)
 \end{equation}
 
-As variáveis conforto e desconforto estão separadas, pois em alguns casos existiram pequenas diferenças que em uma mesma ação alguns usuários sentiram conforto e desconforto ao mesmo tempo. Por exemplo, ao se aproximar o robô chegou muito perto o que gerou o desconforto já que o usuário estava sentado, mas a expressão facial apresentada pelo robô no momento deixou ele tranquilo e confortável, mesmo não tendo como escapar da frente do robô.
+As variáveis conforto e desconforto estão separadas, pois em alguns casos existiram pequenas diferenças que em uma mesma ação do robô, alguns usuários sentiram conforto e desconforto ao mesmo tempo. Por exemplo, ao se aproximar o robô chegou muito perto o que gerou o desconforto já que o usuário estava sentado, mas a expressão facial apresentada pelo robô no momento deixou ele tranquilo e confortável, mesmo não tendo como escapar da frente do robô.
 
 A figura~\ref{fig:rb} apresenta a estrutura completa da rede bayesiana criada ao longo dessa seção.
 
@@ -377,4 +376,4 @@ A figura~\ref{fig:rb} apresenta a estrutura completa da rede bayesiana criada ao
 	\end{minipage}
 \end{figure}
 
-É importante ressaltar que a classificação do usuário é feita com base em sua experiência, pois é o principal interessado na interação com o robô. A grande preocupação em manter o foco no ser humano é por que ele é o mais interassado na interação com o sistema, já que irá conviver com o robô em sua casa brevemente. A tomada de decisão para melhorar a experiência do usuário a partir da classificação do perfil do usuário pelo robô não faz parte do escopo desta tese. Entretanto, uma lista com possíveis características a serem consideradas é apresentada na seção~\ref{sec:extracaocaracteristicas}. As variáveis para auxiliar melhor a identificação de características da interação podem complementar a camada interna da rede bayesiana e por consequência aprimorar os resultados do classificador bayesiano.
+É importante ressaltar que a classificação do usuário é feita com base em sua experiência, pois é o principal interessado na interação com o robô. A grande preocupação em manter o foco no ser humano é por que ele é o mais interassado na interação com o sistema. A tomada de decisão para melhorar a experiência do usuário a partir da classificação do perfil do usuário pelo robô não faz parte do escopo desta tese. Porém nas seções a seguir são apresentados os passos para consumir, extrair conhecimento e evoluir o classificador a partir da base apresentada nessa seção.
