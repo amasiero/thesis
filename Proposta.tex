@@ -376,4 +376,38 @@ A figura~\ref{fig:rb} apresenta a estrutura completa da rede bayesiana criada ao
 	\end{minipage}
 \end{figure}
 
-É importante ressaltar que a classificação do usuário é feita com base em sua experiência, pois é o principal interessado na interação com o robô. A grande preocupação em manter o foco no ser humano é por que ele é o mais interassado na interação com o sistema. A tomada de decisão para melhorar a experiência do usuário a partir da classificação do perfil do usuário pelo robô não faz parte do escopo desta tese. Porém nas seções a seguir são apresentados os passos para consumir, extrair conhecimento e evoluir o classificador a partir da base apresentada nessa seção.
+É importante ressaltar que a classificação do usuário é feita com base em sua experiência, pois é o principal interessado na interação com o robô. A grande preocupação em manter o foco no ser humano é por que ele é o mais interassado na interação com o sistema. A tomada de decisão para melhorar a experiência do usuário a partir da classificação do perfil do usuário pelo robô não faz parte do escopo desta tese. Porém nas seções a seguir são apresentados os passos para definir os valores de probabilidades condicionais, consumir, extrair conhecimento e evoluir o classificador a partir da base apresentada nessa seção.
+
+\section{Definindo os valores de probabilidades condicionais}
+\label{sec:tpc}
+Com a estrutura da rede bayesiana definida, antes de utilizá-la para classificar as Personas, é necessário definir as tabelas com os valores das probabilidades condicionais para cada variável. Para construir as tabelas de probabilidades condicionais~(TPC), é feito a análise das respostas nos questionários e sobre as anotações realizados durante o teste de interação. Durante o processo de análise é identificado a frequência dos eventos que envolvem cada variável. A partir da contabilidade dos eventos utilizam-se as equações de teoria de probabilidade apresentadas ao longo da seção~\ref{sec:raciocinio-probabilistico}. As equações devolvem os valores das probabilidades de acordo com os eventos observados. Todos os valores são normalizados para manter a somatória das probabilidades igual a 1. Na sequência, o processo de consumo da rede bayesiana é descrito para auxiliar na classificação do perfil do usuário como Persona.
+
+\section{Executando a classificação da Persona}
+\label{sec:consumo}
+Para classificar a Persona, é necessário implementar o cálculo das propabilidades condicionais no robô. Com a implementação concluída é realizado a interação do robô, onde é capturado as evidências das variáveis que auxiliam a determinar os valores de cada variável da camada interna e também da camada folha da rede bayesiana.
+
+O resultado a partir das evidências identificadas durante a interação, é a probabilidade de cada Persona ser enquadrada pelo perfil daquele usuário. Para definir a Persona, deve-se identificar qual delas têm a maior probabilidade de ser classificada como similar ao perfil do usuário. Nessa tese, para efeito de visualização da rede bayesiana, utilizou-se um programa chamado SamIam~\footnote{http://reasoning.cs.ucla.edu/samiam/}. Ele é capaz de criar e executar uma rede bayesiana através de uma interface visual, facilitando identificar o comportamento dela. A figura~\ref{fig:samiam} apresenta a interface do programa SamIam.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{\textwidth}
+		\caption{Rede bayesiana implementada no programa SamIam.}
+		\includegraphics[width=\textwidth]{samiam.png}
+		\smallcaption{Fonte: Autor.}
+		\label{fig:samiam}
+	\end{minipage}
+\end{figure}
+
+Na figura~\ref{fig:samiam} é apresentado a implementação da rede bayesiana estrutura na figura~\ref{fig:rb}. Nele é possível monitorar as variáveis que representam as Personas e, ao alterar os valores das variáveis de evidência, saber qual o perfil com maior probabilidade. A identificação das variáveis é discutida na seção~\ref{sec:idvariavel}, a seguir.
+
+\section{Identificando as variáveis de interação}
+\label{sec:idvariavel}
+As variáveis referentes as Personas são dadas a partir da consulta a rede bayesiana. As demais variáveis são capturadas por outras fontes de informação. As variáveis de ações do robô e heurísticas, são capturadas a partir do comportamento programado para realizar a tarefa. A variável proximidade é capturada através dos sensores de distância como Microsoft\textregistered\ Kinect\textregistered\ e o laser Hokuyo URG-04. O primeiro é possível rastrear o esqueleto virtual do usuário e determinar a distância através de uma transformada geométrica. O segundo mensura a distância de qualquer objeto na direção da base do robô. Assim, é possível verificar a distância dos pés dos usuário.
+
+A variável sobre a posição do usuário é também capturada através do sensor de movimento e distância Microsoft\textregistered\ Kinect\textregistered. A partir das informações retornadas do esqueleto virtual, comparando a altura das articulações do joelho, com o quadril da pessoa. Por fim, as variáveis comportamentais devem ser capturadas. As variáveis comportamentais que foram consideradas na construção da rede bayesiana foram: conforto, desconforto e medo. Nessa tese, as variáveis comportamentais foram capturadas pela declaração do usuário, onde ele informava o que estava sentido com o robô e essa informação era inserida manualmente no mecanismo de classificação. Contudo, essas informações podem ser capturadas automaticamente. Para isso, é necessário definir como são identificados cada variável comportamental e criar componentes capazes de detectá-las.
+
+Com todos os componentes para identificar as variáveis existentes na rede bayesiana, basta realizar a consulta a partir da evidência sobre o que ocorreu na interação. Assim, a classificação do usuário é realizada e o robô pode efetuar uma adaptação de suas ações na interação. A adaptação das ações do robô são discutidas a seguir, na seção~\ref{sec:classificapersona}
+
+\section{Adaptando as ações do robô de acordo com a Persona}
+\label{sec:classificapersona}
+Após a execução da consulta na rede bayesiana, as Personas que possuem probabilidade de serem similar ao perfil do usuário são identificadas. O sistema deve selecionar a Persona que possui a maior probabilidade de ser o perfil, para seguir a adaptação das ações do robô. Com a Persona identificada, é importante acionar um mecanismo de tomada de decisão que controla as ações do robô de maneira a aumentar o conforto da pessoa na interação e diminuir o desconforto e o medo. Existem diversas técnicas que podem ser aplicadas nesse passo, por exemplo, Árvores de Decisão, Raciocinio Baseado em Casos, Aprendizado por Reforço, métodos probabilísticos, entre outros. Contudo, a adaptação das ações do robô através de mecanismos de tomada de decisão, não fazem parte do escopo desta tese. No capítulo~\ref{cap:evolucao} é apresentado os passos para evoluir o classificador e também o projeto de IHR apresentados até o momento.
