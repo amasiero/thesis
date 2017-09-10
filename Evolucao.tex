@@ -1,3 +1,42 @@
 %!TEX root=Principal.tex
 \chapter{EVOLUINDO O PROJETO DE IHR E O CLASSIFICADOR}
 \label{cap:evolucao}
+Com o classificador bayesiano de perfil do usuário pronto, é necessário identificar os pontos que podem ser evoluídos, caso seja necessário em novos projetos e até mesmo para este contexto de uso. Existem alguns pontos que podem ser evoluídos e modificados. Nas seções deste capítulo serão abordados os pontos de evolução e como realizar essa evolução. Para isso, a sequência da análise manterá a ordem apresentada entre os capítulos~\ref{cap:projetoihr} e~\ref{cap:proposta}.
+
+\section{Contexto de Uso}
+\label{sec:contextouso2}
+O contexto de uso é um dos pilares do projeto de interação humano-robô apresentado nessa tese. Ele delimita as tomadas de decisão do projeto, pois é o ponto chave que determina o objetivo da interação. Dessa maneira, esse é o passo do projeto que pode sofrer maiores alterações.
+
+Para que seja feita uma alteração no contexto de uso, é necessário identificar os pontos chaves da tarefa de interação que será realizada e contexto de aplicação. A partir da identificação desses pontos, basta realizar a descrição do cenário de interação, estipular o escopo e seguir o processo de implementação, alterando os pontos necessários.
+
+O contexto de uso apresentação na seção~\ref{sec:contextouso} pode ser aplicado em alguns cenários de tarefas domésticas e que envolvam um interação social em residência. Um outro contexto de uso que pode ser explorado é o de fábricas ou hospitais.
+
+\section{Variáveis do Projeto}
+\label{sec:variaveisprojeto2}
+Dado o contexto de uso, é necessário verificar se todas as variáveis apresentadas na seção~\ref{sec:variáveis} atendem adequadamente. Caso a resposta seja negativa, o primeiro passo e identificar qual classe de variável não está adequada, ou falta informação. Dentre as classes mapeadas nesta tese temos as variáveis etnográficas (vide seção~\ref{sec:etnograficas}), variáveis comportamentais (vide seção~\ref{sec:reacoes}), varíaveis do robô (vide seção~\ref{sec:variaveisrobo}) e ação do robô (vide seção~\ref{sec:acoes}). Ao identificar as variáveis que não atendem, recomenda-se adicionar na lista para outros projetos e contextos de uso.
+
+A lista de variáveis encontradas no projeto, podem ser utilizadas para capturar novas informações a fim  de identificar melhor os usuários durante a classificação. Dessa maneira, a tomada de decisão poderá ter maior acurácia durante o processo. As variáveis do robô são as mais suscetíveis a mudança, pois dependerá muito do \emph{hardware} utilizado na construção do robô. As variáveis também podem auxiliar no mecanismo de tomada de decisão, para auxiliar na adaptação das ações do robô.
+
+\section{Projeto Interação Humano-Robô}
+\label{sec:projetoihr2}
+Como todo projeto de \emph{software}, um robô também tem as funcionalidades, requisitos de tarefas, novos \emph{hardwares}, entre outras coisas. Dessa maneira, o gerenciamento de mudanças do projeto é necessário. Para que o gerenciamento seja realizado, cada iteração de evolução do projeto deve ser feita seguindo algumas práticas de gerenciamento de projeto de \emph{software}. O primeiro passo, é analisar quais são as novas funcionalidades que devem ser inseridas no robô. Cada nova funcionalidade, deve estar de acordo com as demais e não pode gerar nenhum problema nas existentes. Uma análise de risco de impacto pode ser utilizada nesse momento. Após isso, as implementações e testes funcionais devem ocorrer para validar todas as funcionalidades.
+
+Caso a equipe do projeto ache necessário, testes unitários podem ser implementados. Uma sequência de testes funcionais a nível de \emph{hardware} para verificar o robô toda vez que uma nova versão é entregue pode ser útil. Além dos testes, metodologias ágeis podem ser utilizadas para uma construção incremental de novos pontos e funcionalidades do projeto.
+
+\section{Robô}
+\label{sec:robo2}
+Conforme é realizada a mudança do contexto de uso, novas funcionalidades no projeto e novos \emph{hardware} são inseridos, o robô precisa de ajustes. Os ajustes devem ser feitos de acordo com as novas inclusões do projeto. Caso seja apenas uma nova tarefa, uma nova implementação no \emph{software} pode contemplar essa demanda. Para novos \emph{hardware} alguns cuidados devem ser tomados, pois projetos mecânicos, eletrônicos e de \emph{software} pode ser necessários para atingir o objetivo. Em casos mais extremos, um novo projeto de robô inteiro pode ser considerado. Contudo, para o contexto de uso em cenários domésticos um robô com as mesmas características que o apresentado nessa tese atende grande parte dos objetivos.
+
+\section{Personas}
+\label{sec:personasnovas}
+Personas são capazes de considerar um grande número de usuários. Dessa maneira, a criação de novas Personas não deve ser frequente. Caso haja a necessidade, pois existem muitos perfis que não se enquadram na classificação, o processo de criação deve ser realizado. Para isso, novos questionários com os perfis não reconhecidos pelo classificador e uma nova sequência de testes devem ser feitos. Depois o algoritmo de agrupamento é executado para encontrar novos grupos. Esse novos grupos passam pelo processo de definição da Personas apresentado na seção~\ref{sec:criacaopersonas}. A partir desse momento, a Persona está pronta para ser inserida no classificador como um novo nó raiz.
+
+\section{Rede Bayesiana}
+\label{sec:novarb}
+Em caso de novas variáveis adicionadas na rede bayesiana, é necessário incluí-la na estrutura de maneira que minimize o número de probabilidades a serem calculadas, mas que maximize a classificação da Persona. Após a inserção, com as conexões devidamente realizadas, são calculadas as probabilidades para aquela nova variável. As probabilidades podem ser ajustadas nesse momento, de acordo com a experiência da equipe. Porém, o ajuste das probabilidades é recomendado que seja feito a partir de uma algoritmo de aprendizado. O algoritmo de aprendizado é um ponto não explorado nessa tese.
+
+\section{Identificação das variáveis e adaptação das ações do robô}
+\label{sec:ivaar}
+Por fim, cada variável existente na rede bayesiana deve tornar-se um componente que torne o seu reconhecimento mais flexivel e melhor aplicado no contexto de uso. Assim, a equipe que aplicará essa rede bayesiana como classificador de perfil do usuário, pode melhor adaptar a captura de informação de acordo com o seu projeto e objetivo.
+
+Do mesmo jeito que as variáveis, o mecanismo de tomada de decisão para adaptação das ações do robô, também precisam ser mantidos como componentes indepentes. Assim, é possível satisfazer as diversas tarefas, não só de interação com o humano, mas também com outros agentes.
