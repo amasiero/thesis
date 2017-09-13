@@ -1,10 +1,10 @@
 %!TEX root=Principal.tex
 \chapter{RESULTADOS E DISCUSSÕES}
 \label{cap:resultados}
-Foram selecionados 39 pessoas foram selecionadas para realizar o teste de interação com o robô em um ambiente doméstico, conforme apresentado na figura~\ref{fig:cenario}. O perfil dos usuários selecionados atendem o escopo do projeto enviado do comitê de ética sobre o registro CAAE: 70057117.0.0000.5508. A tabela~\ref{tab:perfilamostra} apresenta as informações básicas sobre os usuários selecionados para realizar os testes.
+Ao total foram realizados 55 testes com usuários interagindo com o robô em ambiente doméstico. Os testes ocorreram de acordo com o cenrário do contexto de uso apresentado na figura~\ref{fig:contextouso}. Dos 55 participantes 39 foram selecionados para realizar o teste inicial que foi base para criação do classificador bayesiano. Outros 16 são utilizados para validação e mensurar o acerto do classificador. Os perfis dos usuários selecionados atendem o escopo do projeto enviado do comitê de ética sobre o registro CAAE: 70057117.0.0000.5508. A tabela~\ref{tab:perfilamostra} apresenta as informações básicas sobre os usuários selecionados para realizar os testes iniciais.
 
 \begin{table}[!ht]
-	\caption{Perfis dos usuários que realizaram o teste.}
+	\caption{Perfis dos 39 usuários que realizaram o teste inicial.}
 	\label{tab:perfilamostra}
 	\centering
 	\begin{tabular}{c | c | c | c | c | c | c | c}
@@ -94,9 +94,39 @@ Foram selecionados 39 pessoas foram selecionadas para realizar o teste de intera
 	\smallcaption{Fonte: O autor.}
 \end{table}
 
-A tabela~\ref{tab:perfilamostra} apresenta a informação declarada sobre todos os paritipantes do teste de para criação do classificador. Pode-se identificar os limites das variáveis dos parcipantes como, a idade mínima apresentada é de 18 anos e a máxima de 42 anos. A relação entre altura das pessoas, a menor estatura foi de 1,51 m contra 1,87 m da maior. Foram 29 homens e 10 mulheres na amostra, distribuídos entre funcionários e alunos da instituição de ensino. Todas essas informações obtidas através do questionário pré experimento são confrontadas com as informações do pós para análise.
+A tabela~\ref{tab:perfilamostra} apresenta as informações declaradas sobre todos os paritipantes do teste de para criação do classificador. Pode-se identificar os limites das variáveis dos parcipantes como, a idade mínima apresentada é de 18 anos e a máxima de 42 anos. A relação entre altura das pessoas, a menor estatura foi de 1,51 m contra 1,87 m da maior. Foram 29 homens e 10 mulheres na amostra, distribuídos entre funcionários e alunos da instituição de ensino. Na tabela~\ref{tab:perfilvalidacao} apresenta as informações sobre os perfis dos usuários que fizeram o teste de validação do classificador bayesiano.
 
-Durante os testes com os 39 participantes, o foco foi entender como eles se sentiam em um cenário de interação doméstico enquanto o robô se aproximava deles. O sentimento foi traduzido em conforto e medo, através do questionário pós experimento. Confrontando algumas informações, foram gerados alguns gráficos como tentativa de entender o perfil do usuário e como classificá-lo posteriormente.
+\begin{table}[!ht]
+	\caption{Perfis dos 16 usuários que realizaram o teste de validação.}
+	\label{tab:perfilvalidacao}
+	\centering
+	\begin{tabular}{c | c | c | c | c | c | c | c}
+        \hline
+        Idade & Altura & Gênero & Feição & Sociável? & Óculos & Cabelo & Etnia \\
+         &  &  &  &  & de Grau? & Comprido? &  \\ \hline
+		 25 & 1.86 & Masculino & Normal & Sim & Sim & Sim & Branca \\ \hline
+		 34 & 1.82 & Masculino & Normal & Sim & Sim & Não & Branca \\ \hline
+		 19 & 1.76 & Masculino & Normal & Sim & Não & Não & Branca \\ \hline
+		 20 & 1.74 & Masculino & Séria/Fechada & Não & Sim & Não & Parda \\ \hline
+		 21 & 1.70 & Masculino & Sorridente & Sim & Não & Não & Branca \\ \hline
+		 26 & 1.68 & Masculino & Normal & Sim & Sim & Não & Parda \\ \hline
+		 27 & 1.81 & Masculino & Séria/Fechada & Sim & Sim & Não & Branca \\ \hline
+		 33 & 1.62 & Feminino & Normal & Sim & Sim & Sim & Branca \\ \hline
+		 37 & 1.79 & Masculino & Normal & Sim & Sim & Não & Branca \\ \hline
+		 37 & 1.79 & Masculino & Normal & Sim & Não & Não & Branca \\ \hline
+		 20 & 1.56 & Masculino & Normal & Sim & Não & Não & Amarela \\ \hline
+		 20 & 1.70 & Masculino & Normal & Não & Sim & Não & Branca \\ \hline
+		 20 & 1.90 & Masculino & Normal & Não & Sim & Não & Parda \\ \hline
+		 20 & 1.73 & Masculino & Normal & Sim & Sim & Não & Branca \\ \hline
+		 29 & 1.59 & Feminino & Normal & Sim & Não & Sim & Branca \\ \hline
+		 61 & 1.60 & Feminino & Sorridente & Sim & Sim & Sim & Branca \\ \hline
+	\end{tabular}
+	\smallcaption{Fonte: O autor.}
+\end{table}
+
+A tabela~\ref{tab:perfilvalidacao} apresenta as informações declaradas sobre todos os paritipantes do teste de para criação do classificador. Pode-se identificar os limites das variáveis dos parcipantes como, a idade mínima apresentada é de 19 anos e a máxima de 61 anos. A relação entre altura das pessoas, a menor estatura foi de 1,59 m contra 1,90 m da maior. Foram 13 homens e 3 mulheres na amostra, distribuídos entre alunos da instituição de ensino e visitantes. Todas essas informações obtidas através do questionário pré experimento são confrontadas com as informações do pós para análise.
+
+Durante os testes iniciais, com os 39 participantes, o foco foi entender como eles se sentiam em um cenário de interação doméstico enquanto o robô se aproximava e executava algumas ações. O sentimento durante a interação foi traduzido em conforto e medo, através do questionário pós teste. Confrontando algumas informações, foram gerados alguns gráficos que auxiliam na visualização do perfil dos usuários que participaram do teste.
 
 A figura~\ref{fig:confortogenero} apresenta a relação das informações sobre gênero dos participantes e o quanto ele se sentiu confortável na interação com o robô sendo o menor valor para totalmente desconfortável e o maior totalmente confortável.
 
@@ -110,7 +140,7 @@ A figura~\ref{fig:confortogenero} apresenta a relação das informações sobre 
 	\end{minipage}
 \end{figure}
 
-Pode-se observar na figura~\ref{fig:confortogenero} que o gênero que se manteve mais confortável com o robô na aproximação foi o feminino. Isso ocorreu em grande parte devido a exibição das expressões faciais do robô. As participantes do gênero feminino acolheu o robô como uma criança ou pessoa meiga se aproximando dela. Outra variável que é comparada é a idade dos partipantes com o nível de conforto, apresentado na figura~\ref{fig:confortoidade}.
+Pode-se observar na figura~\ref{fig:confortogenero} que o gênero que houve um equilíbrio entre os gêneros com relação ao conforto na aproximação do robô. Na média os homens ficaram 8.25 confortável na escala Likert, com o desvio padrão de 1.9933. As mulheres tiveram a média 8.9 e o desvio padrão em 2.0224. Isso ocorreu em grande parte devido a exibição das expressões faciais do robô. Uma observação As participantes do gênero feminino acolheram o robô como uma criança ou pessoa meiga se aproximando dela. Outra variável que é comparada é a idade dos partipantes com o nível de conforto, apresentado na figura~\ref{fig:confortoidade}.
 
 \begin{figure}[ht!]
 	\centering
@@ -122,7 +152,7 @@ Pode-se observar na figura~\ref{fig:confortogenero} que o gênero que se manteve
 	\end{minipage}
 \end{figure}
 
-Uma observação interessante é que apenas dois participantes apresentaram um nível de desconforto alto na aproximação do robô. Um participante de 20 e outro de 40 anos ficaram mais desconfortáveis com o robô, como observado na figura~\ref{fig:confortoidade}.
+Uma observação para dois participantes que apresentaram um nível de desconforto alto na aproximação do robô. Um participante de 20 e outro de 40 anos ficaram mais desconfortáveis com o robô, como observado na figura~\ref{fig:confortoidade}. Os demais demonstraram-se confortavéis com o robô na aproximação.
 
 Na figura~\ref{fig:confortoposicao} é apresentada a relação entre o conforto do participante e a posição dele durante a interação, sentado ou em pé.
 
@@ -136,7 +166,7 @@ Na figura~\ref{fig:confortoposicao} é apresentada a relação entre o conforto 
 	\end{minipage}
 \end{figure}
 
-É observado na figura~\ref{fig:confortoposicao} algo que foi observado diferente na competição da RoboCup, onde as pessoas sentadas sentiram maior desconforto. Nos testes, as pessoas que estavam sentadas durante a interação com o robô sentiram-se mais confortavéis do que as pessoas que estavam em pé. Esse é um fenômeno que pode ocorrer, pois o robô tocou no braço e barriga de alguns participantes que estavam em pé quando esticou o manipulador para chamar a atenção deles. Por último, é apresentado na figura~\ref{fig:confortosociavel} o nível de conforto dos participantes, dado a sua declaração de sociável ou não.
+É observado na figura~\ref{fig:confortoposicao} o oposto observado na competição da RoboCup@Home, onde as pessoas sentadas sentiram-se com maior desconforto. Nos testes, as pessoas que estavam sentadas durante a interação com o robô sentiram-se mais confortavéis do que as pessoas que estavam em pé. Na média as pessoas em pé apresentaram um grau de conforto igual a 8.2174 e desvio padrão de 1.6407. Já as pessoas sentadas mativeral uma média de 8.75 de grau de conforto, com desvio padrão 2.3848. Esse fenômeno ocorreu, pois o robô tocou no braço e barriga de alguns participantes que estavam em pé quando esticou o manipulador para chamar a atenção deles. Por último, é apresentado na figura~\ref{fig:confortosociavel} o nível de conforto dos participantes, dado a sua declaração de sociável ou não.
 
 \begin{figure}[ht!]
 	\centering
@@ -148,9 +178,9 @@ Na figura~\ref{fig:confortoposicao} é apresentada a relação entre o conforto 
 	\end{minipage}
 \end{figure}
 
-Mais um ponto interessante nessa análise feita através da figura~\ref{fig:confortosocial}. As pessoas declaradas como não sociáveis, foram as pessoas que mais se sentiram confortáveis durante toda a aproximação do robô. É um ponto interessante, pois se observar pela lógica, as pessoas sociáveis deveriam estar mais confortável e abertas a novas experiências.
+Nessa análise feita através da figura~\ref{fig:confortosociavel}, as pessoas declaradas como não sociáveis, foram as pessoas que mais se sentiram confortáveis durante toda a aproximação do robô. Na média uma pessoa sociável apresentou um grau de conforto de 8.375, com desvio padrão de 2.0729. Já a pessoa não sociável apresentou 8.7143 na média, com desvio padrão de 1.5779. É um ponto interessante, pois se observar, as pessoas sociáveis deveriam estar mais confortável e abertas a novas experiências.
 
-A mesma análise para o conforto do usuário, foi realizada para a declaração de medo. Na escala da pergunta de medo o menor valor corresponde a totalmente com medo e o maior corresponde a totalmente sem medo. A figura~\ref{fig:medogenero} apresenta a relação entre o medo e o gênero do participante.
+A mesma análise para o conforto do usuário, foi realizada para a declaração de medo. Na escala da pergunta sobre medo do robô, o menor valor corresponde a totalmente com medo e o maior corresponde a totalmente sem medo. A figura~\ref{fig:medogenero} apresenta a relação entre o medo e o gênero do participante.
 
 \begin{figure}[ht!]
 	\centering
@@ -162,7 +192,7 @@ A mesma análise para o conforto do usuário, foi realizada para a declaração 
 	\end{minipage}
 \end{figure}
 
-Para a relação de medo e gênero, o que demonstrou menos medo foi o feminino. Isso era esperado devido ao resultado obtido sobre o conforto do usuário, apesar de nem sempre essa relação ser diretamente proporcional. A próxima análise é realizada com base na relação medo e idade, como demonstra a figura~\ref{fig:medoidade}.
+Para a relação de medo e gênero, o que observa-se na figura~\ref{fig:medogenero} é que o gênero feminino sentiu menos medo. Porém, a diferença não foi tão grande assim. Na média as mulheres tiveram 8.4 graus, com desvio padrão de 2.1071. Enquanto isso, os homens ficaram com a média de 8.1429, desvio padrão de 2.6010. Era esperado este resultado, devido as observações sobre o conforto do usuário, apesar dessa relação nem sempre ser diretamente proporcional. Na sequência é feita a análise com base na relação medo e idade, demonstrada na figura~\ref{fig:medoidade}.
 
 \begin{figure}[ht!]
 	\centering
@@ -174,7 +204,7 @@ Para a relação de medo e gênero, o que demonstrou menos medo foi o feminino. 
 	\end{minipage}
 \end{figure}
 
-A faixa etária com maior índice de medo foi a dos 40 anos de idade. Os participantes com 19 anos também apresentam um índice baixo sobre o medo do participante. Isso ocorreu, pois com o comportamento invasivo do robô ao aproximar, a garra deixou o participante assustado. Outro ponto levantado foi que o robô ao se movimentar faz muito barulhento.
+A faixa etária com maior índice de medo foi a dos 40 anos de idade, conforme figura~\ref{fig:medoidade}. Os participantes com 19 anos também apresentam um índice baixo, que indica medo do participante. Isso ocorreu, pois com o comportamento invasivo do robô ao aproximar, a garra deixou o participante assustado. Outro ponto levantado foi que o robô ao se movimentar faz muito barulhento, devido ao novo conjunto de rodas omnidirecionais.
 
 A figura~\ref{fig:medoposicao} compara a relação do medo declarado do usuário contra a posição dele durante a navegação do robô.
 
@@ -188,7 +218,7 @@ A figura~\ref{fig:medoposicao} compara a relação do medo declarado do usuário
 	\end{minipage}
 \end{figure}
 
-Assim como em relação ao conforto do usuário, os participantes que sentiram mais medo do robô estavam em pé. O manipulador é um ponto de atenção na interação, principalmente quando está dentro do espaço social da pessoa. Os maiores índices de medo ocorreram por que o robô encostou o manipulador na pessoa. As pessoas mais sociáveis sentiram menos medo que as menos sociáveis, como apresenta na figura~\ref{fig:medosociavel}.
+Assim como em relação ao conforto do usuário, os participantes que sentiram mais medo do robô estavam em pé. Os participantes sentados apresentaram uma média de 8.8750, com desvio padrão de 1.6910. Comparando, os participantes em pé tiveram 7.6957 de média e um desvio padrão de 2.7731. O manipulador é um ponto de atenção na interação, principalmente quando está dentro do espaço social da pessoa. Os maiores índices de medo ocorreram por que o robô encostou o manipulador na pessoa, sem nenhum aviso prévio. As pessoas mais sociáveis sentiram menos medo que as menos sociáveis, como apresenta na figura~\ref{fig:medosociavel}. Na média as pessoas sociáveis apresentam 8.4688 contra 6.8571 das pessoas não sociáveis. Os desvios padrão apresentaram os valores 2.0461 e 3.5225, respectivamente.
 
 \begin{figure}[ht!]
 	\centering
