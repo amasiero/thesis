@@ -335,65 +335,52 @@ As tarefas são definidas com base no contexto de uso ilustrado através da figu
 
 \section{Construção do Questionário Pré Teste}
 \label{sec:questionariopreteste}
-Para apoiar o processo de obtenção das informações e construção dos perfis dos usuários, são utilizados dois questionários. O primeiro, aplicado no momento anterior ao experimento de interação, tem como objetivo mapear as informações referentes às características físicas que tem a possibilidade do robô utilizar sensores para reconhecê-las, adesão a tecnologia, contatos prévios com robôs, questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar, além da expectativa de possuir um robô em casa ou no trabalho. As questões são agrupadas de acordo com seus objetivos e apresentadas em listas. Todas as questões a seguir fazem para do questionário pré-experimento.
+Para apoiar o processo de obtenção das informações e construção dos perfis dos usuários, são utilizados dois questionários. O primeiro, aplicado no momento anterior ao experimento de interação, tem como objetivo mapear as informações referentes às características físicas que tem a possibilidade do robô utilizar sensores para reconhecê-las, adesão a tecnologia, contatos prévios com robôs, questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar, além da expectativa de possuir um robô em casa ou no trabalho. As questões são apresentadas na tabela~\ref{tab:questoespreteste}, onde a coluna construção contém os grupos de informações que conferem com a parte do perfil que elas auxiliam a preencher conforme apresentado por \citeonline{barbosa:2010} e \citeonline{baxter:2015}. Todas as questões a seguir fazem para do questionário pré-experimento.
 
-Questões focadas na identificação e características físicas do usuário:
+\begin{longtable}{ m{7 cm} | m{4cm} | m{4cm} }
+	\caption{Questões aplicadas no questionário pré teste }
+	\label{tab:questoespreteste} \\	\hline
+	Pergunta & Opções & Construção \\ \hline
+	Informe seu nome completo & Texto Aberto & Identificação \\ \hline
+	e-mail para contato & Texto Aberto & Contato Usuário \\ \hline
+	Informe o número do seu celular & Texto Aberto & Contato Usuário \\ \hline
+	Testes poderão ocorrer usando o Robô no Centro Universitário FEI. Você gostaria de realizar o teste com o robô físico? & Sim; Não & Contato Usuário \\ \hline
+	Qual a sua idade? (em anos) & Númerico & Demográfico \\ \hline
+	Qual a sua altura? (em metros) & Númerico & Demográfico \\ \hline
+	Informa seu gênero & Feminino; Masculino; Prefiro não dizer & Demográfico \\ \hline
+	Na maior parte do tempo, você se considera uma pessoa com feição: & Sorridente; Normal; Séria/Fechada & Social \\ \hline
+	Você se considera uma pessoa sociável? & Sim; Não & Social \\ \hline
+	Você utiliza óculos de grau? (Obs: Pessoas com lente de contato, por favor, repondam não. A intenção é identificar a armação.) & Sim; Não & Físico \\ \hline
+	Você possui cabelo comprido? & Sim; Não & Físico \\ \hline
+	Qual etnia você se considera? & Amarela; Branca; Indígena; Parda; Preta; Não declarada & Etnográfico \\ \hline
+	Qual(is) dispositivo(s) tecnológico(s) você mais utiliza (marque 1 ou mais opções): & Celular; Computador (de mesa ou notebook); Tablet; Smart TV; Relógio Smart; MP3 Player; Câmera Fotográfica Digital; Leitor de e-Book; outros & Experiência com Tecnologias \\ \hline
+	Qual(is) dispositivo(s) tecnológico(s) você nunca utilizou (marque 1 ou mais opções): & Celular; Computador (de mesa ou notebook); Tablet; Smart TV; Relógio Smart; MP3 Player; Câmera Fotográfica Digital; Leitor de e-Book; Já utilizei todas & Experiência com Tecnologias \\ \hline
+	Você possui conta em banco digital (ex: Original, Neon, etc.) ? & Sim; Não & Atitudes e Valores \\ \hline
+	Você possui cartão de crédito digital (ex: Nubank, Digio, etc.) ? & Sim, Não & Atitudes e Valores \\ \hline
+	Qual o principal meio de pagamento de suas contas? & Celular; Computador; Tablet; Autoatendimento; Caixa Físico & Atitudes e Valores \\ \hline
+	Você utiliza redes sociais? & Sim; Não & Experiência com Tecnologias \\ \hline
+	Quais as redes sociais que você mais utiliza (marque 1 ou mais opções): (Se sim, para a resposta anterior) & Facebook, Instagram, Twitter, Google\+, Snapchat, outras& Experiência com Tecnologias \\ \hline
+	Qual foi o local de nascimento? (Informe da seguinte maneira: Cidade; Estado; País) & Texto Aberto & Cultural \\ \hline
+	Em qual local, você viveu por mais tempo durante sua infância e adolescência? (Informe da seguinte maneira: Cidade; Estado; País) & Texto Aberto & Cultural \\ \hline
+	Qual o seu atual local de moradia? (Informe da seguinte maneira: Cidade; Estado; País) & Texto Aberto & Cultural \\ \hline
+	Qual o país que você melhor se identifica com a cultura? (Considere também a opção do seu país de nascimento.) & Texto Aberto & Cultural \\ \hline
+	Qual a cidade, na sua opinião, que melhor representa a cultura que você se identifica (resposta não dependente da questão acima)? & Texto Aberto & Cultural \\ \hline
+	Você visitou outros países, além do Brasil? & Sim; Não & Cultural \\ \hline
+	Quais países você já visitou? (Responda separando os países por ponto e vírgula, ex: França; Estados Unidos; Itália; Japão;) & Texto Aberto & Cultural \\ \hline
+	Aproximadamente, quantas cidades na região nordeste do Brasil você visitou? & Numérico & Cultural \\ \hline
+	Aproximadamente, quantas cidades na região norte do Brasil você visitou? & Numérico & Cultural \\ \hline
+	Aproximadamente, quantas cidades na região centro-oeste do Brasil você visitou? & Numérico & Cultural \\ \hline
+	Aproximadamente, quantas cidades na região sudeste do Brasil você visitou? & Numérico & Cultural \\ \hline
+	Aproximadamente, quantas cidades na região sul do Brasil você visitou? & Numérico & Cultural \\ \hline
+	Em algum momento de sua vida, você teve contato com robôs? & Sim; Não & Experiência com Produto \\ \hline
+	Se sim para a questão anterior, quais tipos de robôs você teve contato (marque 1 ou mais opções): Opções de resposta: Parecido com animais, Parecido com pessoas, Robôs de linha de produção/fábrica, Robôs Móveis (que contém rodas), outros  & Experiência com Produto \\ \hline
+	O que você espera do comportamento do Robô ao tê-lo em sua casa? & Texto Aberto & Experiência com Produto \\ \hline
+	O que você espera do comportamento do Robô ao tê-lo em seu trabalho? & Texto Aberto & Experiência com Produto \\ \hline
+	Dadas as questões anteriores, gostaria de fazer mais algum comentário sobre você? & Texto Aberto & Comentários Aberto \\ \hline
+	\smallcaption{Fonte: O autor.}
+\end{longtable}
 
-\begin{enumerate}
-	\item Informe seu nome completo
-	\item e-mail para contato
-	\item Informe o número do seu celular
-	\item Testes poderão ocorrer usando o Robô no Centro Universitário FEI. Você gostaria de realizar o teste com o robô físico? Opções de resposta: Sim, Não
-	\item Qual a sua idade? (em anos)
-	\item Qual a sua altura? (em metros)
-	\item Informa seu gênero: Opções de resposta: Feminino, Masculino, Prefiro não dizer
-	\item Na maior parte do tempo, você se considera uma pessoa com feição: Opções de reposta: Sorridente, Normal, Séria/Fechada
-	\item Você se considera uma pessoa sociável? Opções de resposta: Sim, Não
-	\item Você utiliza óculos de grau? Opções de resposta: Sim, Não (Obs: Pessoas com lente de contato, por favor, repondam não. A intenção é identificar a armação.)
-	\item Você possui cabelo comprido? Opções de resposta: Sim, Não
-	\item Qual etnia você se considera? Opções de resposta: Amarela, Branca, Indígena, Parda, Preta, Não declarada
-\end{enumerate}
-
-Questões para informações sobre adesão à tecnologia:
-
-\begin{enumerate}
-	\item Qual(is) dispositivo(s) tecnológico(s) você mais utiliza (marque 1 ou mais opções): Opções de resposta: Celular, Computador (de mesa ou notebook), Tablet, Smart TV, Relógio Smart, MP3 Player, Câmera Fotográfica Digital, Leitor de e-Book, outros
-	\item Qual(is) dispositivo(s) tecnológico(s) você nunca utilizou (marque 1 ou mais opções): Opções de resposta: Celular, Computador (de mesa ou notebook), Tablet, Smart TV, Relógio Smart, MP3 Player, Câmera Fotográfica Digital, Leitor de e-Book, Já utilizei todas
-	\item Você possui conta em banco digital (ex: Original, Neon, etc.) ? Opções de resposta: Sim, Não
-	\item Você possui cartão de crédito digital (ex: Nubank, Digio, etc.) ? Opções de resposta: Sim, Não
-	\item Qual o principal meio de pagamento de suas contas? Opções de resposta: Celular, Computador, Tablet, Autoatendimento, Caixa Físico
-	\item Você utiliza redes sociais? Opções de resposta: Sim, Não
-	\item Quais as redes sociais que você mais utiliza (marque 1 ou mais opções): Opções de resposta: Facebook, Instagram, Twitter, Google\+, Snapchat, outras
-\end{enumerate}
-
-Questões sobre informações culturais:
-
-\begin{enumerate}
-	\item Qual foi o local de nascimento? (Informe da seguinte maneira: Cidade; Estado; País)
-	\item Em qual local, você viveu por mais tempo durante sua infância e adolescência? (Informe da seguinte maneira: Cidade; Estado; País)
-	\item Qual o seu atual local de moradia? (Informe da seguinte maneira: Cidade; Estado; País)
-	\item Qual o país que você melhor se identifica com a cultura? (Considere também a opção do seu país de nascimento.)
-	\item Qual a cidade, na sua opinião, que melhor representa a cultura que você se identifica (resposta não dependente da questão acima)?
-	\item Você visitou outros países, além do Brasil? Opções de resposta: Sim, Não
-	\item Quais países você já visitou? (Responda separando os países por ponto e vírgula, ex: França; Estados Unidos; Itália; Japão;)
-	\item Aproximadamente, quantas cidades na região nordeste do Brasil você visitou?
-	\item Aproximadamente, quantas cidades na região norte do Brasil você visitou?
-	\item Aproximadamente, quantas cidades na região centro-oeste do Brasil você visitou?
-	\item Aproximadamente, quantas cidades na região sudeste do Brasil você visitou?
-	\item Aproximadamente, quantas cidades na região sul do Brasil você visitou?
-\end{enumerate}
-
-Por fim, questões sobre contato prévio com robôs e expectativa de tê-los no trabalho e também em casa:
-
-\begin{enumerate}
-	\item Em algum momento de sua vida, você teve contato com robôs? Opções de resposta: Sim, Não
-	\item Se sim para a questão anterior, quais tipos de robôs você teve contato (marque 1 ou mais opções): Opções de resposta: Parecido com animais, Parecido com pessoas, Robôs de linha de produção/fábrica, Robôs Móveis (que contém rodas), outros
-	\item O que você espera do comportamento do Robô ao tê-lo em sua casa?
-	\item O que você espera do comportamento do Robô ao tê-lo em seu trabalho?
-	\item Dadas as questões anteriores, gostaria de fazer mais algum comentário sobre você?
-\end{enumerate}
-
-A partir das informações coletadas com as questões apresentadas acima, é possível determinar o perfil de cultura declarado pelo usuário, informações etnográficas que irão auxiliar na identificação da Persona. Expectativas sobre a interação com robôs em ambientes domésticos e profissionais, também são adquiridas. Essas informações auxiliam a determinar o ponto de partida para a análise e criação das personas discutidas no capítulo~\ref{cap:proposta}.
+A partir das informações coletadas com as questões apresentadas na tabela~\ref{tab:questoespreteste}, é possível determinar o perfil de cultura declarado pelo usuário, informações etnográficas que irão auxiliar na identificação da Persona. Expectativas sobre a interação com robôs em ambientes domésticos e profissionais, também são adquiridas. Essas informações auxiliam a determinar o ponto de partida para a análise e criação das personas discutidas no capítulo~\ref{cap:proposta}.
 
 \section{Interação entre o Usuário e o Robô}
 \label{sec:experimentointeracao}
@@ -405,25 +392,29 @@ São evitados a repetição de configuração entre os candidatos, para que não
 
 \section{Construção do Questionário Pós Teste}
 \label{sec:questionarioposteste}
-O questionário pós teste mantém o foco na interação do usuário que ocorreu durante o experimento e quais pontos do robô mais agradaram em sua opinião. Além disso, um detalhe sobre a posição do usuário durante o experimento (sentado ou em pé) é coletada, pois esta informação pode influenciar na interação com o robô. As questões apresentas a seguir compõe o questionário pós-teste:
+O questionário pós teste mantém o foco na interação do usuário que ocorreu durante o experimento e quais pontos do robô mais agradaram em sua opinião. Além disso, um detalhe sobre a posição do usuário durante o experimento (sentado ou em pé) é coletada, pois esta informação pode influenciar na interação com o robô. As questões apresentas na tabela~\ref{tab:questoesposteste}, a seguir, compõe o questionário pós-teste.
 
-\begin{enumerate}
-	\item Informe o número de amostra (Identificador dos documentos referentes ao comitê de ética)
-	\item Você se sentiu confortável durante a aproximação do robô? Escala de 1 à 10
-	\item Você se sentiu com medo em algum momento durante a aproximação do robô? Escala de 1 à 10
-	\item Você estava \_\_\_\_\_\_\_\_\_ durante a aproximação do robô. Opções de resposta: Sentado, em Pé
-	\item Você voltaria a interagir com esse robô novamente? Opções de resposta: Sim, Não
-	\item Justifique a resposta anterior.
-	\item O que você mais gostou no robô?
-	\item O que você menos gostou no robô?
-	\item Depois dessa experiência, você interagiria com outros robôs? Opções de resposta: Sim, Não
-	\item Você estaria confortável com um robô convivendo em sua casa? Opções de resposta: Sim, Não
-	\item Justifique a resposta anterior.
-	\item Em algum momento da interação, você se sentiu desconfortável com o comportamento do robô? Opções de resposta: Sim, Não
-	\item Descreva o desconforto em caso de sim, na resposta anterior.
-	\item Você alteraria algum comportamento apresentado pelo robô durante o teste? Qual?
-	\item Observações e comentários:
-\end{enumerate}
+\begin{longtable}{ m{7 cm} | m{4cm} | m{4cm} }
+	\caption{Questões aplicadas no questionário pós teste }
+	\label{tab:questoesposteste} \\	\hline
+	Pergunta & Opções & Construção \\ \hline
+	Informe o número de amostra (Identificador dos documentos referentes ao comitê de ética) & Numérico & Identificação \\ \hline
+	Você se sentiu confortável durante a aproximação do robô? & Escala Likert de 10 pontos & Satisfação \\ \hline
+	Você se sentiu com medo em algum momento durante a aproximação do robô? & Escala Likert de 10 pontos & Satisfação \\ \hline
+	Você estava \_\_\_\_\_\_\_\_\_ durante a aproximação do robô. & Sentado; em Pé & Uso \\ \hline
+	Você voltaria a interagir com esse robô novamente? & Sim; Não & Satisfação \\ \hline
+	Justifica a resposta anterior & Texto Aberto & Satisfação \\ \hline
+	O que você mais gostou no robô? & Texto Aberto & Satisfação \\ \hline
+	O que você menos gostou no robô? & Texto Aberto & Satisfação \\ \hline
+	Depois dessa experiência, você interagiria com outros robôs? & Sim; Não & Satisfação \\ \hline
+	Você estaria confortável com um robô convivendo em sua casa? & Sim; Não & Satisfação \\ \hline
+	Justifique a resposta anterior. & Texto Aberto & Satisfação \\ \hline
+	Em algum momento da interação, você se sentiu desconfortável com o comportamento do robô? & Sim; Não & Uso \\ \hline
+	Descreva o desconforto em caso de sim, na resposta anterior. & Texto Aberto & Uso \\ \hline
+	Você alteraria algum comportamento apresentado pelo robô durante o teste? Qual? & Texto Aberto & Uso \\ \hline
+	Observações e comentários: & Texto Aberto & Comentários Aberto \\ \hline
+	\smallcaption{Fonte: O autor.}
+\end{longtable}
 
 Esse questionário tem o principal objetivo de coletar as informações que o usuário declarou não haver gostado na interação. As declarações ajudam a compreender o que deixou ele desconfortável e/ou com medo facilitando na hora de confortar com as observações do especialista realizadas durante a interação.
 
