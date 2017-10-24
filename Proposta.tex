@@ -1,7 +1,7 @@
 %!TEX root=Principal.tex
 \chapter{CLASSIFICADOR BAYESIANO DO USUÁRIO}
 \label{cap:proposta}
-Após a especificação do projeto de IHR, onde definiu-se as características do ambiente, do robô utilizado e detalhes importantes do projeto como escopo e variáveis analisadas, realizou-se testes de interação para analisar informações que são importantes à criação do classificador do usuário. Este classificador utiliza técnicas bayesianas, mais especificamente, as redes bayesianas para incluir dependência entre as variáveis consideradas no projeto. Os passos para a criação do classificador são apresentados ao longo dessa seção e estão ilustrados através da figura~\ref{fig:construcao}.
+Após a especificação do projeto de IHR, onde definiu-se as características do ambiente, do robô utilizado e detalhes importantes do projeto como escopo e variáveis analisadas, realizou-se testes de interação para analisar informações que são importantes à criação do classificador do usuário. Este classificador utiliza técnicas bayesianas, mais especificamente, as redes bayesianas para incluir dependência entre as variáveis consideradas no projeto. Por ser um classificador estatístico, ele trabalha com a probabilidade da variável ser causada por um determinado efeito. No caso da tese, é a probabilidade de ser um determinado perfil dado a percepção que ele teve sobre as ações do robô. Essa classificação será importante para uma tomada de decisão direcionada ao perfil, durante a interação. Os passos para a criação do classificador são apresentados ao longo dessa seção e estão ilustrados através da figura~\ref{fig:construcao}.
 
 \begin{figure}[ht!]
 	\centering
@@ -19,7 +19,7 @@ Na sequência, os blocos em azuis, definem-se as variáveis que compõem a rede 
 
 \section{Ações do Robô}
 \label{sec:comportamento-robo}
-A partir do robô construído para os experimentos (vide~\ref{sec:robo}), uma série de características consideradas auxiliam na interação social com ser humanos. Com base nos atuadores de interação existentes, foram mapeados as variáveis de ações do robô, que devem possuir seus valores limitados para que simplifique as tabelas de probabilidades condicionais do classificar bayesiano. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis e a restrição do domínio de cada uma. Além das variáveis de ações do robô, algumas variáveis do cenário de interação também são consideradas, como o caso da posição e proximidade.
+A partir do robô construído para os experimentos (vide seção~\ref{sec:robo}), uma série de características consideradas auxiliam na interação social com ser humanos. Com base nos atuadores de interação existentes, foram mapeados as variáveis de ações do robô, que devem possuir seus valores limitados para que simplifique as tabelas de probabilidades condicionais do classificar bayesiano. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis e a restrição do domínio de cada uma. Além das variáveis de ações do robô, algumas variáveis do cenário de interação também são consideradas, como o caso da posição e proximidade.
 
 \begin{table}[!ht]
 	\caption{Variáveis de Comportamento do Robô}
@@ -87,11 +87,11 @@ Alguns exemplos sobre os domínios das variáveis podem auxiliar a compreender q
 	\end{minipage}
 \end{figure}
 
-Nos exemplos apresentados na figura~\ref{fig:dominioexpressoesfaciais}, pode-se definir dentro do domínio da variável as figuras \ref{fig:feliz} e \ref{fig:surpresa} como expressões amigáveis e as figuras \ref{fig:nervosa} e \ref{fig:triste} como não amigáveis, dado os sentimentos que essas expressões representam. O programa que realiza a interação da face do robô foi desenvolvido em HTML e Javascript. Ele encontra-se disponível através do endereço \url{https://github.com/amasiero/robot_face}. Com o domínio das variáveis definidos, é necessário preparar as respostas dos questionários para o algoritmo de agrupamento e também verificar as heurísticas de avaliação de interface para verificar se elas auxiliam na classificação do perfil.
+Nos exemplos apresentados na figura~\ref{fig:dominioexpressoesfaciais}, pode-se definir dentro do domínio da variável as figuras \ref{fig:feliz} e \ref{fig:surpresa} como expressões amigáveis e as figuras \ref{fig:nervosa} e \ref{fig:triste} como não amigáveis, dado os sentimentos que essas expressões representam. O programa que realiza a interação da face do robô foi desenvolvido em HTML e Javascript. Ele encontra-se disponível através do endereço \url{https://github.com/amasiero/robot_face}. Com o domínio das variáveis definidos, é necessário preparar as respostas dos questionários para o algoritmo de agrupamento e as heurísticas de avaliação de interface para verificar se elas auxiliam na classificação do perfil.
 
 \section{Preparando as resposta dos questionários}
 \label{sec:respostasbd}
-Cada questionário (pré e pós teste) foi implementado utilizando a ferramenta on-line Google Forms~\footnote{https://docs.google.com/forms/u/0/}. Nessa ferramenta as respostas são armazenadas em planilhas eletrônicas, ficando assim separadas as respostas entre os dois questionários. É necessário unificá-los para auxiliar na identificação dos perfis dos usuários. Além disso, o algoritmo de agrupamento trabalha com uma base de dados única. Para fazer esse processo de unificar as bases de dados, criasse um arquivo csv (\emph{comma-separated values}) e uni na mesma linha os registros que possuem o mesmo identificador do questionário pré e pós teste. O arquivo csv gerado serve para realizar análise dos dados e também para criação dos grupos de perfis que são responsáveis pela composição das Personas. Elas são os resultados do classificador bayesiano implementado.
+Cada questionário (pré e pós teste) foi implementado utilizando a ferramenta on-line Google Forms~\footnote{https://docs.google.com/forms/u/0/}. Nessa ferramenta as respostas são armazenadas em planilhas eletrônicas, ficando assim separadas as respostas entre os dois questionários. Os questionários foram apresentados nas seções~\ref{sec:questionariopreteste} e \ref{sec:questionarioposteste} É necessário unificá-los para auxiliar na identificação dos perfis dos usuários. Além disso, o algoritmo de agrupamento trabalha com uma base de dados única. Para fazer esse processo de unificar as bases de dados, criasse um arquivo csv (\emph{comma-separated values}) e uni na mesma linha os registros que possuem o mesmo identificador do questionário pré e pós teste. O arquivo csv gerado serve para realizar análise dos dados e para criação dos grupos de perfis que são responsáveis pela composição das Personas. A composição de Personas representa o conjunto de variáveis que fazem parte do resutaldo nas consultas do classificador bayesiano implementado.
 
 \section{Heurísticas de Interação Humano-Robô}
 \label{sec:heuristicas}
@@ -108,7 +108,7 @@ Nesse momento é realizado a seleção das heurísticas em comum com os comentá
 	\item Ajudar o usuário a reconhecer, diagnosticar, e recuperar de erros.
 \end{itemize}
 
-Cada uma das heurísticas apresentadas na lista acima, foram observadas entre os testes e possuem dependência condicional com os perfis e/ou com as ações do robô.
+Cada uma das heurísticas apresentadas na lista acima, foram observadas durante os testes e possuem dependência condicional com os perfis e/ou com as ações do robô.
 
 \section{Agrupando perfis com o algoritmo QG-SIM}
 \label{sec:preparacao}
@@ -271,7 +271,7 @@ Os nós raizes da rede bayesiana são compostos pelas 5 Personas apresentadas na
 
 As variáveis são nomeadas com letras minúsculas, pois são variáveis com apenas dois valores representando ser ou não ser. Essa notação segue a convenção apresentada por \citeonline{russell:2002}.
 
-Seguindo com a construção da rede, cada nó interno foi considerado com base nas variáveis criadas a partir das heurísticas de IHR, das ações do robô e também do contexto de uso e ambiente de teste. As independências condicionais entre cada nó foi observado pelos comentários de cada usuário durante os testes. O processo de criação dos nós é detalhado ma sequência. A inclusão dos nós é feita com base nas variáveis apresentadas na tabela~\ref{tab:variaveisvalores}.
+Seguindo com a construção da rede, cada nó interno foi considerado com base nas variáveis criadas a partir das heurísticas de IHR, das ações do robô e também do contexto de uso e ambiente de teste. As independências condicionais entre cada nó foi observado pelos comentários de cada usuário durante os testes. O processo de criação dos nós é detalhado na sequência. A inclusão dos nós é feita com base nas variáveis apresentadas na tabela~\ref{tab:variaveisvalores}.
 
 O nó Proximidade leva em consideração os espaços sociais definidos por \citeonline{hall:1969}. O domínio foi simplificado para \{perto, longe\}, pois durante os testes pilotos a reação do usuário era a mesma entre as regiões íntima e pessoal (perto) e as regiões social e pública (longe). A dependência condicional foi aplicada de acordo com a declaração explícita entre os perfis que sentiram algum desconforto com a aproximação do robô. A equação~\ref{eq:proximidade} define o cálculo de probabilidade condicional para a variável aleatória Proximidade.
 
@@ -362,7 +362,7 @@ Por fim, são definidas as variáveis aleatórias chamadas de nós folhas da red
 	P(medo | velocidade, face, toque)
 \end{equation}
 
-As variáveis conforto e desconforto estão separadas, pois em alguns casos existiram pequenas diferenças que em uma mesma ação do robô, alguns usuários sentiram conforto e desconforto ao mesmo tempo. Por exemplo, ao se aproximar o robô chegou muito perto o que gerou o desconforto já que o usuário estava sentado, mas a expressão facial apresentada pelo robô no momento deixou ele tranquilo e confortável, mesmo não tendo como escapar da frente do robô.
+As variáveis conforto e desconforto estão separadas, pois em alguns casos existiram pequenas diferenças que em uma mesma ação do robô, alguns usuários sentiram conforto e desconforto ao mesmo tempo. Por exemplo, ao se aproximar o robô chegou muito perto o que gerou o desconforto já que o usuário estava sentado, mas a expressão facial apresentada pelo robô no momento deixou ele tranquilo e confortável, mesmo não tendo como escapar da frente do robô (vide capítulo~\ref{cap:resultados}).
 
 A figura~\ref{fig:rb} apresenta a estrutura completa da rede bayesiana criada ao longo dessa seção.
 
@@ -398,7 +398,7 @@ O resultado a partir das evidências identificadas durante a interação, é a p
 	\end{minipage}
 \end{figure}
 
-Na figura~\ref{fig:samiam} é apresentado a implementação da rede bayesiana estrutura na figura~\ref{fig:rb}. Nele é possível monitorar as variáveis que representam as Personas e, ao alterar os valores das variáveis de evidência, saber qual o perfil com maior probabilidade. A identificação das variáveis é discutida na seção~\ref{sec:idvariavel}, a seguir.
+Na figura~\ref{fig:samiam} é apresentado a implementação da rede bayesiana estrutura na figura~\ref{fig:rb}. Nele é possível monitorar as variáveis que representam as Personas e, ao alterar os valores das variáveis de evidência e saber qual o perfil com maior probabilidade. A identificação das variáveis é discutida na seção~\ref{sec:idvariavel}, a seguir.
 
 \section{Identificando as variáveis de interação}
 \label{sec:idvariavel}
