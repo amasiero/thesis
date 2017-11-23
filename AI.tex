@@ -153,6 +153,18 @@ Sendo assim, uma maneira que existe para representar a distribuição de probabi
     \item Cada nó $X_i$ tem uma distribuição de probabilidade condicional $P(X_i|Pais(X_i))$ que quantifica o efeito dos pais sobre o nó filho.
 \end{itemize}
 
+A figura~\ref{fig:exemplorb} apresenta um exemplo de uma rede bayesiana com 3 nós, sendo 1 nó pai e 2 nós filhos.
+
+\begin{figure}[ht!]
+    \centering
+    \begin{minipage}{0.7\textwidth}
+        \caption{Exemplo de uma rede bayesiana com 3 nós.}
+        \includegraphics[width=\textwidth]{exemplo_rb}
+        \smallcaption{\cite{russell:2002}}
+        \label{fig:experimento}
+    \end{minipage}
+\end{figure}
+
 As setas de conexões entre os nós dão o significado de que os pais influenciam diretamente os filhos. Em termos de causa e efeito, significa que as causas devem ser organizadas como pais dos efeitos~\cite{russell:2002}.
 
 A semântica de uma rede bayesiana pode ser tratada de duas maneiras: (I) a primeira como a representação da distribuição de probabilidade conjunta; (II) a outra, como a codificação de uma coleção de declarações de independência condicional. A primeira é utilizada para compreender a construção da rede, e a segunda em procedimentos de inferência sobre consultas~\cite{russell:2002}.

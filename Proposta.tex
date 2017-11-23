@@ -1,7 +1,7 @@
 %!TEX root=Principal.tex
 \chapter{CLASSIFICADOR BAYESIANO DO USUÁRIO}
 \label{cap:proposta}
-Após a especificação do projeto de IHR, onde definiu-se as características do ambiente, do robô utilizado e detalhes importantes do projeto como escopo e variáveis analisadas, realizou-se testes de interação para analisar informações que são importantes à criação do classificador do usuário. Este classificador utiliza técnicas bayesianas, mais especificamente, as redes bayesianas para incluir dependência entre as variáveis consideradas no projeto. Por ser um classificador estatístico, ele trabalha com a probabilidade da variável ser causada por um determinado efeito. No caso da tese, é a probabilidade de ser um determinado perfil dado a percepção que ele teve sobre as ações do robô. Essa classificação será importante para uma tomada de decisão direcionada ao perfil, durante a interação. Os passos para a criação do classificador são apresentados ao longo dessa seção e estão ilustrados através da figura~\ref{fig:construcao}.
+Após a especificação do projeto de IHR, onde definiu-se as características do ambiente, do robô utilizado e detalhes importantes do projeto como escopo e variáveis analisadas, realizou-se testes de interação para analisar informações que são importantes à criação do classificador do usuário. Este classificador utiliza técnicas bayesianas, mais especificamente, as redes bayesianas para incluir dependência entre as variáveis consideradas no projeto. Por ser um classificador estatístico, ele trabalha com a probabilidade da variável ser causada por um determinado efeito. No caso da tese, é a probabilidade de ser um determinado perfil dado a percepção que o usuário teve sobre as ações do robô. Essa classificação será importante para uma tomada de decisão direcionada ao perfil, durante a interação. Os passos para a criação do classificador são apresentados ao longo dessa seção e estão ilustrados através da figura~\ref{fig:construcao}.
 
 \begin{figure}[ht!]
 	\centering
@@ -19,7 +19,7 @@ Na sequência, os blocos em azuis, definem-se as variáveis que compõem a rede 
 
 \section{Ações do Robô}
 \label{sec:comportamento-robo}
-A partir do robô construído para os experimentos (vide seção~\ref{sec:robo}), uma série de características consideradas auxiliam na interação social com ser humanos. Com base nos atuadores de interação existentes, foram mapeados as variáveis de ações do robô, que devem possuir seus valores limitados para que simplifique as tabelas de probabilidades condicionais do classificar bayesiano. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis e a restrição do domínio de cada uma. Além das variáveis de ações do robô, algumas variáveis do cenário de interação também são consideradas, como o caso da posição e proximidade.
+A partir do robô construído para os experimentos (vide seção~\ref{sec:robo}), uma série de características consideradas auxiliam na interação social com ser humanos. Com base nos atuadores de interação existentes, foram mapeados as variáveis de ações do robô, que devem possuir seus valores limitados para que simplifique as tabelas de probabilidades condicionais do classificador bayesiano. A tabela~\ref{tab:variaveisvalores} apresenta as variáveis e a restrição do domínio de cada uma. Além das variáveis de ações do robô, algumas variáveis do cenário de interação também são consideradas, como o caso da posição e proximidade.
 
 \begin{table}[!ht]
 	\caption{Variáveis de Comportamento do Robô}
@@ -58,7 +58,7 @@ Alguns exemplos sobre os domínios das variáveis podem auxiliar a compreender q
 \begin{figure}[ht!]
 	\centering
 	\begin{minipage}{\textwidth}
-		\caption{Visão geral do processo de construção do classificador.}
+		\caption{Exemplos das faces apresentadas pelo robô.}
 		\begin{subfigure}[b]{0.48\textwidth}
 			\includegraphics[width=\textwidth]{happy.png}
 	        \caption{Feliz}
@@ -91,7 +91,7 @@ Nos exemplos apresentados na figura~\ref{fig:dominioexpressoesfaciais}, pode-se 
 
 \section{Preparando as resposta dos questionários}
 \label{sec:respostasbd}
-Cada questionário (pré e pós teste) foi implementado utilizando a ferramenta on-line Google Forms~\footnote{https://docs.google.com/forms/u/0/}. Nessa ferramenta as respostas são armazenadas em planilhas eletrônicas, ficando assim separadas as respostas entre os dois questionários. Os questionários foram apresentados nas seções~\ref{sec:questionariopreteste} e \ref{sec:questionarioposteste} É necessário unificá-los para auxiliar na identificação dos perfis dos usuários. Além disso, o algoritmo de agrupamento trabalha com uma base de dados única. Para fazer esse processo de unificar as bases de dados, criasse um arquivo csv (\emph{comma-separated values}) e uni na mesma linha os registros que possuem o mesmo identificador do questionário pré e pós teste. O arquivo csv gerado serve para realizar análise dos dados e para criação dos grupos de perfis que são responsáveis pela composição das Personas. A composição de Personas representa o conjunto de variáveis que fazem parte do resutaldo nas consultas do classificador bayesiano implementado.
+Cada questionário (pré e pós teste) foi implementado utilizando a ferramenta on-line Google Forms~\footnote{https://docs.google.com/forms/u/0/}. Nessa ferramenta as respostas são armazenadas em planilhas eletrônicas, ficando assim separadas as respostas entre os dois questionários. Os questionários foram apresentados nas seções~\ref{sec:questionariopreteste} e \ref{sec:questionarioposteste}. É necessário unificá-los para auxiliar na identificação dos perfis dos usuários. Além disso, o algoritmo de agrupamento trabalha com uma base de dados única. Para fazer esse processo de unificar as bases de dados, criasse um arquivo csv (\emph{comma-separated values}) e uni na mesma linha os registros que possuem o mesmo identificador do questionário pré e pós teste. O arquivo csv gerado serve para realizar análise dos dados e para criação dos grupos de perfis que são responsáveis pela composição das Personas. A composição de Personas representa o conjunto de variáveis que fazem parte do resutaldo nas consultas do classificador bayesiano implementado.
 
 \section{Heurísticas de Interação Humano-Robô}
 \label{sec:heuristicas}
@@ -108,7 +108,7 @@ Nesse momento é realizado a seleção das heurísticas em comum com os comentá
 	\item Ajudar o usuário a reconhecer, diagnosticar, e recuperar de erros.
 \end{itemize}
 
-Cada uma das heurísticas apresentadas na lista acima, foram observadas durante os testes e possuem dependência condicional com os perfis e/ou com as ações do robô.
+Cada uma das heurísticas apresentadas na lista acima, foram observadas durante os testes através dos comentários dos participantes. Assim, elas apresentam dependência condicional com os perfis e/ou com as ações do robô. Por exemplo, sobre a questão da visibilidade do estado do sistema (robô), alguns participantes comentaram que o robô poderia sempre informar os próximos passos. Esse comportamento faria com que o participante ficasse mais confortável com o robô pela casa. Sobre a questão da naturalidade dos movimentos e fala, participantes não conseguiram entender os gestos do manipulador, até o que robô falasse algo que complementa o gestos. Isso ocorreu também devido às limitações físicas do manipulador desenvolvido (vide figura~\ref{fig:manipulador}). Após avaliar as heurísticas de \textcite{clarkson:2007} com os comentários dos usuários, definiu-se o conjunto de heurísticas apresentado acima.
 
 \section{Agrupando perfis com o algoritmo QG-SIM}
 \label{sec:preparacao}
@@ -380,7 +380,9 @@ A rede bayesiana da figura~\ref{fig:rb} funciona da seguinte maneira, são fixad
 
 \section{Definindo os valores de probabilidades condicionais}
 \label{sec:tpc}
-Com a estrutura da rede bayesiana definida, antes de utilizá-la para classificar as Personas, é necessário definir as tabelas com os valores das probabilidades condicionais para cada variável. Para construir as tabelas de probabilidades condicionais~(TPC), é feito a análise das respostas nos questionários e sobre as anotações realizados durante o teste de interação. Durante o processo de análise é identificado a frequência dos eventos que envolvem cada variável. A partir da contabilidade dos eventos utilizam-se as equações de teoria de probabilidade apresentadas ao longo da seção~\ref{sec:raciocinio-probabilistico}. As equações devolvem os valores das probabilidades de acordo com os eventos observados. Todos os valores são normalizados para manter a somatória das probabilidades igual a 1. Na sequência, o processo de consumo da rede bayesiana é descrito para auxiliar na classificação do perfil do usuário como Persona.
+Com a estrutura da rede bayesiana definida, antes de utilizá-la para classificar as Personas, é necessário definir as tabelas com os valores das probabilidades condicionais para cada variável. Para construir as tabelas de probabilidades condicionais~(TPC), é feito a análise das respostas nos questionários e sobre as anotações realizados durante o teste de interação. Durante o processo de análise é identificado a frequência dos eventos que envolvem cada variável. Nesse momento conseguimos estipular o valor de cada uma das variáveis, como por exemplo, a Persona Danielo representa 1 participante de 39 no total. Sendo assim, a probabilidade de ser ele é de 2,56\%. O seu complemento deve somar uma probabilidade total de 100\%. No caso a probabilidade de não ser a Persona Danielo é de 97,44\%. Para nós sem dependência condicional, como no caso das Personas, esse cálculo é mais concreto. Contudo, quando mais profundo o nó na rede bayesiana, e mais condicionado a outras variáveis, o cálculo para conseguir definir as probabilidades em 100\% torna-se mais complicado de atingir.
+
+ Então, a partir da contabilidade dos eventos utilizam-se as equações de teoria de probabilidade apresentadas ao longo da seção~\ref{sec:raciocinio-probabilistico}. Todos os valores devem ser normalizados para manter a somatória das probabilidades igual a 1, ou seja, igual a 100\%. A partir do cálculo é possível determinar os valores de consultas e utilizar a rede bayesiana para sua classificação. Dependendo da frequência encontrada, após a normalização a diferença pode ser pequena, principalmente pelo número de variáveis condicionais existentes. Esse problema pode ser solucionado através de mais experimentos e um refinamento da TPC. Os valores de probabilidades condicionais de cada variável são apresentados nos apêndices dessa tese. Na sequência, o processo de consumo da rede bayesiana é descrito para auxiliar na classificação do perfil do usuário como Persona.
 
 \section{Executando a classificação da Persona}
 \label{sec:consumo}

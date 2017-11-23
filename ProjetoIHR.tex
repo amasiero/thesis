@@ -1,7 +1,7 @@
 %!TEX root=Principal.tex
 \chapter{PROJETANDO TESTES EM INTERAÇÃO HUMANO-ROBÔ}
 \label{cap:projetoihr}
-Esse capítulo é dedicado a toda fase de preparação para os testes e estudos em Interação Humano-Robô~(IHR). É apresentado um conjunto de variáveis sobre o robô e o ser humano, e como foram selecionadas para o teste que considera o protocolo de interação. Adicionalmente são apresentados os fatores de projetos que devem ser considerados, preparação do robô e do ambiente e definição do contexto de uso, além da execução do experimento e como é coletada cada informação sobre a IHR. Análise dos primeiros resultados obtidos para criação de um mecanismo probabílistico que auxilie na classificação do usuário. Todos esses pontos estão ilustrados na figura~\ref{fig:experimento}.
+Esse capítulo é dedicado a toda fase de preparação para os testes e estudos em Interação Humano-Robô~(IHR). É apresentado um conjunto de variáveis sobre o robô e o ser humano, e como foram selecionadas para o teste que considera o protocolo de interação. Adicionalmente são apresentados os fatores de projetos que devem ser considerados, preparação do robô e do ambiente e definição do contexto de uso, além da execução do experimento e como é coletada cada informação sobre a IHR. Análise dos primeiros resultados obtidos para criação de um mecanismo probabílistico que auxilie na classificação do usuário. Esse é um passo importante ao projeto de IHR, pois definem os pontos que podem ser escaláveis no projeto e promove uma melhor manutenção do projeto. Todos esses pontos estão ilustrados na figura~\ref{fig:experimento}.
 
 \begin{figure}[ht!]
 	\centering
@@ -29,7 +29,7 @@ As variáveis etnográficas são apresentadas na seção~\ref{sec:etnograficas}.
 
 \subsection{Variáveis Etnográficas}
 \label{sec:etnograficas}
-As variáveis etnográficas tem o objetivo de coletar informações sobre etnia, cultura, costume e outros fatores antropológicos~\cite{borges:2005}. Além dessas informações, esse tipo de variável auxilia na identificação de dados sobre idade, gênero, experiência social e também tecnológica do indivíduo. Todas as informações representadas nos dados etnográficos são relevantes para verificar a adesão do usuário sobre tecnologias novas, qual cultura ele está inserido, e outras informações que podem determinar o nível de interação que ele aceita. Essas informações podem ser capturadas através de questionários e entrevistas. Caso seja uma necessidade do projeto, o robô pode coletar as informações sobre a etnográfia da pessoa através de entrevista. Para o desenvolvimento dessa tese, como as informações etnográficas são para análises do especialista, optou-se pela coleta através do questionário. A lista apresentada a seguir define as variáveis etnográficas e uma breve explicação sobre o significado de cada uma.
+As variáveis etnográficas tem o objetivo de coletar informações sobre etnia, cultura, costume e outros fatores antropológicos~\cite{borges:2005}. Além dessas informações, esse tipo de variável auxilia na identificação de dados sobre idade, gênero, experiência social e também tecnológica do indivíduo. Todas as informações representadas nos dados etnográficos são relevantes para verificar a adesão do usuário sobre tecnologias novas, qual cultura ele está inserido, e outras informações que podem determinar o nível de interação que ele aceita. Essas informações podem ser capturadas através de questionários e entrevistas. Caso seja uma necessidade do projeto, o robô pode coletar as informações sobre a etnográfia da pessoa através de entrevista. Para o desenvolvimento dessa tese, como as informações etnográficas são para análises do especialista, optou-se pela coleta através do questionário. A lista apresentada a seguir define as variáveis etnográficas e uma breve explicação sobre o significado de cada uma:
 
 \begin{enumerate}
 	\item \textbf{Idade}: informa a idade do indivíduo.
@@ -126,7 +126,7 @@ Em engenharia de \emph{software} são estudados vários métodos que auxiliam na
 	\item \textbf{Arquiteturas baseadas em Componentes}: auxilia a lidar com complexidade do projeto e também o reuso e expansão. Cada sensor novo inserido no robô deve ser inserido junto a um novo módulo que captura as informações, consome os dados e entrega as informações para os componentes de tomada de decisão do robô, por exemplo.
 \end{itemize}
 
-Para garantir que as boas práticas sejam aplicadas no projeto, é necessário o uso de algumas ferramentas utilizadas dentro processo de criação de \emph{software}, aqui nessa tese utilizada na criação do projeto de interação humano-robô. O primeiro passo é definir as funcionalidades do sistema, que representam as ações que o robô pode executar. Depois é revisado os sensores e atuadores que contribuem com o objetivo voltado para cada funcionalidade. Por fim, o comportamento do sistema para cada funcionalidade, fechando assim a decrição dos requisitos do robô para o projeto.
+Para garantir que as boas práticas sejam aplicadas no projeto, é necessário o uso de algumas ferramentas utilizadas dentro processo de criação de \emph{software}, aqui nessa tese utilizada na criação do projeto de interação humano-robô. O primeiro passo é definir as funcionalidades do sistema, que representam as ações que o robô pode executar. Depois é revisado os sensores e atuadores que contribuem com o escopo para cada funcionalidade. Por fim, o comportamento do sistema para cada funcionalidade, fechando assim a decrição dos requisitos do robô para o projeto.
 
 \subsection{Definição das funcionalidades do robô}
 \label{sec:funcionalidades}
@@ -299,7 +299,7 @@ Todos os pacotes desenvolvidos utilizaram a linguagem de programação Python, q
 
 \section{Preparando o Ambiente de Teste}
 \label{sec:ambienteteste}
-O teste é realizado em um ambiente que simula uma residência, conforme apresentado na figura~\ref{fig:cenario}. No ambiente, o robô navegará de maneira autonoma a procura de uma garrafa que deixou no armário. Como ele não encontra a garrafa, o robô sai a procura de uma pessoa que esteja na casa para ajuda-lo. Ele interagirá com a pessoa, e poderá solicitar que a pessoa o siga para algum lugar do cenário, à procura de sua garrafa. Essas tarefas estão de acordo com as necessidades do projeto e também do seu contexto de uso, conforme apresentado nas seções anteriores deste capítulo.
+O teste é realizado em um ambiente que simula uma residência, conforme apresentado na figura~\ref{fig:cenario}. No ambiente, o robô navega de maneira autonoma a procura de uma garrafa que deixou no armário. Como ele não encontra a garrafa, o robô sai a procura de uma pessoa que esteja na casa para ajuda-lo. Ele interage com a pessoa, e pode solicitar que a pessoa o siga para algum lugar do cenário, à procura de sua garrafa. Essas tarefas estão de acordo com as necessidades do projeto e também do seu contexto de uso, conforme apresentado nas seções anteriores deste capítulo.
 
 \begin{figure}[ht!]
 	\centering
@@ -315,7 +315,7 @@ O teste é realizado em um ambiente que simula uma residência, conforme apresen
 
 Verificar a compreensão e conforto da pessoa ao observar e interagir com o robô no ambiente doméstico, afim identificar experiências positivas e negativas por parte do usuário.
 
-\subsection{Configuração para o Teste}
+\subsection{Estados de Comportamento do Humano}
 
 Para o teste são consideradas algumas possibilidades de posicionamento da pessoa e robô para interagirem:
 
@@ -328,7 +328,7 @@ Para o teste são consideradas algumas possibilidades de posicionamento da pesso
 
 O objetivo das configurações é a aleatoriedade do posicionamento entre robô e pessoa, considerando cenários doméstico onde o convívio é comum. Assim, é possível medir a experiência do usuário em diversas situações de convivência.
 
-\subsection{Tarefa}
+\subsection{Tarefa do Robô}
 
 Esse teste ocorre em um ambiente controlado, porém o trânsito de outros indíviduos pelo cenário acontece com frequência significativa. O passo a passo da tarefa é descrito na lista a seguir:
 
@@ -347,7 +347,7 @@ As tarefas são definidas com base no contexto de uso ilustrado através da figu
 \label{sec:questionariopreteste}
 Para apoiar o processo de obtenção das informações e construção dos perfis dos usuários, são utilizados dois questionários. O primeiro, aplicado no momento anterior ao experimento de interação, tem como objetivo mapear as informações referentes às características físicas que tem a possibilidade do robô utilizar sensores para reconhecê-las, adesão a tecnologia, contatos prévios com robôs, questões culturais onde o usuário declara quais locais ele possui mais afinidade e quais ele já teve o privilégio de visitar, além da expectativa de possuir um robô em casa ou no trabalho. As questões são apresentadas na tabela~\ref{tab:questoespreteste}, onde a coluna construção contém os grupos de informações que conferem com a parte do perfil que elas auxiliam a preencher conforme apresentado por \textcite{barbosa:2010} e \textcite{baxter:2015}. Todas as questões a seguir fazem parte do questionário pré-experimento.
 
-\begin{longtable}{ m{7 cm} | m{4cm} | m{4cm} }
+\begin{longtable}{ m{7 cm} | m{5cm} | m{4cm} }
 	\caption{Questões aplicadas no questionário pré teste }
 	\label{tab:questoespreteste} \\	\hline
 	Pergunta & Opções & Construção \\ \hline
@@ -369,7 +369,7 @@ Para apoiar o processo de obtenção das informações e construção dos perfis
 	Você possui cartão de crédito digital (ex: Nubank, Digio, etc.) ? & Sim, Não & Atitudes e Valores \\ \hline
 	Qual o principal meio de pagamento de suas contas? & Celular; Computador; Tablet; Autoatendimento; Caixa Físico & Atitudes e Valores \\ \hline
 	Você utiliza redes sociais? & Sim; Não & Experiência com Tecnologias \\ \hline
-	Quais as redes sociais que você mais utiliza (marque 1 ou mais opções): (Se sim, para a resposta anterior) & Facebook, Instagram, Twitter, Google\+, Snapchat, outras& Experiência com Tecnologias \\ \hline
+	Quais as redes sociais que você mais utiliza (marque 1 ou mais opções): (Se sim, para a resposta anterior) & Facebook, Instagram, Twitter, Google Plus, Snapchat, outras & Experiência com Tecnologias \\ \hline
 	Qual foi o local de nascimento? (Informe da seguinte maneira: Cidade; Estado; País) & Texto Aberto & Cultural \\ \hline
 	Em qual local, você viveu por mais tempo durante sua infância e adolescência? (Informe da seguinte maneira: Cidade; Estado; País) & Texto Aberto & Cultural \\ \hline
 	Qual o seu atual local de moradia? (Informe da seguinte maneira: Cidade; Estado; País) & Texto Aberto & Cultural \\ \hline
@@ -383,7 +383,7 @@ Para apoiar o processo de obtenção das informações e construção dos perfis
 	Aproximadamente, quantas cidades na região sudeste do Brasil você visitou? & Numérico & Cultural \\ \hline
 	Aproximadamente, quantas cidades na região sul do Brasil você visitou? & Numérico & Cultural \\ \hline
 	Em algum momento de sua vida, você teve contato com robôs? & Sim; Não & Experiência com Produto \\ \hline
-	Se sim para a questão anterior, quais tipos de robôs você teve contato (marque 1 ou mais opções): Opções de resposta: Parecido com animais, Parecido com pessoas, Robôs de linha de produção/fábrica, Robôs Móveis (que contém rodas), outros  & Experiência com Produto \\ \hline
+	Se sim para a questão anterior, quais tipos de robôs você teve contato (marque 1 ou mais opções): & Parecido com animais, Parecido com pessoas, Robôs de linha de produção/fábrica, Robôs Móveis (que contém rodas), outros  & Experiência com Produto \\ \hline
 	O que você espera do comportamento do Robô ao tê-lo em sua casa? & Texto Aberto & Experiência com Produto \\ \hline
 	O que você espera do comportamento do Robô ao tê-lo em seu trabalho? & Texto Aberto & Experiência com Produto \\ \hline
 	Dadas as questões anteriores, gostaria de fazer mais algum comentário sobre você? & Texto Aberto & Comentários Aberto \\ \hline
