@@ -1,0 +1,819 @@
+%PDF-1.3
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/Contents 4 0 R>>
+endobj
+4 0 obj
+<</Filter /FlateDecode /Length 509>>
+stream
+xúmì¡n⁄@ÜÔ<≈L$ÿxmåqn@°%RT‹[.ºN6≤Ωt◊Nõº- °ßû⁄ËÆ+ñÏZ∆3ﬂÃˇœ⁄«Õ¿caÑüÉyÇ´˜òÁ!…∞LúO‹?éŸ4F6ØF˛1El]˚l:Ü?â\Rí‚‚ñåZ1+S-^1”T?+vâ‰ŸQ?‘Ñ·πÓY‰dåÃ‰éR•1ßWa$ï
+©¿FËLÊHæõ˙†•B]…\æQiC‘ÉgÙlØ’/Y–ÔwÂÍÔ‘√?\ug√idÜ≠Mö]íN]v8‡gÇäΩUÈ{<Í«„é8>·»Æ!Ûûlw≠HÑa! J[Õ•|⁄»™QæZÆ˚”†C¯™•-vN^c£ïm˝I3lrYZDÚ§
+z√ÏG-≠ø7µçÈ>fƒªR™ó∫ È≈QU)Sª—´pu˝`n+ªml’NRŒ‡38™›ñÂ§Ç!∞Å;ë
+”ﬁ2cÜ~–:∏.+°õ}©{ÅFnÁ°Ö}˚<⁄ÆoÌk÷ï?<y”Cˆ[gèæq¥Åam)…ü™Œª◊€Á,
+µÇó9=(M)a/r#M%
+r˜˙Ò4(’ï*ç6j?Å'¬é* ’£>dMò‹‚?vâßå«ò¥≤w™Ä261µøô“•ÿIwt=Ô/Ë˛≤È¢õc;Óˆè&≥
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R ]
+/Count 1
+/MediaBox [0 0 595.28 841.89]
+>>
+endobj
+5 0 obj
+<</Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 5 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+6 0 obj
+<<
+/Producer (FPDF 1.7)
+/CreationDate (D:20171126214804)
+>>
+endobj
+7 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+>>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000666 00000 n 
+0000000849 00000 n 
+0000000009 00000 n 
+0000000087 00000 n 
+0000000753 00000 n 
+0000000953 00000 n 
+0000001028 00000 n 
+trailer
+<<
+/Size 8
+/Root 7 0 R
+/Info 6 0 R
+>>
+startxref
+1077
+%%EOF
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Catalogr√°fica - Centro universit√°rio da FEI</title>    
+    <!-- Bootstrap -->   
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->    
+    <link href="./_Resources/Global/Css/bootstrap.css" rel="stylesheet"/>
+	<link href="./_Resources/Global/Css/font-awesome.css" rel="stylesheet"/>
+	<link href="./_Resources/Global/Css/icomoon.css" rel="stylesheet"/>
+	
+	<link href="./_Resources/Local/Css/ficha.css" rel="stylesheet"/> 
+	<link href="./_Resources/Local/Css/bootstrap-select.css" rel="stylesheet"/>  
+	<link href="./_Resources/Local/Css/bootstrap-tagsinput.css" rel="stylesheet"/>
+	
+	<style type="text/css">
+		.spinner {
+		  width: 130px;
+		}
+		.spinner input {
+		  text-align: right;
+		}
+		.input-group-btn-vertical {
+		  position: relative;
+		  white-space: nowrap;
+		  width: 1%;
+		  vertical-align: middle;
+		  display: table-cell;
+		}
+		.input-group-btn-vertical > .btn {
+		  display: block;
+		  float: none;
+		  width: 100%;
+		  max-width: 100%;
+		  padding: 8px;
+		  margin-left: -1px;
+		  position: relative;
+		  border-radius: 0;
+		}
+		.input-group-btn-vertical > .btn:first-child {
+		  border-top-right-radius: 4px;
+		}
+		.input-group-btn-vertical > .btn:last-child {
+		  margin-top: -2px;
+		  border-bottom-right-radius: 4px;
+		}
+		.input-group-btn-vertical i{
+		  position: absolute;
+		  top: 0;
+		  left: 4px;
+		}
+		
+		/*Fix para colocar pointer no popover*/
+		span[data-toggle="popover"]{ cursor:pointer;}
+		
+		.obg	{color:red;}
+		label[class="error"] { 	display:none !important; }
+		.error { border-color:#A94442 !important; }		 
+		.valid { border-color:#3C763D !important; }
+		
+		/*Fix para corrigir posicionamento dos √≠cones de interroga√ß√£o*/
+		.glyphicon	{	top:0 !important;	}	
+		
+		/*Fix para adaptar o componente de palavras-chave*/
+		.bootstrap-tagsinput{ 
+			width: 100%; 
+			border: 1px solid #bed3e2; 
+			border-radius:0; 
+			height: 34px; 
+			line-height: 1.42857; 
+			box-shadow:none;
+			} 
+			
+		/*.bootstrap-select { border-color: red !important; }*/			
+		
+		/*Classe para controlar quando o sum√°rio deve aparecer ou n√£o.*/
+		.sumario-hidden { display:none; }
+	</style>
+	
+	<script src="./_Resources/Global/JavaScript/jquery.js"></script>
+	<script src="./_Resources/Global/JavaScript/bootstrap.js"></script>
+	<script src="./_Resources/Global/JavaScript/jquery.validate.js"></script>
+	<script src="./_Resources/Global/JavaScript/tooltip.js"></script>
+	
+	
+    <script src="./_Resources/Local/JavaScript/bootstrap-select.js"></script>   
+	<script src="./_Resources/Local/JavaScript/bootstrap-tagsinput.js"></script> 
+	
+	
+    <script type="text/javascript">
+		
+		$(document).ready(function () {
+		
+			//Controla o spinner(sele√ß√£o de ano
+			$('.spinner .btn:first-of-type').on('click', function() {
+				$('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+			});
+			
+			$('.spinner .btn:last-of-type').on('click', function() {
+				$('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+			});
+			
+			//Inicia o componente de tags
+			//$(".tm-input").tagsManager();
+			
+			//Controla a adi√ß√£o e subtra√ß√£o de autores
+			var max_fields      = 20; //maximum input boxes allowed
+			var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+			var add_button      = $(".add_field_button"); //Add button ID
+   
+			var x = 1; //initlal text box count
+			$(add_button).click(function(e){ //on add input button click			
+				e.preventDefault();	
+				
+				if(x < max_fields){ //max input box allowed
+					x++; //text box increment
+					$(wrapper).append(
+					'<div class="form-group">'+				
+						'<label for="autoresNomes" class="control-label col-lg-1 sr-only">Autor(res)</label>'+				
+						'<div class="col-lg-5">'+							
+							'<div class="input-group">'+
+								'<span class="input-group-addon" id="basic-addon1">Nome</span>'+
+								'<input type="text" class="form-control dinamico" name="autoresNomes[]" value="" placeholder="Ex.: Jo√£o Paulo dos" />'+						
+							'</div>' +								
+						'</div>' +
+						'<label for="autoresSobrenomes" class="control-label col-lg-1 sr-only">Autor(res)</label>'+
+						'<div class="col-lg-4">'+							
+							'<div class="input-group">'+								
+								'<span class="input-group-addon input-group-addon-center">Sobrenome</span>'+
+								'<input type="text" class="form-control" name="autoresSobrenomes[]" value="" placeholder="Ex.: Santos Neto"/>'+															
+							'</div>' +										
+						'</div>' +
+					'<a href="#" class="remove_field">Remover</a>' +	
+					'</div>'); //add input box
+				}
+			});
+		   
+			$(wrapper).on("click",".remove_field", function(e){ //user click on remove text				
+				e.preventDefault(); $(this).parent('div').remove(); x--;
+			});
+			
+			//Inicia os popovers
+			$(function () {
+				$('[data-toggle="popover"]').popover()
+			})
+
+			//Valida√ß√µes
+			$.validator.setDefaults({
+				/*OBSERVATION (1): note the options used for "ignore"*/
+				ignore: ':not(select:hidden, input:visible, textarea:visible, input:hidden)',
+
+				/*...other options omitted to focus on the OP...*/
+
+				errorPlacement: function (error, element) {
+					/*OBSERVATION (2): note how selection is on the class "selectpicker"*/
+					if (element.hasClass('selectpicker')) {
+						error.insertAfter('.bootstrap-select');
+						element.addClass('error');
+					} else {
+						error.insertAfter(element);
+					}
+					/*Add other (if...else...) conditions depending on your
+					* validation styling requirements*/
+				}
+			});
+			
+			//Validador personalizado para os campos bootstrap-select
+			$.validator.addMethod('bootstrapSelectRequired', function(value, element) {			
+				
+				var select = $(element).next().children(); 												
+				if(value == '0'){
+				
+					if(!select.hasClass('error'))
+						select.addClass('error');
+						
+					if(select.hasClass('valid'))
+						select.removeClass('valid');
+					
+					select.focus();					
+					return false;
+				}else{
+				
+					if(select.hasClass('error'))
+						select.removeClass('error');
+						
+					if(!select.hasClass('valid'))
+						select.addClass('valid');
+						
+					return true;
+				}				
+				
+			}, 	'Por favor, selecione todos os campos.');
+			
+			//Validador personalizado para o campo de palavras-chave
+			$.validator.addMethod('palavrasChave', function(value, element) {						    			
+				termos = value.split(',');
+				var input = $(element).prev();
+				if(termos.length < 3 || termos.length > 5 ){
+				
+					if(!input.hasClass('error'))
+						input.addClass('error');
+						
+					if(input.hasClass('valid'))
+						input.removeClass('valid');	
+						
+					return false;
+				}else{
+				
+					if(input.hasClass('error'))
+						input.removeClass('error');
+						
+					if(!input.hasClass('valid'))
+						input.addClass('valid');
+						
+					return true;
+				}
+				
+				
+			}, 	'Por favor, indique de 3 a 5 termos.');
+			
+						
+			//Inicia a valida√ß√£o do formul√°rio
+			$('#form_ficha_catalografica').submit(function(){
+				if(!$('.alert').hasClass('sumario-hidden'))
+					$('.alert').addClass('sumario-hidden');
+			})
+			$('#form_ficha_catalografica').validate({     
+				invalidHandler: function(form, validator) {	
+					
+					var errors = validator.numberOfInvalids();
+					if(errors > 0){
+						if($('.alert').hasClass('sumario-hidden'))
+								$('.alert').removeClass('sumario-hidden');
+					}
+						
+					submitted = true;
+				},		
+				showErrors: function(errorMap, errorList) {				
+
+					if (submitted) {
+						var summary = '';
+						$.each(errorList, function() { summary += '<li>' + this.message + '</li>'; });						
+						
+						$('#sumario').html(summary);						
+						submitted = false;
+					}
+					this.defaultShowErrors();
+				},
+				//Fix para habilitar a valida√ß√£o do componente tagsinput no focusout
+				onfocusout: function(element, event){				
+					
+					if($(element).parent().hasClass('bootstrap-tagsinput')){						
+							var palavrasChave = $('#palavrasChave');						
+							$.validator.methods.palavrasChave.call(this, palavrasChave.attr('value') , palavrasChave, element);									
+					}					
+				},
+				/*onfocusout: function(element, event) {
+					this.element(element);
+					$(this).parents().parents().parents().addClass('has-success');
+				},			
+				onkeyup: false,*/				
+				rules: { 
+					'autoresNomes[]': { required: true },
+					'autoresSobrenomes[]': { required: true },
+					titulo: { required: true },					
+					tipoTrabalho: { 'bootstrapSelectRequired': true },
+					orientadorNome: { required: true },
+					orientadorSobrenome: { required: true },
+					coorientadorNome: { required: function(){ if($('#coorientadorSobrenome').val() != '') return true; else return false; } },
+					coorientadorSobrenome: { required: function(){ if($('#coorientadorNome').val() != '') return true; else	return false; } },
+					numeroDe: { required: true, number: true },
+					cidade: { required: true },
+					palavrasChave: { palavrasChave: true },
+					fonte: { 'bootstrapSelectRequired': true },
+					tamanho: { 'bootstrapSelectRequired': true }
+				},
+				messages: {
+					'autoresNomes[]': { required: 'O campo Nome do(s) "Autor(res)" deve ser preenchido.' },
+					'autoresSobrenomes[]': {  required: 'O campo Sobrenome do(s) "Autor(es)" deve ser preenchido.'},
+					titulo: { required: 'O campo T√≠tulo deve ser preenchido.' },					
+					tipoTrabalho: { 'bootstrapSelectRequired': 'O campo Tipo deve ser selecionado.'},
+					orientadorNome: { required: 'O campo Nome do "Orientador" deve ser preenchido.'},
+					orientadorSobrenome: { required: 'O campo Sobrenome do "Orientador" deve ser preenchido.'},
+					coorientadorNome: { required: 'O campo Nome do "Coorientador" deve ser preenchido.'},
+					coorientadorSobrenome: { required: 'O campo Sobrenome do "Coorientador" deve ser preenchido.'},
+					numeroDe:{ 
+						required: 'O campo indicador do n√∫mero de "Folhas" ou "P√°ginas" deve ser preenchido.', 
+						number: 'O campo indicador do n√∫mero de "Folhas" ou "P√°ginas" deve ser num√©rico.'},
+					cidade: { required: 'O campo Cidade deve ser preenchido'},
+					palavrasChave: { palavrasChave: 'O campo Palavras-chave deve ter entre 3 e 5 termos'},
+					fonte: { 'bootstrapSelectRequired': 'O campo Fonte deve ser selecionado.'},
+					tamanho: { 'bootstrapSelectRequired': 'O campo Tamanho deve ser selecionado.'}					
+				}				
+			});
+			
+			//Serve para que a valida√ß√£o funcione para os campos din√¢micos de autores
+			//$('input.dinamico').rules('add', {
+			//	required: true
+			//});
+
+			/*$("#btnExibir").click(function () {			
+				var form = $('#form_ficha_catalografica');
+				form.validate();
+				var isValid = form.valid();
+				if (isValid) { //If there is no validation error
+					dataLayer.push({'event': 'step2', 'eventLabel': 'concluido'});
+				}else{
+				
+				}				
+			});*/			
+			
+		});
+	</script>	
+  </head>
+    
+  <body>
+    
+
+
+<header>
+    <nav class="navbar navbar-default" role="navigation">      
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="#">
+                <img src="./_Resources/Global/Images/logo-fei.png" alt="Centro Universit√°rio da FEI" class="img-responsive" />            
+            </a>
+        </div>
+        <div class="navbar-collapse">
+            
+        </div>
+    </nav>  
+</header>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">            
+	
+			<ul class="breadcrumb">
+				<li style="color:#ffffff;">
+					<a href="http://portal.fei.edu.br/pt-BR/servicos/biblioteca2/Paginas/Bibliotecahome.aspx">                                
+						<span class="glyphicon glyphicon-home"></span>
+						Biblioteca
+					</a>
+				</li>    
+				<li class="active">
+					Ficha Catalogr√°fica
+				</li>        
+			</ul>       
+    
+        </div>
+    </div>
+    <div class="row">  
+        <div class="col-lg-12">                  
+			
+			<div class="alert alert-danger sumario-hidden" role="alert">			
+				<p style="margin-bottom:5px;"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <b>Erro no(s) campo(s) destacado(s) em vermelho:</b></p>
+				<ul id="sumario">
+				</ul>
+			</div>
+			
+			<form action="" method="post" class="form-horizontal" role="form" id="form_ficha_catalografica" target="_blank">    
+				<!--Campos dinamicos-->
+				<div class="input_fields_wrap">
+					<!--Autor(es)-->						
+					<div class="form-group">				
+						<label for="autoresNomes" class="control-label col-lg-1">Autor(es)</label>										
+						<div class="col-lg-5">						
+							<div class="input-group">								
+								<span class="input-group-addon" id="basic-addon1"><span class="obg">*&nbsp;</span>Nome</span>
+								<input type="text" class="form-control" name="autoresNomes[]" id="autoresNomes1" value="" placeholder="Ex.: Jo√£o Paulo dos" />						
+								<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Nome" style="border-left:none;"
+									data-content="Autor do trabalho, primeiro nome e nome intermedi√°rio, 
+											se houver. No caso de mais de um autor, utilizar o recurso 'Adicionar Autor(a).'">
+								</span>
+							</div>
+						</div>	
+						<label for="autoresNomes" class="control-label col-lg-1 sr-only">Sobrenome</label>				
+						<div class="col-lg-5">	
+							<div class="input-group">															
+								<span class="input-group-addon" ><span class="obg">*&nbsp;</span>Sobrenome</span>
+								<input type="text" class="form-control" name="autoresSobrenomes[]" id="autoresSobrenomes1" value="" placeholder="Ex.: Santos Neto"/>							
+								<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Sobrenome" style="border-left:none;"
+									data-content="√öltimo sobrenome do autor.">
+								</span>
+							</div>
+						</div>										<!--<a>&nbsp;</a>-->
+					</div>
+				</div>
+							
+				<div class="form-group"> 				
+					<label class="control-label col-lg-1 sr-only">Adicionar Autor(a)</label>
+					<div class="col-lg-10">						
+						<button type="button" class="btn btn-default add_field_button">Adicionar Autor(a)</button>				
+					</div>
+				</div>
+				
+				<hr />			
+				
+				<div class="form-group">									
+					<label for="titulo" class="control-label col-lg-1">Trabalho</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="obg">*&nbsp;</span>T√≠tulo</span>
+							<input type="text" class="form-control" name="titulo" id="titulo" value="Classificador Bayesiano de Perfil do Usu√°rio utilizando a Aproxima√ß√£o do Rob√¥" placeholder="">
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="T√≠tulo" style="border-left:none;"
+								data-content="Digitar o t√≠tulo do trabalho com apenas a primeira letra em mai√∫scula.">
+							</span>
+						</div>
+					</div>
+					<label for="subtitulo" class="control-label col-lg-1 sr-only">Subt√≠tulo</label>
+					<div class="col-lg-5">	
+						<div class="input-group">	
+							<span class="input-group-addon">Subt√≠tulo</span>
+							<input type="text" class="form-control" name="subtitulo" id="subtitulo" value="" placeholder="">
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Subt√≠tulo" style="border-left:none;"
+								data-content="Caso haja subt√≠tulo, utilizar apenas letras min√∫sculas e sem pontua√ß√£o.">
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">					
+					<label for="orientadorNome" class="control-label col-lg-1 sr-only">Tipo</label>
+					<div class="col-lg-11">
+						<div class="input-group">	
+							<span class="obg">*&nbsp;</span>
+							<select class="form-control selectpicker" name="tipoTrabalho">
+								<option value="0">Tipo...</option>
+								<optgroup label="Gradua√ß√£o">
+									<option value="Trabalho de Conclus√£o de Curso">Trabalho de Conclus√£o de Curso</option>
+								</optgroup>
+								<optgroup label="P√≥s-Gradua√ß√£o">
+									<option value="Monografia" data-subtext="Especializa√ß√£o">Monografia</option>
+									<option value="Disserta√ß√£o" data-subtext="Mestrado">Disserta√ß√£o</option>
+									<option value="Tese" data-subtext="Doutorado">Tese</option>
+								</optgroup>
+							</select>
+							<!--<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Tipo" style="border-left:none;"
+								data-content="">
+							</span>	-->
+						</div>							
+					</div>						
+				</div>
+				
+				<hr />
+
+				<div class="form-group">					
+					<label for="orientadorNome" class="control-label col-lg-1">Orientador</label>
+					<div class="col-lg-5">	
+						<div class="input-group">
+							<span class="input-group-addon"><span class="obg">*&nbsp;</span>Nome</span>					
+							<input type="text" class="form-control" name="orientadorNome" id="orientadorNome" value="Plinio Thomaz" placeholder="" />
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Nome" style="border-left:none;"
+									data-content="Digitar o nome do orientador como aparece na folha de rosto do seu trabalho.">
+							</span>
+						</div>
+					</div>
+					<label for="orientadorNome" class="control-label col-lg-1 sr-only">Sobrenome</label>
+					<div class="col-lg-5">	
+						<div class="input-group">
+							<span class="input-group-addon"><span class="obg">*&nbsp;</span>Sobrenome</span>
+							<input type="text" class="form-control" name="orientadorSobrenome" id="orientadorSobrenome" value="Aquino Junior" placeholder="" />
+								<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Sobrenome" style="border-left:none;"
+									data-content="Digitar o √∫ltimo sobrenome do orientador como aparece na folha de rosto do seu trabalho.">
+								</span>
+						</div>
+					</div>
+				</div>
+					
+				<div class="form-group">
+					<label for="orientadorDoutor" class="control-label col-lg-1 sr-only">Orientadora</label>
+					<div class="col-lg-2">	
+						<div class="input-group">
+							<span class="input-group-addon">Doutor(a)</span>
+							<span class="form-control">
+								<input type="checkbox"  name="orientadorDoutor" id="orientadorDoutor" value="Dr" />								
+							</span>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Doutor(a)" style="border-left:none;"
+								data-content="Acrescenta o t√≠tulo acad√™mico de doutor antes do nome do orientador.">
+							</span>							
+						</div>
+					</div>
+					<label for="orientadorMestre" class="control-label col-lg-1 sr-only">Doutor(a)</label>					
+					<div class="col-lg-2">	
+						<div class="input-group">
+							<span class="input-group-addon">Mestre(a)</span>
+							<span class="form-control">
+								<input type="checkbox"  name="orientadorMestre" id="orientadorMestre" value="Me" />								
+							</span>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Mestre(a)" style="border-left:none;"
+								data-content="Acrescenta o t√≠tulo acad√™mico de Mestre antes do nome do coorientador.">
+							</span>								
+						</div>
+					</div>					
+					<label for="orientadora" class="control-label col-lg-1 sr-only">Orientadora</label>
+					<div class="col-lg-2">	
+						<div class="input-group">
+							<span class="input-group-addon">Orientador<b>a</b></span>
+							<span class="form-control">
+								<input type="checkbox"  name="orientadora" id="orientadora" value="a" />
+							</span>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Orientador(a)" style="border-left:none;"
+								data-content="Adapta o texto relacionado a orienta√ß√£o para o g√™nero feminino.">
+							</span>	
+						</div>
+					</div>
+				</div>
+				
+				<hr />							
+
+				<div class="form-group">					
+					<label for="coorientadorNome" class="control-label col-lg-1">Coorientador</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon">Nome</span>
+							<input type="text" class="form-control" name="coorientadorNome" id="coorientadorNome" value="Flavio" placeholder="">
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Nome" style="border-left:none;"
+								data-content="Digitar o nome do coorientador como aparece na folha de rosto do seu trabalho.">
+							</span>	
+						</div>
+					</div>
+					<label for="coorientadorSobrenome" class="control-label col-lg-1 sr-only">Sobrenome</label>
+					<div class="col-lg-5">
+						<div class="input-group">							
+							<span class="input-group-addon">Sobrenome</span>
+							<input type="text" class="form-control" name="coorientadorSobrenome" id="coorientadorSobrenome" value="Tonidandel" placeholder="">
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Sobrenome" style="border-left:none;"
+								data-content="Digitar o sobrenome do coorientador como aparece na folha de rosto do seu trabalho.">
+							</span>						
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="corientadorDoutor" class="control-label col-lg-1 sr-only">Doutor(a)</label>					
+					<div class="col-lg-2">	
+						<div class="input-group">
+							<span class="input-group-addon">Doutor(a)</span>
+							<span class="form-control">
+								<input type="checkbox"  name="coorientadorDoutor" id="coorientadorDoutor" value="Dr" />								
+							</span>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Doutor(a)" style="border-left:none;"
+								data-content="Acrescenta o t√≠tulo acad√™mico de Doutor antes do nome do coorientador.">
+							</span>	
+						</div>
+					</div>
+					<label for="coorientadorMestre" class="control-label col-lg-1 sr-only">Doutor(a)</label>					
+					<div class="col-lg-2">	
+						<div class="input-group">
+							<span class="input-group-addon">Mestre(a)</span>
+							<span class="form-control">
+								<input type="checkbox"  name="coorientadorMestre" id="coorientadorMestre" value="Me" />								
+							</span>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Mestre(a)" style="border-left:none;"
+								data-content="Acrescenta o t√≠tulo acad√™mico de Mestre antes do nome do coorientador.">
+							</span>								
+						</div>
+					</div>
+					<label for="corientadora" class="control-label col-lg-1 sr-only">Coorientadora</label>
+					<div class="col-lg-2">	
+						<div class="input-group">
+							<span class="input-group-addon">Coorientador<b>a</b></span>
+							<span class="form-control">
+								<input type="checkbox"  name="coorientadora" id="coorientadora" value="a" />								
+							</span>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Orientador(a)" style="border-left:none;"
+								data-content="Adapta o texto relacionado a coorienta√ß√£o para o g√™nero feminino.">
+							</span>	
+						</div>
+					</div>
+				</div>
+				
+				<hr />
+				
+				<div class="form-group">				
+					<label for="ano" class="control-label col-lg-1">Informa√ß√µes</label>	
+					<div class="col-lg-2">																	
+						<div class="input-group">								
+							<div class=" input-group spinner">
+								<span class="input-group-addon">
+									Ano
+								</span>
+								<input type="text" class="form-control" name="ano" id="ano" value="2017" readonly="readonly" style="width:60px;">
+								<div class="input-group-btn-vertical">
+									<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+									<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+								</div>	
+							</div>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Ano"  style="border-left:none;"
+								data-content="O ano da entrega do trabalho deve ser o mesmo da folha de rosto.">
+							</span>	
+						</div>						
+					</div>
+		
+					<label  class="control-label col-lg-1 sr-only">N√∫mero de...</label>					 					
+					<div class="col-lg-3">					
+						<div class="input-group">
+							<span class="input-group-addon">
+								<span class="obg">*&nbsp;</span>
+								Folhas <input type="radio" aria-label="..." name="tipoContagem" value="f" checked="checked">
+							</span>
+							<span class="input-group-addon">
+								P√°ginas <input type="radio" aria-label="..." name="tipoContagem" value="p">
+							</span>	
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Folhas ou P√°ginas."  style="border-left:none;"
+								data-content="No caso do seu trabalho ter apenas 'frente' (at√© 100 folhas), escolha a op√ß√£o 'folhas', 
+								              se tiver 'frente e verso' (acima de 100 folhas), escolha a op√ß√£o 'p√°ginas'.">
+							</span>									
+
+							<input type="text" class="form-control" name="numeroDe" id="numeroDe" value="161" placeholder="Ex.:60" style="width:70px;" />								
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="N√∫mero de..."  style="border-left:none;"
+								data-content="Indicar o n√∫mero de folhas ou p√°ginas do seu trabalho.">
+							</span>	
+						</div>
+					</div>
+					
+					<label for="cidade" class="control-label col-lg-1 sr-only">Possui ilustra√ß√µes</label>					
+					<div class="col-lg-2">
+						<div class="input-group">
+							<span class="input-group-addon">
+								Possui ilustra√ß√µes							
+							</span>	
+							<span class="form-control">
+								<input type="checkbox"  name="possuiIlustracoes" id="possuiIlustracoes" value=": il." />						
+							</span>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Possui ilustra√ß√µes"  style="border-left:none;"
+								data-content="Marcar esta op√ß√£o caso o seu trabalho tenha figuras, quadros, tabelas ou fotos.">
+							</span>							
+						</div>							
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="cidade" class="control-label col-lg-1 sr-only">Cidade</label>
+					<div class="col-lg-11">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<span class="obg">*&nbsp;</span>Cidade
+							</span>						
+							<input type="text" class="form-control" name="cidade" id="cidade" value="S√£o Bernardo do Campo" placeholder="Ex.: S√£o Bernardo do Campo">						
+						</div>
+					</div>					
+				</div>
+				
+				<div class="form-group">
+					<label for="palavrasChave" class="control-label col-lg-1 sr-only">Palavras-chave</label>
+					<div class="col-lg-11">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<span class="obg">*&nbsp;</span>Palavras-chave
+							</span>							
+							<input type="text" class="form-control" name="palavrasChave" id="palavrasChave" value="1. Rob√≥tica Social. 2.  Proximidade. 3.  Redes Bayesianas. 4.  Intera√ß√£o Humano-Rob√¥. 5.  QG-SIM. " data-role="tagsinput" />
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Palavras-chave" 
+								data-content="Colocar as palavras-chave que est√£o abaixo do resumo do trabalho (entre 3 e 5 termos).">
+							</span>
+						</div>
+						<p class="help-block">Utilizar v√≠rgula ou enter para separar as palavras. (Entre 3 e 5 termos)</p>								
+					</div>						
+				</div>
+				
+				<hr />
+				
+				<!--Op√ß√µes-->
+				<div class="form-group">					
+						<label for="fonte" class="control-label col-lg-1 sr-only">Fonte</label>
+						<div class="col-lg-3">
+						<div class="input-group">					
+						<span class="obg">*&nbsp;</span>
+						<select class="form-control selectpicker" name="fonte">
+							<option value="0">Fonte...</option>
+							<option value="Times">Times New Roman</option>
+							<option value="Arial">Arial</option>
+						</select>
+							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Fonte" 
+								data-content="Selecionar a mesma fonte utilizada na formata√ß√£o do seu trabalho">
+							</span>								
+					</div>						
+				</div>
+					<label for="fonte" class="control-label col-lg-1 sr-only">Tamanho</label>
+					<div class="col-lg-3">		
+					<div class="input-group">					
+						<span class="obg">*&nbsp;</span>
+						<select class="form-control selectpicker" name="tamanho">						
+							<option value="0">Tamanho...</option>
+							<option value="9">09</option>
+							<option value="10">10</option>
+						</select>
+						<!--<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Tamanho" 
+								data-content="Utilizar o mesmo tamanho de fonte utilizado no seu trabalho.">
+						</span>-->
+					</div>	
+</div>					
+				</div>
+				
+				<hr />
+				<!--</div>-->
+			</div>
+				<input type="hidden" name="IsPostBack" value="true" />
+				<input type="submit" name="acao" value="Exibir" id="btnExibir" class="btn btn-default" />
+				<!--<a href="./Index.php?" data-target="#modal-padrao" data-toggle="modal" class="btn btn-default">Exibir</a>-->
+				<input type="submit" name="acao" value="Baixar" id="btnBaixar" class="btn btn-primary" />
+			</form>
+    
+			
+
+    </div>
+</div>
+
+<hr />
+<footer>
+    <div class="container" style="padding:15px;">        
+        <small style="font-size:11px;">2017 - Centro universit√°rio FEI - Todos os direitos reservados</small>        
+    </div>
+</footer>
+
+        
+    <!-- Modal -->
+<div class="modal fade" id="modal-padrao" tabindex="-1" role="dialog" aria-labelledby="modal-padrao-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="modal-padrao-label">Portal</h4>
+      </div>
+      <div class="modal-body">
+        <span style="text-align:center;display:block;">Carregando...</span>
+      </div>     
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar Mudan√ßas</button>
+      </div>-->
+    </div>
+  </div>
+</div>
+    <script src="./_Resources/Global/JavaScript/respond.js"></script>
+  
+  </body>
+</html>
