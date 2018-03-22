@@ -1,7 +1,7 @@
 %!TEX root=Principal.tex
-\chapter{CLASSIFICADOR BAYESIANO DO USUÁRIO: ESTUDO DE CASO}
+\chapter{ESTUDO DE CASO}
 \label{cap:estudocaso}
-Com o método para construção de projetos de interação humano-robô centrado no usuário especificado no capítulo~\ref{cap:projetoihr}, um estudo de caso é apresentado. O escopo deste estudo de caso é a criação de um classificador Bayesiano construído com base nas ações do robô e informações de comportamento e percepção do usuário para identificar Personas, durante a aproximação do robô em um ambiente doméstico. A partir desse escopo é iniciado o desenvolvimento do classificador, a partir da definição das variáveis.
+Com o método para construção de projetos de interação humano-robô centrado no usuário especificado no capítulo~\ref{cap:projetoihr}, um estudo de caso é apresentado. O escopo deste estudo de caso envolve a aproximação do robô para o ser humano em um ambiente doméstico simulado. Na etapa do mecanismo de tomada de decisão proposta no método é criado de um classificador Bayesiano para ilustrar essa etapa detalhadamente. As informações das ações do robô e informações de comportamento e percepção do usuário são consumidos para construção do classificador. A classificação do usuário é feita no formato de Personas, conforme proposto no método apresentado por essa tese no capítulo~\ref{cap:projetoihr}. A partir desse escopo é iniciado o desenvolvimento do classificador, a partir da definição das variáveis.
 
 \section{VARIÁVEIS DE OBSERVAÇÃO}
 \label{sec:ec_variaveis}
@@ -74,7 +74,7 @@ Alguns exemplos sobre os domínios das variáveis podem auxiliar a compreender q
 	        \caption{Triste}
 	        \label{fig:triste}
     	\end{subfigure}
-		\smallcaption{Fonte: o autor.}
+		\smallcaption{Fonte: adaptado de \cite{gonbata:2016}.}
 		\label{fig:dominioexpressoesfaciais}
 	\end{minipage}
 \end{figure}
@@ -111,12 +111,12 @@ Para apoiar o processo de obtenção das informações e construção dos perfis
 	e-mail para contato & Texto Aberto & Contato Usuário \\ \hline
 	Informe o número do seu celular & Texto Aberto & Contato Usuário \\ \hline
 	Testes poderão ocorrer usando o Robô no Centro Universitário FEI. Você gostaria de realizar o teste com o robô físico? & Sim; Não & Contato Usuário \\ \hline
-	Qual a sua idade? (em anos) & Númerico & Demográfico \\ \hline
-	Qual a sua altura? (em metros) & Númerico & Demográfico \\ \hline
+	Qual a sua idade? (em anos) & Numérico & Demográfico \\ \hline
+	Qual a sua altura? (em metros) & Numérico & Demográfico \\ \hline
 	Informa seu gênero & Feminino; Masculino; Prefiro não dizer & Demográfico \\ \hline
 	Na maior parte do tempo, você se considera uma pessoa com feição: & Sorridente; Normal; Séria/Fechada & Social \\ \hline
 	Você se considera uma pessoa sociável? & Sim; Não & Social \\ \hline
-	Você utiliza óculos de grau? (Obs: Pessoas com lente de contato, por favor, repondam não. A intenção é identificar a armação.) & Sim; Não & Físico \\ \hline
+	Você utiliza óculos de grau? (Obs: Pessoas com lente de contato, por favor, respondam não. A intenção é identificar a armação.) & Sim; Não & Físico \\ \hline
 	Você possui cabelo comprido? & Sim; Não & Físico \\ \hline
 	Qual etnia você se considera? & Amarela; Branca; Indígena; Parda; Preta; Não declarada & Etnográfico \\ \hline
 	Qual(is) dispositivo(s) tecnológico(s) você mais utiliza (marque 1 ou mais opções): & Celular; Computador (de mesa ou notebook); Tablet; Smart TV; Relógio Smart; MP3 Player; Câmera Fotográfica Digital; Leitor de e-Book; outros & Experiência com Tecnologias \\ \hline
@@ -237,7 +237,7 @@ Cada uma das nove funcionalidades apresentadas na tabela~\ref{tab:funcionalidade
 
 \section{SENSORES E ATUADORES}
 \label{sec:ec_sensoresatuadores}
-Com a lista de funcionalidades definidas, agora é necessário determinar quais são os sensores e atuadores do robô que são capazes de atender cada uma das necessidades do projeto. Para a primeira funcionalidade F01 - Reconhecer o ambiente, o robô precisa de dois tipos de sensores, \emph{laser}s e câmeras de video. Esses sensores são capazes de determinar a distância entre um obstáculo e o robô, e também determinar o que ele enxerga no ambiente. Os atuadores envolvidos são os motores e servo-motores responsáveis pela locomoção do robô e movimento do manipulador.
+Com a lista de funcionalidades definidas, agora é necessário determinar quais são os sensores e atuadores do robô que são capazes de atender cada uma das necessidades do projeto. Para a primeira funcionalidade F01 - Reconhecer o ambiente, o robô precisa de dois tipos de sensores, \emph{laser}s e câmeras de vídeo. Esses sensores são capazes de determinar a distância entre um obstáculo e o robô, e também determinar o que ele enxerga no ambiente. Os atuadores envolvidos são os motores e servo-motores responsáveis pela locomoção do robô e movimento do manipulador.
 
 Na funcionalidade F02 - Controlar Velocidade de Navegação, o robô necessita identificar quais são os obstáculos mais próximos para determinar qual velocidade ele por exercer na navegação. Para isso, é utilizado sensores \emph{laser}s e atuação nos motores de movimentação do robô. A F02 está ligada a funcionalidade F03 - Controlar Proximidade da Pessoa. Na F03 o robô precisa de um sensor \emph{laser} de movimento, como o Microsoft\textregistered\ Kinect\textregistered\ ou ASUS\textregistered\ Xtion\textregistered\, entre outros. Esses sensores conseguem determinar não só a profundidade entre obstáculos e o robô, mas também conseguem determinar o local da pessoa e quais partes do corpo dela estão mais próximas do robô. Dessa forma, é possível determinar a velocidade do motor para que o robô não atropele ou se aproxime de maneira ofensiva da pessoa.
 
@@ -260,7 +260,7 @@ A tabela~\ref{tab:sensoresatuadores} apresenta a síntese dos sensores e atuador
         \hhline{~-}
         & Sensor de movimento Microsoft\textregistered\ Kinect\textregistered \\
         \hhline{~-}
-        & Camera de video \\
+        & Câmera de vídeo \\
 		\hhline{~-}
         & Microfone direcional do tipo shotgun (longo alcance) \\
         \hline
@@ -276,7 +276,7 @@ A tabela~\ref{tab:sensoresatuadores} apresenta a síntese dos sensores e atuador
 	\smallcaption{Fonte: O autor.}
 \end{table}
 
-Os detalhes de implementação de cada sensor e atuador listado na tabela~\ref{tab:sensoresatuadores}, é apresentado na seção~\ref{sec:ec_robo} onde é discutido a preparação do robô para execução dos testes realizados. A seguir, na seção~\ref{sec:comportamentoesperado} é apresentado o comportamento que espera-se do robô ao atender as funcionalidades definidas.
+Os detalhes de implementação de cada sensor e atuador listado na tabela~\ref{tab:sensoresatuadores}, é apresentado na seção~\ref{sec:ec_robo} onde é discutido a preparação do robô para execução dos testes realizados. 
 
 \section{CENÁRIO DE TESTE}
 \label{sec:ambienteteste}
@@ -362,7 +362,7 @@ Além do manipulador, também foi acoplado um \emph{tablet} para que seja possí
 	\end{minipage}
 \end{figure}
 
-O projeto da cabeça foi preparado para acomplar alguns alguns sensores como o Microsoft\textregistered\ Kinect\textregistered\ , o ASUS\textregistered\ Xtion\textregistered\ e webcams, para tarefas que envolvam nuvem de pontos de profundidade e visão computacional. Sensores como \emph{laser}s e microfones também foram instalados para melhorar a captura de informações sobre o ambiente e interagir melhor com a pessoa. O sensor \emph{laser} utilizado foi o Hokuyo URG-04LX-UG01 que possui um alcance de 5 metros, suficiente para navegação em um ambiente doméstico. O microfone, por se tratar de um ambiente com ruído e que a interação possuí diferentes distâncias para ocorrer, optou-se por um tipo \emph{shotgun} que tem o alcance de aproximadamente 2 metros. O modelo do microfone é o RODE Videomic Pro. O desenvolvimento do manipulador e da cabeça do robô foram realizados no projeto apresentado por \textcite{gonbata:2016} que ocorreu em paralelo, durante a preparação do robô.
+O projeto da cabeça foi preparado para acoplar alguns sensores como o Microsoft\textregistered\ Kinect\textregistered\ , o ASUS\textregistered\ Xtion\textregistered\ e webcams, para tarefas que envolvam nuvem de pontos de profundidade e visão computacional. Sensores como \emph{laser}s e microfones também foram instalados para melhorar a captura de informações sobre o ambiente e interagir melhor com a pessoa. O sensor \emph{laser} utilizado foi o Hokuyo URG-04LX-UG01 que possui um alcance de 5 metros, suficiente para navegação em um ambiente doméstico. O microfone, por se tratar de um ambiente com ruído e que a interação possuí diferentes distâncias para ocorrer, optou-se por um tipo \emph{shotgun} que tem o alcance de aproximadamente 2 metros. O modelo do microfone é o RODE Videomic Pro. O desenvolvimento do manipulador e da cabeça do robô foram realizados no projeto apresentado por \textcite{gonbata:2016} que ocorreu em paralelo, durante a preparação do robô.
 
 Durante os primeiros testes, a base do Peoplebot sofreu uma avaria e foi substituída por uma base da KUKA. É uma base com rodas omnidirecionais que proporcionam uma maior mobilidade de direções para o robô. A figura~\ref{fig:newjudith} apresenta a montagem final do robô para realização dos testes de interação na residência.
 
@@ -432,17 +432,17 @@ Todos os pacotes desenvolvidos utilizaram a linguagem de programação Python, q
 
 \section{TESTES PILOTO}
 \label{sec:ec_testespiloto}
-Nesse ponto o usuário é convidado a interagir com o robô. O especialista posiciona o usuário no ambiente de teste, onde ele pode ficar sentado ou em pé. Câmeras são posicionada de maneira que o possam capturar as reações que o usuário terá durante toda a interação com o robô. O especialista explica todos os procedimentos do experimento e da o sinal para que o robô inicie o teste. O sinal ocorre através de um comando de voz para o robô. Durante todo o experimento o usuário é incentivado a falar em voz alta o que está passando pela sua cabeça. Com as informações faladas e observações visuais, que são feitas pelo próprio especialista, são gerados pontos de atenção para melhoria e até pontos de sucesso no projeto. Ao final, o usuário é encaminhado para preencher o questionário pós teste, apresentado em detalhes na seção~\ref{sec:questionarioposteste}.
+Antes de realizar o teste piloto é importante que o projeto submetido ao comitê de ética esteja aprovado, vide apêndice~\ref{ap:projeto}. Nesse ponto o usuário é convidado a interagir com o robô. O especialista posiciona o usuário no ambiente de teste, onde ele pode ficar sentado ou em pé. Câmeras são posicionada de maneira que o possam capturar as reações que o usuário terá durante toda a interação com o robô. O especialista explica todos os procedimentos do experimento e da o sinal para que o robô inicie o teste. O sinal ocorre através de um comando de voz para o robô. Durante todo o experimento o usuário é incentivado a falar em voz alta o que está passando pela sua cabeça. Com as informações faladas e observações visuais, que são feitas pelo próprio especialista, são gerados pontos de atenção para melhoria e até pontos de sucesso no projeto. Ao final, o usuário é encaminhado para preencher o questionário pós teste, apresentado em detalhes na seção~\ref{sec:questionarioposteste}.
 
-É importante delimitar os usuários que farão o testes de maneira criteriosa. Os perfis dos selecionados podem levar a diferentes resultados na interação. Os usuários selecionados para realizar o teste, são denominados de sujeito de teste. Nessa tese o seguinte perfil foi utilizado: pessoas que possuem idades diversificadas com variedade de 18 a 70 anos. Alguns candidatos ao teste possuem medo declarado de robôs e neste caso o especialista ficará acompanhando o teste com uma maior proximidade para evitar problemas com o robô e principalmente com a pessoa.
+É importante delimitar os usuários que farão os testes de maneira criteriosa. Os perfis dos selecionados podem levar a diferentes resultados na interação. Os usuários selecionados para realizar o teste, são denominados de sujeito de teste. Nessa tese o seguinte perfil foi utilizado: pessoas que possuem idades diversificadas com variedade de 18 a 70 anos. Alguns candidatos ao teste possuem medo declarado de robôs e neste caso o especialista ficará acompanhando o teste com uma maior proximidade para evitar problemas com o robô e principalmente com a pessoa.
 
 São evitados a repetição de configuração entre os candidatos, para que não seja levantado nenhum conhecimento a priori sobre o comportamento do robô.
 
 \subsection{Heurísticas de Interação Humano-Robô}
 \label{sec:heuristicas}
-Durante os testes piloto, percebeu-se que algumas heurística de avaliação de interação foram percebidas pelo usuário. Dessa maneira, foi realizado um trabalho para inclusão das variáveis na lista de variáveis de observação. 
+Durante os testes piloto, percebeu-se que algumas heurísticas de avaliação de interação foram percebidas pelo usuário. Dessa maneira, foi realizado um trabalho para inclusão das variáveis na lista de variáveis de observação. 
 
-Avaliação heurística é um método utilizado por especialistas em usabilidade para verificar problemas de interação em interfaces de sistemas e produtos. \citeonline{nielsen:1994} apresenta 10 heurísticas para avaliações de interfaces em sistemas web (vide seção~\ref{sec:avaliacao}). As heurísticas de Nielsen tem sido amplamente utilizadas ao longo dos tempos para sites e sistemas desktop. Alguns trabalhos discutidos ao longo da seção~\ref{sec:ihrux} apresentam modificações das heurísticas de Nielsen para o cenário de interação humano-robô.
+Avaliação heurística é um método utilizado por especialistas em usabilidade para verificar problemas de interação em interfaces de sistemas e produtos. \citeonline{nielsen:1994} apresenta 10 heurísticas para avaliações de interfaces em sistemas web (vide seção~\ref{sec:avaliacao}). As heurísticas de Nielsen têm sido amplamente utilizadas ao longo dos tempos para sites e sistemas desktop. Alguns trabalhos discutidos ao longo da seção~\ref{sec:ihrux} apresentam modificações das heurísticas de Nielsen para o cenário de interação humano-robô.
 
 Nos questionários pré e pós teste preenchido pelos usuários, notou-se que apontavam no robô a falta ou a presença de características que representavam as heurísticas de avaliação. Cada usuário dava mais atenção a determinadas características, que compunham diferentes perfis de interação. Assim, as heurísticas de avaliação apresentadas pela literatura foram estudadas. A partir desse estudo, verificou-se que as heurísticas mais presentes nos comentários dos usuários, também estavam presentes nas listas contidas na literatura. Dentre as heurísticas que apresentam uma descrição de maior aplicabilidade em robótica social e interação humano-robô estão as heurísticas de \citeonline{clarkson:2007} (vide tabela~\ref{tab:heuristicasihr}).
 
@@ -455,7 +455,7 @@ Nesse momento é realizado a seleção das heurísticas em comum com os comentá
 	\item Ajudar o usuário a reconhecer, diagnosticar, e recuperar de erros.
 \end{itemize}
 
-Cada uma das heurísticas apresentadas na lista acima, foram observadas durante os testes através dos comentários dos participantes. Assim, elas apresentam dependência condicional com os perfis e/ou com as ações do robô. Por exemplo, sobre a questão da visibilidade do estado do sistema (robô), alguns participantes comentaram que o robô poderia sempre informar os próximos passos. Esse comportamento faria com que o participante ficasse mais confortável com o robô pela casa. Sobre a questão da naturalidade dos movimentos e fala, participantes não conseguiram entender os gestos do manipulador, até o que robô falasse algo que complementa o gestos. Isso ocorreu também devido às limitações físicas do manipulador desenvolvido (vide figura~\ref{fig:manipulador}). Após avaliar as heurísticas de \textcite{clarkson:2007} com os comentários dos usuários, definiu-se o conjunto de heurísticas apresentado acima.
+Cada uma das heurísticas apresentadas na lista acima, foram observadas durante os testes através dos comentários dos participantes. Assim, elas apresentam dependência condicional com os perfis e/ou com as ações do robô. Por exemplo, sobre a questão da visibilidade do estado do sistema (robô), alguns participantes comentaram que o robô poderia sempre informar os próximos passos. Esse comportamento faria com que o participante ficasse mais confortável com o robô pela casa. Sobre a questão da naturalidade dos movimentos e fala, participantes não conseguiram entender os gestos do manipulador, até o que robô falasse algo que complementa os gestos. Isso ocorreu também devido às limitações físicas do manipulador desenvolvido (vide figura~\ref{fig:manipulador}). Após avaliar as heurísticas de \textcite{clarkson:2007} com os comentários dos usuários, definiu-se o conjunto de heurísticas apresentado acima.
 
 \section{CRIAÇÃO DAS PERSONAS}
 \label{sec:ec_personas}
@@ -511,7 +511,7 @@ Cinco Personas foram construídas. Essas são apresentadas nas tabelas~\ref{tab:
 		\hline
 		Descrição: & Aos 24 anos, rapaz de estatura normal, por volta de 1,75m, está sempre com um belo sorriso no rosto, faça chuva ou faça sol. Sempre \textbf{tem pessoas a sua volta, gosta de contar piadas e fazer todos sorrirem}. Morador da cidade de São Bernardo do Campo, mas sempre que pode vai para o litoral paulista visitar os pais e curtir uma praia. Usa computador para fazer os trabalhos da faculdade e \textbf{passa grande parte do seu tempo no celular}. Não possui serviços financeiros digitas, pois ainda não conseguiu a aprovação do cadastro. Quando se trata de internet banking, \textbf{acredita que o seu computador é mais seguro que o uso de celular}.
 
-		Alfredo vive antenado nas redes sociais, como Twitter, Instagram e Facebook. Ajudam ele a ficar conectado com as últimas notícias e eventos a sua volta. Tem um sonho de viajar para o exterior, mas isso ainda não foi possível, em compensação pelo Brasil já visitou mais de 30 cidades, a maioria na região Sudeste. Na universidade, através do curso de engenharia de automação, teve contato com robôs de fábrica e móveis conforme os laboratórios das disciplinas ocorriam. Quando perguntam a Alfredo o que ele espera de um robô doméstico e também um robô no trabalho, ele diz que \textbf{robôs devem executar as tarefas propostas de maneira eficiente e que seu interação seja toda por comando de voz}.\\
+		Alfredo vive antenado nas redes sociais, como Twitter, Instagram e Facebook. Ajudam ele a ficar conectado com as últimas notícias e eventos a sua volta. Tem um sonho de viajar para o exterior, mas isso ainda não foi possível, em compensação pelo Brasil já visitou mais de 30 cidades, a maioria na região Sudeste. Na universidade, através do curso de engenharia de automação, teve contato com robôs de fábrica e móveis conforme os laboratórios das disciplinas ocorriam. Quando perguntam a Alfredo o que ele espera de um robô doméstico e também um robô no trabalho, ele diz que \textbf{robôs devem executar as tarefas propostas de maneira eficiente e que sua interação seja toda por comando de voz}.\\
 		\hline
 	\end{tabular}
 	\smallcaption{Fonte: O autor.}
@@ -527,7 +527,7 @@ Cinco Personas foram construídas. Essas são apresentadas nas tabelas~\ref{tab:
 		\hline
 		Nome: & Danielo \\
 		\hline
-		Descrição: & Com 27 anos de idade, 1,83m, Danielo está sempre na \textbf{academia para treinar com seus amigos}. Mora em São Bernardo do Campo, e utiliza seu computador para fazer seu trabalho e o celular para manter contato com seus amigos. \textbf{Nunca quis saber de leitores de e-book, pois acha sua tecnologia sem utilidade nos dias atuais}. A sua única rede social é o Facebook. Ele acha que já toma tempo o suficiente e não precisa de outras para ver a mesma coisa. Danielo é um rapaz que já viajou bastante. Já visitou 3 países latinos e no Brasil visitou mais de 90 cidades, concetradas em sua grande parte, na região Sudeste. O contato com robôs é limitado e restrito a robôs de fábrica. Em casa \textbf{ele acredita que o robô será parecido com seres humanos para fazer as atividades domésticas, e no trabalho substituirão seres humanos em trabalhos repetitivos}, como nas fábricas e linha de produção.\\
+		Descrição: & Com 27 anos de idade, 1,83m, Danielo está sempre na \textbf{academia para treinar com seus amigos}. Mora em São Bernardo do Campo, e utiliza seu computador para fazer seu trabalho e o celular para manter contato com seus amigos. \textbf{Nunca quis saber de leitores de e-book, pois acha sua tecnologia sem utilidade nos dias atuais}. A sua única rede social é o Facebook. Ele acha que já toma tempo o suficiente e não precisa de outras para ver a mesma coisa. Danielo é um rapaz que já viajou bastante. Já visitou 3 países latinos e no Brasil visitou mais de 90 cidades, concentradas em sua grande parte, na região Sudeste. O contato com robôs é limitado e restrito a robôs de fábrica. Em casa \textbf{ele acredita que o robô será parecido com seres humanos para fazer as atividades domésticas, e no trabalho substituirão seres humanos em trabalhos repetitivos}, como nas fábricas e linha de produção.\\
 		\hline
 	\end{tabular}
 	\smallcaption{Fonte: O autor.}
@@ -543,9 +543,9 @@ Cinco Personas foram construídas. Essas são apresentadas nas tabelas~\ref{tab:
 		\hline
 		Nome: & Manuel \\
 		\hline
-		Descrição: & Aos 33 anos, 1,85 m,  Manuel um professor universitário sempre sorridente. Seus alunos sempre o procuram para esclarecer dúvidas e pedir conselhos. Mora em São Bernardo do Campo, próximo ao seu local de trabalho, por que adora o conforto de ir em sua casa poder almoçar uma comida fresca. Acredita que tem uma melhor qualidade de vida assim. \textbf{Não é muito fã de tecnologia de ponta, então fica contente em ter seu computador, onde resolve tudo que pode. Digitalmente, considera-se antisocial e não mantém cadastro em nenhuma rede social}.
+		Descrição: & Aos 33 anos, 1,85 m,  Manuel um professor universitário sempre sorridente. Seus alunos sempre o procuram para esclarecer dúvidas e pedir conselhos. Mora em São Bernardo do Campo, próximo ao seu local de trabalho, por que adora o conforto de ir em sua casa poder almoçar uma comida fresca. Acredita que tem uma melhor qualidade de vida assim. \textbf{Não é muito fã de tecnologia de ponta, então fica contente em ter seu computador, onde resolve tudo que pode. Digitalmente, considera-se antissocial e não mantém cadastro em nenhuma rede social}.
 
-		Já visitou paises pela Europa, África, América do Norte e do Sul. No Brasil, seu foco de visitar está na região Sudeste, principalmente o estado de Minas Gerais. No total já percorreu mais de 62 cidades pelo país. Como professor, sua linha linha de pesquisa principal de estudos é a robótica, fazendo com que tenha contato com todos os tipos de robôs. \textbf{Em casa, pensa em ter um robô para atender suas necessidades}, assim como no trabalho. Porém, o robô \textbf{no trabalho deve atender também as necessidades e expectativas da empresa}.\\
+		Já visitou países pela Europa, África, América do Norte e do Sul. No Brasil, seu foco de visitar está na região Sudeste, principalmente o estado de Minas Gerais. No total já percorreu mais de 62 cidades pelo país. Como professor, sua linha de pesquisa principal de estudos é a robótica, fazendo com que tenha contato com todos os tipos de robôs. \textbf{Em casa, pensa em ter um robô para atender suas necessidades}, assim como no trabalho. Porém, o robô \textbf{no trabalho deve atender também as necessidades e expectativas da empresa}.\\
 		\hline
 	\end{tabular}
 	\smallcaption{Fonte: O autor.}
@@ -586,7 +586,7 @@ Os nós raízes da rede Bayesiana são compostos pelas 5 Personas apresentadas n
 
 As variáveis são nomeadas com letras minúsculas, pois são variáveis com apenas dois valores representando ser ou não ser. Essa notação segue a convenção apresentada por \citeonline{russell:2002}.
 
-Seguindo com a construção da rede, cada nó interno foi considerado com base nas variáveis criadas a partir das heurísticas de interação humano-robô, das ações do robô e também do contexto de uso e ambiente de teste. As independências condicionais entre cada nó foi observado pelos comentários de cada usuário durante os testes. O processo de criação dos nós é detalhado na sequência. A inclusão dos nós é feita com base nas variáveis apresentadas na tabela~\ref{tab:variaveisvalores}.
+Seguindo com a construção da rede, cada nó interno foi considerado com base nas variáveis criadas a partir das heurísticas de interação humano-robô, das ações do robô e também do contexto de uso e ambiente de teste. As independências condicionais entre cada nó foram observadas pelos comentários de cada usuário durante os testes. O processo de criação dos nós é detalhado na sequência. A inclusão dos nós é feita com base nas variáveis apresentadas na tabela~\ref{tab:variaveisvalores}.
 
 O nó Proximidade leva em consideração os espaços sociais definidos por \citeonline{hall:1969}. O domínio foi simplificado para \{perto, longe\}, pois durante os testes pilotos a reação do usuário era a mesma entre as regiões íntima e pessoal (perto) e as regiões social e pública (longe). A dependência condicional foi aplicada de acordo com a declaração explícita entre os perfis que sentiram algum desconforto com a aproximação do robô. A equação~\ref{eq:proximidade} define o cálculo de probabilidade condicional para a variável aleatória Proximidade.
 
@@ -595,7 +595,7 @@ O nó Proximidade leva em consideração os espaços sociais definidos por \cite
 	P(proximidade | joaquim, alfredo, danielo)
 \end{equation}
 
-A próxima variável aleatória inserida é a Posição da pessoa no ambiente. O domínio dessa variável é determinado por \{sentado, em pé\}. Ela foi observada durante a prova de reconhecimento de pessoas e aproximação do robô na RoboCup de 2016. Nesse cenário, as pessoas que estavam sentadas ficavam bem desconfortáveis com a aproximação do robô, principalmente com relação ao seu manipulador. Nos teste pilotos, a situação demonstrou-se a mesma. As pessoas que estavam sentadas demonstravam um comportamento mais apreensivo do que as em pé. A equação~\ref{eq:posicao} apresenta o cálculo de probabilidade condicional para a variável Posicao.
+A próxima variável aleatória inserida é a Posição da pessoa no ambiente. O domínio dessa variável é determinado por \{sentado, em pé\}. Ela foi observada durante a prova de reconhecimento de pessoas e aproximação do robô na RoboCup de 2016. Nesse cenário, as pessoas que estavam sentadas ficavam bem desconfortáveis com a aproximação do robô, principalmente com relação ao seu manipulador. Nos testes pilotos, a situação demonstrou-se a mesma. As pessoas que estavam sentadas demonstravam um comportamento mais apreensivo do que as em pé. A equação~\ref{eq:posicao} apresenta o cálculo de probabilidade condicional para a variável Posicao.
 
 \begin{equation}
 	\label{eq:posicao}
@@ -636,7 +636,7 @@ Cada heurística apontada na seção~\ref{sec:heuristicas} gerou um nó que repr
 \begin{itemize}
 	\item Visibilidade do estado do sistema - estado\_robo (equação~\ref{eq:estadorobo});
 	\item Uso de sugestões naturais - natural (equação~\ref{eq:natural});
-	\item Síntese do sistema e interface - sintese (equação~\ref{eq:sintese});
+	\item Síntese do sistema e interface - síntese (equação~\ref{eq:sintese});
 	\item Ajudar o usuário a reconhecer, diagnosticar, e recuperar de erros - ajudar (equação~\ref{eq:ajudar}).
 \end{itemize}
 
@@ -697,7 +697,7 @@ A rede Bayesiana da figura~\ref{fig:rb} funciona da seguinte maneira, são fixad
 \label{sec:tpc}
 Com a estrutura da rede Bayesiana definida, antes de utilizá-la para classificar as Personas, é necessário definir as tabelas com os valores das probabilidades condicionais para cada variável. Para construir as tabelas de probabilidades condicionais~(TPC), é feito a análise das respostas nos questionários e sobre as anotações realizados durante o teste de interação. Durante o processo de análise é identificado a frequência dos eventos que envolvem cada variável. Nesse momento conseguimos estipular o valor de cada uma das variáveis, como por exemplo, a Persona Danielo representa 1 participante de 39 no total. Sendo assim, a probabilidade de ser ele é de 2,56\%. O seu complemento deve somar uma probabilidade total de 100\%. No caso a probabilidade de não ser a Persona Danielo é de 97,44\%. Para nós sem dependência condicional, como no caso das Personas, esse cálculo é mais concreto. Contudo, quando mais profundo o nó na rede Bayesiana, e mais condicionado a outras variáveis, o cálculo para conseguir definir as probabilidades em 100\% torna-se mais complicado de atingir.
 
- Então, a partir da contabilidade dos eventos utilizam-se as equações de teoria de probabilidade apresentadas ao longo da seção~\ref{sec:raciocinio-probabilistico}. Todos os valores devem ser normalizados para manter a somatória das probabilidades igual a 1, ou seja, igual a 100\%. A partir do cálculo é possível determinar os valores de consultas e utilizar a rede Bayesiana para sua classificação. Dependendo da frequência encontrada, após a normalização a diferença pode ser pequena, principalmente pelo número de variáveis condicionais existentes. Esse problema pode ser solucionado através de mais experimentos e um refinamento da TPC. Os valores de probabilidades condicionais de cada variável são apresentados no apêndice A dessa tese. Na sequência, o processo de consumo da rede Bayesiana é descrito para auxiliar na classificação do perfil do usuário como Persona.
+ Então, a partir da contabilidade dos eventos utilizam-se as equações de teoria de probabilidade definidas para encontrar os valores de cada um dos domínios da variáveis da rede Bayesiana. Todos os valores devem ser normalizados para manter a somatória das probabilidades igual a 1, ou seja, igual a 100\%. A partir do cálculo é possível determinar os valores de consultas e utilizar a rede Bayesiana para sua classificação. Dependendo da frequência encontrada, após a normalização a diferença pode ser pequena, principalmente pelo número de variáveis condicionais existentes. Esse problema pode ser solucionado através de mais experimentos e um refinamento da TPC. Os valores de probabilidades condicionais de cada variável são apresentados no apêndice~\ref{ap:tpc} dessa tese. Na sequência, o processo de consumo da rede Bayesiana é descrito para auxiliar na classificação do perfil do usuário como Persona.
 
 \subsection{Executando a classificação da Persona}
 \label{sec:consumo}
