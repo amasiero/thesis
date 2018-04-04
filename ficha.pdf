@@ -6,14 +6,10 @@
 /Contents 4 0 R>>
 endobj
 4 0 obj
-<</Filter /FlateDecode /Length 509>>
+<</Filter /FlateDecode /Length 559>>
 stream
-xœm“ÁnÚ@†ï<ÅL$ØxmŒqn@¡%RTÜ[.¼N6²½t×N›¼-Ê¡§Úè®+–ìZÆ3ßÌÿÏÚÇÍÀca„Ÿƒy‚«÷˜ç!É°LœOÜ?Ù4F6¯Fş1El]ûl:†?‰\R’ââ–ŒZ1+S-^1ÓT?+v‰äÙQ?Ô„á¹îYädŒÌäR¥1§Wa$•
-©ÀFèLæH¾›ú ¥B]É\¾QiCÔƒgôl¯Õ/YĞïwåêïÔÃ?\ugÃid†­Mš]’N]v8àgğ‚Š½Ué{<êÇã8>áÈ®!ólw­H„a!ÊJ[Í¥|ÚÈªQ¾Z®ûÓ Cøª¥-vN^c£•mıI3lrYZDò¤
-zÃìG-­¿7µé>fÄ»Rª—ºÊéÅQU)S»Ñ«puı`n+»mlÕNRÎà38ªİ–å¤‚!°;‘
-ÓŞ2c†~Ğ:¸.+¡›}©{Fnç¡…}û<Ú®oíkÖ•?<yÓCö[g¾q´am)ÉŸªÎ»×Ûç,
-µ‚—9=(M)a/r#M%
-r÷úñ4(Õ•*6j?'Â*ÊÕ£>dM˜Üâ?v‰§ŒÇ˜´²wª€261µ¿™Ò¥ØIwt=ï/èş²é¢›c;îö&³
+xœm’ÍrÚ0…÷yŠ³LfˆbCv
+ˆbKT–Ói'Lê ŒpÚçët‘éºy¦‹®ú•ùk<µWòõ½ŸÏ=>Æg	B|=»Õ¸RPxô\ŸQz]½ø½éöĞvŸ.ı}‹Í‘TC´ã“nşuX5é9Îc–D\É˜(şL±t,ÉôçŠúj&3¨ø‡–‰>Z1wi’~S‘ÄÔAĞ—"Ñ*}ş.1à¸NûˆSòö%Kõ‹±Lp%NŒC$4W¬BôeŒQ3!“V›YWõÿÀá÷¹åJ0åÈ•nOe«E{G–ïÑn“^X3‚†>	nP,ºi·]ëÖù&Ç%úùº´éºø’ÛMQnma0äQ!¤5‚´…ÎæÆŞ`jÍ‚``	¦“H8ëõHÆìØÛ4r§®¦š˜A¯ÆìÓHNØ]E•"8cù¤‰Õ®ƒpñ†‹Ss»G"‡úSœÀw:•s]ËMÒ?™vÈA›Àå§ú{(WwÑ³«wÈ¿˜4èÉ¼}|.«´N	W‰,!NsDê–µ~şìŒÛ[İÂŞ9§ÂAôŸòiij&ùB=„§ÌğeöÑØlá1_lŠM™¯2Ìs<ä6ûıË {*Íj[³]uQÌ>e˜ee¶4v»Ø•³*+˜™ÌæÕe¾óÍp}ZÈÜ-tƒ…±ë|VTÇêÎûóìşbw‹İOrÿ5Ô&¿
 endstream
 endobj
 1 0 obj
@@ -25,7 +21,7 @@ endobj
 endobj
 5 0 obj
 <</Type /Font
-/BaseFont /Helvetica
+/BaseFont /Times-Roman
 /Subtype /Type1
 /Encoding /WinAnsiEncoding
 >>
@@ -43,7 +39,7 @@ endobj
 6 0 obj
 <<
 /Producer (FPDF 1.7)
-/CreationDate (D:20171126214804)
+/CreationDate (D:20180403171143)
 >>
 endobj
 7 0 obj
@@ -55,13 +51,13 @@ endobj
 xref
 0 8
 0000000000 65535 f 
-0000000666 00000 n 
-0000000849 00000 n 
+0000000716 00000 n 
+0000000901 00000 n 
 0000000009 00000 n 
 0000000087 00000 n 
-0000000753 00000 n 
-0000000953 00000 n 
-0000001028 00000 n 
+0000000803 00000 n 
+0000001005 00000 n 
+0000001080 00000 n 
 trailer
 <<
 /Size 8
@@ -69,7 +65,7 @@ trailer
 /Info 6 0 R
 >>
 startxref
-1077
+1129
 %%EOF
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -482,7 +478,7 @@ startxref
 					<div class="col-lg-5">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="obg">*&nbsp;</span>TÃ­tulo</span>
-							<input type="text" class="form-control" name="titulo" id="titulo" value="Classificador Bayesiano de Perfil do UsuÃ¡rio utilizando a AproximaÃ§Ã£o do RobÃ´" placeholder="">
+							<input type="text" class="form-control" name="titulo" id="titulo" value="MÃ‰TODO CENTRADO NO USUÃRIO PARA CONSTRUÃ‡ÃƒO DE ROBÃ”S AUTÃ”NOMOS VISANDO A INTERAÃ‡ÃƒO COM HUMANOS" placeholder="">
 							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="TÃ­tulo" style="border-left:none;"
 								data-content="Digitar o tÃ­tulo do trabalho com apenas a primeira letra em maiÃºscula.">
 							</span>
@@ -530,7 +526,7 @@ startxref
 					<div class="col-lg-5">	
 						<div class="input-group">
 							<span class="input-group-addon"><span class="obg">*&nbsp;</span>Nome</span>					
-							<input type="text" class="form-control" name="orientadorNome" id="orientadorNome" value="Plinio Thomaz" placeholder="" />
+							<input type="text" class="form-control" name="orientadorNome" id="orientadorNome" value="PLINIO THOMAZ" placeholder="" />
 							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Nome" style="border-left:none;"
 									data-content="Digitar o nome do orientador como aparece na folha de rosto do seu trabalho.">
 							</span>
@@ -540,7 +536,7 @@ startxref
 					<div class="col-lg-5">	
 						<div class="input-group">
 							<span class="input-group-addon"><span class="obg">*&nbsp;</span>Sobrenome</span>
-							<input type="text" class="form-control" name="orientadorSobrenome" id="orientadorSobrenome" value="Aquino Junior" placeholder="" />
+							<input type="text" class="form-control" name="orientadorSobrenome" id="orientadorSobrenome" value="AQUINO JUNIOR" placeholder="" />
 								<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Sobrenome" style="border-left:none;"
 									data-content="Digitar o Ãºltimo sobrenome do orientador como aparece na folha de rosto do seu trabalho.">
 								</span>
@@ -594,7 +590,7 @@ startxref
 					<div class="col-lg-5">
 						<div class="input-group">
 							<span class="input-group-addon">Nome</span>
-							<input type="text" class="form-control" name="coorientadorNome" id="coorientadorNome" value="Flavio" placeholder="">
+							<input type="text" class="form-control" name="coorientadorNome" id="coorientadorNome" value="FLAVIO" placeholder="">
 							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Nome" style="border-left:none;"
 								data-content="Digitar o nome do coorientador como aparece na folha de rosto do seu trabalho.">
 							</span>	
@@ -604,7 +600,7 @@ startxref
 					<div class="col-lg-5">
 						<div class="input-group">							
 							<span class="input-group-addon">Sobrenome</span>
-							<input type="text" class="form-control" name="coorientadorSobrenome" id="coorientadorSobrenome" value="Tonidandel" placeholder="">
+							<input type="text" class="form-control" name="coorientadorSobrenome" id="coorientadorSobrenome" value="TONIDANDEL" placeholder="">
 							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Sobrenome" style="border-left:none;"
 								data-content="Digitar o sobrenome do coorientador como aparece na folha de rosto do seu trabalho.">
 							</span>						
@@ -661,7 +657,7 @@ startxref
 								<span class="input-group-addon">
 									Ano
 								</span>
-								<input type="text" class="form-control" name="ano" id="ano" value="2017" readonly="readonly" style="width:60px;">
+								<input type="text" class="form-control" name="ano" id="ano" value="2018" readonly="readonly" style="width:60px;">
 								<div class="input-group-btn-vertical">
 									<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
 									<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
@@ -688,7 +684,7 @@ startxref
 								              se tiver 'frente e verso' (acima de 100 folhas), escolha a opÃ§Ã£o 'pÃ¡ginas'.">
 							</span>									
 
-							<input type="text" class="form-control" name="numeroDe" id="numeroDe" value="161" placeholder="Ex.:60" style="width:70px;" />								
+							<input type="text" class="form-control" name="numeroDe" id="numeroDe" value="172" placeholder="Ex.:60" style="width:70px;" />								
 							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="NÃºmero de..."  style="border-left:none;"
 								data-content="Indicar o nÃºmero de folhas ou pÃ¡ginas do seu trabalho.">
 							</span>	
@@ -718,7 +714,7 @@ startxref
 							<span class="input-group-addon">
 								<span class="obg">*&nbsp;</span>Cidade
 							</span>						
-							<input type="text" class="form-control" name="cidade" id="cidade" value="SÃ£o Bernardo do Campo" placeholder="Ex.: SÃ£o Bernardo do Campo">						
+							<input type="text" class="form-control" name="cidade" id="cidade" value="SÃƒO BERNARDO DO CAMPO" placeholder="Ex.: SÃ£o Bernardo do Campo">						
 						</div>
 					</div>					
 				</div>
@@ -730,7 +726,7 @@ startxref
 							<span class="input-group-addon">
 								<span class="obg">*&nbsp;</span>Palavras-chave
 							</span>							
-							<input type="text" class="form-control" name="palavrasChave" id="palavrasChave" value="1. RobÃ³tica Social. 2.  Proximidade. 3.  Redes Bayesianas. 4.  InteraÃ§Ã£o Humano-RobÃ´. 5.  QG-SIM. " data-role="tagsinput" />
+							<input type="text" class="form-control" name="palavrasChave" id="palavrasChave" value="1. ENGENHARIA DE SOFTWARE. 2. PROJETO CENTRADO NO USUÃRIO. 3. ROBÃ“TICA DE SERVIÃ‡O. 4. INTERAÃ‡ÃƒO HUMANO-ROBÃ”. 5. PERSONAS. " data-role="tagsinput" />
 							<span class="input-group-addon  glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="bottom" title="Palavras-chave" 
 								data-content="Colocar as palavras-chave que estÃ£o abaixo do resumo do trabalho (entre 3 e 5 termos).">
 							</span>
@@ -790,7 +786,7 @@ startxref
 <hr />
 <footer>
     <div class="container" style="padding:15px;">        
-        <small style="font-size:11px;">2017 - Centro universitÃ¡rio FEI - Todos os direitos reservados</small>        
+        <small style="font-size:11px;">2018 - Centro universitÃ¡rio FEI - Todos os direitos reservados</small>        
     </div>
 </footer>
 
